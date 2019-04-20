@@ -1,0 +1,114 @@
+
+/**
+ * 设置日历的大小
+ */
+.calendar {
+    display: block;
+    margin: 0;
+    padding: 0;
+    /*background: #cccccc;*/
+}
+
+/**
+ * 设置日历顶部盒子
+ */
+.calendar .calendar-title-box {
+    position: relative;
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    background: #3399cc;
+    color: #ffffff;
+    font-weight: 900;
+}
+
+/**
+ * 设置上个月的按钮图标
+ */
+.calendar .prev-month {
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    border-left: 0px;
+    border-top: 6px solid transparent;
+    /*border-right: 8px solid #999;*/
+    border-bottom: 6px solid transparent;
+    cursor: pointer;
+    color: #ffffff;
+
+}
+
+/**
+ * 设置下个月的按钮图标
+ */
+.calendar .next-month {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    border-right: 0px;
+    color: #ffffff;
+    /*border-top: 6px solid transparent;*/
+    /*border-left: 8px solid #999;*/
+    border-bottom: 6px solid transparent;
+    cursor: pointer;
+}
+
+/* 设置日历表格样式 */
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    border: 2px solid #1ab2db;
+}
+
+/* 表格行高 */
+.calendar-table tr:first-child {
+    height: 30px;
+    line-height: 30px;
+    /*background: #999999;*/
+}
+
+/* 表格行高 */
+.calendar-table tr {
+    height: 30px;
+    line-height: 28px;
+
+}
+
+/* 表格行高 */
+.calendar-table tr td {
+    width: 14%;
+    border: 1px solid #eeeeee;
+}
+
+.calendar-table tr td div:last-child {
+    color: red;
+
+}
+
+/* 当前天 颜色特殊显示 */
+.currentDay {
+    color: red;
+}
+
+.calendar-item {
+    background: #fef6e8 !important;
+}
+
+/* 本月 文字颜色 */
+.currentMonth {
+    background: #fff;
+}
+
+/* 其他月颜色 */
+.otherMonth {
+    background: #eee;
+}

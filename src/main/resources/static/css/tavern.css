@@ -1,0 +1,447 @@
+.font-wrya {
+  font-family: 微软雅黑;
+}
+.font-st {
+  font-family: 宋体;
+}
+.tavern {
+  /* 位IE写的样式 */
+}
+.tavern .banner {
+  width: 100%;
+  height: 470px;
+  overflow: hidden;
+  position: relative;
+}
+.tavern .banner_list li {
+  width: 100%;
+  height: 470px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  z-index: 4;
+}
+.tavern .banner_list a {
+  width: 100%;
+  height: 470px;
+  display: block;
+  background-size: cover;
+}
+.tavern .banner_list li:nth-child(1) a {
+  background: url(../images/img/i_banner01_02.jpg) no-repeat center center;
+}
+.tavern .banner_list li:nth-child(2) a {
+  background: url(../images/img/i_banner02.jpg) no-repeat center center;
+  background-size: cover;
+}
+.tavern .banner_list li:nth-child(3) a {
+  background: url(../images/img/i_banner01_02.jpg) no-repeat center center;
+}
+.tavern .banner_list li:nth-child(4) a {
+  background: url(../images/img/i_banner01_02.jpg) no-repeat center center;
+}
+.tavern .banner_list li.banner-li1 a {
+  background: url(../images/img/i_banner01_02.jpg) no-repeat center;
+}
+.tavern .banner_list li.banner-li2 a {
+  background: url(../images/img/i_banner02.jpg) no-repeat center;
+}
+.tavern .banner_list li.banner-li3 a {
+  background: url(../images/img/i_banner01_02.jpg) no-repeat center;
+}
+.tavern .banner_list li.banner-li4 a {
+  background: url(../images/img/i_banner01_02.jpg) no-repeat center;
+}
+.tavern .banner_list .act {
+  display: block;
+}
+.tavern .banner-border .lb {
+  height: 15px;
+  position: absolute;
+  bottom: 18px;
+  right: 50px;
+  z-index: 5;
+}
+.tavern .banner-border .lb li {
+  width: 11px;
+  height: 11px;
+  float: left;
+  margin-right: 7px;
+  border: 1px solid #1ab2db;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.tavern .banner-border .lb .cur {
+  width: 13px;
+  height: 13px;
+  background: #1ab2db;
+}
+.tavern .travel-head-left {
+  width: 385px;
+  height: 406px;
+}
+.tavern .banner-border {
+  height: 406px;
+  width: 772px;
+  margin-top: 0px;
+}
+.tavern .points-list .points-list-body {
+  position: relative;
+}
+.tavern .points-list .points-list-body .left-column {
+  position: absolute;
+  top: 0px;
+  left: 0;
+}
+.tavern .points-list .points-list-body .recommend {
+  border-right: 20px solid #ff002a;
+  border-top: 20px solid #ff002a;
+}
+.tavern .points-list .nav-tabs li:first-child {
+  margin-left: 260px;
+}
+.tavern .points-list .nav-tabs li a {
+  font-size: 16px;
+  font-family: 微软雅黑;
+  font-weight: 900;
+  color: #000;
+}
+.tavern .points-list .nav-tabs li a:hover {
+  background: #003399;
+  color: #ffffff;
+}
+.tavern .points-list .nav-tabs .active a {
+  background: #003399;
+  color: #ffffff;
+}
+.tavern .points-list .blue .nav-tabs li a:hover {
+  background: #00a0e9;
+}
+.tavern .points-list .blue .nav-tabs .active a {
+  background: #00a0e9;
+}
+.tavern .points-list .blue .tavern-list-left {
+  border-left: 5px solid #00a0e9;
+}
+.tavern .points-list .yellow .nav-tabs li a:hover {
+  background: #e7a54d;
+}
+.tavern .points-list .yellow .nav-tabs .active a {
+  background: #e7a54d;
+}
+.tavern .points-list .yellow .tavern-list-left {
+  border-left: 5px solid #e7a54d;
+}
+.tavern .points-list .green .nav-tabs li a:hover {
+  background: #8fc31f;
+}
+.tavern .points-list .green .nav-tabs .active a {
+  background: #8fc31f;
+}
+.tavern .points-list .green .tavern-list-left {
+  border-left: 5px solid #8fc31f;
+  border-bottom: 1px solid #999999;
+  width: 1152px;
+}
+.tavern .points-list .header-list-right {
+  top: 15px;
+}
+.tavern .points-list .tavern-list-left {
+  position: absolute;
+  left: 0px;
+  top: 10px;
+  padding-left: 10px;
+  font-size: 24px;
+  font-family: 微软雅黑;
+  font-weight: 900;
+  border-left: 5px solid #1448ad;
+}
+.tavern .i_tab_r {
+  height: 400px;
+  top: 3px;
+  left: 0;
+  width: 382px;
+  display: block;
+  border: 2px solid #1ab2db;
+}
+.tavern .i_tab_r .i_destin input {
+  width: 277px;
+}
+.tavern .i_tab_r .i_live input {
+  width: 97px;
+}
+.tavern .i_tab_r .keyword input {
+  width: 277px;
+}
+.tavern .i_tab_r .i_box .i_title {
+  margin-right: 16px;
+}
+.tavern .i_tab_r .i_box .i_title .line {
+  color: #1ab2db;
+  font-size: 24px;
+  padding: 0 10px;
+}
+.tavern .i_tab_r .i_box .i_title a {
+  margin-top: 8px;
+  height: 35px;
+  font-size: 24px;
+  padding: 0 10px;
+  color: #999;
+}
+.tavern .i_tab_r form div {
+  margin-top: 20px;
+}
+.tavern .cell-money div {
+  display: inline-block;
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.tavern .cell-money div button {
+  border: 1px solid #cccccc;
+  background-color: #eb6100;
+  font-size: 14px;
+  color: #ffffff;
+  padding: 3px;
+}
+.tavern .cell-desc {
+  font-size: 18px;
+}
+.tavern .cell-desc div {
+  font-size: 12px;
+  display: inline-block;
+  float: right;
+  margin-top: 8px;
+  margin-right: 10px;
+}
+.travel-accordion {
+  position: static;
+  height: 330px;
+}
+.travel-accordion ul {
+  list-style: none;
+  width: 1200px;
+}
+.travel-accordion .box {
+  width: 1200px;
+  height: 300px;
+}
+.travel-accordion .box li {
+  width: 195px;
+  height: 300px;
+  background: url(../images/img/travel-accordion-1.png) no-repeat;
+  float: left;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+}
+.travel-accordion .box li div {
+  margin-top: 100px;
+  display: inline-block;
+  font-size: 30px;
+  line-height: 40px;
+  width: 30px;
+}
+.travel-local-body {
+  height: auto;
+}
+.discount {
+  padding-left: 9px;
+  padding-top: 9px;
+}
+.font-wrya {
+  font-family: 微软雅黑;
+}
+.font-st {
+  font-family: 宋体;
+}
+.tavern-list .tavern-list-head {
+  text-align: left;
+  padding-left: 28px;
+}
+.tavern-params-title {
+  font-size: 14px;
+  font-family: 宋体;
+}
+.tavern-list-param {
+  margin: 20px 0;
+  border: 2px solid #999;
+  border-top: 5px solid #1ab2db;
+}
+.tavern-list-param .search-title {
+  padding: 10px 10px;
+  background: #eeeeee;
+}
+.tavern-list-param .search-title input {
+  width: 150px;
+  height: 30px;
+}
+.tavern-list-param .search-title button {
+  background: #1ab2db;
+  color: #ffffff;
+}
+.tavern-grid-title {
+  padding: 10px 10px;
+  margin-bottom: 30px;
+  background: #eeeeee;
+  height: 40px;
+}
+.tavern-grid-title .btn-group {
+  display: inline-block;
+}
+.tavern-grid-title .btn-group button {
+  background: #ffffff;
+}
+.tavern-grid-title .checkbox-list {
+  display: inline-block;
+  float: right;
+  margin: 10px 30px;
+}
+.tavern-model-grid {
+  width: inherit;
+  height: 200px;
+  position: relative;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 15px;
+}
+.tavern-model-grid .modal-grid-left {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 285px;
+}
+.tavern-model-grid .model-grid-right {
+  position: absolute;
+  top: 0px;
+  left: 300px;
+  width: 857px;
+  text-align: left;
+  padding-left: 15px;
+}
+.tavern-model-grid .model-grid-right .model-grid-title {
+  font-family: 微软雅黑;
+  font-size: 24px;
+  text-align: left;
+}
+.tavern-model-grid .model-grid-right .model-grid-label {
+  font-family: 宋体;
+  font-size: 14px;
+  height: 26px;
+  padding-top: 15px;
+}
+.tavern-model-grid .model-grid-right .model-grid-label .fa-diamond {
+  color: red;
+}
+.tavern-model-grid .model-grid-right .model-grid-label span {
+  padding: 3px 3px 3px 3px;
+  border: 1px solid #ccc;
+}
+.tavern-model-grid .model-grid-right .model-grid-label .item {
+  background: #66ccff;
+  color: #ffffff;
+}
+.tavern-model-grid .model-grid-right .model-grid-message {
+  font-size: 14px;
+  line-height: 200%;
+  width: 483px;
+  height: 100px;
+  display: inline-block;
+}
+.tavern-model-grid .model-grid-right .model-grid-message i {
+  color: #3399cc;
+}
+.tavern-model-grid .model-grid-right .model-grid-message span:first-child {
+  color: #00cc66;
+}
+.tavern-model-grid .model-grid-right .model-grid-grade {
+  width: 363px;
+  text-align: right;
+  display: inline-block;
+  position: relative;
+}
+.tavern-model-grid .model-grid-right .model-grid-grade .cell-grade {
+  background: rgba(51, 153, 204, 0.1);
+  padding: 0 12px 12px 12px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+}
+.tavern-model-grid .model-grid-right .model-grid-grade .cell-grade .left span {
+  color: #3399cc;
+  font-size: 35.51px;
+  font-family: Arial;
+}
+.tavern-model-grid .model-grid-right .model-grid-grade .cell-money {
+  display: inline-block;
+  font-size: 14px;
+  position: absolute;
+  right: 0px;
+  top: -5px;
+  font-family: 微软雅黑;
+}
+.tavern-model-grid .model-grid-right .model-grid-grade .cell-money span {
+  font-family: arial, helvetica, sans-serif;
+  font-size: 34px;
+  color: red;
+}
+.tavern-model-grid .model-grid-right .model-grid-grade .btn-default {
+  background: #ff9933;
+  border: 1px solid #ffcc99;
+  color: #ffffff;
+  font-family: 宋体;
+  width: 116px;
+  height: 33px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.tavern-model-pagination {
+  text-align: right;
+}
+/*
+增加灰度显示， 增加售罄图标显示
+*/
+.tavern-gray {
+  position: relative;
+}
+.tavern-gray div,
+.tavern-gray span,
+.tavern-gray a {
+  filter: grayscale(80);
+  -webkit-filter: grayscale(100%);
+}
+.tavern-gray .tavern-shouqing {
+  filter: none !important;
+  -webkit-filter: none !important;
+  background: url("../images/img/shouqing.png");
+  bottom: 0;
+  right: 50%;
+  position: absolute;
+  width: 153px;
+  height: 121px;
+  z-index: 5;
+}
+.tavern-search-params {
+  text-align: left;
+  padding: 5px;
+  font-size: 14px;
+  font-family: 宋体;
+  color: #666666;
+}
+.tavern-search-params .search-one-param {
+  border-bottom: 1px dashed #999999;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  position: relative;
+}
+.tavern-search-params .search-one-param .param-label {
+  color: #999999;
+}
+.tavern-search-params .search-one-param .checkbox-list {
+  display: inline-block;
+}
+.tavern-search-params .search-one-param:last-child {
+  border-bottom: 0px dashed #999999;
+}

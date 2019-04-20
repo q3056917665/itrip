@@ -1,0 +1,271 @@
+@font-family-weiruan: 微软雅黑;
+@font-family-arial: arial, helvetica, sans-serif;
+@fornt-size-14: 14px;
+.font-wrya {
+  font-family: 微软雅黑;
+}
+
+.font-st {
+  font-family: 宋体;
+}
+
+/*实现旅行搜索界面样式开发  *******start*************/
+.travel-list,.tavern-list{
+
+  .list-body {
+    margin-top: 10px;
+    ul{
+      border: 1px solid #dddddd;
+    }
+  }
+  .nav-tabs {
+    .active {
+      a {
+        border-top: 2px solid #1ab2db;
+      }
+    }
+  }
+  .tab-content {
+    margin-bottom: 15px;
+    .tab-pane {
+      border-right: 1px solid #ccc;
+      border-left: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+    }
+  }
+}
+
+.travel-model-grid {
+  width: inherit;
+  height: 200px;
+  position: relative;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 15px;
+  .modal-grid-left {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 285px;
+  }
+  .model-grid-right {
+    position: absolute;
+    top: 0px;
+    left: 300px;
+    width: 900px;
+    text-align: left;
+    padding-left: 15px;
+    .model-grid-title {
+      font-family: 微软雅黑;
+      font-size: 24px;
+      text-align: left;
+      margin-left: -15px !important;
+    }
+    .model-grid-label {
+      font-family: 宋体;
+      font-size: 14px;
+      height: 26px;
+
+      padding-top: 15px;
+      span {
+        padding: 3px 3px 3px 3px;
+        border: 1px solid #ccc;
+      }
+      .item {
+        background: rgba(26, 178, 219, 0.3);
+      }
+    }
+    .model-grid-message {
+      //padding-top: 15px;
+      line-height: 200%;
+      width: 600px;
+      height: 100px;
+      span:first-child {
+        color: #00cc66;
+      }
+      display: inline-block;
+    }
+    .model-grid-grade {
+      width: 255px;
+      text-align: right;
+      display: inline-block;
+      position: absolute;
+      .cell-money {
+        font-size: 14px;
+        .font-wrya();
+        span {
+          font-family: @font-family-arial;
+          font-size: 34px;
+          color: red;
+        }
+      }
+      .cell-grade {
+        width: 140px;
+        margin-left: 113px;
+        height: 50px;
+        background: #f6f6f6;;
+        border: 1px solid #ccc;
+        position: relative;
+        .left {
+          border-right: 1px dashed #ccc;
+          padding: 0 5px 0 15px;
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          span {
+            font-size: 35.51px;
+            font-family: Arial;
+          }
+        ;
+        }
+        .right {
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          padding: 5px 5px 0 0;
+          color: #999999;
+          font-size: @fornt-size-14;
+          span {
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+}
+
+.travel-model-pagination {
+  text-align: right;
+}
+
+.tarvel-search-params {
+  text-align: left;
+  padding: 5px;
+  font-size: @fornt-size-14;
+  .font-st();
+  color: #666666;
+  .search-one-param {
+    border-bottom: 1px dashed #999999;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    position: relative;
+    .param-label {
+      color: #999999;
+    }
+    button {
+      margin-top: 2px;
+      position: absolute;
+      top: 0px;
+      right: 0;
+      padding: 2px;
+    }
+  }
+  .search-one-param:last-child {
+    border-bottom: 0px dashed #999999;
+  }
+  .hide{
+    display: none;
+  }
+  .search-param-cancel{
+    height: 30px;
+    span{
+      //display: inline-block;
+      float: right;
+    }
+  }
+  .checkbox-list{
+    display: inline-block;
+  }
+}
+
+.search-already {
+  text-align: left;
+  padding: 5px;
+  font-size: @fornt-size-14;
+  .font-st();
+  color: #666;
+  border-bottom: 1px dashed #999999;
+  button {
+    margin-top: 2px;
+    padding: 2px;
+  }
+}
+/*
+增加灰度显示， 增加售罄图标显示
+*/
+.travel-gray {
+  position: relative;
+  div,span,a {
+    filter: grayscale(80) ;
+    -webkit-filter: grayscale(100%);
+  }
+  .travel-shouqing {
+    filter:none !important;
+    -webkit-filter: none !important;
+    background: url("../images/img/shouqing.png");
+    bottom: 0;
+    right: 50%;
+    position: absolute;
+    width: 153px;
+    height: 121px;
+    z-index: 5;
+  }
+}
+
+.travel-list-head{
+  height: 100px;
+  .list-left{
+    position: absolute;
+    top: 5px;
+    left: -13px;
+  }
+  .localtion-item{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+  }
+  .travel-head-right{
+    //background: #ffc600;
+    width: 892px;
+    left: 300px;
+    height: 64px;
+    margin-left: 0px;
+    height: initial;
+    //border-bottom:3px solid #ffc600;
+    .btn-default{
+      border: 3px solid #ffc600;;
+      border-bottom:3px solid #ffc600;
+      border-left:3px solid #ffc600;
+      height: 33px;
+      padding-top: 15px;
+      margin-top: -3px;
+      width: 110px;
+      display: inline-block;
+      input {
+        border: 0;
+        width: 80px;
+        font-size: 14px;
+        display: inline-block;
+        background: inherit;
+      }
+    }
+    .search{
+      background: inherit;
+      width: auto;
+      margin-left: -5px;
+      input{
+        width: 675px;
+      }
+      button{
+        width: 54px;
+        height: 52px;
+        margin-left: -6px;
+        border: 0px solid #ffcc00;
+        background: #ffcc00;
+        font-size: 26px !important;
+        color: #fff !important;
+        /* margin-top: -1px; */
+        padding-bottom: 8px;
+      }
+    }
+  }
+}

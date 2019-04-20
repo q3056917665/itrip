@@ -1,0 +1,219 @@
+@font-family-weiruan: 微软雅黑;
+@font-family-arial: arial, helvetica, sans-serif;
+@fornt-size-14: 14px;
+.font-wrya {
+  font-family: @font-family-weiruan;
+}
+
+.font-st {
+  font-family: 宋体;
+}
+
+.strategy {
+  width: 1200px;
+  .travel-head {
+    height: inherit;
+  }
+  .head-list-menu {
+    width: 260px;
+  }
+  .travel-head-left {
+    width: inherit;
+    height: 284px;
+    display: inline-block;
+    vertical-align: top;
+    position: static;
+  }
+  .travel-head-right {
+    width: inherit;
+    height: 284px;
+    display: inline-block;
+    vertical-align: top;
+    position: static;
+    margin-left: 8px;
+  }
+  .strategy-center {
+    width: 866px;
+    .travel-search .search {
+      width: 736px;
+    }
+    .travel-search .search input {
+      width: 686px;
+      height: 40px !important;
+    }
+    button {
+      width: 44px;
+      height: 40px;
+    }
+    .none-style div {
+      height: auto;
+    }
+    .banner {
+      width: 636px;
+      height: 225px;
+      position: relative;
+      display: inline-block;
+
+      * {
+        height: inherit;
+        width: inherit;
+      }
+      .banner-border .lb {
+        width: 100px;
+      }
+
+    }
+  }
+  .strategy-right {
+    display: inline-block;
+    img {
+      height: 109px;
+      width: 218px;
+    }
+  }
+  .strategy-map {
+    font-size: 14px;
+    height: 670px;
+    div {
+      display: inline-block;
+    }
+    .localtion-mes {
+      width: 390px;
+      line-height: 22px;
+      strong {
+        font-size: 30px;
+        line-height: 40px;
+      }
+    }
+  }
+  .strategy-list {
+    margin-bottom: 67px;
+    .strategy-list-header {
+      border-left: 9px solid #00a0e9;
+      font-size: 22px;
+      font-weight: 900;
+      padding-left: 11px;
+      div{
+        margin-bottom: 14px;
+      }
+      span:first-child {
+        color: #cccccc;
+      }
+      span:last-child {
+        color: #28b5dc;
+      }
+    }
+    .strategy-list-body {
+      margin-top: 37px;
+      .strategy-tabs {
+        .tabs-header {
+          border-bottom: 1px solid #ccc;
+          padding-bottom: 15px;
+          li {
+            font-size: 14px;
+            font-family: "宋体";
+            height: 33px;
+            line-height: 35px;
+            width: 63px;
+            text-align: center;
+            margin: 0 8.5px;
+            display: inline-block;
+            position: relative;
+            border-radius: 3px;
+
+            .icon-tra{
+              display: none;
+              position: absolute;
+              bottom: -8px;
+              left: 22px;
+              border-top: 8px solid #ffc600;
+              border-left: 8px solid transparent;
+              border-right: 8px solid transparent;
+              z-index: 1;
+            }
+            span:last-child{
+              position: absolute;
+              color: #CCCCCC;
+              bottom: -33px;
+              left: 25px;
+              font-size: 12px;
+            }
+          }
+          .active,li:hover{
+            background-color: #1ab2db;
+            color: #ffffff;
+            .icon-tra{
+              display: block;
+              border-top: 8px solid #1ab2db;
+              border-left: 8px solid transparent;
+              border-right: 8px solid transparent;
+            }
+            span:last-child{
+                color: #1ab2db;
+              }
+
+          }
+          li:first-child{
+            margin-left: 60px;
+          }
+        }
+        .tabs-body{
+          padding-top: 30px;
+          padding-left: 15px;
+
+          a{
+            position: relative;
+            width:130px;
+            height:130px;
+          }
+          img{
+            margin: 2px;
+            width:130px;
+            height:130px;
+          }
+          div{
+            position: absolute;
+            bottom: 3px;
+            left: 2px;
+            width: 130px;
+            display: inline-block;
+            background-color: rgba(0,0,0,.3);
+            font-size: 14px;
+            font-family: "宋体";
+            height: 33px;
+            font-weight: bold;
+            line-height: 35px;
+            text-align: center;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+    .localtion{
+      .strategy-tabs {
+        .tabs-header {
+          border-bottom: 0px solid #ccc;
+          padding-bottom: 15px;
+          li {
+            position: static;
+            span:last-child{
+              position: static !important;
+              color: #000000;
+              font-size: 14px;
+              font-family: "宋体";
+            }
+          }
+          .active,li:hover{
+            background-color: #1ab2db;
+            span{
+              color: #ffffff !important;
+            }
+          }
+        }
+        .tabs-body{
+          padding-top: 5px;
+        }
+      }
+    }
+  }
+}

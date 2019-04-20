@@ -1,0 +1,213 @@
+@font-family-weiruan: 微软雅黑;
+@font-family-arial: arial, helvetica, sans-serif;
+@fornt-size-14: 14px;
+.font-wrya {
+  font-family: @font-family-weiruan;
+}
+
+.font-st {
+  font-family: 宋体;
+}
+.tavern-list {
+  .tavern-list-head {
+    text-align: left;
+    padding-left: 28px;
+  }
+}
+
+.tavern-params-title {
+  font-size: 14px;
+  font-family: 宋体;
+}
+
+.tavern-list-param {
+  margin: 20px 0;
+  border: 2px solid #999;
+  border-top: 5px solid #1ab2db;
+  .search-title {
+    padding: 10px 10px;
+    background: #eeeeee;
+    input {
+      width: 150px;
+      height: 30px;
+    }
+    button {
+      background: #1ab2db;
+      color: #ffffff;
+    }
+  }
+}
+
+.tavern-grid-title {
+  padding: 10px 10px;
+  margin-bottom: 30px;
+  background: #eeeeee;
+  height: 40px;
+  .btn-group {
+    display: inline-block;
+    button {
+      background: #ffffff;
+    }
+  }
+  .checkbox-list {
+    display: inline-block;
+    float: right;
+    margin: 10px 30px;
+
+  }
+}
+
+.tavern-model-grid {
+  width: inherit;
+  height: 200px;
+  position: relative;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 15px;
+  .modal-grid-left {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 285px;
+  }
+  .model-grid-right {
+    position: absolute;
+    top: 0px;
+    left: 300px;
+    width: 857px;
+    text-align: left;
+    padding-left: 15px;
+    .model-grid-title {
+      font-family: 微软雅黑;
+      font-size: 24px;
+      text-align: left;
+    }
+    .model-grid-label {
+      font-family: 宋体;
+      font-size: 14px;
+      height: 26px;
+      padding-top: 15px;
+      .fa-diamond {
+        color: red;
+      }
+      span {
+        padding: 3px 3px 3px 3px;
+        border: 1px solid #ccc;
+      }
+      .item {
+        background: #66ccff; //rgba(26, 178, 219, 0.3);
+        color: #ffffff;
+      }
+    }
+    .model-grid-message {
+      font-size: 14px;
+      line-height: 200%;
+      width: 483px;
+      height: 100px;
+      i {
+        color: #3399cc;
+      }
+      span:first-child {
+        color: #00cc66;
+      }
+      display: inline-block;
+    }
+    .model-grid-grade {
+      width: 363px;
+      text-align: right;
+      display: inline-block;
+      position: relative;
+      .cell-grade {
+        background: rgba(51, 153, 204, 0.1);
+        padding: 0 12px 12px 12px;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        position: relative;
+        display: inline-block;
+        font-size: 14px;
+        .left {
+          span {
+            color: #3399cc;
+            font-size: 35.51px;
+            font-family: Arial;
+          }
+        }
+      }
+      .cell-money {
+        display: inline-block;
+        font-size: 14px;
+        position: absolute;
+        right: 0px;
+        top: -5px;
+        .font-wrya();
+        span {
+          font-family: @font-family-arial;
+          font-size: 34px;
+          color: red;
+        }
+      }
+      .btn-default {
+        background: #ff9933;
+        border: 1px solid #ffcc99;
+        color: #ffffff;
+        font-family: 宋体;
+        width: 116px;
+        height: 33px;
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+
+    }
+
+  }
+}
+
+.tavern-model-pagination {
+  text-align: right;
+}
+
+/*
+增加灰度显示， 增加售罄图标显示
+*/
+.tavern-gray {
+  position: relative;
+  div, span, a {
+    filter: grayscale(80);
+    -webkit-filter: grayscale(100%);
+  }
+  .tavern-shouqing {
+    filter: none !important;
+    -webkit-filter: none !important;
+    background: url("../images/img/shouqing.png");
+    bottom: 0;
+    right: 50%;
+    position: absolute;
+    width: 153px;
+    height: 121px;
+    z-index: 5;
+  }
+}
+
+
+
+.tavern-search-params {
+  text-align: left;
+  padding: 5px;
+  font-size: @fornt-size-14;
+  .font-st();
+  color: #666666;
+  .search-one-param {
+    border-bottom: 1px dashed #999999;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    position: relative;
+    .param-label {
+      color: #999999;
+    }
+    .checkbox-list{
+      display: inline-block;
+    }
+  }
+  .search-one-param:last-child {
+    border-bottom: 0px dashed #999999;
+  }
+}

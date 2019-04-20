@@ -1,0 +1,255 @@
+.font-wrya {
+  font-family: 微软雅黑;
+}
+.font-st {
+  font-family: 宋体;
+}
+/*实现旅行搜索界面样式开发  *******start*************/
+.travel-list .list-body,
+.tavern-list .list-body {
+  margin-top: 10px;
+}
+.travel-list .list-body ul,
+.tavern-list .list-body ul {
+  border: 1px solid #dddddd;
+}
+.travel-list .nav-tabs .active a,
+.tavern-list .nav-tabs .active a {
+  border-top: 2px solid #1ab2db;
+}
+.travel-list .tab-content,
+.tavern-list .tab-content {
+  margin-bottom: 15px;
+}
+.travel-list .tab-content .tab-pane,
+.tavern-list .tab-content .tab-pane {
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.travel-model-grid {
+  width: inherit;
+  height: 200px;
+  position: relative;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 15px;
+}
+.travel-model-grid .modal-grid-left {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 285px;
+}
+.travel-model-grid .model-grid-right {
+  position: absolute;
+  top: 0px;
+  left: 300px;
+  width: 900px;
+  text-align: left;
+  padding-left: 15px;
+}
+.travel-model-grid .model-grid-right .model-grid-title {
+  font-family: 微软雅黑;
+  font-size: 24px;
+  text-align: left;
+  margin-left: -15px !important;
+}
+.travel-model-grid .model-grid-right .model-grid-label {
+  font-family: 宋体;
+  font-size: 14px;
+  height: 26px;
+  padding-top: 15px;
+}
+.travel-model-grid .model-grid-right .model-grid-label span {
+  padding: 3px 3px 3px 3px;
+  border: 1px solid #ccc;
+}
+.travel-model-grid .model-grid-right .model-grid-label .item {
+  background: rgba(26, 178, 219, 0.3);
+}
+.travel-model-grid .model-grid-right .model-grid-message {
+  line-height: 200%;
+  width: 600px;
+  height: 100px;
+  display: inline-block;
+}
+.travel-model-grid .model-grid-right .model-grid-message span:first-child {
+  color: #00cc66;
+}
+.travel-model-grid .model-grid-right .model-grid-grade {
+  width: 255px;
+  text-align: right;
+  display: inline-block;
+  position: absolute;
+}
+.travel-model-grid .model-grid-right .model-grid-grade .cell-money {
+  font-size: 14px;
+  font-family: 微软雅黑;
+}
+.travel-model-grid .model-grid-right .model-grid-grade .cell-money span {
+  font-family: arial, helvetica, sans-serif;
+  font-size: 34px;
+  color: red;
+}
+.travel-model-grid .model-grid-right .model-grid-grade .cell-grade {
+  width: 140px;
+  margin-left: 113px;
+  height: 50px;
+  background: #f6f6f6;
+  border: 1px solid #ccc;
+  position: relative;
+}
+.travel-model-grid .model-grid-right .model-grid-grade .cell-grade .left {
+  border-right: 1px dashed #ccc;
+  padding: 0 5px 0 15px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.travel-model-grid .model-grid-right .model-grid-grade .cell-grade .left span {
+  font-size: 35.51px;
+  font-family: Arial;
+}
+.travel-model-grid .model-grid-right .model-grid-grade .cell-grade .right {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  padding: 5px 5px 0 0;
+  color: #999999;
+  font-size: 14px;
+}
+.travel-model-grid .model-grid-right .model-grid-grade .cell-grade .right span {
+  color: #000000;
+}
+.travel-model-pagination {
+  text-align: right;
+}
+.tarvel-search-params {
+  text-align: left;
+  padding: 5px;
+  font-size: 14px;
+  font-family: 宋体;
+  color: #666666;
+}
+.tarvel-search-params .search-one-param {
+  border-bottom: 1px dashed #999999;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  position: relative;
+}
+.tarvel-search-params .search-one-param .param-label {
+  color: #999999;
+}
+.tarvel-search-params .search-one-param button {
+  margin-top: 2px;
+  position: absolute;
+  top: 0px;
+  right: 0;
+  padding: 2px;
+}
+.tarvel-search-params .search-one-param:last-child {
+  border-bottom: 0px dashed #999999;
+}
+.tarvel-search-params .hide {
+  display: none;
+}
+.tarvel-search-params .search-param-cancel {
+  height: 30px;
+}
+.tarvel-search-params .search-param-cancel span {
+  float: right;
+}
+.tarvel-search-params .checkbox-list {
+  display: inline-block;
+}
+.search-already {
+  text-align: left;
+  padding: 5px;
+  font-size: 14px;
+  font-family: 宋体;
+  color: #666;
+  border-bottom: 1px dashed #999999;
+}
+.search-already button {
+  margin-top: 2px;
+  padding: 2px;
+}
+/*
+增加灰度显示， 增加售罄图标显示
+*/
+.travel-gray {
+  position: relative;
+}
+.travel-gray div,
+.travel-gray span,
+.travel-gray a {
+  filter: grayscale(80);
+  -webkit-filter: grayscale(100%);
+}
+.travel-gray .travel-shouqing {
+  filter: none !important;
+  -webkit-filter: none !important;
+  background: url("../images/img/shouqing.png");
+  bottom: 0;
+  right: 50%;
+  position: absolute;
+  width: 153px;
+  height: 121px;
+  z-index: 5;
+}
+.travel-list-head {
+  height: 100px;
+}
+.travel-list-head .list-left {
+  position: absolute;
+  top: 5px;
+  left: -13px;
+}
+.travel-list-head .localtion-item {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+.travel-list-head .travel-head-right {
+  width: 892px;
+  left: 300px;
+  height: 64px;
+  margin-left: 0px;
+  height: initial;
+}
+.travel-list-head .travel-head-right .btn-default {
+  border: 3px solid #ffc600;
+  border-bottom: 3px solid #ffc600;
+  border-left: 3px solid #ffc600;
+  height: 33px;
+  padding-top: 15px;
+  margin-top: -3px;
+  width: 110px;
+  display: inline-block;
+}
+.travel-list-head .travel-head-right .btn-default input {
+  border: 0;
+  width: 80px;
+  font-size: 14px;
+  display: inline-block;
+  background: inherit;
+}
+.travel-list-head .travel-head-right .search {
+  background: inherit;
+  width: auto;
+  margin-left: -5px;
+}
+.travel-list-head .travel-head-right .search input {
+  width: 675px;
+}
+.travel-list-head .travel-head-right .search button {
+  width: 54px;
+  height: 52px;
+  margin-left: -6px;
+  border: 0px solid #ffcc00;
+  background: #ffcc00;
+  font-size: 26px !important;
+  color: #fff !important;
+  /* margin-top: -1px; */
+  padding-bottom: 8px;
+}

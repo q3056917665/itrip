@@ -1,0 +1,195 @@
+.font-wrya {
+  font-family: 微软雅黑;
+}
+.font-st {
+  font-family: 宋体;
+}
+.tavern-list .tavern-list-head {
+  text-align: left;
+  padding-left: 28px;
+}
+.tavern-params-title {
+  font-size: 14px;
+  font-family: 宋体;
+}
+.tavern-list-param {
+  margin: 20px 0;
+  border: 2px solid #999;
+  border-top: 5px solid #1ab2db;
+}
+.tavern-list-param .search-title {
+  padding: 10px 10px;
+  background: #eeeeee;
+}
+.tavern-list-param .search-title input {
+  width: 150px;
+  height: 30px;
+}
+.tavern-list-param .search-title button {
+  background: #1ab2db;
+  color: #ffffff;
+}
+.tavern-grid-title {
+  padding: 10px 10px;
+  margin-bottom: 30px;
+  background: #eeeeee;
+  height: 40px;
+}
+.tavern-grid-title .btn-group {
+  display: inline-block;
+}
+.tavern-grid-title .btn-group button {
+  background: #ffffff;
+}
+.tavern-grid-title .checkbox-list {
+  display: inline-block;
+  float: right;
+  margin: 10px 30px;
+}
+.tavern-model-grid {
+  width: inherit;
+  height: 200px;
+  position: relative;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 15px;
+}
+.tavern-model-grid .modal-grid-left {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 285px;
+}
+.tavern-model-grid .model-grid-right {
+  position: absolute;
+  top: 0px;
+  left: 300px;
+  width: 857px;
+  text-align: left;
+  padding-left: 15px;
+}
+.tavern-model-grid .model-grid-right .model-grid-title {
+  font-family: 微软雅黑;
+  font-size: 24px;
+  text-align: left;
+}
+.tavern-model-grid .model-grid-right .model-grid-label {
+  font-family: 宋体;
+  font-size: 14px;
+  height: 26px;
+  padding-top: 15px;
+}
+.tavern-model-grid .model-grid-right .model-grid-label .fa-diamond {
+  color: red;
+}
+.tavern-model-grid .model-grid-right .model-grid-label span {
+  padding: 3px 3px 3px 3px;
+  border: 1px solid #ccc;
+}
+.tavern-model-grid .model-grid-right .model-grid-label .item {
+  background: #66ccff;
+  color: #ffffff;
+}
+.tavern-model-grid .model-grid-right .model-grid-message {
+  font-size: 14px;
+  line-height: 200%;
+  width: 483px;
+  height: 100px;
+  display: inline-block;
+}
+.tavern-model-grid .model-grid-right .model-grid-message i {
+  color: #3399cc;
+}
+.tavern-model-grid .model-grid-right .model-grid-message span:first-child {
+  color: #00cc66;
+}
+.tavern-model-grid .model-grid-right .model-grid-grade {
+  width: 363px;
+  text-align: right;
+  display: inline-block;
+  position: relative;
+}
+.tavern-model-grid .model-grid-right .model-grid-grade .cell-grade {
+  background: rgba(51, 153, 204, 0.1);
+  padding: 0 12px 12px 12px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+}
+.tavern-model-grid .model-grid-right .model-grid-grade .cell-grade .left span {
+  color: #3399cc;
+  font-size: 35.51px;
+  font-family: Arial;
+}
+.tavern-model-grid .model-grid-right .model-grid-grade .cell-money {
+  display: inline-block;
+  font-size: 14px;
+  position: absolute;
+  right: 0px;
+  top: -5px;
+  font-family: 微软雅黑;
+}
+.tavern-model-grid .model-grid-right .model-grid-grade .cell-money span {
+  font-family: arial, helvetica, sans-serif;
+  font-size: 34px;
+  color: red;
+}
+.tavern-model-grid .model-grid-right .model-grid-grade .btn-default {
+  background: #ff9933;
+  border: 1px solid #ffcc99;
+  color: #ffffff;
+  font-family: 宋体;
+  width: 116px;
+  height: 33px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.tavern-model-pagination {
+  text-align: right;
+}
+/*
+增加灰度显示， 增加售罄图标显示
+*/
+.tavern-gray {
+  position: relative;
+}
+.tavern-gray div,
+.tavern-gray span,
+.tavern-gray a {
+  filter: grayscale(80);
+  -webkit-filter: grayscale(100%);
+}
+.tavern-gray .tavern-shouqing {
+  filter: none !important;
+  -webkit-filter: none !important;
+  background: url("../images/img/shouqing.png");
+  bottom: 0;
+  right: 50%;
+  position: absolute;
+  width: 153px;
+  height: 121px;
+  z-index: 5;
+}
+.tavern-search-params {
+  text-align: left;
+  padding: 5px;
+  font-size: 14px;
+  font-family: 宋体;
+  color: #666666;
+}
+.tavern-search-params .search-one-param {
+  border-bottom: 1px dashed #999999;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  position: relative;
+}
+.tavern-search-params .search-one-param .param-label {
+  color: #999999;
+}
+.tavern-search-params .search-one-param .checkbox-list {
+  display: inline-block;
+}
+.tavern-search-params .search-one-param:last-child {
+  border-bottom: 0px dashed #999999;
+}

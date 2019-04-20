@@ -1,0 +1,1007 @@
+/* banner 开始 */
+.i-tv {
+    width: 100%;
+    height: 500px;
+    text-align: center;
+    border: 0px;
+    background: #000000;
+}
+
+.video-message {
+    border: 0px;
+    position: absolute;
+    left: 25%;
+    top: 60px;
+    width: 50%;
+    z-index: 30;
+}
+
+.video-message div {
+    height: 50px;
+}
+
+.video-message .mes-title {
+    font-size: 42px;
+    color: #fff;
+    font-family: 微软雅黑;
+}
+
+.video-message .mes-desc {
+    font-size: 36px;
+    color: #fff;
+    font-family: Arial;
+}
+
+.video-message .mes-button {
+    font-family: 微软雅黑;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.video-message .mes-button span:first-child {
+    font-size: 24px;
+    margin-top: -30px;
+}
+
+.video-message .mes-button span {
+    font-size: 36px;
+}
+
+.video-message .mes-play {
+    color: #ffffff;
+    position: relative;
+}
+
+.video-message .mes-play i {
+    font-size: 56px;
+}
+
+.video-message .mes-play span {
+    margin-left: 30px;
+    position: absolute;
+    bottom: 20px;
+    font-size: 16px;
+}
+
+.video-plugin {
+    overflow: hidden;
+    position: relative;
+    background: #000000;
+    width: inherit;
+    height: inherit;
+}
+
+.video-plugin .video-mess-body {
+    margin: auto;
+    min-width: 1200px;
+    width: 1190px;
+    height: auto;
+    position: relative;
+    text-align: center;
+}
+
+.video {
+    position: absolute;
+    left: 50%;
+    margin-left: -1280px;
+    top: 50%;
+    margin-top: -500px;
+    z-index: 2;
+    width: 2560px;
+    height: 1000px;
+}
+
+.travel-model {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
+.travel-model .bg {
+    width: inherit;
+    height: inherit;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.travel-model .model-panel {
+    background: #ffffff;
+    border-top-left-radius: 1px 4px;
+    border-top-right-radius: 1px 4px;
+    margin: 5px;
+    display: block;
+    position: absolute;
+    z-index: 10000;
+    top: 10%;
+    left: 24%;
+    width: 50%;
+    height: 60%;
+}
+
+.travel-model .model-panel .model-header {
+    border-top-left-radius: 1px 4px;
+    border-top-right-radius: 1px 4px;
+    height: 32px;
+    position: relative;
+    padding: 14px 20px;
+    background-color: #f5f5f5;
+}
+
+.travel-model .model-panel .model-header .model-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 32px;
+    color: #424242;
+}
+
+.travel-model .model-panel .model-header .model-remove {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #757575;
+    cursor: pointer;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    z-index: 10;
+    border-radius: 15px;
+}
+
+.travel-model .model-panel .model-header .model-remove i {
+    font-size: 26px;
+}
+
+.travel-model .model-panel .model-header .model-remove:hover {
+    background: red;
+}
+
+.travel-model .model-panel .model-header .model-remove:hover i {
+    font-size: 28px;
+    color: #ffffff;
+}
+
+.travel-model .model-panel .model-body {
+    max-height: 536px;
+    padding: 0;
+}
+
+/* banner 结束 */
+
+
+/* 主体部分开始 */
+
+
+
+/* 房型列表区开始 */
+.house_list .line {
+    height: 35px;
+    line-height: 35px;
+}
+
+.hotel_detail_item {
+    float: left;
+    width: 167px;
+    border: 2px solid #cccccc;
+    line-height: 35px;
+    height: 35px;
+    font-size: 14px;
+}
+
+.hotel_detail_item span {
+    margin: 0 5px;
+}
+
+.hotel_detail_item input {
+    border: none;
+    width: 114px;
+}
+
+.hotel_detail_item i {
+    font-size: 20px;
+    color: #ccc;
+}
+
+.hotel_detail_item_change {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 5px;
+}
+
+.hotel_detail_item_change a {
+    display: inline-block;
+    width: 39px;
+    height: 21px;
+    margin-top: 15px;
+    background-image: url(../images/icon/turnfly3921_1xxx1206.png);
+}
+
+.hotel_detail_item_change a:hover {
+    background-image: url(../images/icon/turnfly3921_xxx1206.png);
+}
+
+.hotel_detail_clder {
+    margin-left: 20px;
+    width: 220px;
+}
+
+.hotel_detail_clder input {
+    width: 142px;
+}
+
+.hotel_detail_cldertwo {
+    margin-left: 10px;
+}
+
+.house_list {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 1200px;
+    /*height: 500px;*/
+}
+
+.btn-serach {
+    width: 80px;
+    height: 35px;
+    padding: 5px;
+    margin-left: 10px;
+    font-size: 14px;
+    color: #ffffff;
+    background: #3399cc;
+    border: 1px solid #3399cc;
+}
+
+.select_box {
+    border: 2px solid #1ab2db;
+    color: #444;
+    position: relative;
+    cursor: pointer;
+    width: 90px;
+    font-size: 14px;
+    margin-right: 10px;
+    display: inline-block;
+
+}
+
+.select_box i {
+    font-size: 20px;
+    vertical-align: 16px;
+}
+
+.select_txt {
+    display: inline-block;
+    padding-left: 10px;
+    width: 60px;
+    line-height: 47px;
+    height: 47px;
+    text-align: center;
+    cursor: text;
+    overflow: hidden;
+}
+
+.option {
+    width: 90px;
+    border: 2px solid #1ab2db;
+    position: absolute;
+    top: 54px;
+    left: -2px;
+    z-index: 2;
+    text-align: center;
+    overflow: hidden;
+    display: none;
+}
+
+.option a {
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    width: 100%;
+    color: #666;
+    background: #fff;
+}
+
+.option a:hover {
+    background: #1ab2db;
+    color: #FFF;
+}
+
+.hotel_detail-sort {
+    width: 700px;
+    margin: 20px 20px 0 20px;
+}
+
+.hotel_detail-sort .btn-serach-div {
+    width: auto ;
+    height: auto;
+    padding: 10px 12px;
+    margin-left: 10px;
+    font-size: 14px;
+    display: inline-block;
+    background: #ffffff;
+    color: #000000;
+    border: 1px solid #dddddd;
+    margin-bottom: 10px;
+    /*padding: 10px 10px 10px 15px;*/
+    position: relative;
+
+}
+
+.icon-ok {
+    display: none;
+}
+
+.hotel_detail-sort .act, .btn-serach-div:hover {
+    border: 1px solid #3399cc;
+}
+
+.hotel_detail-sort .act span {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-top: 25px solid transparent;
+    border-right: 25px solid #00a0e9;
+}
+
+.hotel_detail-sort .act i {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #ffffff;
+    font-size: 11px;
+    display: block;
+}
+
+.hotel_detail-sort .btn-serach-div:first-child {
+    margin-left: 0;
+}
+
+.hotel_detail-sort .select_box {
+    border: 1px solid #ccc;
+}
+
+.hotel_detail-sort .select_box .select_txt {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 0;
+    width: 70px;
+    margin-top: 2px;
+}
+
+.hotel_detail-sort .select_box i {
+    vertical-align: 8px;
+}
+
+.hotel_detail-sort .option {
+    border: 1px solid #ccc;
+    top: 33px;
+    left: -1px;
+}
+
+.select-group {
+    display: inline-block;
+    float: right;
+}
+
+/*table-list start*/
+.table-list {
+}
+
+.table-list table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 1px solid #cccccc;
+}
+
+.table-list table th {
+    border-top: 1px solid #ccc;
+    font-weight: normal;
+    text-align: left;
+    line-height: 40px;
+    color: #4D4D4D;
+    background-color: #edf6f8;
+}
+
+.table-list table tbody tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+    padding: 3px;
+}
+
+.table-list table tbody tr td {
+    padding: 10px 0;
+    vertical-align: top;
+    position: relative;
+    border-top: 1px dashed #ccc;
+}
+
+.table-list table tbody tr td:first-child {
+    padding: 10px 0;
+    vertical-align: top;
+    border-bottom: 0px solid #000;
+}
+
+.last_room .fold_bold_r {
+    border-top: 0px !important;
+}
+
+.table-list table tbody tr td span, p {
+    margin: 3px;
+    padding: 2px;
+}
+
+.rom_type_label_1 {
+    background: #b2d9e1;
+    color: #ffffff;
+    position: absolute;
+    top: 2px;
+    right: 25px;
+}
+
+.rom_type_label_2 {
+    background: #fba62c;
+    color: #ffffff;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.rom_unit_label em {
+    position: absolute;
+    top: 10px;
+    margin-top: 5px;
+    font-size: 34px;
+    color: #ff3300;
+    font-family: Arial;
+}
+
+.rom_unit_label dfn {
+    position: absolute;
+    top: 10px;
+    left: -3px;
+}
+
+.rom_unit_label span {
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+}
+
+.room_by {
+    padding: 5px 15px;
+    background: #1ab2db;
+    font-size: 14px;
+    color: #ffffff;
+    border: 1px solid #1ab2db;
+}
+
+.room_by:hover {
+    background: #129bcf;
+    border: 1px solid #129bcf;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.room_img_ms {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+}
+
+.room_img_ms a:last-child {
+    text-align: center;
+    /*padding-left: 10px;*/
+    float: left;
+    width: 100px;
+}
+
+.room_img_ms img {
+    width: 100px;
+    height: 100px;
+}
+
+.room_detail_fold a {
+    float: right;
+    padding-right: 30px;
+}
+
+.rom-show-image {
+    position: absolute;
+    right: -500px;
+    top: 30px;
+    width: 500px;
+    height: 500px;
+    background: #eee;
+    z-index: 51;
+    border: 1px solid #eee;
+    padding: 10px;
+    margin-left: 30px;
+    display: none ;
+}
+
+.rom-show-image .left-tran {
+    position: absolute;
+    left: -20px;;
+    top: 20px;
+    border-bottom: 10px solid transparent;
+    border-right: 20px solid #eee;
+    border-top: 10px solid transparent;
+}
+
+.rom-show-image .model-remove {
+    background: #ccc;
+    width: 16px;
+    height: 16px;
+    border-bottom-left-radius: 100% 100%;
+}
+
+.rom-show-image .model-remove .icon-remove {
+    float: right;
+}
+
+.rom-show-image .model-remove {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.rom-show-image .big-img {
+    width: 500px;
+    height: 350px;
+}
+
+.rom-show-image .small-img img {
+    width: 157px;
+    height: 150px;
+    margin-left: 5px;
+}
+
+/*table-list end*/
+
+/* 房型列表区结束 */
+
+
+
+
+
+/* 费用部分 */
+.i-main {
+	margin-top: 30px;
+}
+.i_area {
+	width: 1200px;
+	margin: 0 auto;
+}
+.i_cost_wrap {
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #252525;
+	line-height: 1em;
+}
+.i_title {
+	width: 1200px;
+	height: 70px;
+	border-bottom: 1px solid #e5e5e5;
+	background-color: #fff;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.fixTop {
+	display: none;
+}
+
+.fixTop-cur {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 50%;
+	z-index: 9999;
+	margin-left: -600px;
+	box-shadow: 0 3px 10px rgba(153, 153, 153, 0.5);
+	z-index: 9999;
+}
+
+.i_cost_wrap .i_title a {
+	float: left;
+	padding: 20px 40px;
+	border: 1px solid #e5e5e5;
+	font-size: 28px;
+	color: #484848;
+	height: 28px;
+	line-height: 28px;
+}
+.i_cost_wrap .i_title a b {
+	font-weight: normal;
+}
+.i_cost_wrap .i_title .i_current {
+	font-weight: bold;
+	background-color: #edf6f8;
+	border: none;
+	border-top: 8px solid #00a0e9;
+	height: 22px;
+	line-height: 16px;
+}
+.i_con {
+	width: 100%;
+	margin-top: -1px;
+}
+.i_cost_con {
+	padding: 25px 0;
+	border-left: 1px solid #e5e5e5;
+	border-right: 1px solid #e5e5e5;
+}
+.i_cost_in {
+	border-top: 1px solid #e5e5e5;
+}
+.i_cost_con .i_line {
+	width: 1150px;
+	height: 3px;
+	background-color: #dcdcdc;
+	margin: 27px auto 34px;
+}
+.i_comment_con {
+	padding-bottom: 20px;
+	border: 1px solid #e5e5e5;
+	margin-bottom: 15px;
+}
+
+.i_cost_con .i_icon1 {
+	width: 102px;
+	height: 102px;
+	float: left;
+	background-color: lightblue;
+	margin-left: 25px;
+	text-align: center;
+	color: #00a0e9;
+}
+.i_icon1 h4 {
+	font-size: 18px;
+	margin: 14px 0;
+}
+.i_icon1 i {
+	font-size: 44px;
+}
+.i_cost_con .i_cost_list {
+	float: left;
+	margin: 0 20px;
+	width: 1020px;
+}
+
+.special_label i {
+	background-color: #49c1e3;
+    color: #fff;
+    font-style: normal;
+    height: 18px;
+    line-height: 18px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    padding: 0 3px;
+}
+.special_info {
+	border-bottom: 1px dashed #ccc;
+    padding: 20px 0;
+}
+.special_info li {
+	height: 24px;
+	line-height: 24px;
+	padding-bottom: 6px;
+	color: #252525;
+	font-family: "microsoft yahei";
+}
+.special_info li span {
+	display: inline-block;
+	width: 100px;
+	font-size: 14px;
+	color: #999;
+	margin-right: 15px;
+}
+.i_list_shang {
+	width: 100%;
+}
+.i_refer {
+	padding: 30px 0;
+	line-height: 24px;
+}
+
+.i_refer span {
+	color: #1448ad;
+}
+
+
+.facility_list {
+	font-size: 14px;
+	color: #333;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+	border-bottom: 1px dashed #ccc;	
+}
+.facility_list h5 {
+	float: left;
+	margin-right: 10px;
+	color: #999;
+	width: 105px;
+}
+.facility_list ul {
+	float: left;
+	width: 800px;
+}
+.facility_list ul li {
+	width: 185px;
+	height: 24px;
+	line-height: 24px;
+	margin-bottom: 10px;
+	float: left;
+}
+.facility_list li.otherli {
+	width: 370px;
+}
+.facility_list li i {
+	color: #a4cdd6;
+	font-size: 16px;
+	margin: 0 5px;
+}
+
+.list_wrap {
+	margin-bottom: 10px;
+}
+.facility_list ol {
+	float: left;
+	width: 700px;
+}
+.facility_list ol li {
+	height: 24px;
+	line-height: 24px;
+	margin-bottom: 5px;
+}
+.facility_list a {
+	margin-right: 10px;
+}
+
+
+
+/* 3 */
+.i_total_grade .i_left {
+	float: left;
+	width: 144px;
+	text-align: center;
+}
+.i_total_grade .i_left b {
+	font-size: 48px;
+	color: #00a0e9;
+	font-weight: normal;
+	display: block;
+	padding: 11px 0 32px 0;
+}
+.i_total_grade .i_left span {
+	display: block;
+}
+.i_total_grade .i_right {
+	float: left;
+	width: 380px;
+}
+
+.searchComment {
+	float: right;
+	width: 260px;
+	margin-right: 100px;
+}
+.searchComment input[type="text"] {
+	width: 180px;
+	height: 23px;
+	padding-left: 5px;
+	color: #666;
+	border: none;
+	border: 1px solid #ccc;
+}
+
+input[type="button"] {
+	width: 51px;
+	height: 25px;
+	background-color: #1ab2db;
+	color: #fff;
+	line-height: 25px;
+	text-align: center;
+	border: none;
+	margin-left: 5px;
+}
+
+
+.i_total_grade .i_right li {
+	font-size: 14px;
+	margin-bottom: 5px;
+	position: relative;
+}
+.i_total_grade .num {
+	margin: 0 4px;
+	width: 50px;
+	color: #00a0e9;
+	display: inline-block;
+}
+.processbar {
+	background-color: #eee;
+	height: 14px;
+	margin-top: 4px;
+	position: absolute;
+	right: 0;
+	width: 280px;
+
+}
+.processbar em {
+	height: 14px;
+	display: inline-block;
+	background-color: #00a0e9;
+	vertical-align: top;
+	font-style: normal;
+}
+.bar {
+	width: 80%;
+}
+.processbar em.bar_two {
+	width: 54%;
+}
+.processbar em.bar_three {
+	width: 70%;
+}
+.processbar em.bar_four {
+	width: 60%;
+}
+
+.i_grade_list{
+	margin-left: 120px;
+	width: 1020px;
+	padding: 20px 25px 20px 35px;
+	position: relative;
+	top: 0;
+	left: 0;
+	height: 700px;
+}
+.score_list {
+	border-bottom: 1px solid #eee;
+	margin-top: 15px;
+	height: 42px;
+}
+.score_list li {
+	float: left;
+}
+.score_list li a {
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #eee;
+	border-bottom: none;
+	border-right: none;
+	padding: 0 10px;
+	display: inline-block;
+	color: #0065b9;
+}
+.score_list li.list_cur a {
+	border-top: 2px solid #0086f7;
+	background-color: #f6f6f6;
+	margin-top: -1px;
+	font-weight: bold;
+	color: #333;
+	height: 41px;
+	line-height: 41px;
+}
+.score_list li:last-child a {
+	border-right: 1px solid #eee;
+}
+.score_list li a span {
+	color: #999;
+}
+.all_data {
+	position: absolute;
+	top: 75px;
+	left: 35px;
+	width: 1000px;
+	display: none;
+}
+.all_data_cur {
+	display: block;
+}
+.comment_list li{
+	padding: 15px 40px 15px 130px;
+	border-bottom: 1px dashed #ccc;
+	position: relative;
+	min-height: 100px
+
+}
+.author {
+	position: absolute;
+	left: 0;
+	top: 13px;
+	font-size: 14px;
+}
+.author i {
+	color: #00a0e9;
+}
+.author strong {
+	color:#666;
+}
+.author p {
+	color: #999;
+	margin-top: 8px;
+}
+.author span {
+	display: inline-block;
+	border: 1px solid #39b5ee;
+	padding: 4px;
+	border-radius: 2px;
+	color: #39b5ee;
+	margin-top: 5px;
+
+}
+
+.comment_info {
+	background-color: #f5f9fc;
+	font-size: 12px;
+	color: #999;
+	height: 24px;
+	margin-bottom: 5px;
+	padding: 7px 0 0 10px;
+}
+.comment_info span {
+	padding-right: 14px;
+	margin-left: 12px;
+
+}
+.comment_info span:nth-child(2){
+	color: #1448ad;
+}
+.comment_detail {
+	font-size: 14px;
+	color: #252525;
+	text-indent: 2em;
+	line-height: 20px;
+	margin-bottom: 15px;
+}
+
+.comment_pic_list {
+	margin: 20px 0;
+}
+.comment_pic_list a {
+	display: inline-block;
+}
+.detail_comment_tips a{
+	font-size: 12px;
+	color: #666;
+	margin-right: 20px;
+
+}
+
+/* 
+补充 */
+
+.wrap_in_detail {
+	padding: 3px 5px;
+	background-color: #49c1e3;
+	margin-right: 10px;
+	color: #fff;
+}
+.list_wrap .list_wrap_title span {
+	float: left;
+	width: 120px;
+	margin-right: 15px;
+	color: #999;
+}
+.list_wrap .list_wrap_title li {
+	float: left;
+	width: 800px;
+}
+.list_wrap .list_wrap_say {
+	line-height: 24px;
+}
+.list_wrap .list_wrap_say a {
+	color: #1448ad;
+}
+/* 主体部分结束 */
+
+

@@ -1,0 +1,202 @@
+.travel-login {
+  margin: 0 auto;
+  width: 1200px;
+  height: 100%;
+}
+.travel-login header {
+  height: 131px;
+  width: inherit;
+  border-bottom: 2px solid #ccc;
+  overflow: hidden;
+}
+.travel-login header img {
+	float: left;
+  width: 245px;
+  margin:-12px 0 0 27px;
+}
+
+.login_toolbox{
+	float: right;
+	width: 400px;
+	text-align: right;
+	color: #666;
+	font-size: 14px;
+	font-family: "microsoft yahei";
+	margin-top: 90px;
+}
+.login_toolbox .login_username {
+	color: #06c;
+	margin-right: 8px;
+}
+.login_kefu {
+	margin-left: 8px;
+}
+/* 主体部分开始 */
+section{
+	display: block;
+	height: 600px;
+}
+.i-register-left {
+	float: left;
+	position: relative;
+	top: 0;
+	left: 0;
+
+}
+.i-reg-top {
+	font-size: 16px;
+	font-family: "microsoft yahei";
+	line-height: 70px;
+	overflow: hidden;
+	margin-left: 70px;
+}
+.i-reg-top label {
+	float: left;
+	width: 100px;
+	margin-left: 40px;
+}
+.i-reg-top input {
+	margin-right: 5px;
+}
+.i-reg-bottom {
+	padding-left: 27px;
+	width: 765px;
+	height: 500px;
+	position: absolute;
+	top: 70px;
+	left: 0;
+	display: none;
+	font-size: 18px;
+	font-family: "microsoft yahei";
+}
+.cur {
+	display: block;
+}
+.i-reg-bottom input {
+	padding-left: 10px;
+	width: 330px;
+	height: 48px;
+	margin-left: 5px;
+	border: 1px solid #a0a0a0;
+	color: #666;
+}
+.i-reg-bottom span {
+	font-size: 13px;
+}
+.i_pwd span {
+	text-indent: 16px;
+}
+.i_mail span {
+	text-indent: 16px;
+}
+.i_check input {
+	width: 120px;
+}
+.i_check_in {
+	display: inline-block;
+	width: 80px;
+	height: 48px;
+	line-height: 48px;
+	margin-left: 15px;
+	vertical-align: -2px;
+	color: #000;
+	font-weight: bold;
+	border: 1px solid #aaa;
+	background-color: #eeeeee;
+}
+.i_check i {
+	font-size: 14px;
+	font-style: normal;
+	font-family: "microsoft yahei";
+	margin-left: 10px;
+	cursor: pointer;
+}
+.i_lives input {
+	width: 120px;
+}
+.i_lives a {
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #fff;
+	background-color: #00a0e9;
+	margin-left: 20px;
+}
+.i_mobile,.i_pwd,.i_check,.i_lives {
+	line-height: 78px
+}
+.i_mobile,.i_check,.i_lives {
+	text-indent: 16px;
+}
+.state1 {
+	font-size: 13px;
+}
+.state2{
+	color: #666;
+}
+.state3{
+	color: #fa6363;
+}
+ .state4{
+        color:green;
+      }
+.icon-exclamation-sign {
+	color: #ff9261;
+}
+.icon-remove-sign {
+	color: red;
+}
+.icon-ok-sign {
+	color: #30bb30;
+}
+.i-reg-check {
+	height: 35px;
+	line-height: 35px;
+	margin-left: 80px;
+	font-size: 14px;
+	font-family: "microsoft yahei";
+	color: #CCC;
+}
+.i-reg-check input {
+	width: 0;
+	height: 0;
+}
+.i-reg-check a {
+	color: #1a479c;
+}
+.i-reg-sub  input{
+	width: 280px;
+	height: 40px;
+	line-height: 32px;
+	margin: 20px 0 0 80px;
+	background-color: #f19149;
+	border: 4px solid #f6b686;
+	font-size: 24px;
+	color: #fff;
+	cursor: pointer;
+}
+.i-register-right {
+	float: right;
+	width: 393px;
+	height: 590px;
+	margin-right: 15px;
+	background: url(../images/img/register393590_xxx1205_03.jpg) no-repeat;
+}
+
+/* 邮箱注册 */
+.i_mail {
+	text-indent: 0;
+}
+/* 主体部分结束 */
+.travel-login footer {
+  width: inherit;
+  border-top: 1px solid #ccc;
+}
+.travel-login footer .i-footer {
+  background: #ffffff;
+}
+.travel-login footer .i-footer .i-footer-wrap {
+  border-top: 0px;
+}

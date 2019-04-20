@@ -1,0 +1,570 @@
+@font-family-weiruan: 微软雅黑;
+@font-family-arial: arial, helvetica, sans-serif;
+@fornt-size-14: 14px;
+.font-wrya {
+  font-family: @font-family-weiruan;
+}
+
+.font-st {
+  font-family: 宋体;
+}
+
+.travel {
+  height: auto;
+  width: 1230px;
+  align: center;
+  margin: auto;
+  margin-top: 30px;
+  * {
+    box-sizing: content-box !important;
+  }
+  .banner {
+    width: 870px;
+    height: 307px;
+    position: relative;
+    .banner_list li {
+      width: 100%;
+      height: 320px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: none;
+      z-index: 4;
+    }
+
+    .banner_list a {
+      width: 100%;
+      display: block;
+      height: 307px;
+      background-size: cover;
+    }
+
+    .banner_list li:nth-child(1) a {
+      background: url(../images/img/i_banner01_02.jpg) no-repeat center center;
+    }
+
+    .banner_list li:nth-child(2) a {
+      background: url(../images/img/i_banner02.jpg) no-repeat center center;
+      background-size: cover;
+    }
+
+    .banner_list li:nth-child(3) a {
+      background: url(../images/img/i_banner01_02.jpg) no-repeat center center;
+    }
+
+    .banner_list li:nth-child(4) a {
+      background: url(../images/img/i_banner01_02.jpg) no-repeat center center;
+    }
+
+    /* 位IE写的样式 */
+    .banner_list li.banner-li1 a {
+      background: url(../images/img/i_banner01_02.jpg) no-repeat center;
+    }
+
+    .banner_list li.banner-li2 a {
+      background: url(../images/img/i_banner02.jpg) no-repeat center;
+    }
+
+    .banner_list li.banner-li3 a {
+      background: url(../images/img/i_banner01_02.jpg) no-repeat center;
+    }
+
+    .banner_list li.banner-li4 a {
+      background: url(../images/img/i_banner01_02.jpg) no-repeat center;
+    }
+
+    .banner_list .act {
+      display: block;
+    }
+
+    .banner-border .lb {
+      height: 15px;
+      position: absolute;
+      bottom: 18px;
+      right: 50px;
+      z-index: 5;
+    }
+
+    .banner-border .lb li {
+      width: 11px;
+      height: 11px;
+      float: left;
+      margin-right: 7px;
+      border: 1px solid #1ab2db;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .banner-border .lb .cur {
+      width: 13px;
+      height: 13px;
+      background: #1ab2db;
+    }
+    .banner-border {
+      width: 772px;
+      position: absolute;
+      left: 0;
+      top: 5px;
+      margin-top: 0px;
+    }
+  }
+
+}
+
+.travel-head {
+  height: 420px;
+  margin: 0 28px 0 28px;
+  position: relative;
+}
+
+.travel-head-left {
+  //border: 2px solid #1ab2db;
+  width: inherit;
+  height: 357px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.travel-head-right {
+  width: 815px;
+  height: 100%;
+  position: absolute;
+  left: 400px;
+  top: 0;
+  .banner-border {
+    margin-top: 5px;
+    margin-right: 15px;
+    width: 100%;
+    height: 314px;
+    overflow: hidden;
+    position: relative;
+  }
+}
+
+.travel-search {
+  text-align: left;
+  .search {
+    display: inline-block;
+    background: #ffcc00;
+    width: 659px;
+    input {
+      width: 587px;
+      height: 54px !important;
+      font-size: 14px;
+      .font-st();
+      border: 3px solid #ffcc00;
+    }
+    button {
+      width: 54px;
+      height: 54px;
+      margin-left: -6px;
+      border: 0px solid #ffcc00;
+      background: #ffcc00;
+      font-size: 26px !important;
+      color: #fff !important;
+    }
+  }
+  .travel-shortcut {
+    width: 100%;
+    color: #999999;
+    font-size: @fornt-size-14;
+    a {
+      color: #000;
+    }
+  }
+}
+
+.travel-city {
+  display: inline-block;
+  width: 100px;
+  input {
+    border: 0;
+    width: auto;
+    font-size: 14px;
+    display: inline-block;
+  }
+}
+
+.menu-theme {
+  color: #3399cc;
+  font-size: 16px;
+  font-weight: 900;
+  .font-st();
+  padding: 14px 0 8px 22px;
+}
+
+.menu-sub {
+  padding: 0 0 10px 22px;
+  font-size: 14px;
+  a {
+    padding: 2px 2px 5px 2px;
+  }
+  .font-st();
+}
+
+.head-list-menu:first-child {
+  border-top: 2px solid #1ab2db;
+}
+
+.head-list-menu:last-child {
+  border-bottom: 2px solid #1ab2db;
+}
+
+.head-list-menu {
+
+  border-left: 2px solid #1ab2db;
+  border-right: 2px solid #1ab2db;
+  text-align: left;
+  width: 381px;
+  position: relative;
+  span {
+    top: 40%;
+    right: 5px;
+    position: absolute;
+    font-size: 16px;
+  }
+  .menu-more {
+    display: none;
+    width: 381px;
+    background: #fff;
+    top: -2px;
+    right: -380px;
+    position: absolute;
+    .menu-list {
+      border-left: 2px solid #1ab2db;
+      border-right: 2px solid #1ab2db;
+      .menu-theme {
+        color: #000;
+      }
+    }
+    .menu-list:first-child {
+      border-left: 0px solid #1ab2db;
+      border-top: 2px solid #1ab2db;
+    }
+    .menu-list:last-child {
+      border-bottom: 2px solid #1ab2db;
+    }
+  }
+  .list-menu-border {
+    border-bottom: 1px solid #cccccc;
+    margin: 0 5px 0 5px;
+  }
+}
+
+.head-list-menu:hover {
+  .border-hover {
+    border-left: 4px solid #ffcc00;
+  }
+  border-left: 3px solid #1ab2db;
+  border-top: 2px solid #1ab2db;
+  border-bottom: 2px solid #1ab2db;
+  border-right: 0px solid #1ab2db;
+  span {
+    font-weight: 900;
+  }
+  .menu-more {
+    z-index: 5;
+    display: block;
+  }
+  .list-menu-border {
+    display: none;
+  }
+}
+
+/*实现界面列表样式  *******Strat*************/
+.travel-body {
+  margin: 0 27px 0 28px;
+}
+
+.points-list {
+  width: 100%;
+  height: 595px;
+  /*border: 1px solid #00ee00;*/
+  margin-bottom: 40px;
+  .points-list-header {
+    width: 100%;
+    height: 64px;
+    position: relative;
+    .header-list-left {
+      height: inherit;
+      width: 60%;
+      float: left;
+      .icon-inland {
+        position: absolute;
+        top: 0;
+        left: 0px;
+        width: 50px;
+        height: 49px;
+      }
+      .list-title {
+        font-size: 22px;
+        .font-wrya();
+        position: absolute;
+        top: 0;
+        left: 75px;
+      }
+      .list-dis {
+        position: absolute;
+        top: 30px;
+        left: 75px;
+        width: auto;
+        height: 16px;
+
+      }
+    }
+    .header-list-right {
+      float: right;
+      font-size: 14px;
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+
+    }
+  }
+
+  .points-round {
+    background: #3399ff;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+  }
+
+  .points-list-body {
+    position: static;
+    .list-body-column:last-child {
+      padding-right: 0px;
+    }
+    .list-body-column {
+      width: 279px;
+      height: 520px;
+      padding-right: 5px;
+      padding-left: 5px;
+      display: inline-block;
+      .column-padding {
+        width: 100%;
+        height: 2%;
+      }
+      .left-column {
+        width: 100%;
+        height: 100%;
+
+      }
+      .column {
+        width: 100%;
+        height: 49%;
+        .column-ele {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          border: 1px solid #cccccc;
+          .column-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            img {
+              width: 279px;
+            }
+          }
+          .column-desc {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: #fff;
+            text-align: left;
+            .cell-desc {
+              padding-top: 5px;
+              padding-left: 12px;
+              .font-wrya();
+              color: #000;
+              font-size: 18px;
+            }
+            .cell-money {
+              padding-top: 10px;
+              padding-left: 12px;
+              font-size: 14px;
+              .font-wrya();
+              span {
+                font-family: @font-family-arial;
+                font-size: 34px;
+                color: red;
+              }
+            }
+          }
+        }
+      }
+      .column-gray {
+        position: relative;
+        .column-ele {
+          -webkit-filter: grayscale(100%);
+          -moz-filter: grayscale(100%);
+          -ms-filter: grayscale(100%);
+          -o-filter: grayscale(100%);
+          filter: grayscale(100%);
+        }
+        .points-shouqing {
+          background: url("../images/img/shouqing.png");
+          bottom: 0;
+          right: 0;
+          position: absolute;
+          width: 153px;
+          height: 121px;
+        }
+      }
+      .column:hover {
+        margin-top: -6px;
+        margin-bottom: 6px;
+        -webkit-box-shadow: 0px 4px 4px;
+        -moz-box-shadow: 0px 4px 4px;
+        box-shadow: 0px 4px 4px;
+      }
+    }
+  }
+}
+
+.recommend {
+  width: 0;
+  height: 0;
+  border-top: 20px solid #ffc600;
+  border-left: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid #ffc600;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  .text {
+    position: absolute;
+    top: -15px;
+    right: -17px;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg); /* Internet Explorer */
+    -moz-transform: rotate(45deg); /* Firefox */
+    -webkit-transform: rotate(45deg); /* Safari 和 Chrome */
+    -o-transform: rotate(45deg); /* Opera */
+  }
+}
+
+.travel-ad-body {
+  width: inherit;
+  margin-bottom: 40px;
+  height: 180px;
+  img {
+    float: left;
+  }
+  img:nth-child(1) {
+    margin-left: 5px;
+    width: 280px;
+  }
+  img:nth-child(2) {
+    margin-left: 17px;
+    width: 871px;
+  }
+
+}
+
+.points-list-menu {
+  position: fixed;
+  top: 40%;
+  left: 10%;
+  //width: 60px;
+  height: 300px;
+  background: #ffffff ;
+  z-index: 3;
+  .menu-bg{
+    //width: 60px;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.1);
+    span {
+      //width: 40px;
+      border-bottom: 1px solid #ccc;
+      position: absolute;
+      left: 10px;
+      margin-bottom: 1px;
+    }
+    div {
+      //width: 60px;
+      height: 40px;
+      font-size: 12px;
+      margin-top: 2px;
+      padding: 10px;
+      text-align: center;
+      .font-st();
+    }
+    div:first-child {
+      height: 30px;
+      padding: 20px 0 10px 0;
+      .font-st();
+    }
+    div:last-child {
+      .font-st();
+    }
+    div:first-child:hover {
+      background: rgba(0, 0, 0, 0);
+      color: #000;
+    }
+    div:hover {
+      background: #003399;
+      color: #fff;
+    }
+    .act {
+      background: #003399;
+      color: #fff;
+    }
+  }
+
+}
+
+.travel-search-list {
+  display: inline-block;
+  div {
+    border: 2px solid #1ab2db;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    height: 27px;
+    width: 100px;
+    i {
+      color: #999999;
+    }
+    input {
+      border: 0;
+      width: 60px;
+      height: inherit;
+      font-size: 14px;
+      display: inline-block;
+      background: inherit;
+    }
+  }
+}
+
+.none-style {
+  div {
+    border: 0px solid #1ab2db;
+    height: 60px;
+    width: 120px;
+    background: #ffffff;
+    i {
+      color: #999999;
+    }
+    input {
+      border: 0;
+      width: 80px;
+      height: inherit;
+      font-size: 14px;
+      display: inline-block;
+      background: inherit;
+    }
+  }
+}
+
+/*实现界面列表样式  *******end*************/
+@import "travel_list";
+@import "tavern";

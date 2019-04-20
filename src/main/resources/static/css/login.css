@@ -1,0 +1,170 @@
+.travel-login {
+  margin: auto;
+  width: 1200px;
+  height: 100%;
+}
+.travel-login header {
+  height: 131px;
+  width: inherit;
+  border-bottom: 1px solid #999999;
+}
+.travel-login header img {
+  width: 245px;
+  margin-top: -12px;
+}
+.travel-login section {
+  width: 696px;
+  height: 640px;
+  display: inline-block;
+  margin: 0px;
+  position: relative;
+}
+.travel-login section .left-phone {
+  position: absolute;
+  left: 100px;
+  top: 150px;
+}
+.travel-login section .left-phone img {
+  width: 249px;
+  height: 321px;
+}
+.travel-login section .right-message {
+  position: absolute;
+  right: 100px;
+  top: 200px;
+  color: blue;
+  font-size: 24px;
+}
+.travel-login section .right-message img {
+  width: 75px;
+}
+.travel-login section .gray {
+  right: 20px;
+  top: 330px;
+  color: #999999;
+  font-size: 14px;
+}
+.travel-login aside {
+  width: 500px;
+  height: 640px;
+  float: right;
+  margin: 0px;
+  background: #eeeeee;
+}
+.travel-login aside .login-header {
+  height: 100px;
+  border-bottom: 1px solid #ccc;
+  margin: 0 24px;
+  position: relative;
+}
+.travel-login aside .login-header div {
+  position: absolute;
+  left: 24px;
+  bottom: 1px;
+  font-size: 14px;
+}
+.travel-login aside .login-header div span {
+  font-size: 24px;
+}
+.travel-login aside .login-header .right-erweima {
+  position: absolute;
+  right: -24px;
+  top: 0;
+  width: 55px;
+  height: 56px;
+  background: url("../images/img/erweima.png");
+}
+.travel-login aside .login-header .dian-nao {
+  background: url("../images/img/diannao.png");
+}
+.travel-login aside .login-body {
+  height: 410px;
+  text-align: center;
+}
+.travel-login aside .login-body #actionOption {
+  margin-top: 30px;
+  position: relative;
+}
+.travel-login aside .login-body .phone-erweima {
+  position: absolute;
+  top: -24px;
+  left: -200px;
+  height: 426px;
+  width: 300px;
+}
+.travel-login aside .login-body .phone-richScan {
+  position: absolute;
+  top: 14px;
+  left: -131px;
+  height: 112px;
+  width: 127px;
+  display: none;
+}
+.travel-login aside .login-body form {
+  margin-top: 30px;
+}
+.travel-login aside .login-body form input[type="text"] {
+  height: 45px;
+}
+.travel-login aside .login-body .margin-left-100 {
+  margin-left: 100px;
+}
+.travel-login aside .login-body .margin-left-89 {
+  margin-left: 86px;
+}
+.travel-login aside .login-body .margin-left-30 {
+  margin-left: 30px;
+}
+.travel-login aside .login-body .margin-bt-30 {
+  margin-bottom: 30px;
+}
+.travel-login aside .login-body .margin-bt-b30 {
+  margin-left: -20px;
+  margin-top: 6px;
+}
+.travel-login aside .login-body .show-message {
+  border: 1px solid #ff6633;
+  background: #ffffcc;
+  font-size: 12px;
+  font-family: 微软雅黑;
+  text-align: left;
+  padding-bottom: 4px;
+  padding-left: 10px;
+}
+.travel-login aside .login-body .show-message i {
+  color: red;
+}
+.travel-login aside .login-body #login {
+  width: 300px;
+  margin-left: 20px;
+}
+.travel-login aside .login-footer {
+  border-top: 1px solid #ccc;
+  height: 130px;
+}
+.travel-login aside .login-footer .footer-message {
+  color: #333399;
+  font-size: 14px;
+  margin: 20px;
+}
+.travel-login aside .login-footer .footer-label {
+  margin-left: 80px;
+}
+.travel-login aside .login-footer .footer-label img {
+  width: 25px;
+  margin: 0 10px;
+}
+.travel-login footer {
+  margin-top: -5px;
+  width: inherit;
+  border-top: 1px solid #999999;
+}
+.travel-login footer .i-footer {
+  background: #ffffff;
+}
+.travel-login footer .i-footer .i-footer-wrap {
+  border-top: 0px;
+}
+.travel-login footer .i-footer .i-footer-wrap p {
+  margin: 0 !important;
+}

@@ -1,0 +1,208 @@
+.font-wrya {
+  font-family: 微软雅黑;
+}
+.font-st {
+  font-family: 宋体;
+}
+.strategy {
+  width: 1200px;
+}
+.strategy .travel-head {
+  height: inherit;
+}
+.strategy .head-list-menu {
+  width: 260px;
+}
+.strategy .travel-head-left {
+  width: inherit;
+  height: 284px;
+  display: inline-block;
+  vertical-align: top;
+  position: static;
+}
+.strategy .travel-head-right {
+  width: inherit;
+  height: 284px;
+  display: inline-block;
+  vertical-align: top;
+  position: static;
+  margin-left: 8px;
+}
+.strategy .strategy-center {
+  width: 866px;
+}
+.strategy .strategy-center .travel-search .search {
+  width: 736px;
+}
+.strategy .strategy-center .travel-search .search input {
+  width: 686px;
+  height: 40px !important;
+}
+.strategy .strategy-center button {
+  width: 44px;
+  height: 40px;
+}
+.strategy .strategy-center .none-style div {
+  height: auto;
+}
+.strategy .strategy-center .banner {
+  width: 636px;
+  height: 225px;
+  position: relative;
+  display: inline-block;
+}
+.strategy .strategy-center .banner * {
+  height: inherit;
+  width: inherit;
+}
+.strategy .strategy-center .banner .banner-border .lb {
+  width: 100px;
+}
+.strategy .strategy-right {
+  display: inline-block;
+}
+.strategy .strategy-right img {
+  height: 109px;
+  width: 218px;
+}
+.strategy .strategy-map {
+  font-size: 14px;
+  height: 670px;
+}
+.strategy .strategy-map div {
+  display: inline-block;
+}
+.strategy .strategy-map .localtion-mes {
+  width: 390px;
+  line-height: 22px;
+}
+.strategy .strategy-map .localtion-mes strong {
+  font-size: 30px;
+  line-height: 40px;
+}
+.strategy .strategy-list {
+  margin-bottom: 67px;
+}
+.strategy .strategy-list .strategy-list-header {
+  border-left: 9px solid #00a0e9;
+  font-size: 22px;
+  font-weight: 900;
+  padding-left: 11px;
+}
+.strategy .strategy-list .strategy-list-header div {
+  margin-bottom: 14px;
+}
+.strategy .strategy-list .strategy-list-header span:first-child {
+  color: #cccccc;
+}
+.strategy .strategy-list .strategy-list-header span:last-child {
+  color: #28b5dc;
+}
+.strategy .strategy-list .strategy-list-body {
+  margin-top: 37px;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header li {
+  font-size: 14px;
+  font-family: "宋体";
+  height: 33px;
+  line-height: 35px;
+  width: 63px;
+  text-align: center;
+  margin: 0 8.5px;
+  display: inline-block;
+  position: relative;
+  border-radius: 3px;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header li .icon-tra {
+  display: none;
+  position: absolute;
+  bottom: -8px;
+  left: 22px;
+  border-top: 8px solid #ffc600;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  z-index: 1;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header li span:last-child {
+  position: absolute;
+  color: #CCCCCC;
+  bottom: -33px;
+  left: 25px;
+  font-size: 12px;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header .active,
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header li:hover {
+  background-color: #1ab2db;
+  color: #ffffff;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header .active .icon-tra,
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header li:hover .icon-tra {
+  display: block;
+  border-top: 8px solid #1ab2db;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header .active span:last-child,
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header li:hover span:last-child {
+  color: #1ab2db;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header li:first-child {
+  margin-left: 60px;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-body {
+  padding-top: 30px;
+  padding-left: 15px;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-body a {
+  position: relative;
+  width: 130px;
+  height: 130px;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-body img {
+  margin: 2px;
+  width: 130px;
+  height: 130px;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-body div {
+  position: absolute;
+  bottom: 3px;
+  left: 2px;
+  width: 130px;
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  font-family: "宋体";
+  height: 33px;
+  font-weight: bold;
+  line-height: 35px;
+  text-align: center;
+  color: #ffffff;
+}
+.strategy .strategy-list .localtion .strategy-tabs .tabs-header {
+  border-bottom: 0px solid #ccc;
+  padding-bottom: 15px;
+}
+.strategy .strategy-list .localtion .strategy-tabs .tabs-header li {
+  position: static;
+}
+.strategy .strategy-list .localtion .strategy-tabs .tabs-header li span:last-child {
+  position: static !important;
+  color: #000000;
+  font-size: 14px;
+  font-family: "宋体";
+}
+.strategy .strategy-list .localtion .strategy-tabs .tabs-header .active,
+.strategy .strategy-list .localtion .strategy-tabs .tabs-header li:hover {
+  background-color: #1ab2db;
+}
+.strategy .strategy-list .localtion .strategy-tabs .tabs-header .active span,
+.strategy .strategy-list .localtion .strategy-tabs .tabs-header li:hover span {
+  color: #ffffff !important;
+}
+.strategy .strategy-list .localtion .strategy-tabs .tabs-body {
+  padding-top: 5px;
+}

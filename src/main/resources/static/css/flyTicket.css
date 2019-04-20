@@ -1,0 +1,302 @@
+/*
+* @Author: xianghai.peng
+* @Date:   2016-12-02 09:31:32
+* @Last Modified by:   xianghai.peng
+* @Last Modified time: 2017-03-15 09:43:25
+*/
+/* i-banner开始 */
+* {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+a,a:focus { outline: none;} 
+a:hover {
+	text-decoration: none;
+}
+a:visited { text-decoration:none; }
+.i_area{ width:1200px; margin:0 auto; }
+.banner{ width:1200px; height:470px; overflow:hidden; position:relative;margin: 0 auto; }
+.banner_list li{ width: 1200px; height: 470px; position: absolute; left: 0; top:0; display: none; z-index: 4; }
+.banner_list a{ width:1200px; height:470px; display:block; background-size:cover; }
+.banner_list li:nth-child(1) a{ background:url(../images/img/fly01_banner0315.jpg) no-repeat center center; }
+.banner_list li:nth-child(2) a{ background:url(../images/img/fly02_banner0315.jpg) no-repeat center center; background-size: cover; }
+.banner_list li:nth-child(3) a{ background:url(../images/img/fly03_banner0315.jpg) no-repeat center center; }
+.banner_list li:nth-child(4) a{ background:url(../images/img/fly04_banner0315.jpg) no-repeat center center; }
+/* 位IE写的样式 */
+.banner_list li.banner-li1 a { background:url(../images/img/fly01_banner0315.jpg) no-repeat center center\9; }
+.banner_list li.banner-li2 a { background:url(../images/img/fly02_banner0315.jpg) no-repeat center center\9; }
+.banner_list li.banner-li3 a { background:url(../images/img/fly03_banner0315.jpg) no-repeat center center\9; }
+.banner_list li.banner-li4 a { background:url(../images/img/fly04_banner0315.jpg) no-repeat center center\9; }
+
+.banner_list .act{ display: block; }
+.banner .lb{ height:15px; position:absolute; bottom:18px; right:50px; z-index:5; }
+.banner .lb li{ width:11px; height:11px; float:left; margin-right:7px; border:1px solid #1ab2db; border-radius:50%; cursor:pointer; }
+.banner .lb .cur{ width:13px; height:13px; background:#1ab2db; }
+.banner .i_area{ position:relative; height:470px; width: 1200px; margin: 0 auto; } 
+.i_tab{ width:552px; height:370px; position:absolute; left:30px; top:42px; border:2px solid #1ab2db; box-shadow: 0px 0px 5px rgba(18,118,146,.75); background-color:#fff; font-family:"宋体"; font-size:14px; z-index: 9; }
+.i_tab a{ text-decoration: none; color:#fff; }
+.i_tab .i_tab_l{ height:370px; width:81px; background-color:#1AB2DB; }
+.i_tab .i_tab_l>li{ width:59px; height:45px; font-size:16px; text-align:center; line-height:47px; padding:0px 8px; border-left: 6px solid transparent; }
+
+.i_tab .i_tab_l li>a{ font-weight:bold; width:59px; height:45px; display:block; background:url(../images/img/i_tabbj_03.jpg) left bottom no-repeat; }
+.i_tab .i_tab_l li:last-child a{ background-image: none; }
+.i_tab .i_tab_l .cur{ background-color:#fff; border-left:6px solid #ffc600; width:81px; }
+.i_tab .i_tab_l .cur a{ color:#1AB2DB; background-image: none; }
+.i_tab_r{ position:absolute; left:81px; top:0; background-color:#fff; height:370px; width:471px; display:none; }
+.show .i_tab_r{ display:block; }
+.i_tab .i_tab_r .i_box{ text-align:left; }
+.i_tab_r .i_box .i_title{ margin-left:16px; margin-right:34px; height:43px; border-bottom:2px solid #ccc; }
+.i_tab_r .i_box .i_title a{ float:left; padding:0 30px; height:42px; color:#666; text-align:center; font-weight:normal; }
+.i_tab_r .i_box .i_title .line{ border-bottom:3px solid #1AB2DB; transition:all .5s; }
+
+.discount { padding-left:25px; padding-top:23px; display:none; }
+
+.discount input{ border:1px solid #ccc; padding-left:10px; color:#333; font-size:14px; }
+.discount .i_destin input,.discount .keyword input{ width:328px; height:30px; }
+input { height: 18px \9!important; padding: 6px \9!important; }
+select { height: 25px\9!important; }
+.discount .i_destin,.discount .keyword{ text-indent:16px; }
+.discount .i_rank select{ width:126px; height:30px; line-height: 30px; font-size: 14px; }
+.discount .i_rank option { width:100px; padding: 5px 0; }
+.discount .i_live input{ width:114px; height:30px; }
+.discount .i_live input:first-child{ margin-right:8px; }
+.i_key{ text-align:center; color:#999; }
+.i_key>a{ font-size:14px; color:#1AB2DB; }
+.keyword .i_key>a:hover{ color:#f9a400; }
+.i_btn{ width:157px; height:33px; background-color:#1AB2DB; display:block; color:#fff; line-height:33px; border-radius: 3px; border:none; outline: none; cursor: pointer; float:right; margin-right:34px; margin-top:8px; }
+.i_btn_hai { margin-top: 56px; }
+
+.i-city { border-bottom: 1px dotted #ddd; margin-bottom: 25px; padding-bottom: 10px; margin-top: 6px; }
+.i-city p { width: 100%; height: 20px; line-height: 20px; font-size: 14px; margin-bottom: 12px; overflow: hidden; }
+/* fly */
+.fly .i_hang input{ width: 13px; height: 13px; }
+.fly .i_hang ,.fly .i-fly-keyword { text-indent: 1px; }
+/* 门票 */
+.ticket .i_tab_r .i-ticket { display: block; }
+.ticket .i-ticket { text-align: left; }
+.ticket .i-ticket a:hover{ color:#f9a400; }
+.ticket .i-ticket .keyword { text-indent: 0; }
+
+/* 攻略 */
+.idea .i-idea { margin-bottom: 5px; padding-bottom: 5px; }
+/* i-banner结束 */
+
+/* 机票折线图开始 */
+section {
+	display: block;
+	width: 1145px;
+	margin: 20px auto;
+}
+.i-brokenline {
+	height: 50px;
+	margin-bottom: 20px;
+}
+.i-brokenline i {
+	float: left;
+	width: 50px;
+	height: 50px;
+	margin-right: 10px;
+	border-radius: 8px;
+	background: #f75232 url(../images/icon/flyTicket_xxx1202_03.png) center center no-repeat;
+}
+.i-brokenline-wrap {
+	float: left;
+	width: 420px;
+	height: 50px;
+}
+.i-brokenline-wrap h3 {
+	font-size: 22px;
+	margin-left: 3px;
+	font-family: "microsoft yahei";
+	color: #333;
+}
+.i-brokenline-wrap span {
+	display: inline-block;
+	width: 218px;
+	height: 24px;
+	background: url(../images/icon/flyword_xxx1202_06.png) left top no-repeat;
+}
+.i-brokenlinesearch {
+	float: right;
+	line-height: 50px;
+	font-size: 14px;
+
+}
+.i-brokenlinesearch input {
+	width: 118px;
+	height: 25px;
+	padding-left: 5px;
+	border: 1px solid #ccc;
+	color: #333;
+}
+.i-brokenlinesearch button {
+	width: 55px;
+	height: 28px;
+	line-height: 28px;
+	background-color: #1ab2db;
+	color: #fff;
+	border: none;
+}
+.flodline {
+	width: 900px;
+	height: 500px;
+	margin: 0 auto;
+}
+/* 机票折线图结束 */
+
+
+/* 航空公司促销开始 */
+.i-fly-sale i{
+	background: #96ea3c url(../images/icon/flyTicket_xxx1202_07.png) center center no-repeat;
+}
+.i-fly-sale span{
+	width: 318px;
+	background: url(../images/icon/flyword_xxx1202_07.png) center center no-repeat;
+}
+.i-fly-salemore{
+	float: right;
+	font-size: 14px;
+	margin-top: 15px;
+	color: #666;
+}
+.i-fly-salepro {
+	padding-top: 5px;
+	
+}
+.i-fly-salepro li {
+	float: left;
+	margin-right: 7px;
+}
+.i-fly-salepro li.flylastli {
+	margin-right: 0;
+}
+/* 航空公司促销结束 */
+
+/* 特价机票汇总开始 */
+.i-fly-sale-sum i{
+	background: #f7e624 url(../images/icon/flyTicket_xxx1202_09.png) center center no-repeat;
+}
+.i-fly-sale-sum span{
+	width: 200px;
+	background: url(../images/icon/flyword_xxx1202_24.png) center center no-repeat;
+}
+.i-fly-sale-sum .i-brokenline-wrap {
+	width: 280px;
+}
+.i-brokenline-wrap-right {
+	float: right;
+	width: 800px;
+	margin-top: 20px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+}
+.i-brokenline-wrap-right div {
+	float: left;
+	margin-left: 15px;
+}
+.i-brokenline-wrap-right select {
+	width: 86px;
+	border: 1px solid #ccc;
+	height: 30px;
+	color: #666;
+
+}
+.i-brokenline-wrap-right select option {
+	height: 22px;
+}
+.i-fly-sum-hot a {
+	padding: 4px 5px;
+}
+.i-fly-sum-hot a:hover {
+	background-color: #ffc466;
+	border-radius: 3px;
+	color: #fff;
+}
+.i-brokenline-wrap-right .i-fly-salemore {
+	margin-top: 0;
+}
+
+.i-fly-sale-detail {
+border-top: 1px solid #e9e9e9; 
+border-bottom: 1px solid #e9e9e9; 
+background-color: #f8f8f8;
+width: 1145px;
+margin: 0 auto;
+overflow: hidden;
+}
+.i-fly-sale-detail ul {
+	float: left;
+	padding: 10px;
+	width: 360px;
+	border-right: 1px dotted #e9e9e9;
+}
+.i-fly-sale-detail ul:last-child {
+	border-right: none;
+}	
+
+.i-fly-sale-detail ul li a{
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 15px;
+}
+.i-fly-sale-detail ul li a:hover {
+	color: #1ab2db;
+}
+
+.i-fly-sale-detail .city {
+	font-size: 14px;
+	font-family: "microsoft yahei";
+	float: left;
+	width: 150px;
+	overflow: hidden;
+	white-space: nowrap;
+	-ms-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+}
+.i-fly-sale-detail .city i {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 5px;
+	width: 20px;
+	height: 20px;
+	background: url(../images/icon/fly_sale_sum_xxx1203_02.png) center center no-repeat;
+}
+.i-fly-sale-detail .data {
+	float: left;
+	margin: 0 10px 0 10px;
+	font-size: 14px;
+}
+.i-fly-sale-detail .sale {
+	float: left;
+	font-size: 14px;
+	margin-right: 5px;
+	width: 50px;
+}
+.i-fly-sale-detail .price {
+	float: left;
+	color: #ff4401;
+	font-size: 20px;
+	margin-left: 5px;
+	font-family: "microsoft yahei";
+}
+
+/* 特价机票汇总结束 */
+
+
+
+.sale-show .i-sale-one {
+	display: block;
+}
+
+.i_show{ display:block; }
+
+
