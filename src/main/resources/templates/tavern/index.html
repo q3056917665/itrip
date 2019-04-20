@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>旅行首页</title>
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="../css/reset.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="../css/common.css"/>
-    <link rel="stylesheet" href="../lib/cityselect/cityselect.css"/>
-    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap-theme.css"/>
-    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../css/index.css"/>
-    <link rel="stylesheet" href="../css/travel.css"/>
-    <script src="../lib/jquery-2.1.4.min.js" type="text/javascript"></script>
-    <script src="../lib/cityselect/cityselect.js" type="text/javascript"></script>
-    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../lib/My97DatePicker/WdatePicker.js"></script>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon"/>
+    <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" th:href="@{/lib/cityselect/cityselect.css}"/>
+    <link rel="stylesheet" th:href="@{/lib/bootstrap/css/bootstrap-theme.css}"/>
+    <link rel="stylesheet" th:href="@{/lib/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/index.css}"/>
+    <link rel="stylesheet" th:href="@{/css/travel.css}"/>
+    <script th:src="@{/lib/jquery-2.1.4.min.js}" type="text/javascript"></script>
+    <script th:src="@{/lib/cityselect/cityselect.js}" type="text/javascript"></script>
+    <script th:src="@{/lib/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/lib/My97DatePicker/WdatePicker.js}"></script>
 </head>
 <body>
 <!-- 头部开始 -->
@@ -32,7 +32,7 @@
                 <li class="i-top-phone">
                     <a href="#"><i class="icon-mobile-phone"></i></a>
                     <div class="i-top-app i-top-appL">
-                        <img src="../images/img/erweima_1126.jpg" height="102" width="102" alt="">
+                        <img src="images/img/erweima_1126.jpg" height="102" width="102" alt="">
                         <p>手机扫码快速下载</p>
                         <p>App享受最多50% 优惠力度</p>
                     </div>
@@ -40,7 +40,7 @@
                 <li class="i-top-phone i-top-wei">
                     <a href="#"><i class="icon-comments"></i></a>
                     <div class="i-top-app i-top-app-wei">
-                        <img src="../images/img/erweima_1126.jpg" height="102" width="102" alt="">
+                        <img src="images/img/erweima_1126.jpg" height="102" width="102" alt="">
                         <p>i旅行微信公众号: <a href="#">ilvxing</a></p>
                         <p>手机扫一扫，享受专属福利</p>
                     </div>
@@ -55,17 +55,17 @@
 <div class="i-nav clearfix">
     <div class="i-nav-wrap">
         <ul>
-            <li><a href="../index.html" class=""><i class="icon-home"></i>首页</a></li>
-            <li><a href="../travel/index.html" class="current"><i class="icon-globe"></i>旅游</a></li>
-            <li class="current"><a href="./index.html"><i class="icon-hospital"></i>酒店</a></li>
-            <li><a href="../flyTicket.html"><i class="icon-plane"></i>机票</a></li>
+            <li><a th:href="@{/index}" ><i class="icon-home"></i>首页</a></li>
+            <li><a th:href="@{/travelindex}"><i class="icon-globe"></i>旅游</a></li>
+            <li class="current"><a th:href="@{/tavernindex}"><i class="icon-hospital"></i>酒店</a></li>
+            <li><a th:href="@{/flyTicket}"><i class="icon-plane"></i>机票</a></li>
             <!-- <li><a href="#"><i class="icon-credit-card"></i>门票</a></li> -->
-            <li><a href="../strategy/index.html"><i class="icon-book"></i>攻略</a></li>
+            <li><a th:href="@{/strategyindex}"><i class="icon-book"></i>攻略</a></li>
         </ul>
         <div class="i-nav-login">
-            <a href="../login.html">登陆</a>
+            <a href="login.html">登录</a>
             <span>|</span>
-            <a href="../register.html">注册</a>
+            <a href="register.html">注册</a>
         </div>
     </div>
 </div>
@@ -244,7 +244,7 @@
                     <div class="points-list-body">
                         <div class="list-body-column ">
                             <div class="left-column">
-                                <img src="../images/img/tavern/haiwai/haiwai.png">
+                                <img src="images/img/tavern/haiwai/haiwai.png">
                             </div>
                         </div>
                         <div class="list-body-column">
@@ -254,7 +254,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/haiwai/haiwai01.png">
+                                        <img src="images/img/tavern/haiwai/haiwai01.png">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="曼谷盛泰澜中央世界商业中心酒...">
@@ -274,7 +274,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/haiwai/szt.jpg">
+                                        <img src="images/img/tavern/haiwai/szt.jpg">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="曼谷双子塔酒店(The Twin Towers Hotel Bangkok)  ¥223起订  曼谷、经济型">
@@ -296,7 +296,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/haiwai/yrz.jpg">
+                                        <img src="images/img/tavern/haiwai/yrz.jpg">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="曼谷悦榕庄(Banyan Tree Bangkok)   ¥702起订   曼谷、豪华型">
@@ -316,7 +316,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/haiwai/bdl.jpg">
+                                        <img src="images/img/tavern/haiwai/bdl.jpg">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="曼谷班达拉套房酒店(Bandara Suites Silom Bangkok)   ¥368起订   曼谷  经济型">
@@ -338,7 +338,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/haiwai/hjdjd.jpg">
+                                        <img src="images/img/tavern/haiwai/hjdjd.jpg">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="曼谷皇家大酒店(Majestic Grande Hotel Bangkok)   ¥353起订   曼谷、经济型">
@@ -358,7 +358,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/haiwai/zszc.jpg">
+                                        <img src="images/img/tavern/haiwai/zszc.jpg">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="曼谷钻石之城酒店(Diamond City Hotel Bangkok)   ¥256起订  曼谷、经济型">
@@ -410,7 +410,7 @@
                     <div class="points-list-body">
                         <div class="list-body-column ">
                             <div class="left-column">
-                                <img src="../images/img/tavern/remen/remen.png">
+                                <img src="images/img/tavern/remen/remen.png">
                             </div>
                         </div>
                         <div class="list-body-column">
@@ -420,7 +420,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/remen/qhmd.jpg">
+                                        <img src="images/img/tavern/remen/qhmd.jpg">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="上海南青华美达酒店    ¥426起订    浦东新区、经济型">
@@ -440,7 +440,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/remen/badjd.jpg">
+                                        <img src="images/img/tavern/remen/badjd.jpg">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="上海宝安大酒店  ¥399起订  浦东新区、经济型">
@@ -462,7 +462,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/remen/sjjd.jpg">
+                                        <img src="images/img/tavern/remen/sjjd.jpg">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="上海浦东四季酒店  ¥1510起订  浦东新区、豪华型">
@@ -482,7 +482,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/remen/pljd.jpg">
+                                        <img src="images/img/tavern/remen/pljd.jpg">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="上海璞丽酒店   ¥1877起订  静安区、豪华型">
@@ -504,7 +504,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/remen/yjhdjd.jpg">
+                                        <img src="images/img/tavern/remen/yjhdjd.jpg">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="杨建华大酒店（上海沪南店）  ¥229起订   浦东新区、经济型">
@@ -524,7 +524,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/remen/jzjd.jpg">
+                                        <img src="images/img/tavern/remen/jzjd.jpg">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="桔子水晶酒店（上海迪斯尼康桥店）    ¥562起订   浦东新区、豪华型">
@@ -544,8 +544,8 @@
             </div>
         </div>
         <div class="travel-ad-body " style="margin-left: -5px">
-            <img src="../images/img/travel-ad-01.png" alt="">
-            <img src="../images/img/travel-ad-02.png" alt="">
+            <img src="images/img/travel-ad-01.png" alt="">
+            <img src="images/img/travel-ad-02.png" alt="">
         </div>
         <div class="travel-rim-body points-list">
             <div class="points-list-header yellow">
@@ -580,7 +580,7 @@
                     <div class="points-list-body">
                         <div class="list-body-column ">
                             <div class="left-column">
-                                <img src="../images/img/tavern/djrm/djrm.png">
+                                <img src="images/img/tavern/djrm/djrm.png">
                             </div>
                         </div>
                         <div class="list-body-column">
@@ -590,7 +590,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/djrm/fhs.jpg">
+                                        <img src="images/img/tavern/djrm/fhs.jpg">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="凤凰山 共有109间酒店  ¥156起订">
@@ -610,7 +610,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/djrm/hs.jpg">
+                                        <img src="images/img/tavern/djrm/hs.jpg">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="华山   共有180间酒店  ¥126起订">
@@ -632,7 +632,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/djrm/ps.jpg">
+                                        <img src="images/img/tavern/djrm/ps.jpg">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="盘山   共有362间酒店   ¥109起订">
@@ -652,7 +652,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/djrm/wls.jpg">
+                                        <img src="images/img/tavern/djrm/wls.jpg">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="雾灵山  共有196间酒店 ¥139起订">
@@ -674,7 +674,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/djrm/huangshan.jpg">
+                                        <img src="images/img/tavern/djrm/huangshan.jpg">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="黄山   共有201间酒店  ¥131起订">
@@ -694,7 +694,7 @@
                                         <span class="text">返现</span>
                                     </div>
                                     <div class="column-image">
-                                        <img src="../images/img/tavern/djrm/djrm01.png">
+                                        <img src="images/img/tavern/djrm/djrm01.png">
                                     </div>
                                     <div class="column-desc">
                                         <div class="cell-desc" title="泰山">
@@ -756,11 +756,11 @@
         </div>
         <div class="i_downright">
             <div class='i_wechat'>
-                <img src="../images/icon/i_wechat_11.jpg" alt="">
+                <img src="images/icon/i_wechat_11.jpg" alt="">
                 <span>微信公众平台</span>
             </div>
             <div class="i_APP">
-                <img src="../images/icon/i_APP_11.jpg" alt="">
+                <img src="images/icon/i_APP_11.jpg" alt="">
                 <span>APP下载</span>
             </div>
         </div>
@@ -772,19 +772,19 @@
         <p><span class="i-footer-hui"></span>沪公网备310105020000xx号</p>
         <p>旅游违法行为举报电话12318 丨服务质量投诉电话 962020 丨<a href="#">北京市旅游网站落实诚信建设主体责任承诺书</a></p>
         <ul>
-            <li><a href="#"><img src="../images/icon/icon1126_11.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_13.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_15.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_17.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_19.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_21.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_23.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_25.jpg" height="32" width="128" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_27.jpg" height="32" width="102" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_11.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_13.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_15.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_17.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_19.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_21.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_23.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_25.jpg" height="32" width="128" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_27.jpg" height="32" width="102" alt=""></a></li>
         </ul>
     </div>
 </div>
-<script src="index.js" type="text/javascript"></script>
+<script src="js/tavernindex.js" type="text/javascript"></script>
 <script>
     window.onload = function (e) {
         tavern.init()

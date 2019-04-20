@@ -9,7 +9,6 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan("com.example")
 @MapperScan("com.example.dao")
 public class ItripApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(ItripApplication.class, args);
 	}

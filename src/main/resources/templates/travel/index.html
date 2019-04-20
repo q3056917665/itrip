@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>旅行首页</title>
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="../css/reset.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="../css/common.css"/>
-    <link rel="stylesheet" href="../lib/cityselect/cityselect.css"/>
-    <link rel="stylesheet" href="../css/index.css"/>
-    <link rel="stylesheet" href="../css/travel.css"/>
-    <script src="../lib/jquery-2.1.4.min.js" type="text/javascript"></script>
-    <script src="../lib/cityselect/cityselect.js" type="text/javascript"></script>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon" />
+    <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" th:href="@{/lib/cityselect/cityselect.css}"/>
+    <link rel="stylesheet" th:href="@{/css/index.css}"/>
+    <link rel="stylesheet" th:href="@{/css/travel.css}"/>
+    <script th:src="@{/lib/jquery-2.1.4.min.js}" type="text/javascript"></script>
+    <script th:src="@{/lib/cityselect/cityselect.js}" type="text/javascript"></script>
 </head>
 <body>
 <!-- 头部开始 -->
@@ -28,7 +28,7 @@
                 <li class="i-top-phone">
                     <a href="#"><i class="icon-mobile-phone"></i></a>
                     <div class="i-top-app i-top-appL">
-                        <img src="../images/img/erweima_1126.jpg" height="102" width="102" alt="">
+                        <img src="images/img/erweima_1126.jpg" height="102" width="102" alt="">
                         <p>手机扫码快速下载</p>
                         <p>App享受最多50% 优惠力度</p>
                     </div>
@@ -36,7 +36,7 @@
                 <li class="i-top-phone i-top-wei">
                     <a href="#"><i class="icon-comments"></i></a>
                     <div class="i-top-app i-top-app-wei">
-                        <img src="../images/img/erweima_1126.jpg" height="102" width="102" alt="">
+                        <img src="images/img/erweima_1126.jpg" height="102" width="102" alt="">
                         <p>i旅行微信公众号: <a href="#">ilvxing</a></p>
                         <p>手机扫一扫，享受专属福利</p>
                     </div>
@@ -51,17 +51,17 @@
 <div class="i-nav clearfix">
     <div class="i-nav-wrap">
         <ul>
-            <li><a href="../index.html" class=""><i class="icon-home"></i>首页</a></li>
-            <li class="current"><a href="index.html" class="current"><i class="icon-globe"></i>旅游</a></li>
-            <li><a href="../tavern/index.html"><i class="icon-hospital"></i>酒店</a></li>
-            <li><a href="../flyTicket.html"><i class="icon-plane"></i>机票</a></li>
+            <li><a th:href="@{/index}" ><i class="icon-home"></i>首页</a></li>
+            <li class="current"><a th:href="@{/travelindex}"><i class="icon-globe"></i>旅游</a></li>
+            <li><a th:href="@{/tavernindex}"><i class="icon-hospital"></i>酒店</a></li>
+            <li><a th:href="@{/flyTicket}"><i class="icon-plane"></i>机票</a></li>
             <!-- <li><a href="#"><i class="icon-credit-card"></i>门票</a></li> -->
-            <li><a href="../strategy/index.html"><i class="icon-book"></i>攻略</a></li>
+            <li><a th:href="@{/strategyindex}"><i class="icon-book"></i>攻略</a></li>
         </ul>
         <div class="i-nav-login">
-            <a href="../login.html">登陆</a>
+            <a href="login.html">登录</a>
             <span>|</span>
-            <a href="../register.html">注册</a>
+            <a href="register.html">注册</a>
         </div>
     </div>
 </div>
@@ -404,13 +404,13 @@
                 <div class="points-list-header">
                     <div class="header-list-left">
                         <span class="icon-inland">
-                            <img src="../images/img/travel_message/travel/chujing/chujing-01.png">
+                            <img src="images/img/travel_message/travel/chujing/chujing-01.png">
                         </span>
                         <div class="list-title">
                             出境旅游
                         </div>
                         <span class="list-dis">
-                             <img src="../images/img/travel_message/travel/chujing/chujing-02.png">
+                             <img src="images/img/travel_message/travel/chujing/chujing-02.png">
                             </span>
                     </div>
                     <div class="header-list-right">
@@ -420,7 +420,7 @@
                 <div class="points-list-body">
                     <div class="list-body-column ">
                         <div class="left-column">
-                            <img src="../images/img/travel-exit.png">
+                            <img src="images/img/travel-exit.png">
                         </div>
                     </div>
                     <div class="list-body-column">
@@ -430,7 +430,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/chujing/jizhoudao.jpg">
+                                    <img src="images/img/travel_message/travel/chujing/jizhoudao.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="韩国济州岛+首尔6日5晚跟团游(4钻)  ">
@@ -450,7 +450,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/chujing/fadigang.jpg">
+                                    <img src="images/img/travel_message/travel/chujing/fadigang.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="意大利+梵蒂冈+瑞士+法国+锡耶纳+维罗纳13日跟团游">
@@ -472,7 +472,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/chujing/batiya.jpg">
+                                    <img src="images/img/travel_message/travel/chujing/batiya.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="日本东京+大阪7日自由行 ">
@@ -492,7 +492,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/chujing/mangu.jpg">
+                                    <img src="images/img/travel_message/travel/chujing/mangu.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="曼谷+芭提雅6日5晚自由行">
@@ -514,7 +514,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/chujing/mgda.jpg">
+                                    <img src="images/img/travel_message/travel/chujing/mgda.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="美国东西海岸+夏威夷+波士顿+纽约+华盛顿+拉斯维加斯+尼亚加拉瀑布14日11晚跟团游  ">
@@ -534,7 +534,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel-scenic-spot-01.png">
+                                    <img src="images/img/travel-scenic-spot-01.png">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="普吉岛7日5晚跟团游 全程5惠尽情享受！">
@@ -555,13 +555,13 @@
                 <div class="points-list-header">
                     <div class="header-list-left">
                         <span class="icon-inland">
-                            <img src="../images/img/guonei.png">
+                            <img src="images/img/guonei.png">
                         </span>
                         <div class="list-title">
                             国内旅游
                         </div>
                         <span class="list-dis">
-                             <img src="../images/img/guoneides.png">
+                             <img src="images/img/guoneides.png">
                             </span>
                     </div>
                     <div class="header-list-right">
@@ -571,7 +571,7 @@
                 <div class="points-list-body">
                     <div class="list-body-column ">
                         <div class="left-column">
-                            <img src="../images/img/travel_message/travel/guonei/guonei.png">
+                            <img src="images/img/travel_message/travel/guonei/guonei.png">
                         </div>
                     </div>
                     <div class="list-body-column">
@@ -581,7 +581,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/guonei/wuzhen.jpg">
+                                    <img src="images/img/travel_message/travel/guonei/wuzhen.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="上海+苏州+杭州+乌镇5日4晚跟团游    ">
@@ -601,7 +601,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/guonei/ermeishan.jpg">
+                                    <img src="images/img/travel_message/travel/guonei/ermeishan.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="成都+九寨沟+黄龙+乐山+峨眉山7日6晚跟团游 ">
@@ -623,7 +623,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/guonei/taishan.jpg">
+                                    <img src="images/img/travel_message/travel/guonei/taishan.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="曲阜三孔+泰山3日2晚跟团游(3钻)·6项专享 ">
@@ -643,7 +643,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/guonei/qingdao.jpg">
+                                    <img src="images/img/travel_message/travel/guonei/qingdao.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="青岛+烟台5日自由行·青岛进烟台">
@@ -665,7 +665,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/guonei/xiamen.jpg">
+                                    <img src="images/img/travel_message/travel/guonei/xiamen.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="鼓浪屿+厦门5日自由行·2晚鼓浪屿+2晚厦门 ">
@@ -685,7 +685,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/guonei/dishini.png">
+                                    <img src="images/img/travel_message/travel/guonei/dishini.png">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="上海迪士尼（Disney）3日自由行">
@@ -703,20 +703,20 @@
                 </div>
             </div>
             <div class="travel-ad-body ">
-                <img src="../images/img/travel-ad-01.png" alt="">
-                <img src="../images/img/travel-ad-02.png" alt="">
+                <img src="images/img/travel-ad-01.png" alt="">
+                <img src="images/img/travel-ad-02.png" alt="">
             </div>
             <div class="travel-rim-body points-list">
                 <div class="points-list-header">
                     <div class="header-list-left">
                         <span class="icon-inland">
-                            <img src="../images/img/travel_message/travel/zhoubian/zhoubian-01.png">
+                            <img src="images/img/travel_message/travel/zhoubian/zhoubian-01.png">
                         </span>
                         <div class="list-title">
                             周边当地游
                         </div>
                         <span class="list-dis">
-                             <img src="../images/img/travel_message/travel/zhoubian/zhoubian-02.png">
+                             <img src="images/img/travel_message/travel/zhoubian/zhoubian-02.png">
                             </span>
                     </div>
                     <div class="header-list-right">
@@ -726,7 +726,7 @@
                 <div class="points-list-body">
                     <div class="list-body-column ">
                         <div class="left-column">
-                            <img src="../images/img/travel_message/travel/zhoubian/zhoubian.png">
+                            <img src="images/img/travel_message/travel/zhoubian/zhoubian.png">
                         </div>
                     </div>
                     <div class="list-body-column">
@@ -736,7 +736,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/zhoubian/wts.jpg">
+                                    <img src="images/img/travel_message/travel/zhoubian/wts.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="五台山+平遥3-7日自由行·高铁往返 一次游两大世界文化遗产">
@@ -756,7 +756,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/zhoubian/gbsz.jpg">
+                                    <img src="images/img/travel_message/travel/zhoubian/gbsz.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="古北水镇2日1晚跟团游(4钻)·【立减！赠温泉】">
@@ -778,7 +778,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/zhoubian/txsz.jpg">
+                                    <img src="images/img/travel_message/travel/zhoubian/txsz.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="易县2日跟团游·荆轲塔、太行水镇 、易水湖  ">
@@ -798,7 +798,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/zhoubian/hbbdh.jpg">
+                                    <img src="images/img/travel_message/travel/zhoubian/hbbdh.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="河北北戴河2日1晚跟团游·北戴河+山海关+鸽子窝火车双座火车二日游">
@@ -820,7 +820,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/zhoubian/ysp.jpg">
+                                    <img src="images/img/travel_message/travel/zhoubian/ysp.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="野三坡2日1晚跟团游·百里峡+东湖港+玻璃栈道+十渡纯玩巴士2日 ">
@@ -840,7 +840,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/zhoubian/chengde.png">
+                                    <img src="images/img/travel_message/travel/zhoubian/chengde.png">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="承德避暑山庄 2日跟团游">
@@ -861,13 +861,13 @@
                 <div class="points-list-header">
                     <div class="header-list-left">
                         <span class="icon-inland">
-                            <img src="../images/img/travel_message/travel/dangdi/dangdi-01.png">
+                            <img src="images/img/travel_message/travel/dangdi/dangdi-01.png">
                         </span>
                         <div class="list-title">
                            当地旅游
                         </div>
                         <span class="list-dis">
-                             <img src="../images/img/travel_message/travel/dangdi/dangdi-02.png">
+                             <img src="images/img/travel_message/travel/dangdi/dangdi-02.png">
                             </span>
                     </div>
                     <div class="header-list-right">
@@ -877,7 +877,7 @@
                 <div class="points-list-body">
                     <div class="list-body-column ">
                         <div class="left-column">
-                            <img src="../images/img/travel_message/travel/dangdi/dangdi.png">
+                            <img src="images/img/travel_message/travel/dangdi/dangdi.png">
                         </div>
                     </div>
                     <div class="list-body-column">
@@ -887,7 +887,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/dangdi/ncslf.jpg">
+                                    <img src="images/img/travel_message/travel/dangdi/ncslf.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="北京+鸟巢（国家体育场）+水立方（国家游泳中心）半日游">
@@ -907,7 +907,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/dangdi/ggmz.jpg">
+                                    <img src="images/img/travel_message/travel/dangdi/ggmz.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="北京1日自由行·天安门毛主席纪念堂 故宫 胡同四合院一日游">
@@ -929,7 +929,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/dangdi/yhy.jpg">
+                                    <img src="images/img/travel_message/travel/dangdi/yhy.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="北京1日自由行·颐和园 圆明园 天坛公园 清华大学一日游 ">
@@ -949,7 +949,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/dangdi/tgy.jpg">
+                                    <img src="images/img/travel_message/travel/dangdi/tgy.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="天安门广场+故宫+颐和园一日游【送珍宝馆 吃海碗居老北京炸酱面】">
@@ -971,7 +971,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/dangdi/mty.jpg">
+                                    <img src="images/img/travel_message/travel/dangdi/mty.jpg">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="慕田峪长城一日游【天天发团 成团保障 三环内上门接】 ">
@@ -991,7 +991,7 @@
                                     <span class="text">力推</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="../images/img/travel_message/travel/dangdi/changc.png">
+                                    <img src="images/img/travel_message/travel/dangdi/changc.png">
                                 </div>
                                 <div class="column-desc">
                                     <div class="cell-desc" title="北京八达岭长城纯玩一日游">
@@ -1009,8 +1009,8 @@
                 </div>
             </div>
             <div class="travel-ad-body ">
-                <img src="../images/img/travel_message/travel/guanggao-21.png" alt="">
-                <img src="../images/img/travel_message/travel/guanggao-22.png" alt="">
+                <img src="images/img/travel_message/travel/guanggao-21.png" alt="">
+                <img src="images/img/travel_message/travel/guanggao-22.png" alt="">
             </div>
         </div>
     </div>
@@ -1028,11 +1028,11 @@
         </div>
         <div class="i_downright">
             <div class='i_wechat'>
-                <img src="../images/icon/i_wechat_11.jpg" alt="">
+                <img src="images/icon/i_wechat_11.jpg" alt="">
                 <span>微信公众平台</span>
             </div>
             <div class="i_APP">
-                <img src="../images/icon/i_APP_11.jpg" alt="">
+                <img src="images/icon/i_APP_11.jpg" alt="">
                 <span>APP下载</span>
             </div>
         </div>
@@ -1044,19 +1044,20 @@
         <p><span class="i-footer-hui"></span>沪公网备310105020000xx号</p>
         <p>旅游违法行为举报电话12318 丨服务质量投诉电话 962020 丨<a href="#">北京市旅游网站落实诚信建设主体责任承诺书</a></p>
         <ul>
-            <li><a href="#"><img src="../images/icon/icon1126_11.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_13.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_15.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_17.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_19.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_21.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_23.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_25.jpg" height="32" width="128" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_27.jpg" height="32" width="102" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_11.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_13.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_15.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_17.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_19.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_21.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_23.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_25.jpg" height="32" width="128" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_27.jpg" height="32" width="102" alt=""></a></li>
         </ul>
     </div>
 </div>
-<script src="index.js" type="text/javascript"></script>
+<script th:src="@{/js/common.js}"></script>
+<script th:src="@{/js/travelindex.js}" type="text/javascript"></script>
 <script>
     var style = "  <style> input{ top: -9px !important;  }</style>";
     var isIE = !!window.ActiveXObject;

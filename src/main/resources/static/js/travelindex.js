@@ -1,26 +1,9 @@
 /**
  * Created by zhzbin on 2016/11/24.
  */
-var tavern = {
+var travel = {
     init: function (e) {
         var sef = this;
-        sef.accordion = function (e) {
-            var num = null;
-            var speed = 600;
-            var accor = e + " .box li";
-            $(accor).each(function (index, el) {
-                num = index + 1;
-                $(el).css("background-image", "url(../images/img/tavern/tese/travel-accordion-" + num + ".jpg)");
-            });
-            $(accor).hover(function () {
-                /*当前的那个盒子变大变600， 兄弟 变小变100*/
-                $(this).stop().animate({"width": 400, "opacity": 1}, speed).siblings()
-                    .stop().animate({"width": 149, "opacity": 0.3}, speed);
-            }, function () {
-                /*当鼠标离开的时候，所有的里都变成200*/
-                $(accor).stop().animate({"width": 195, "opacity": 1}, speed);
-            });
-        }
         sef.banner = function (e) {
 
 // 首页轮播图
@@ -30,7 +13,7 @@ var tavern = {
             var i_banner = $('.banner_list li');
             var i=1;
             $("a",i_banner).each(function (e) {
-                this.style.background="url(../images/img/tavern/banner/"+i+".jpg)";
+                this.style.background="url(images/img/travel_message/travel/banner/"+i+".jpg)";
                 i++;
             });
 // 自动轮播
@@ -63,16 +46,17 @@ var tavern = {
                 autoPlay();
             });
         }
-        sef.travelTabs = function doubleTab(aEle, bEle, cls) {
-            $(aEle).click(function () {
-                $(this).addClass(cls).siblings().removeClass(cls);
-                var num = $(this).index();
-                $(bEle).eq(num).addClass('i_show').siblings().removeClass('i_show');
+        $(function () {
+            var test = new Vcity.CitySelector({
+                input: 'travelCitySelect1'
             });
-        }
-        sef.tavernList = './tavern_list.html';
-        sef.tavernMessage = '../hotelDetail.html';
-
+        });
+        sef.travelList = './travel_list.html';
+        sef.travelMessage = './travel_message.html';
+        $(".icon-search").on("click", function (e) {
+            window.location = sef.travelList;
+        });
+        // 定位到指定的 界面位置
         $('html,body').stop().animate({'scrollTop': 0});
         function change(numy) {
             $('.points-list-menu .' + numy).addClass('act').siblings().removeClass('act');
@@ -95,6 +79,7 @@ var tavern = {
             $('html,body').stop().animate({'scrollTop': a},500,function (e) {
                 $(document).scroll(scrollLeve);
             });
+
         });
         function scrollLeve(e) {
             var iScroll = $(document).scrollTop();
@@ -114,24 +99,27 @@ var tavern = {
 
         $(document).scroll(scrollLeve);
         sef.bindEvent();
+
     }, bindEvent: function (e) {
         var sef = this;
-        $(".points-list .header-list-right").on("click", function (e) {
-            if (!$(this).hasClass("tavern-gray")) {
-                window.location = sef.tavernList;
-            }
-        });
-        $(".points-list-body .column").on("click", function (e) {
+        $(".list-body-column .column").on("click", function (e) {
             if (!$(this).hasClass("column-gray")) {
-                window.location = sef.tavernMessage;//tavernList;
+                window.location = sef.travelMessage;
             }
         });
-        $(".travel-accordion li").on("click", function (e) {
-            window.location = sef.tavernMessage;//tavernList;
+        $(".points-list .header-list-right").on("click", function (e) {
+            if (!$(this).hasClass("column-gray")) {
+                window.location = sef.travelList;
+            }
         });
+        $(".head-list-menu a").on("click", function (e) {
+            window.location = sef.travelList;
+        });
+
         $(".banner-border li a").on("click", function (e) {
-            window.location = sef.tavernMessage;//tavernList;
+            window.location = sef.travelMessage;
         });
+
     }, refresh: function (e) {
         alert("刷新函数是否正常使用？")
     }

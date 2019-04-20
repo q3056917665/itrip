@@ -1,7 +1,7 @@
 /**
  * Created by zhzbin on 2016/11/24.
  */
-var travel={
+var tavern={
     init:function (e) {
         $(function(){
 

@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>攻略首页</title>
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="../css/reset.css"/>
-    <link rel="stylesheet" href="../css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="../css/common.css"/>
-    <link rel="stylesheet" href="../lib/cityselect/cityselect.css"/>
-    <link rel="stylesheet" href="../css/index.css"/>
-    <link rel="stylesheet" href="../css/travel.css"/>
-    <link rel="stylesheet" href="../css/strategy.css"/>
-    <script src="../lib/jquery-2.1.4.min.js" type="text/javascript"></script>
-    <script src="../lib/cityselect/cityselect.js" type="text/javascript"></script>
-    <script src="../lib/echarts/echarts.min.js"></script>
-    <script src="../lib/echarts/shine.js"></script>
-    <script src="../lib/echarts/china.js"></script>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon" />
+    <link rel="stylesheet" th:href="@{/css/reset.css}"/>
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" th:href="@{/lib/cityselect/cityselect.css}"/>
+    <link rel="stylesheet" th:href="@{/css/index.css}"/>
+    <link rel="stylesheet" th:href="@{/css/travel.css}"/>
+    <link rel="stylesheet" th:href="@{/css/strategy.css}"/>
+    <script th:src="@{/lib/jquery-2.1.4.min.js}" type="text/javascript"></script>
+    <script th:src="@{/lib/cityselect/cityselect.js}" type="text/javascript"></script>
+    <script th:src="@{/lib/echarts/echarts.min.js}"></script>
+    <script th:src="@{/lib/echarts/shine.js}"></script>
+    <script th:src="@{/lib/echarts/china.js}"></script>
+
 </head>
 <body>
 <!-- 头部开始 -->
@@ -32,7 +33,7 @@
                 <li class="i-top-phone">
                     <a href="#"><i class="icon-mobile-phone"></i></a>
                     <div class="i-top-app i-top-appL">
-                        <img src="../images/img/erweima_1126.jpg" height="102" width="102" alt="">
+                        <img src="images/img/erweima_1126.jpg" height="102" width="102" alt="">
                         <p>手机扫码快速下载</p>
                         <p>App享受最多50% 优惠力度</p>
                     </div>
@@ -40,7 +41,7 @@
                 <li class="i-top-phone i-top-wei">
                     <a href="#"><i class="icon-comments"></i></a>
                     <div class="i-top-app i-top-app-wei">
-                        <img src="../images/img/erweima_1126.jpg" height="102" width="102" alt="">
+                        <img src="images/img/erweima_1126.jpg" height="102" width="102" alt="">
                         <p>i旅行微信公众号: <a href="#">ilvxing</a></p>
                         <p>手机扫一扫，享受专属福利</p>
                     </div>
@@ -55,17 +56,17 @@
 <div class="i-nav clearfix">
     <div class="i-nav-wrap">
         <ul>
-            <li><a href="../index.html" class=""><i class="icon-home"></i>首页</a></li>
-            <li><a href="../travel/index.html" class="current"><i class="icon-globe"></i>旅游</a></li>
-            <li ><a href="../tavern/index.html"><i class="icon-hospital"></i>酒店</a></li>
-            <li><a href="../flyTicket.html"><i class="icon-plane"></i>机票</a></li>
-             <!-- <li><a href="#"><i class="icon-credit-card"></i>门票</a></li> -->
-            <li class="current"><a href="index.html"><i class="icon-book"></i>攻略</a></li>
+            <li><a th:href="@{/index}" ><i class="icon-home"></i>首页</a></li>
+            <li><a th:href="@{/travelindex}"><i class="icon-globe"></i>旅游</a></li>
+            <li><a th:href="@{/tavernindex}"><i class="icon-hospital"></i>酒店</a></li>
+            <li><a th:href="@{/flyTicket}"><i class="icon-plane"></i>机票</a></li>
+            <!-- <li><a href="#"><i class="icon-credit-card"></i>门票</a></li> -->
+            <li class="current"><a th:href="@{/strategyindex}"><i class="icon-book"></i>攻略</a></li>
         </ul>
         <div class="i-nav-login">
-            <a href="../login.html">登陆</a>
+            <a href="login.html">登录</a>
             <span>|</span>
-            <a href="../register.html">注册</a>
+            <a href="register.html">注册</a>
         </div>
     </div>
 </div>
@@ -285,9 +286,9 @@
                   </div>
               </div>
               <div class="strategy-right">
-                  <img src="../images/img/strategy/strategy-00.png" alt="">
+                  <img src="images/img/strategy/strategy-00.png" alt="">
                   <br>
-                  <img src="../images/img/strategy/strategy-01.png" alt="">
+                  <img src="images/img/strategy/strategy-01.png" alt="">
               </div>
           </div>
         </div>
@@ -329,7 +330,7 @@
                 <div>
                     月度推荐 <span> ● </span><span>开启滑雪之旅，这个冬天不太冷</span>
                 </div>
-                <img src="../images/img/strategy/strategy-02.png" alt="">
+                <img src="images/img/strategy/strategy-02.png" alt="">
             </div>
             <div class="strategy-list-body">
                 <div class="strategy-tabs">
@@ -348,23 +349,23 @@
                         <li><span>十二月</span> <span class="icon-tra"></span><span>●</span></li>
                     </ul>
                     <div class="tabs-body">
-                        <a href=""><img src="../images/img/strategy/city/aomen.JPG" alt=""><div>澳门</div></a>
-                        <a href=""><img src="../images/img/strategy/city/chongqing.jpg" alt=""><div>重庆</div></a>
-                        <a href=""><img src="../images/img/strategy/city/dalian.jpg" alt=""><div>大连</div></a>
-                        <a href=""><img src="../images/img/strategy/city/daocheng.JPG" alt=""><div>稻城</div></a>
-                        <a href=""><img src="../images/img/strategy/city/dunhuang.jpg" alt=""><div>敦煌</div></a>
-                        <a href=""><img src="../images/img/strategy/city/gaoxing.jpg" alt=""><div>高雄</div></a>
-                        <a href=""><img src="../images/img/strategy/city/guilin.jpg" alt=""><div>桂林</div></a>
-                        <a href=""><img src="../images/img/strategy/city/ningxia.jpg" alt=""><div>宁夏</div></a>
+                        <a href=""><img src="images/img/strategy/city/aomen.JPG" alt=""><div>澳门</div></a>
+                        <a href=""><img src="images/img/strategy/city/chongqing.jpg" alt=""><div>重庆</div></a>
+                        <a href=""><img src="images/img/strategy/city/dalian.jpg" alt=""><div>大连</div></a>
+                        <a href=""><img src="images/img/strategy/city/daocheng.JPG" alt=""><div>稻城</div></a>
+                        <a href=""><img src="images/img/strategy/city/dunhuang.jpg" alt=""><div>敦煌</div></a>
+                        <a href=""><img src="images/img/strategy/city/gaoxing.jpg" alt=""><div>高雄</div></a>
+                        <a href=""><img src="images/img/strategy/city/guilin.jpg" alt=""><div>桂林</div></a>
+                        <a href=""><img src="images/img/strategy/city/ningxia.jpg" alt=""><div>宁夏</div></a>
                         <br>
-                        <a href=""><img src="../images/img/strategy/city/guiyang.jpg" alt=""><div>贵阳</div></a>
-                        <a href=""><img src="../images/img/strategy/city/hangzhou.jpg" alt=""><div>杭州</div></a>
-                        <a href=""><img src="../images/img/strategy/city/hulunbeier.jpg" alt=""><div>呼伦贝尔</div></a>
-                        <a href=""><img src="../images/img/strategy/city/guilin.jpg" alt=""><div>吉林</div></a>
-                        <a href=""><img src="../images/img/strategy/city/lianyungang.jpg" alt=""><div>连云港</div></a>
-                        <a href=""><img src="../images/img/strategy/city/lijiang.JPG" alt=""><div>丽江</div></a>
-                        <a href=""><img src="../images/img/strategy/city/nanjing.jpg" alt=""><div>南京</div></a>
-                        <a href=""><img src="../images/img/strategy/city/ningbo.jpg" alt=""><div>宁波</div></a>
+                        <a href=""><img src="images/img/strategy/city/guiyang.jpg" alt=""><div>贵阳</div></a>
+                        <a href=""><img src="images/img/strategy/city/hangzhou.jpg" alt=""><div>杭州</div></a>
+                        <a href=""><img src="images/img/strategy/city/hulunbeier.jpg" alt=""><div>呼伦贝尔</div></a>
+                        <a href=""><img src="images/img/strategy/city/guilin.jpg" alt=""><div>吉林</div></a>
+                        <a href=""><img src="images/img/strategy/city/lianyungang.jpg" alt=""><div>连云港</div></a>
+                        <a href=""><img src="images/img/strategy/city/lijiang.JPG" alt=""><div>丽江</div></a>
+                        <a href=""><img src="images/img/strategy/city/nanjing.jpg" alt=""><div>南京</div></a>
+                        <a href=""><img src="images/img/strategy/city/ningbo.jpg" alt=""><div>宁波</div></a>
                     </div>
                 </div>
             </div>
@@ -374,7 +375,7 @@
                 <div>
                     热门目的地 <span> ● </span><span>走过多少地方 最美的还是这里</span>
                 </div>
-                <img src="../images/img/strategy/strategy-03.png" alt="">
+                <img src="images/img/strategy/strategy-03.png" alt="">
             </div>
             <div class="strategy-list-body localtion">
                 <div class="strategy-tabs">
@@ -385,23 +386,23 @@
                         <li><span>血拼购物</span> </li>
                     </ul>
                     <div class="tabs-body">
-                        <a href=""><img src="../images/img/strategy/city/pingyao.jpg" alt=""><div>平遥</div></a>
-                        <a href=""><img src="../images/img/strategy/city/rizhao.jpg" alt=""><div>日照</div></a>
-                        <a href=""><img src="../images/img/strategy/city/shanghai.jpg" alt=""><div>上海</div></a>
-                        <a href=""><img src="../images/img/strategy/city/suzhou.jpg" alt=""><div>苏州</div></a>
-                        <a href=""><img src="../images/img/strategy/city/taibei.jpg" alt=""><div>台北</div></a>
-                        <a href=""><img src="../images/img/strategy/city/weihai.jpg" alt=""><div>威海</div></a>
-                        <a href=""><img src="../images/img/strategy/city/wuxi.jpg" alt=""><div>无锡</div></a>
-                        <a href=""><img src="../images/img/strategy/city/wuzhen.jpg" alt=""><div>乌镇</div></a>
+                        <a href=""><img src="images/img/strategy/city/pingyao.jpg" alt=""><div>平遥</div></a>
+                        <a href=""><img src="images/img/strategy/city/rizhao.jpg" alt=""><div>日照</div></a>
+                        <a href=""><img src="images/img/strategy/city/shanghai.jpg" alt=""><div>上海</div></a>
+                        <a href=""><img src="images/img/strategy/city/suzhou.jpg" alt=""><div>苏州</div></a>
+                        <a href=""><img src="images/img/strategy/city/taibei.jpg" alt=""><div>台北</div></a>
+                        <a href=""><img src="images/img/strategy/city/weihai.jpg" alt=""><div>威海</div></a>
+                        <a href=""><img src="images/img/strategy/city/wuxi.jpg" alt=""><div>无锡</div></a>
+                        <a href=""><img src="images/img/strategy/city/wuzhen.jpg" alt=""><div>乌镇</div></a>
                         <br>
-                        <a href=""><img src="../images/img/strategy/city/xiamen.jpg" alt=""><div>厦门</div></a>
-                        <a href=""><img src="../images/img/strategy/city/xian.jpg" alt=""><div>西安</div></a>
-                        <a href=""><img src="../images/img/strategy/city/xianggang.JPG" alt=""><div>香港</div></a>
-                        <a href=""><img src="../images/img/strategy/city/xining.jpg" alt=""><div>西宁</div></a>
-                        <a href=""><img src="../images/img/strategy/city/yangshuo.jpg" alt=""><div>阳朔</div></a>
-                        <a href=""><img src="../images/img/strategy/city/yangzhou.jpg" alt=""><div>扬州</div></a>
-                        <a href=""><img src="../images/img/strategy/city/yili.JPG" alt=""><div>伊犁</div></a>
-                        <a href=""><img src="../images/img/strategy/city/zhangjiajie.jpg" alt=""><div>张家界</div></a>
+                        <a href=""><img src="images/img/strategy/city/xiamen.jpg" alt=""><div>厦门</div></a>
+                        <a href=""><img src="images/img/strategy/city/xian.jpg" alt=""><div>西安</div></a>
+                        <a href=""><img src="images/img/strategy/city/xianggang.JPG" alt=""><div>香港</div></a>
+                        <a href=""><img src="images/img/strategy/city/xining.jpg" alt=""><div>西宁</div></a>
+                        <a href=""><img src="images/img/strategy/city/yangshuo.jpg" alt=""><div>阳朔</div></a>
+                        <a href=""><img src="images/img/strategy/city/yangzhou.jpg" alt=""><div>扬州</div></a>
+                        <a href=""><img src="images/img/strategy/city/yili.JPG" alt=""><div>伊犁</div></a>
+                        <a href=""><img src="images/img/strategy/city/zhangjiajie.jpg" alt=""><div>张家界</div></a>
                     </div>
                 </div>
             </div>
@@ -422,11 +423,11 @@
         </div>
         <div class="i_downright">
             <div class='i_wechat'>
-                <img src="../images/icon/i_wechat_11.jpg" alt="">
+                <img src="images/icon/i_wechat_11.jpg" alt="">
                 <span>微信公众平台</span>
             </div>
             <div class="i_APP">
-                <img src="../images/icon/i_APP_11.jpg" alt="">
+                <img src="images/icon/i_APP_11.jpg" alt="">
                 <span>APP下载</span>
             </div>
         </div>
@@ -438,19 +439,19 @@
         <p><span class="i-footer-hui"></span>沪公网备310105020000xx号</p>
         <p>旅游违法行为举报电话12318 丨服务质量投诉电话 962020 丨<a href="#">北京市旅游网站落实诚信建设主体责任承诺书</a></p>
         <ul>
-            <li><a href="#"><img src="../images/icon/icon1126_11.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_13.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_15.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_17.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_19.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_21.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_23.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_25.jpg" height="32" width="128" alt=""></a></li>
-            <li><a href="#"><img src="../images/icon/icon1126_27.jpg" height="32" width="102" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_11.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_13.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_15.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_17.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_19.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_21.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_23.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_25.jpg" height="32" width="128" alt=""></a></li>
+            <li><a href="#"><img src="images/icon/icon1126_27.jpg" height="32" width="102" alt=""></a></li>
         </ul>
     </div>
 </div>
-<script src="index.js" type="text/javascript"></script>
+<script th:src="@{/js/strategyindex.js}" type="text/javascript"></script>
 <script>
     window.onload = function (e) {
         strategy.init();
