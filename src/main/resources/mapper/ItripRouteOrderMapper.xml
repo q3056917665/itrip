@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ItripRouteOrderMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.ItripRouteOrder">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="routeid" jdbcType="BIGINT" property="routeid" />
+    <result column="routeprice" jdbcType="DOUBLE" property="routeprice" />
+    <result column="flight_order_id" jdbcType="BIGINT" property="flightOrderId" />
+    <result column="flightprice" jdbcType="DOUBLE" property="flightprice" />
+    <result column="hotel_order_id" jdbcType="BIGINT" property="hotelOrderId" />
+    <result column="hotelprice" jdbcType="DOUBLE" property="hotelprice" />
+    <result column="allprice" jdbcType="DOUBLE" property="allprice" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from itrip_route_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.model.ItripRouteOrder">
+    insert into itrip_route_order (id, routeid, routeprice, 
+      flight_order_id, flightprice, hotel_order_id, 
+      hotelprice, allprice)
+    values (#{id,jdbcType=BIGINT}, #{routeid,jdbcType=BIGINT}, #{routeprice,jdbcType=DOUBLE}, 
+      #{flightOrderId,jdbcType=BIGINT}, #{flightprice,jdbcType=DOUBLE}, #{hotelOrderId,jdbcType=BIGINT}, 
+      #{hotelprice,jdbcType=DOUBLE}, #{allprice,jdbcType=DOUBLE})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripRouteOrder">
+    update itrip_route_order
+    set routeid = #{routeid,jdbcType=BIGINT},
+      routeprice = #{routeprice,jdbcType=DOUBLE},
+      flight_order_id = #{flightOrderId,jdbcType=BIGINT},
+      flightprice = #{flightprice,jdbcType=DOUBLE},
+      hotel_order_id = #{hotelOrderId,jdbcType=BIGINT},
+      hotelprice = #{hotelprice,jdbcType=DOUBLE},
+      allprice = #{allprice,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, routeid, routeprice, flight_order_id, flightprice, hotel_order_id, hotelprice, 
+    allprice
+    from itrip_route_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, routeid, routeprice, flight_order_id, flightprice, hotel_order_id, hotelprice, 
+    allprice
+    from itrip_route_order
+  </select>
+</mapper>

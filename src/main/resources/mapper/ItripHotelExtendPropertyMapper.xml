@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ItripHotelExtendPropertyMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.ItripHotelExtendProperty">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="hotelId" jdbcType="BIGINT" property="hotelid" />
+    <result column="extendPropertyId" jdbcType="BIGINT" property="extendpropertyid" />
+    <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
+    <result column="createdBy" jdbcType="BIGINT" property="createdby" />
+    <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
+    <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from itrip_hotel_extend_property
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.model.ItripHotelExtendProperty">
+    insert into itrip_hotel_extend_property (id, hotelId, extendPropertyId, 
+      creationDate, createdBy, modifyDate, 
+      modifiedBy)
+    values (#{id,jdbcType=BIGINT}, #{hotelid,jdbcType=BIGINT}, #{extendpropertyid,jdbcType=BIGINT}, 
+      #{creationdate,jdbcType=TIMESTAMP}, #{createdby,jdbcType=BIGINT}, #{modifydate,jdbcType=TIMESTAMP}, 
+      #{modifiedby,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripHotelExtendProperty">
+    update itrip_hotel_extend_property
+    set hotelId = #{hotelid,jdbcType=BIGINT},
+      extendPropertyId = #{extendpropertyid,jdbcType=BIGINT},
+      creationDate = #{creationdate,jdbcType=TIMESTAMP},
+      createdBy = #{createdby,jdbcType=BIGINT},
+      modifyDate = #{modifydate,jdbcType=TIMESTAMP},
+      modifiedBy = #{modifiedby,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, hotelId, extendPropertyId, creationDate, createdBy, modifyDate, modifiedBy
+    from itrip_hotel_extend_property
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, hotelId, extendPropertyId, creationDate, createdBy, modifyDate, modifiedBy
+    from itrip_hotel_extend_property
+  </select>
+</mapper>

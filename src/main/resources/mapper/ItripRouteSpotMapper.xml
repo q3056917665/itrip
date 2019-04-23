@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ItripRouteSpotMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.ItripRouteSpot">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="routeid" jdbcType="BIGINT" property="routeid" />
+    <result column="spotid" jdbcType="BIGINT" property="spotid" />
+    <result column="roomid" jdbcType="BIGINT" property="roomid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from itrip_route_spot
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.model.ItripRouteSpot">
+    insert into itrip_route_spot (id, routeid, spotid, 
+      roomid)
+    values (#{id,jdbcType=BIGINT}, #{routeid,jdbcType=BIGINT}, #{spotid,jdbcType=BIGINT}, 
+      #{roomid,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripRouteSpot">
+    update itrip_route_spot
+    set routeid = #{routeid,jdbcType=BIGINT},
+      spotid = #{spotid,jdbcType=BIGINT},
+      roomid = #{roomid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, routeid, spotid, roomid
+    from itrip_route_spot
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, routeid, spotid, roomid
+    from itrip_route_spot
+  </select>
+</mapper>

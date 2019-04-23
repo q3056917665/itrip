@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ItripCityNamePicturesMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.ItripCityNamePictures">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="city_pictures" jdbcType="VARCHAR" property="cityPictures" />
+    <result column="city_name" jdbcType="VARCHAR" property="cityName" />
+    <result column="mouth_id" jdbcType="INTEGER" property="mouthId" />
+    <result column="type_id" jdbcType="INTEGER" property="typeId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from itrip_city_name_pictures
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.model.ItripCityNamePictures">
+    insert into itrip_city_name_pictures (id, city_pictures, city_name, 
+      mouth_id, type_id)
+    values (#{id,jdbcType=INTEGER}, #{cityPictures,jdbcType=VARCHAR}, #{cityName,jdbcType=VARCHAR}, 
+      #{mouthId,jdbcType=INTEGER}, #{typeId,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripCityNamePictures">
+    update itrip_city_name_pictures
+    set city_pictures = #{cityPictures,jdbcType=VARCHAR},
+      city_name = #{cityName,jdbcType=VARCHAR},
+      mouth_id = #{mouthId,jdbcType=INTEGER},
+      type_id = #{typeId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, city_pictures, city_name, mouth_id, type_id
+    from itrip_city_name_pictures
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, city_pictures, city_name, mouth_id, type_id
+    from itrip_city_name_pictures
+  </select>
+</mapper>

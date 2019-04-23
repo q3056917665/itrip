@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ItripSpotMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.ItripSpot">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="urlImage" jdbcType="VARCHAR" property="urlimage" />
+    <result column="countryid" jdbcType="BIGINT" property="countryid" />
+    <result column="provinceid" jdbcType="BIGINT" property="provinceid" />
+    <result column="cityid" jdbcType="BIGINT" property="cityid" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="typeid" jdbcType="BIGINT" property="typeid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from itrip_spot
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.model.ItripSpot">
+    insert into itrip_spot (id, name, urlImage, 
+      countryid, provinceid, cityid, 
+      description, typeid)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{urlimage,jdbcType=VARCHAR}, 
+      #{countryid,jdbcType=BIGINT}, #{provinceid,jdbcType=BIGINT}, #{cityid,jdbcType=BIGINT}, 
+      #{description,jdbcType=VARCHAR}, #{typeid,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripSpot">
+    update itrip_spot
+    set name = #{name,jdbcType=VARCHAR},
+      urlImage = #{urlimage,jdbcType=VARCHAR},
+      countryid = #{countryid,jdbcType=BIGINT},
+      provinceid = #{provinceid,jdbcType=BIGINT},
+      cityid = #{cityid,jdbcType=BIGINT},
+      description = #{description,jdbcType=VARCHAR},
+      typeid = #{typeid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, name, urlImage, countryid, provinceid, cityid, description, typeid
+    from itrip_spot
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, urlImage, countryid, provinceid, cityid, description, typeid
+    from itrip_spot
+  </select>
+</mapper>

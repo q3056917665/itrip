@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ItripHctypeMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.ItripHctype">
+    <id column="hctype_id" jdbcType="INTEGER" property="hctypeId" />
+    <result column="hctype_name" jdbcType="VARCHAR" property="hctypeName" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from itrip_hctype
+    where hctype_id = #{hctypeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.it.model.ItripHctype">
+    insert into itrip_hctype (hctype_id, hctype_name)
+    values (#{hctypeId,jdbcType=INTEGER}, #{hctypeName,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.it.model.ItripHctype">
+    update itrip_hctype
+    set hctype_name = #{hctypeName,jdbcType=VARCHAR}
+    where hctype_id = #{hctypeId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select hctype_id, hctype_name
+    from itrip_hctype
+    where hctype_id = #{hctypeId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select hctype_id, hctype_name
+    from itrip_hctype
+  </select>
+</mapper>

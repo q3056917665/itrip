@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ItripHotelOrderMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.ItripHotelOrder">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="userId" jdbcType="BIGINT" property="userid" />
+    <result column="orderType" jdbcType="INTEGER" property="ordertype" />
+    <result column="orderNo" jdbcType="VARCHAR" property="orderno" />
+    <result column="tradeNo" jdbcType="VARCHAR" property="tradeno" />
+    <result column="hotelId" jdbcType="BIGINT" property="hotelid" />
+    <result column="hotelName" jdbcType="VARCHAR" property="hotelname" />
+    <result column="roomId" jdbcType="BIGINT" property="roomid" />
+    <result column="count" jdbcType="INTEGER" property="count" />
+    <result column="bookingDays" jdbcType="INTEGER" property="bookingdays" />
+    <result column="checkInDate" jdbcType="TIMESTAMP" property="checkindate" />
+    <result column="checkOutDate" jdbcType="TIMESTAMP" property="checkoutdate" />
+    <result column="orderStatus" jdbcType="INTEGER" property="orderstatus" />
+    <result column="payAmount" jdbcType="DECIMAL" property="payamount" />
+    <result column="payType" jdbcType="INTEGER" property="paytype" />
+    <result column="noticePhone" jdbcType="VARCHAR" property="noticephone" />
+    <result column="noticeEmail" jdbcType="VARCHAR" property="noticeemail" />
+    <result column="isNeedInvoice" jdbcType="INTEGER" property="isneedinvoice" />
+    <result column="invoiceType" jdbcType="INTEGER" property="invoicetype" />
+    <result column="invoiceHead" jdbcType="VARCHAR" property="invoicehead" />
+    <result column="linkUserName" jdbcType="VARCHAR" property="linkusername" />
+    <result column="bookType" jdbcType="INTEGER" property="booktype" />
+    <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
+    <result column="createdBy" jdbcType="BIGINT" property="createdby" />
+    <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
+    <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
+    <result column="specialRequirement" jdbcType="LONGVARCHAR" property="specialrequirement" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from itrip_hotel_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.model.ItripHotelOrder">
+    insert into itrip_hotel_order (id, userId, orderType, 
+      orderNo, tradeNo, hotelId, 
+      hotelName, roomId, count, 
+      bookingDays, checkInDate, checkOutDate, 
+      orderStatus, payAmount, payType, 
+      noticePhone, noticeEmail, isNeedInvoice, 
+      invoiceType, invoiceHead, linkUserName, 
+      bookType, creationDate, createdBy, 
+      modifyDate, modifiedBy, specialRequirement
+      )
+    values (#{id,jdbcType=BIGINT}, #{userid,jdbcType=BIGINT}, #{ordertype,jdbcType=INTEGER}, 
+      #{orderno,jdbcType=VARCHAR}, #{tradeno,jdbcType=VARCHAR}, #{hotelid,jdbcType=BIGINT}, 
+      #{hotelname,jdbcType=VARCHAR}, #{roomid,jdbcType=BIGINT}, #{count,jdbcType=INTEGER}, 
+      #{bookingdays,jdbcType=INTEGER}, #{checkindate,jdbcType=TIMESTAMP}, #{checkoutdate,jdbcType=TIMESTAMP}, 
+      #{orderstatus,jdbcType=INTEGER}, #{payamount,jdbcType=DECIMAL}, #{paytype,jdbcType=INTEGER}, 
+      #{noticephone,jdbcType=VARCHAR}, #{noticeemail,jdbcType=VARCHAR}, #{isneedinvoice,jdbcType=INTEGER}, 
+      #{invoicetype,jdbcType=INTEGER}, #{invoicehead,jdbcType=VARCHAR}, #{linkusername,jdbcType=VARCHAR}, 
+      #{booktype,jdbcType=INTEGER}, #{creationdate,jdbcType=TIMESTAMP}, #{createdby,jdbcType=BIGINT}, 
+      #{modifydate,jdbcType=TIMESTAMP}, #{modifiedby,jdbcType=BIGINT}, #{specialrequirement,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripHotelOrder">
+    update itrip_hotel_order
+    set userId = #{userid,jdbcType=BIGINT},
+      orderType = #{ordertype,jdbcType=INTEGER},
+      orderNo = #{orderno,jdbcType=VARCHAR},
+      tradeNo = #{tradeno,jdbcType=VARCHAR},
+      hotelId = #{hotelid,jdbcType=BIGINT},
+      hotelName = #{hotelname,jdbcType=VARCHAR},
+      roomId = #{roomid,jdbcType=BIGINT},
+      count = #{count,jdbcType=INTEGER},
+      bookingDays = #{bookingdays,jdbcType=INTEGER},
+      checkInDate = #{checkindate,jdbcType=TIMESTAMP},
+      checkOutDate = #{checkoutdate,jdbcType=TIMESTAMP},
+      orderStatus = #{orderstatus,jdbcType=INTEGER},
+      payAmount = #{payamount,jdbcType=DECIMAL},
+      payType = #{paytype,jdbcType=INTEGER},
+      noticePhone = #{noticephone,jdbcType=VARCHAR},
+      noticeEmail = #{noticeemail,jdbcType=VARCHAR},
+      isNeedInvoice = #{isneedinvoice,jdbcType=INTEGER},
+      invoiceType = #{invoicetype,jdbcType=INTEGER},
+      invoiceHead = #{invoicehead,jdbcType=VARCHAR},
+      linkUserName = #{linkusername,jdbcType=VARCHAR},
+      bookType = #{booktype,jdbcType=INTEGER},
+      creationDate = #{creationdate,jdbcType=TIMESTAMP},
+      createdBy = #{createdby,jdbcType=BIGINT},
+      modifyDate = #{modifydate,jdbcType=TIMESTAMP},
+      modifiedBy = #{modifiedby,jdbcType=BIGINT},
+      specialRequirement = #{specialrequirement,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, userId, orderType, orderNo, tradeNo, hotelId, hotelName, roomId, count, 
+    bookingDays, checkInDate, checkOutDate, orderStatus, payAmount, payType, noticePhone, 
+    noticeEmail, isNeedInvoice, invoiceType, invoiceHead, linkUserName, bookType, creationDate, 
+    createdBy, modifyDate, modifiedBy, specialRequirement
+    from itrip_hotel_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, userId, orderType, orderNo, tradeNo, hotelId, hotelName, roomId, count, 
+    bookingDays, checkInDate, checkOutDate, orderStatus, payAmount, payType, noticePhone, 
+    noticeEmail, isNeedInvoice, invoiceType, invoiceHead, linkUserName, bookType, creationDate, 
+    createdBy, modifyDate, modifiedBy, specialRequirement
+    from itrip_hotel_order
+  </select>
+</mapper>

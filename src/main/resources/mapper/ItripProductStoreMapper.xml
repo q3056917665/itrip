@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ItripProductStoreMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.ItripProductStore">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="productType" jdbcType="INTEGER" property="producttype" />
+    <result column="productId" jdbcType="BIGINT" property="productid" />
+    <result column="store" jdbcType="INTEGER" property="store" />
+    <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
+    <result column="createdBy" jdbcType="BIGINT" property="createdby" />
+    <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
+    <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from itrip_product_store
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.model.ItripProductStore">
+    insert into itrip_product_store (id, productType, productId, 
+      store, creationDate, createdBy, 
+      modifyDate, modifiedBy)
+    values (#{id,jdbcType=BIGINT}, #{producttype,jdbcType=INTEGER}, #{productid,jdbcType=BIGINT}, 
+      #{store,jdbcType=INTEGER}, #{creationdate,jdbcType=TIMESTAMP}, #{createdby,jdbcType=BIGINT}, 
+      #{modifydate,jdbcType=TIMESTAMP}, #{modifiedby,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripProductStore">
+    update itrip_product_store
+    set productType = #{producttype,jdbcType=INTEGER},
+      productId = #{productid,jdbcType=BIGINT},
+      store = #{store,jdbcType=INTEGER},
+      creationDate = #{creationdate,jdbcType=TIMESTAMP},
+      createdBy = #{createdby,jdbcType=BIGINT},
+      modifyDate = #{modifydate,jdbcType=TIMESTAMP},
+      modifiedBy = #{modifiedby,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, productType, productId, store, creationDate, createdBy, modifyDate, modifiedBy
+    from itrip_product_store
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, productType, productId, store, creationDate, createdBy, modifyDate, modifiedBy
+    from itrip_product_store
+  </select>
+</mapper>

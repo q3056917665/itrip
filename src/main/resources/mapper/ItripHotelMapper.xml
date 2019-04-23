@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ItripHotelMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.ItripHotel">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="hotelName" jdbcType="VARCHAR" property="hotelname" />
+    <result column="countryId" jdbcType="BIGINT" property="countryid" />
+    <result column="provinceId" jdbcType="BIGINT" property="provinceid" />
+    <result column="cityId" jdbcType="BIGINT" property="cityid" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="hotelType" jdbcType="INTEGER" property="hoteltype" />
+    <result column="hotelLevel" jdbcType="INTEGER" property="hotellevel" />
+    <result column="isGroupPurchase" jdbcType="INTEGER" property="isgrouppurchase" />
+    <result column="redundantCityName" jdbcType="VARCHAR" property="redundantcityname" />
+    <result column="redundantProvinceName" jdbcType="VARCHAR" property="redundantprovincename" />
+    <result column="redundantCountryName" jdbcType="VARCHAR" property="redundantcountryname" />
+    <result column="redundantHotelStore" jdbcType="INTEGER" property="redundanthotelstore" />
+    <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
+    <result column="createdBy" jdbcType="BIGINT" property="createdby" />
+    <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
+    <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
+    <result column="details" jdbcType="LONGVARCHAR" property="details" />
+    <result column="facilities" jdbcType="LONGVARCHAR" property="facilities" />
+    <result column="hotelPolicy" jdbcType="LONGVARCHAR" property="hotelpolicy" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from itrip_hotel
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.model.ItripHotel">
+    insert into itrip_hotel (id, hotelName, countryId, 
+      provinceId, cityId, address, 
+      hotelType, hotelLevel, isGroupPurchase, 
+      redundantCityName, redundantProvinceName, 
+      redundantCountryName, redundantHotelStore, 
+      creationDate, createdBy, modifyDate, 
+      modifiedBy, details, facilities, 
+      hotelPolicy)
+    values (#{id,jdbcType=BIGINT}, #{hotelname,jdbcType=VARCHAR}, #{countryid,jdbcType=BIGINT}, 
+      #{provinceid,jdbcType=BIGINT}, #{cityid,jdbcType=BIGINT}, #{address,jdbcType=VARCHAR}, 
+      #{hoteltype,jdbcType=INTEGER}, #{hotellevel,jdbcType=INTEGER}, #{isgrouppurchase,jdbcType=INTEGER}, 
+      #{redundantcityname,jdbcType=VARCHAR}, #{redundantprovincename,jdbcType=VARCHAR}, 
+      #{redundantcountryname,jdbcType=VARCHAR}, #{redundanthotelstore,jdbcType=INTEGER}, 
+      #{creationdate,jdbcType=TIMESTAMP}, #{createdby,jdbcType=BIGINT}, #{modifydate,jdbcType=TIMESTAMP}, 
+      #{modifiedby,jdbcType=BIGINT}, #{details,jdbcType=LONGVARCHAR}, #{facilities,jdbcType=LONGVARCHAR}, 
+      #{hotelpolicy,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripHotel">
+    update itrip_hotel
+    set hotelName = #{hotelname,jdbcType=VARCHAR},
+      countryId = #{countryid,jdbcType=BIGINT},
+      provinceId = #{provinceid,jdbcType=BIGINT},
+      cityId = #{cityid,jdbcType=BIGINT},
+      address = #{address,jdbcType=VARCHAR},
+      hotelType = #{hoteltype,jdbcType=INTEGER},
+      hotelLevel = #{hotellevel,jdbcType=INTEGER},
+      isGroupPurchase = #{isgrouppurchase,jdbcType=INTEGER},
+      redundantCityName = #{redundantcityname,jdbcType=VARCHAR},
+      redundantProvinceName = #{redundantprovincename,jdbcType=VARCHAR},
+      redundantCountryName = #{redundantcountryname,jdbcType=VARCHAR},
+      redundantHotelStore = #{redundanthotelstore,jdbcType=INTEGER},
+      creationDate = #{creationdate,jdbcType=TIMESTAMP},
+      createdBy = #{createdby,jdbcType=BIGINT},
+      modifyDate = #{modifydate,jdbcType=TIMESTAMP},
+      modifiedBy = #{modifiedby,jdbcType=BIGINT},
+      details = #{details,jdbcType=LONGVARCHAR},
+      facilities = #{facilities,jdbcType=LONGVARCHAR},
+      hotelPolicy = #{hotelpolicy,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, hotelName, countryId, provinceId, cityId, address, hotelType, hotelLevel, 
+    isGroupPurchase, redundantCityName, redundantProvinceName, redundantCountryName, 
+    redundantHotelStore, creationDate, createdBy, modifyDate, modifiedBy, details, facilities, 
+    hotelPolicy
+    from itrip_hotel
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, hotelName, countryId, provinceId, cityId, address, hotelType, hotelLevel, 
+    isGroupPurchase, redundantCityName, redundantProvinceName, redundantCountryName, 
+    redundantHotelStore, creationDate, createdBy, modifyDate, modifiedBy, details, facilities, 
+    hotelPolicy
+    from itrip_hotel
+  </select>
+</mapper>

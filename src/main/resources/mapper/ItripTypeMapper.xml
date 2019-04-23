@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ItripTypeMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.ItripType">
+    <id column="type_id" jdbcType="BIGINT" property="typeId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="parentid" jdbcType="BIGINT" property="parentid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from itrip_type
+    where type_id = #{typeId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.model.ItripType">
+    insert into itrip_type (type_id, name, description, 
+      parentid)
+    values (#{typeId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{parentid,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripType">
+    update itrip_type
+    set name = #{name,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      parentid = #{parentid,jdbcType=BIGINT}
+    where type_id = #{typeId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select type_id, name, description, parentid
+    from itrip_type
+    where type_id = #{typeId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select type_id, name, description, parentid
+    from itrip_type
+  </select>
+</mapper>

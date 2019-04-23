@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ItripCommentMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.ItripComment">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="hotelId" jdbcType="BIGINT" property="hotelid" />
+    <result column="productId" jdbcType="BIGINT" property="productid" />
+    <result column="orderId" jdbcType="BIGINT" property="orderid" />
+    <result column="productType" jdbcType="INTEGER" property="producttype" />
+    <result column="userId" jdbcType="BIGINT" property="userid" />
+    <result column="isHavingImg" jdbcType="INTEGER" property="ishavingimg" />
+    <result column="positionScore" jdbcType="INTEGER" property="positionscore" />
+    <result column="facilitiesScore" jdbcType="INTEGER" property="facilitiesscore" />
+    <result column="serviceScore" jdbcType="INTEGER" property="servicescore" />
+    <result column="hygieneScore" jdbcType="INTEGER" property="hygienescore" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="tripMode" jdbcType="BIGINT" property="tripmode" />
+    <result column="isOk" jdbcType="INTEGER" property="isok" />
+    <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
+    <result column="createdBy" jdbcType="BIGINT" property="createdby" />
+    <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
+    <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from itrip_comment
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.model.ItripComment">
+    insert into itrip_comment (id, hotelId, productId, 
+      orderId, productType, userId, 
+      isHavingImg, positionScore, facilitiesScore, 
+      serviceScore, hygieneScore, score, 
+      tripMode, isOk, creationDate, 
+      createdBy, modifyDate, modifiedBy, 
+      content)
+    values (#{id,jdbcType=BIGINT}, #{hotelid,jdbcType=BIGINT}, #{productid,jdbcType=BIGINT}, 
+      #{orderid,jdbcType=BIGINT}, #{producttype,jdbcType=INTEGER}, #{userid,jdbcType=BIGINT}, 
+      #{ishavingimg,jdbcType=INTEGER}, #{positionscore,jdbcType=INTEGER}, #{facilitiesscore,jdbcType=INTEGER}, 
+      #{servicescore,jdbcType=INTEGER}, #{hygienescore,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}, 
+      #{tripmode,jdbcType=BIGINT}, #{isok,jdbcType=INTEGER}, #{creationdate,jdbcType=TIMESTAMP}, 
+      #{createdby,jdbcType=BIGINT}, #{modifydate,jdbcType=TIMESTAMP}, #{modifiedby,jdbcType=BIGINT}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripComment">
+    update itrip_comment
+    set hotelId = #{hotelid,jdbcType=BIGINT},
+      productId = #{productid,jdbcType=BIGINT},
+      orderId = #{orderid,jdbcType=BIGINT},
+      productType = #{producttype,jdbcType=INTEGER},
+      userId = #{userid,jdbcType=BIGINT},
+      isHavingImg = #{ishavingimg,jdbcType=INTEGER},
+      positionScore = #{positionscore,jdbcType=INTEGER},
+      facilitiesScore = #{facilitiesscore,jdbcType=INTEGER},
+      serviceScore = #{servicescore,jdbcType=INTEGER},
+      hygieneScore = #{hygienescore,jdbcType=INTEGER},
+      score = #{score,jdbcType=INTEGER},
+      tripMode = #{tripmode,jdbcType=BIGINT},
+      isOk = #{isok,jdbcType=INTEGER},
+      creationDate = #{creationdate,jdbcType=TIMESTAMP},
+      createdBy = #{createdby,jdbcType=BIGINT},
+      modifyDate = #{modifydate,jdbcType=TIMESTAMP},
+      modifiedBy = #{modifiedby,jdbcType=BIGINT},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, hotelId, productId, orderId, productType, userId, isHavingImg, positionScore, 
+    facilitiesScore, serviceScore, hygieneScore, score, tripMode, isOk, creationDate, 
+    createdBy, modifyDate, modifiedBy, content
+    from itrip_comment
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, hotelId, productId, orderId, productType, userId, isHavingImg, positionScore, 
+    facilitiesScore, serviceScore, hygieneScore, score, tripMode, isOk, creationDate, 
+    createdBy, modifyDate, modifiedBy, content
+    from itrip_comment
+  </select>
+</mapper>
