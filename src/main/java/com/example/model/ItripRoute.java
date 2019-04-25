@@ -1,6 +1,8 @@
 package com.example.model;
 
-public class ItripRoute {
+import java.io.Serializable;
+
+public class ItripRoute implements Serializable {
     private Long id;
 
     private String name;

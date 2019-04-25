@@ -1,6 +1,8 @@
 package com.example.model;
 
-public class ItripSpot {
+import java.io.Serializable;
+
+public class ItripSpot implements Serializable {
     private Long id;
 
     private String name;

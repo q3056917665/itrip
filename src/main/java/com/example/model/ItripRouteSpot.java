@@ -1,6 +1,8 @@
 package com.example.model;
 
-public class ItripRouteSpot {
+import java.io.Serializable;
+
+public class ItripRouteSpot implements Serializable {
     private Long id;
 
     private Long routeid;

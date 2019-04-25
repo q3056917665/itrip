@@ -1,6 +1,8 @@
 package com.example.model;
 
-public class ItripTradeEnds {
+import java.io.Serializable;
+
+public class ItripTradeEnds implements Serializable {
     private Long id;
 
     private String orderno;

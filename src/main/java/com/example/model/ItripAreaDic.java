@@ -2,7 +2,7 @@ package com.example.model;
 
 import java.util.Date;
 
-public class ItripAreaDic {
+public class ItripAreaDic{
     private Long id;
 
     private String name;

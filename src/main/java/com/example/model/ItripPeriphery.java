@@ -1,6 +1,8 @@
 package com.example.model;
 
-public class ItripPeriphery {
+import java.io.Serializable;
+
+public class ItripPeriphery implements Serializable {
     private Long id;
 
     private Integer currentId;

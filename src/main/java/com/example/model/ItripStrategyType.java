@@ -1,6 +1,8 @@
 package com.example.model;
 
-public class ItripStrategyType {
+import java.io.Serializable;
+
+public class ItripStrategyType implements Serializable {
     private Integer id;
 
     private String name;

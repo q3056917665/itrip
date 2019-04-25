@@ -1,6 +1,8 @@
 package com.example.model;
 
-public class ItripMouth {
+import java.io.Serializable;
+
+public class ItripMouth implements Serializable {
     private Integer id;
 
     private String monthName;

@@ -1,6 +1,8 @@
 package com.example.model;
 
-public class ItripAviation {
+import java.io.Serializable;
+
+public class ItripAviation implements Serializable {
     private Integer aviationId;
 
     private String aviationName;

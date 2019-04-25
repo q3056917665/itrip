@@ -1,9 +1,10 @@
 package com.example.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class ItripHotelRoom {
+public class ItripHotelRoom implements Serializable {
     private Long id;
 
     private Long hotelid;
