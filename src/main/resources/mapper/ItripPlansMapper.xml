@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ItripPlansMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.ItripPlans">
+    <id column="plan_id" jdbcType="INTEGER" property="planId" />
+    <result column="plan_name" jdbcType="VARCHAR" property="planName" />
+    <result column="plan_out" jdbcType="TIMESTAMP" property="planOut" />
+    <result column="plan_arrive" jdbcType="TIMESTAMP" property="planArrive" />
+    <result column="plan_address" jdbcType="VARCHAR" property="planAddress" />
+    <result column="plan_destination" jdbcType="VARCHAR" property="planDestination" />
+    <result column="plan_punctualityrate" jdbcType="VARCHAR" property="planPunctualityrate" />
+    <result column="aviation_id" jdbcType="INTEGER" property="aviationId" />
+    <result column="type_id" jdbcType="INTEGER" property="typeId" />
+    <result column="shipping_id" jdbcType="INTEGER" property="shippingId" />
+    <result column="Take_id" jdbcType="INTEGER" property="takeId" />
+    <result column="hctype_id" jdbcType="INTEGER" property="hctypeId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from itrip_plans
+    where plan_id = #{planId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.model.ItripPlans">
+    insert into itrip_plans (plan_id, plan_name, plan_out, 
+      plan_arrive, plan_address, plan_destination, 
+      plan_punctualityrate, aviation_id, type_id, 
+      shipping_id, Take_id, hctype_id
+      )
+    values (#{planId,jdbcType=INTEGER}, #{planName,jdbcType=VARCHAR}, #{planOut,jdbcType=TIMESTAMP}, 
+      #{planArrive,jdbcType=TIMESTAMP}, #{planAddress,jdbcType=VARCHAR}, #{planDestination,jdbcType=VARCHAR}, 
+      #{planPunctualityrate,jdbcType=VARCHAR}, #{aviationId,jdbcType=INTEGER}, #{typeId,jdbcType=INTEGER}, 
+      #{shippingId,jdbcType=INTEGER}, #{takeId,jdbcType=INTEGER}, #{hctypeId,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripPlans">
+    update itrip_plans
+    set plan_name = #{planName,jdbcType=VARCHAR},
+      plan_out = #{planOut,jdbcType=TIMESTAMP},
+      plan_arrive = #{planArrive,jdbcType=TIMESTAMP},
+      plan_address = #{planAddress,jdbcType=VARCHAR},
+      plan_destination = #{planDestination,jdbcType=VARCHAR},
+      plan_punctualityrate = #{planPunctualityrate,jdbcType=VARCHAR},
+      aviation_id = #{aviationId,jdbcType=INTEGER},
+      type_id = #{typeId,jdbcType=INTEGER},
+      shipping_id = #{shippingId,jdbcType=INTEGER},
+      Take_id = #{takeId,jdbcType=INTEGER},
+      hctype_id = #{hctypeId,jdbcType=INTEGER}
+    where plan_id = #{planId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select plan_id, plan_name, plan_out, plan_arrive, plan_address, plan_destination, 
+    plan_punctualityrate, aviation_id, type_id, shipping_id, Take_id, hctype_id
+    from itrip_plans
+    where plan_id = #{planId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select plan_id, plan_name, plan_out, plan_arrive, plan_address, plan_destination, 
+    plan_punctualityrate, aviation_id, type_id, shipping_id, Take_id, hctype_id
+    from itrip_plans
+  </select>
+</mapper>
