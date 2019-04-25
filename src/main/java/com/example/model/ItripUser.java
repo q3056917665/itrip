@@ -153,4 +153,22 @@ public class ItripUser implements Serializable {
     public void setActivated(Integer activated) {
         this.activated = activated;
     }
+
+    public ItripUser(Long id, String usercode, String userpassword, String username, Integer activated) {
+        this.id = id;
+        this.usercode = usercode;
+        this.userpassword = userpassword;
+        this.username = username;
+        this.activated = activated;
+    }
+
+    public ItripUser(String usercode, String userpassword, String username, Integer activated) {
+        this.usercode = usercode;
+        this.userpassword = userpassword;
+        this.username = username;
+        this.activated = activated;
+    }
+
+    public ItripUser() {
+    }
 }
