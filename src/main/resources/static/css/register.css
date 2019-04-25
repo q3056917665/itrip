@@ -90,7 +90,7 @@ section{
 	text-indent: 16px;
 }
 .i_check input {
-	width: 120px;
+	width: 180px;
 }
 .i_check_in {
 	display: inline-block;
@@ -112,7 +112,7 @@ section{
 	cursor: pointer;
 }
 .i_lives input {
-	width: 120px;
+	width: 180px;
 }
 .i_lives a {
 	display: inline-block;

@@ -13,4 +13,8 @@ public interface ItripCityNamePicturesMapper {
     List<ItripCityNamePictures> selectAll();
 
     int updateByPrimaryKey(ItripCityNamePictures record);
+
+    List<ItripCityNamePictures> selctAllByMouthId(Integer mouthId);
+
+    List<ItripCityNamePictures> selctAllByTypeId(Integer typeId);
 }

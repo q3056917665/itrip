@@ -1,8 +1,9 @@
 package com.example.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ItripAreaDic {
+public class ItripAreaDic implements Serializable {
     private Long id;
 
     private String name;

@@ -1,5 +1,4 @@
 package com.example.dao;
-
 import com.example.model.ItripUser;
 import java.util.List;
 
@@ -13,4 +12,10 @@ public interface ItripUserMapper {
     List<ItripUser> selectAll();
 
     int updateByPrimaryKey(ItripUser record);
+
+    int register(ItripUser itripUser);
+
+    int selectCzEmail(String userCode);
+
+    ItripUser login(ItripUser itripUser);
 }

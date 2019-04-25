@@ -1,8 +1,9 @@
 package com.example.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ItripHotel {
+public class ItripHotel implements Serializable {
     private Long id;
 
     private String hotelname;

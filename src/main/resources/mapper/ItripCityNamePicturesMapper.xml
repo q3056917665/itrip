@@ -35,4 +35,14 @@
     select id, city_pictures, city_name, mouth_id, type_id
     from itrip_city_name_pictures
   </select>
+
+  <select id="selctAllByMouthId" resultMap="BaseResultMap">
+    select * from itrip_city_name_pictures
+    where mouth_id= #{mouthId,jdbcType=INTEGER}
+  </select>
+
+  <select id="selctAllByTypeId" resultMap="BaseResultMap">
+    select * from itrip_city_name_pictures
+    where type_id= #{typeId,jdbcType=INTEGER}
+  </select>
 </mapper>

@@ -1,6 +1,8 @@
 package com.example.model;
 
-public class ItripGuarantee {
+import java.io.Serializable;
+
+public class ItripGuarantee implements Serializable {
     private Long id;
 
     private String name;

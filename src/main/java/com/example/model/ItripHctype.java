@@ -1,6 +1,8 @@
 package com.example.model;
 
-public class ItripHctype {
+import java.io.Serializable;
+
+public class ItripHctype implements Serializable {
     private Integer hctypeId;
 
     private String hctypeName;

@@ -14,7 +14,7 @@ function autoPlay(){
 		}
 		i_circle.eq(num).addClass( 'cur' ).siblings().removeClass('cur');
 		i_banner.eq(num).fadeIn(600).siblings().fadeOut();
-	},3000 );
+	},1500 );
 }
 //调用自动轮播
 autoPlay();

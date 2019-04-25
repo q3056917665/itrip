@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>i 旅行-登录</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-reboot.css}">
+    <link rel="shortcut icon" type="image/x-icon"  th:href="@{/images/favicon.ico}">
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-theme.css}">
+    <link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.css}">
+    <script type="text/javascript" th:src="@{/js/jquery-1.8.3.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.bundle.js}"></script>
+    <script type="text/javascript" th:src="@{/js/login.js}"></script>
+    <script type="text/javascript" th:src="@{/js/common.js}" ></script>
+    <script type="text/javascript" th:src="@{/js/util.js}"></script>
+    <script type="text/javascript" th:src="@{/lib/html5shiv.min.js}"></script>
+    <script type="text/javascript" th:src="@{/lib/respond.min.js}"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            huanCode();
+            $('.i-reg-top label').click(function (event) {
+                event.stopPropagation();
+                var index = $(this).index();
+                $('.i-reg-bottom').eq(index).addClass('cur').siblings().removeClass('cur');
+            });
+        })
+
+        function idCode() {
+            var arr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+            var str = '';
+            for (var i = 0; i < 4; i++)
+                str += '' + arr[Math.floor(Math.random() * arr.length)];
+            return str;
+        }
+
+        $('.i_check_in').html(idCode());
+
+        function huanCode() {
+            $('.i_check_in').html(idCode());
+        }
+
+
+        function submitByLogin() {
+            var loginCode=$("#loginCode").val();
+            var yzm=$(".i_check_in").html();
+            if(loginCode==""){
+                alert("请输入验证码!");
+            }else{
+                if(loginCode==yzm){
+                    $.ajax({
+                        cache:false,
+                        type:'POST',
+                        url:'user/login',
+                        data: $('.form-horizontal').serialize(),
+                        error:function () {
+                            alert("与服务器断开连接");
+                        },
+                        success:function (str) {
+                            if(str=="1"){
+                                window.location.href='indexHtml';
+                                alert("登录成功!欢迎使用本系统!");
+                            }else if(str=="0"){
+                                window.location.href='loginHtml';
+                                alert("登录失败!请重新登录!");
+                            }else if(str=="00"){
+                                window.location.href='loginHtml';
+                                alert("账号或密码错误不能为null,请重新登录!");
+                            }
+                        }
+                    })
+                }else{
+                    alert("验证码错误!");
+                }
+            }
+            }
+    </script>
+</head>
+<body>
+<div class="travel-login">
+    <header>
+        <img th:src="@{/images/img/i-LOGO-02-01.png}">
+    </header>
+    <section>
+        <div class="left-phone">
+            <img th:src="@{/images/img/left-phone.png}">
+        </div>
+        <div class="right-message">
+            使用<img th:src="@{/images/img/i-LOGO-02-01.png}">客户端<br>
+            手机扫描安全登录
+        </div>
+        <div class="right-message gray">
+            1. 打开手机i旅行客户端并登录i旅行账号<br>
+            2. 在i旅行登录页点击右上角扫码安全登录<br>
+            3. 使用i旅行客户端左上角扫描功能完成登录<br>
+        </div>
+    </section>
+    <aside>
+        <div class="login-header">
+            <div>
+                <span>会员登录</span>&nbsp;&nbsp;&nbsp;<a href="registerHtml"> 立即注册</a>，享积分换礼、返现等专属优惠！
+            </div>
+            <span class="right-erweima "></span>
+        </div>
+        <div class="login-body">
+            <div id="staticOption">
+                <form class="form-horizontal" onsubmit="return false" action="##">
+                    <fieldset>
+                        <div class="form-group col-sm-12 margin-bt-30">
+                            <div class="controls" id="selectShowType">
+                                <!-- Inline Radios -->
+                                <label class="radio inline col-sm-4 " style="font-size:18px;">
+                                    <input type="radio" class="ie-input-button margin-left-79 " value="1" name="group"
+                                           checked="checked">
+                                    普通登录
+                                </label>
+                                <label class="radio inline col-sm-4" style="font-size:18px;">
+                                    <input type="radio" class="ie-input-button" value="2" name="group">
+                                    手机动态密码登录
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group margin-left-100">
+                            <div class="input-group input-group-lg col-sm-9">
+                                <span class="input-group-addon" style="width:50px;height:50px;border: 1px solid lightblue"><i class="fa fa-user" style="color:lightslategrey;  font-size:25px;margin-top: 10px;"></i></span>
+                                <input type="text" id="usercode" name="usercode" class="form-control ie-input" style="height: 35px;"
+                                       placeholder="请输入注册手机/注册邮箱">
+                            </div>
+                        </div>
+
+                        <div class="form-group margin-left-100">
+                            <div class="input-group input-group-lg col-sm-9">
+                                <span class="input-group-addon" style="width:50px;height:50px;border: 1px solid lightblue"><i class="fa fa-unlock" style="color:lightslategrey;font-size:25px;margin-top: 10px;"></i></span>
+                                <input type="password" name="userPassword" id="userpassword" class="form-control ie-input" placeholder="请输入密码" style="height: 35px">
+                            </div>
+                        </div>
+                        <div id="actionPass" class="form-group  margin-left-100 " style="display: none;">
+                            <div class="controls col-sm-9">
+                                <button class="btn btn-warning form-control" style="width: 270px;">获取验证码</button>
+                            </div>
+                        </div>
+                        <div id="staticPass" class="form-group margin-left-89">
+                            <div class="controls input-group-lg col-sm-4 " style="margin-left:100px;">
+                                <input type="text" id="loginCode" class="form-control ie-input input-xlarge search-query" placeholder="验证码" style="width: 120px;height: 35px">
+                                <p class="help-block"></p>
+                                <div class="i_check" style="display:inline-block;float: right;margin-right:-130px;margin-top:-50px;">
+                                    <span class="yzmUUID"></span>
+                                    <div class="i_check_in"></div><div style="display: inline-block;margin-top: 20px;float: right;margin-right: -80px;"><i class="idCode">&nbsp;<a href="javascript:void(0);" onclick="huanCode()" style="font-size: 18px;">换一张</a></i></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group margin-left-100 " style="font-size: 15px;">
+                            <div class="controls  col-sm-5" style="display: inline-block;margin-left: -50px;">
+                                <label class="checkbox inline">
+                                    <input type="checkbox" class="ie-input-button" value="30天内自动登录">
+                                    30天内自动登录
+                                </label>
+                            </div>
+                            <div class="controls  col-sm-4" style="display: inline-block">
+                                <label class="checkbox inline">
+                                    忘记密码?
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group margin-left-100 " id="showErrorMessage" style="display: none;">
+                            <div class="controls  col-sm-9">
+                                <label class="checkbox inline show-message">
+                                    <i class="icon-exclamation-sign"></i>&nbsp;&nbsp;
+                                    <div id="promptMessage" style="display: inline-block;">请输入注册手机或邮箱</div>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <button class="btn btn-danger" style="margin-left:30px;width:270px;" onclick="submitByLogin();">登录</button>
+                </form>
+            </div>
+            <div id="actionOption"  style="display: none;">
+                <!--<div class="phone-erweima"></div>-->
+                <img th:src="@{/images/img/phone-erwema.png}" class="phone-erweima">
+                <img th:src="@{/images/img/richScan.png}" class="phone-richScan" >
+                <img th:src="@{/images/img/erweima_1126.jpg}" style="width: 350px;">
+            </div>
+        </div>
+        <div class="login-footer">
+            <div class="footer-message">
+                您也可以用合作网站的帐号登录去i旅行网
+            </div>
+            <div class="footer-label">
+                <a><img th:src="@{/images/img/icon-sina.png}"> 新浪微博</a>
+                <a><img th:src="@{/images/img/icon-QQ.png}">QQ</a>
+                <a><img th:src="@{/images/img/icon-Wechat.png}">微信</a>
+                <a><img th:src="@{/images/img/icon-Baidu.png}">百度</a>
+            </div>
+        </div>
+
+    </aside>
+    <footer><!-- footer开始 -->
+        <div class="i-footer clearfix">
+            <div class="i-footer-wrap">
+                <p>Copyright©1999-2016, ctrip.com. All rights reserved. | <a href="#">ICP证：沪B2</a></p>
+                <p><span class="i-footer-hui"></span>沪公网备310105020000xx号</p>
+                <p>旅游违法行为举报电话12318 丨服务质量投诉电话 962020 丨<a href="#">北京市旅游网站落实诚信建设主体责任承诺书</a></p>
+                <ul>
+                    <li><a href="#"><img th:src="@{/images/icon/icon1126_11.jpg}" height="32" width="88" alt=""></a></li>
+                    <li><a href="#"><img th:src="@{/images/icon/icon1126_13.jpg}" height="32" width="88" alt=""></a></li>
+                    <li><a href="#"><img th:src="@{/images/icon/icon1126_15.jpg}" height="32" width="88" alt=""></a></li>
+                    <li><a href="#"><img th:src="@{/images/icon/icon1126_17.jpg}" height="32" width="88" alt=""></a></li>
+                    <li><a href="#"><img th:src="@{/images/icon/icon1126_19.jpg}" height="32" width="88" alt=""></a></li>
+                    <li><a href="#"><img th:src="@{/images/icon/icon1126_21.jpg}" height="32" width="88" alt=""></a></li>
+                    <li><a href="#"><img th:src="@{/images/icon/icon1126_23.jpg}" height="32" width="88" alt=""></a></li>
+                    <li><a href="#"><img th:src="@{/images/icon/icon1126_25.jpg}" height="32" width="128" alt=""></a></li>
+                    <li><a href="#"><img th:src="@{/images/icon/icon1126_27.jpg}" height="32" width="102" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- footer结束 -->
+    </footer>
+</div>
+
+<script>
+    var isIE = !!window.ActiveXObject;
+    var isIE6 = isIE && !window.XMLHttpRequest;
+    var isIE8 = isIE && !!document.documentMode;
+    var isIE7 = isIE && !isIE6 && !isIE8;
+    var style = "  <style> .ie-input{ height: 45px !important;  } " +
+            ".ie-input-button{height: 23px !important;}</style>";
+    if (isIE) {
+        document.write(style);
+    }
+</script>
+</body>
+</html>

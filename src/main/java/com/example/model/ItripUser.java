@@ -1,8 +1,9 @@
 package com.example.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ItripUser {
+public class ItripUser implements Serializable {
     private Long id;
 
     private String usercode;
@@ -151,5 +152,23 @@ public class ItripUser {
 
     public void setActivated(Integer activated) {
         this.activated = activated;
+    }
+
+    public ItripUser(Long id, String usercode, String userpassword, String username, Integer activated) {
+        this.id = id;
+        this.usercode = usercode;
+        this.userpassword = userpassword;
+        this.username = username;
+        this.activated = activated;
+    }
+
+    public ItripUser(String usercode, String userpassword, String username, Integer activated) {
+        this.usercode = usercode;
+        this.userpassword = userpassword;
+        this.username = username;
+        this.activated = activated;
+    }
+
+    public ItripUser() {
     }
 }

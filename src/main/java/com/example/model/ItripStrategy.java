@@ -1,6 +1,8 @@
 package com.example.model;
 
-public class ItripStrategy {
+import java.io.Serializable;
+
+public class ItripStrategy implements Serializable {
     private Integer id;
 
     private Integer routeId;

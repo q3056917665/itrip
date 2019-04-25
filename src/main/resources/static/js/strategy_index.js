@@ -19,7 +19,7 @@ var strategy = {
         var i_banner = $('.banner_list li');
         var i=5;
         $("a",i_banner).each(function (e) {
-            this.style.background="url(../images/img/strategy/strategy-0"+i+".jpg)";
+            this.style.background="url(./images/img/strategy/strategy-0"+i+".jpg)";
             i++;
         });
 // 自动轮播
@@ -31,7 +31,7 @@ var strategy = {
                 }
                 i_circle.eq(num).addClass('cur').siblings().removeClass('cur');
                 i_banner.eq(num).fadeIn(60).siblings().fadeOut();
-            }, 3000);
+            },1500);
         }
 
 //调用自动轮播
@@ -539,5 +539,5 @@ var strategy = {
 //
 //调转页面
 $(".strategy").click(function(){
-    self.location='../methodDetail.html'; 
+    self.location='methodDetailHtml';
 })
