@@ -1,3 +1,4 @@
+
 .travel-login {
   margin: auto;
   width: 1200px;
@@ -110,7 +111,7 @@
   margin-left: 100px;
 }
 .travel-login aside .login-body .margin-left-89 {
-  margin-left: 86px;
+  margin-left: 0px;
 }
 .travel-login aside .login-body .margin-left-30 {
   margin-left: 30px;
@@ -167,4 +168,18 @@
 }
 .travel-login footer .i-footer .i-footer-wrap p {
   margin: 0 !important;
+}
+
+.i_check_in {
+  display: inline-block;
+  width: 130px;
+  height: 48px;
+  line-height: 48px;
+  margin-left: 15px;
+  vertical-align: -2px;
+  color: #000;
+  font-weight: bold;
+  border: 1px solid #aaa;
+  background-color: #eeeeee;
+  font-size:26px;
 }
