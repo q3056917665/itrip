@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ItripTakeoffairportMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.ItripTakeoffairport">
+    <id column="Take_id" jdbcType="INTEGER" property="takeId" />
+    <result column="Take_name" jdbcType="VARCHAR" property="takeName" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from itrip_takeoffairport
+    where Take_id = #{takeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.model.ItripTakeoffairport">
+    insert into itrip_takeoffairport (Take_id, Take_name)
+    values (#{takeId,jdbcType=INTEGER}, #{takeName,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripTakeoffairport">
+    update itrip_takeoffairport
+    set Take_name = #{takeName,jdbcType=VARCHAR}
+    where Take_id = #{takeId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select Take_id, Take_name
+    from itrip_takeoffairport
+    where Take_id = #{takeId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select Take_id, Take_name
+    from itrip_takeoffairport
+  </select>
+</mapper>
