@@ -2,27 +2,25 @@ package com.example.controller.UserController;
 
 import com.example.model.ItripUser;
 import com.example.service.ImailService;
-import com.example.service.Impl.ImailServiceImpl;
-import com.example.service.Impl.ItripUserServiceImpl;
 import com.example.service.ItripUserService;
 import com.example.utils.PhoneUtils;
 import com.example.utils.RegisterUtils;
 import org.apache.http.HttpResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
-    @Autowired
-    private ItripUserServiceImpl itripUserService;
-    @Autowired
-    private ImailServiceImpl imailService;
+    @Resource
+    private ItripUserService itripUserService;
+    @Resource
+    private ImailService imailService;
 
     /***
      * 跳转到注册页面

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.dao.ItripPeripheryMapper">
-  <resultMap id="BaseResultMap" type="com.it.model.ItripPeriphery">
+  <resultMap id="BaseResultMap" type="com.example.model.ItripPeriphery">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="current_id" jdbcType="INTEGER" property="currentId" />
     <result column="periphery_id" jdbcType="INTEGER" property="peripheryId" />
@@ -10,13 +10,13 @@
     delete from itrip_periphery
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.it.model.ItripPeriphery">
+  <insert id="insert" parameterType="com.example.model.ItripPeriphery">
     insert into itrip_periphery (id, current_id, periphery_id
       )
     values (#{id,jdbcType=BIGINT}, #{currentId,jdbcType=INTEGER}, #{peripheryId,jdbcType=INTEGER}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.it.model.ItripPeriphery">
+  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripPeriphery">
     update itrip_periphery
     set current_id = #{currentId,jdbcType=INTEGER},
       periphery_id = #{peripheryId,jdbcType=INTEGER}
