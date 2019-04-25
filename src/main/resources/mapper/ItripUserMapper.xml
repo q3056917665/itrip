@@ -65,4 +65,25 @@
     baidu, creationDate, createdBy, modifyDate, modifiedBy, activated
     from itrip_user
   </select>
+
+  <insert id="register" useGeneratedKeys="true" keyProperty="id"  parameterType="com.example.model.ItripUser">
+    insert into itrip_user (id,userCode,userPassword,userName,activated) values(
+    #{id,jdbcType=BIGINT}, #{usercode,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR},
+    #{username,jdbcType=VARCHAR}, #{activated,jdbcType=INTEGER}
+    )
+  </insert>
+
+  <select id="selectCzEmail" resultType="int">
+    select count(*) from itrip_user where userCode= #{usercode,jdbcType=VARCHAR}
+  </select>
+
+  <select id="login" resultMap="BaseResultMap">
+    select * from itrip_user
+    where
+      userCode= #{usercode,jdbcType=VARCHAR}
+      and
+      userPassword=#{userpassword,jdbcType=VARCHAR}
+      and
+      activated=1;
+  </select>
 </mapper>
