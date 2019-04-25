@@ -1,8 +1,16 @@
 package com.example.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class ItripHotel {
+
+    private List<ItripHotelFeature> features;
+
+    public List<ItripHotelFeature> getFeatures() { return features; }
+
+    public void setFeatures(List<ItripHotelFeature> features) { this.features = features; }
+
     private Long id;
 
     private String hotelname;

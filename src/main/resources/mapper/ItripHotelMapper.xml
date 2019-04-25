@@ -23,6 +23,37 @@
     <result column="facilities" jdbcType="LONGVARCHAR" property="facilities" />
     <result column="hotelPolicy" jdbcType="LONGVARCHAR" property="hotelpolicy" />
   </resultMap>
+  <resultMap id="c" type="com.example.model.ItripHotel">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="hotelName" jdbcType="VARCHAR" property="hotelname" />
+    <result column="countryId" jdbcType="BIGINT" property="countryid" />
+    <result column="provinceId" jdbcType="BIGINT" property="provinceid" />
+    <result column="cityId" jdbcType="BIGINT" property="cityid" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="hotelType" jdbcType="INTEGER" property="hoteltype" />
+    <result column="hotelLevel" jdbcType="INTEGER" property="hotellevel" />
+    <result column="isGroupPurchase" jdbcType="INTEGER" property="isgrouppurchase" />
+    <result column="redundantCityName" jdbcType="VARCHAR" property="redundantcityname" />
+    <result column="redundantProvinceName" jdbcType="VARCHAR" property="redundantprovincename" />
+    <result column="redundantCountryName" jdbcType="VARCHAR" property="redundantcountryname" />
+    <result column="redundantHotelStore" jdbcType="INTEGER" property="redundanthotelstore" />
+    <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
+    <result column="createdBy" jdbcType="BIGINT" property="createdby" />
+    <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
+    <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
+    <result column="details" jdbcType="LONGVARCHAR" property="details" />
+    <result column="facilities" jdbcType="LONGVARCHAR" property="facilities" />
+    <result column="hotelPolicy" jdbcType="LONGVARCHAR" property="hotelpolicy" />
+
+    <collection property="features" ofType="com.example.model.ItripHotelFeature"  >
+        <id column="fid" property="id"></id>
+        <result column="hotelId" jdbcType="BIGINT" property="hotelid" />
+        <result column="featureId" jdbcType="BIGINT" property="featureid"  />
+    </collection>
+
+  </resultMap>
+
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from itrip_hotel
     where id = #{id,jdbcType=BIGINT}
@@ -68,13 +99,21 @@
       hotelPolicy = #{hotelpolicy,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="select" parameterType="java.lang.Long" resultMap="c">
     select id, hotelName, countryId, provinceId, cityId, address, hotelType, hotelLevel, 
     isGroupPurchase, redundantCityName, redundantProvinceName, redundantCountryName, 
     redundantHotelStore, creationDate, createdBy, modifyDate, modifiedBy, details, facilities, 
     hotelPolicy
     from itrip_hotel
     where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="c">
+    select h.id id, h.hotelName, h.countryId, h.provinceId, h.cityId, h.address,  h.hotelType,  h.hotelLevel,
+           h.isGroupPurchase,  h.redundantCityName,  h.redundantProvinceName,  h.redundantCountryName,
+           h.redundantHotelStore,  h.creationDate,  h.createdBy,  h.modifyDate,  h.modifiedBy,  h.details,  h.facilities,
+           h.hotelPolicy,f.id fid,f.hotelId,f.featureid
+    from itrip_hotel h,itrip_hotel_feature f
+    where h.id=f.hotelId and h.id = #{id,jdbcType=BIGINT}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, hotelName, countryId, provinceId, cityId, address, hotelType, hotelLevel, 

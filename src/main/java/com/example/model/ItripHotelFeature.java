@@ -7,6 +7,23 @@ public class ItripHotelFeature {
 
     private Long hotelid;
 
+    private ItripHotel hotel;
+
+    //标签字典表
+    private ItripLabelDic dic;
+
+    public ItripLabelDic getDic() { return dic; }
+
+    public void setDic(ItripLabelDic dic) { this.dic = dic; }
+
+    public ItripHotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(ItripHotel hotel) {
+        this.hotel = hotel;
+    }
+
     private Long featureid;
 
     private Date creationdate;
