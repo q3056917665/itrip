@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>攻略详情</title>
 	<link rel="shortcut icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
-	<link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.css}">
+	<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
 	<link rel="stylesheet" th:href="@{/lib/bootstrap/css/bootstrap.css}">
 	<link rel="stylesheet" th:href="@{/lib/star-rating/star-rating.css}">
 	<link rel="stylesheet" th:href="@{/css/reset.css}">
@@ -50,16 +50,16 @@
 <div class="i-nav clearfix">
 	<div class="i-nav-wrap">
 		<ul>
-			<li><a href="indexHtml" ><i class="fa fa-home"></i>首页</a></li>
-			<li><a href="travel/index.html"><i class="fa fa-globe"></i>旅游</a></li>
-			<li><a href="tavern/index.html"><i class="fa fa-building"></i>酒店</a></li>
-			<li><a href="flyTicket.html"><i class="fa fa-plane"></i>机票</a></li>
+			<li><a href="indexHtml" ><i class="icon-home"></i>首页</a></li>
+			<li><a href="travel/index.html"><i class="icon-globe"></i>旅游</a></li>
+			<li><a href="tavern/index.html"><i class="icon-hospital"></i>酒店</a></li>
+			<li><a href="flyTicket.html"><i class="icon-plane"></i>机票</a></li>
 			<!-- <li><a href="#"><i class="icon-credit-card"></i>门票</a></li> -->
-			<li class="current"><a href="strategyHtml"><i class="fa fa-street-view"></i>攻略</a></li>
+			<li class="current"><a href="strategyHtml"><i class="icon-book"></i>攻略</a></li>
 		</ul>
 		<div class="i-nav-login">
 			<span th:if="*{session.User==null}"><a href="loginHtml">登录</a></span>
-			<span th:if="*{session.User!=null}"><a th:href="@{/user/exit}">退出登录</a></span>
+			<span th:if="*{session.User!=null}" style="font-size: 18px;">用户名:<span th:text="${session.User.usercode}" style="font-size:18px;"></span>&nbsp;<a th:href="@{/exitlogin}">退出登录</a></span>
 			<span>|</span>
 			<a href="registerHtml">注册</a>
 		</div>

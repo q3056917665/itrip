@@ -43,6 +43,7 @@ function addUserByPhone() {
             if (i == true) {
                 window.location.href = 'registerHtml';
             } else {
+                window.location.href = 'registerHtml';
                 return;
             }
         }
@@ -85,6 +86,7 @@ function addUserByEmail() {
             if (i == true) {
                 window.location.href = 'registerHtml';
             } else {
+                window.location.href = 'registerHtml';
                 return;
             }
         }

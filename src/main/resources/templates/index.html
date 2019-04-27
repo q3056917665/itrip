@@ -3,17 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>i 旅行 首页</title>
-	<link rel="shortcut icon" th:href="@{/static/js/favicon.ico}" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
 	<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
-	<link rel="stylesheet" th:href="@{/lib/bootstrap/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/lib/bootstrap/css/bootstrap.css}">
 	<link rel="stylesheet" th:href="@{/lib/star-rating/star-rating.css}">
 	<link rel="stylesheet" th:href="@{/css/cityselect.css}">
 	<link rel="stylesheet" th:href="@{/css/reset.css}">
 	<link rel="stylesheet" th:href="@{/css/common.css}">
 	<link rel="stylesheet" th:href="@{/css/index.css}">
-
-
-
 </head>
 <body>
 <!-- 头部开始 -->
@@ -30,7 +27,7 @@
 					<li class="i-top-phone">
 						<a href="#"><i class="icon-mobile-phone"></i></a>
 						<div class="i-top-app i-top-appL">
-							<img src="images/img/erweima_1126.jpg" height="102" width="102" alt="">
+							<img th:src="@{/images/img/erweima_1126.jpg}" height="102" width="102" alt="">
 							<p>手机扫码快速下载</p>
 							<p>App享受最多50% 优惠力度</p>
 						</div>
@@ -38,7 +35,7 @@
 					<li class="i-top-phone i-top-wei">
 						<a href="#"><i class="icon-comments"></i></a>
 						<div class="i-top-app i-top-app-wei">
-							<img src="images/img/erweima_1126.jpg" height="102" width="102" alt="">
+							<img th:src="@{/images/img/erweima_1126.jpg}" height="102" width="102" alt="">
 							<p>i旅行微信公众号: <a href="#">ilvxing</a></p>
 							<p>手机扫一扫，享受专属福利</p>
 						</div>
@@ -53,17 +50,18 @@
 	<div class="i-nav clearfix">
 		<div class="i-nav-wrap">
 			<ul>
-				<li class="current"><a th:href="@{/index}" ><i class="icon-home"></i>首页</a></li>
-				<li><a th:href="@{/travelindex}"><i class="icon-globe"></i>旅游</a></li>
-				<li><a th:href="@{/hotel}"><i class="icon-hospital"></i>酒店</a></li>
-				<li><a th:href="@{/flyTicket}"><i class="icon-plane"></i>机票</a></li>
+				<li class="current"><a href="indexHtml" ><i class="icon-home"></i>首页</a></li>
+				<li><a href="travelindex"><i class="icon-globe"></i>旅游</a></li>
+				<li><a href="tavern/index.html"><i class="icon-hospital"></i>酒店</a></li>
+				<li><a href="flyTicket.html"><i class="icon-plane"></i>机票</a></li>
 				<!-- <li><a href="#"><i class="icon-credit-card"></i>门票</a></li> -->
-				<li><a th:href="@{/strategyindex}"><i class="icon-book"></i>攻略</a></li>
+				<li><a href="strategyHtml"><i class="icon-book"></i>攻略</a></li>
 			</ul>
 			<div class="i-nav-login">
-				<a href="login.html">登录</a>
-				<span>|</span>
-				<a href="register.html">注册</a>
+                <span th:if="*{session.User==null}"><a href="loginHtml">登录</a></span>
+                <span th:if="*{session.User!=null}" style="font-size: 18px;">用户名:<span th:text="${session.User.usercode}" style="font-size:18px;"></span>&nbsp;<a th:href="@{/exitlogin}">退出登录</a></span>
+                <span>|</span>
+				<a href="registerHtml">注册</a>
 			</div>
 		</div>
 	</div>
@@ -108,7 +106,7 @@
 	   									退房时间  <input type="text" class="Wdate" onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})"/>
 	   								</div>
 	   								<div class="i_rank">
-	   								酒店级别  <select name="" id="">
+	   								酒店级别  <select name="" >
 		   									 	<option selected="selected" value="0">不限</option>
 												<option value="5">五星级/豪华</option>
 												<option value="4">四星级/高档</option>
@@ -135,7 +133,7 @@
 	   									退房时间  <input type="text" class="Wdate" onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})"/>
 	   								</div>
 	   								<div class="i_rank">
-	   								酒店级别  <select name="" id="">
+	   								酒店级别  <select name="">
 	   									 	<option selected="selected">不限</option>
 											<option>五星级/豪华</option>
 											<option>四星级/高档</option>
@@ -161,7 +159,7 @@
 	   									退房时间  <input type="text" class="Wdate" onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})"/>
 	   								</div>
 	   								<div class="i_rank">
-	   								酒店级别  <select name="" id="">
+	   								酒店级别  <select name="">
 	   									 	<option selected="selected">不限</option>
 											<option>五星级/豪华</option>
 											<option>四星级/高档</option>
@@ -226,7 +224,7 @@
 	   									退房时间  <input type="text" />
 	   								</div>
 	   								<div class="i_rank">
-	   								每间住客数  <select name="" id="">
+	   								每间住客数  <select name="">
 	   									 	<option value="1"> 1成人 </option>
 											<option value="2" selected="selected"> 2成人 </option>
 											<option value="3"> 3成人 </option>
@@ -337,7 +335,7 @@
 	   									退房时间  <input type="text"  class="Wdate" onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})"/>
 	   								</div>
 	   								<div class="i_rank">
-	   								每间住客数  <select name="" id="">
+	   								每间住客数  <select name="" >
 	   									 	<option value="1"> 1成人 </option>
 											<option value="2" selected="selected"> 2成人 </option>
 											<option value="3"> 3成人 </option>
@@ -494,7 +492,7 @@
 	   									关键词 <input type="text" placeholder="(选填)商圈/景区/酒店品牌/酒店名称/关键字" />
 	   								</div>
 	   								<div class="keyword">
-	   									目的地 <input type="text" id="citySelect_six" />
+	   									目的地 <input type="text" class="citySelect_six" />
 	   								</div>
 	   								<button class="i_btn">搜索行程 ></button>
 	   							</form>
@@ -502,13 +500,13 @@
 	   						<!--2-->
 	   						<div class="discount">
 	   							<form action="">
-	   								<div class="i_destin">目的地  <input type="text" id="citySelect_five" placeholder="三亚" /></div>
+	   								<div class="i_destin">目的地  <input class="citySelect_five" type="text"  placeholder="三亚" /></div>
 	   								<div class="i_live">
 	   									入住时间  <input type="text" placeholder="2016.12待定" class="Wdate" onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})"/>
 	   									退房时间  <input type="text" class="Wdate" onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})"/>
 	   								</div>
 	   								<div class="i_rank">
-	   								每间住客数  <select name="" id="">
+	   								每间住客数  <select name="">
 	   									 	<option value="1"> 1成人 </option>
 											<option value="2" selected="selected"> 2成人 </option>
 											<option value="3"> 3成人 </option>
@@ -584,7 +582,7 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="travel/travel_message.html"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
+								<img th:src="@{/images/img/sale1129.jpg}" height="255" width="279" alt="">
 								<div class="i-sale-p">
 									<h3>台湾环岛8日7晚跟团游.有机会品尝哈根达斯冰激凌</h3>
 									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
@@ -592,54 +590,9 @@
 								</div>
 							</a>
 						</li>
-						<li>
-							<a href="travel/travel_message.html"> 
-								<img src="images/img/sale02_1212.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>巴厘岛7日5晚自由行</h3>
-									<p>【秒杀】五星豪庭，三星价格1月特惠。初冬的期盼，暖流的感动。</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="travel/travel_message.html"> 
-								<img src="images/img/sale03_1212.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>韩国首尔5日4晚跟团游</h3>
-									<p>【好评如潮】寒假预售商圈五花，2整天自由，赠送乐天世界门票，八色烤肉</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="travel/travel_message.html"> 
-								<img src="images/img/sale04_1212.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>马尔代夫6日自由行·6日4晚</h3>
-									<p>往返含税机票，全球顶级海岛蜜月婚纱圣地</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="travel/travel_message.html"> 
-								<img src="images/img/sale05_1212.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>香港5日自由行·仅含往返机票</h3>
-									<p>星光大道+天星小轮+太平山顶+维多利亚港领略动感之都的魅力</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="travel/travel_message.html"> 
-								<img src="images/img/sale06_1212.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>新加坡5日4晚自由行</h3>
-									<p>新加坡5日4晚自由行【错峰周末游】赠送价值800元机场往返专车接送，1晚金沙奢华体验，独享360°无边泳池，一场视觉饕餮盛宴。</p>
-								</div>
-							</a>
-						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/sale-t1129.jpg" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
 					</div>
 				</div>
 
@@ -649,7 +602,7 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
+								<img th:src="@{/images/img/sale1129.jpg}" height="255" width="279" alt="">
 								<div class="i-sale-p">
 									<h3>222台湾环岛8日7晚跟团游.团游团游团游甩尾特甩尾特甩尾特</h3>
 									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
@@ -657,59 +610,9 @@
 								</div>
 							</a>
 						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.团游团游团游甩尾特甩尾特甩尾特</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.团游团游团游甩尾特甩尾特甩尾特</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.团游团游团游甩尾特甩尾特甩尾特</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/sale-t1129.jpg" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
 					</div>
 				</div>
 
@@ -719,7 +622,7 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
+								<img th:src="@{/images/img/sale1129.jpg}" height="255" width="279" alt="">
 								<div class="i-sale-p">
 									<h3>333台湾环岛8日7晚跟团游.甩尾特...</h3>
 									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
@@ -727,59 +630,9 @@
 								</div>
 							</a>
 						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/sale-t1129.jpg" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
 					</div>
 				</div>
 
@@ -798,7 +651,7 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
+								<img th:src="@{/images/img/sale1129.jpg}" height="255" width="279" alt="">
 								<div class="i-sale-p">
 									<h3>77台湾环岛8日7晚跟团游.甩尾特...</h3>
 									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
@@ -806,59 +659,9 @@
 								</div>
 							</a>
 						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/sale-t1129.jpg" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
 					</div>
 				</div>
 
@@ -868,7 +671,7 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
+								<img th:src="@{/images/img/sale1129.jpg}" height="255" width="279" alt="">
 								<div class="i-sale-p">
 									<h3>66台湾环岛8日7晚跟团游.甩尾特...</h3>
 									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
@@ -876,59 +679,9 @@
 								</div>
 							</a>
 						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/sale-t1129.jpg" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
 					</div>
 				</div>
 
@@ -947,7 +700,7 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
+								<img th:src="@{/images/img/sale1129.jpg}" height="255" width="279" alt="">
 								<div class="i-sale-p">
 									<h3>44台湾环岛8日7晚跟团游.甩尾特...</h3>
 									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
@@ -955,59 +708,9 @@
 								</div>
 							</a>
 						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/sale-t1129.jpg" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
 					</div>
 				</div>
 
@@ -1017,7 +720,7 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
+								<img th:src="@{/images/img/sale1129.jpg}" height="255" width="279" alt="">
 								<div class="i-sale-p">
 									<h3>55台湾环岛8日7晚跟团游.甩尾特...</h3>
 									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
@@ -1025,59 +728,9 @@
 								</div>
 							</a>
 						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-		全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/sale-t1129.jpg" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
 					</div>
 				</div>
 
@@ -1103,7 +756,7 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="hotelDetail.html"> 
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/hotel279174_01_xxx1213.jpg" height="174" width="279" alt="">
+								<img class="lazy" th:src="@{/images/icon/lazyload279-173.gif}" data-original="images/img/hotel279174_01_xxx1213.jpg" height="174" width="279" alt="">
 									<h4>【巴黎】卢浮宫凯悦酒店(Hotel Du Louvre, a Hyatt Hotel Paris)</h4>
 									<span class="i-price">
 										<em>¥</em>2908 <i class="i-price-info">起</i>
@@ -1111,59 +764,9 @@
 									<span class="item-count">已售 689</span>
 							</a>
 						</li>
-						<li>
-							<a href="hotelDetail.html"> 
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/hotel279174_02_xxx1213.jpg" height="174" width="279" alt="">
-									<h4>【东京】威斯汀酒店(The Westin Tokyo)</h4>
-									<span class="i-price">
-										<em>¥</em>2105<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 536</span>
-							</a>
-						</li>
-						<li>
-							<a href="hotelDetail.html"> 
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/hotel279174_03_xxx1213.jpg" height="174" width="279" alt="">
-									<h4>【吉隆坡】千禧大酒店(Grand Millennium Kuala Lumpur)</h4>
-									<span class="i-price">
-										<em>¥</em>459<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 255</span>
-							</a>
-						</li>
-						<li>
-							<a href="hotelDetail.html"> 
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/hotel279174_04_xxx1213.jpg" height="174" width="279" alt="">
-									<h4>【曼谷】索菲特曼谷素坤逸酒店(Sofitel Bangkok Sukhumvit)</h4>
-									<span class="i-price">
-										<em>¥</em>1213<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 632</span>
-							</a>
-						</li>
-						<li>
-							<a href="hotelDetail.html"> 
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/hotel279174_05_xxx1213.jpg" height="174" width="279" alt="">
-									<h4>【首尔】东大门天空花园帝宫店(Hotel Skypark Kingstown dongdaemun Seoul)</h4>
-									<span class="i-price">
-										<em>¥</em>889<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 365</span>
-							</a>
-						</li>
-						<li>
-							<a href="hotelDetail.html"> 
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/hotel279174_06_xxx1213.jpg" height="174" width="279" alt="">
-									<h4>【新加坡】文华东方酒店(Mandarin Oriental Singapore)</h4>
-									<span class="i-price">
-										<em>¥</em>1025<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 269</span>
-							</a>
-						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img class="lazy" src="images/icon/lazyload278-518.gif" data-original="images/img/jiudian_t_278518_xxx1130.jpg" height="518" width="278" alt=""></a>
+						<a href="#"><img class="lazy" th:src="@{/images/icon/lazyload278-518.gif}" data-original="images/img/jiudian_t_278518_xxx1130.jpg" height="518" width="278" alt=""></a>
 					</div>
 				</div>
 
@@ -1173,57 +776,7 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
+								<img th:src="@{/images/img/jiudian279174_xxx1130.jpg}" height="174" width="279" alt="">
 									<h4>【北京】四季青元海景酒店</h4>
 									<span class="i-price">
 										<em>¥</em>885<i class="i-price-info">起</i>
@@ -1233,7 +786,7 @@
 						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/sale-t1129.jpg" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
 					</div>
 				</div>
 
@@ -1243,7 +796,7 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
+								<img th:src="@{/images/img/sale1129.jpg}" height="255" width="279" alt="">
 								<div class="i-sale-p">
 									<h3>333台湾环岛8日7晚跟团游.甩尾特...</h3>
 									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
@@ -1251,59 +804,9 @@
 								</div>
 							</a>
 						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/sale-t1129.jpg" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
 					</div>
 				</div>
 			</div>
@@ -1320,58 +823,8 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
+								<img th:src="@{/images/img/jiudian279174_xxx1130.jpg}" height="174" width="279" alt="">
 									<h4>22【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
 									<span class="i-price">
 										<em>¥</em>885<i class="i-price-info">起</i>
 									</span>
@@ -1380,7 +833,7 @@
 						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/sale-t1129.jpg" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
 					</div>
 				</div>
 
@@ -1390,7 +843,7 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
+								<img th:src="@{/images/img/sale1129.jpg}" height="255" width="279" alt="">
 								<div class="i-sale-p">
 									<h3>66台湾环岛8日7晚跟团游.甩尾特...</h3>
 									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
@@ -1398,59 +851,9 @@
 								</div>
 							</a>
 						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/sale-t1129.jpg" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
 					</div>
 				</div>
 
@@ -1468,58 +871,8 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
+								<img th:src="@{/images/img/jiudian279174_xxx1130.jpg}" height="174" width="279" alt="">
 									<h4>33【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
 									<span class="i-price">
 										<em>¥</em>885<i class="i-price-info">起</i>
 									</span>
@@ -1528,7 +881,7 @@
 						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/sale-t1129.jpg" alt=""></a>
+						<a href="#"><img th:src="@{images/img/sale-t1129.jpg}" alt=""></a>
 					</div>
 				</div>
 
@@ -1538,7 +891,7 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
+								<img th:src="@{/images/img/sale1129.jpg}" height="255" width="279" alt="">
 								<div class="i-sale-p">
 									<h3>55台湾环岛8日7晚跟团游.甩尾特...</h3>
 									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
@@ -1546,59 +899,9 @@
 								</div>
 							</a>
 						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/sale-t1129.jpg" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
 					</div>
 				</div>
 
@@ -1617,58 +920,8 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
+								<img th:src="@{/images/img/jiudian279174_xxx1130.jpg}" height="174" width="279" alt="">
 									<h4>44【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/jiudian279174_xxx1130.jpg" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
 									<span class="i-price">
 										<em>¥</em>885<i class="i-price-info">起</i>
 									</span>
@@ -1677,7 +930,7 @@
 						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/sale-t1129.jpg" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
 					</div>
 				</div>
 
@@ -1687,7 +940,7 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
+								<img th:src="@{/images/img/sale1129.jpg}" height="255" width="279" alt="">
 								<div class="i-sale-p">
 									<h3>55台湾环岛8日7晚跟团游.甩尾特...</h3>
 									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
@@ -1695,59 +948,9 @@
 								</div>
 							</a>
 						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/sale1129.jpg" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/sale-t1129.jpg" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
 					</div>
 				</div>
 
@@ -1764,8 +967,8 @@
 
 <!-- 酒店下方推广广告开始 -->
 <div class="i-push clearfix">
-	<div class="i-push-left"><a href="#"><img class="lazy" src="images/icon/lazyload281-171.gif" data-original="images/img/jd_bottom_xxx1130_11.jpg" height="171" width="281" alt=""></a></div>
-	<div class="i-push-right"><a href="#"><img class="lazy" src="images/icon/lazyload856-171.gif" data-original="images/img/jd_bottom_xxx1130.jpg" height="171" width="856" alt=""></a></div>
+	<div class="i-push-left"><a href="#"><img class="lazy" th:src="@{/images/icon/lazyload281-171.gif}" data-original="images/img/jd_bottom_xxx1130_11.jpg" height="171" width="281" alt=""></a></div>
+	<div class="i-push-right"><a href="#"><img class="lazy" th:src="@{/images/icon/lazyload856-171.gif}" data-original="images/img/jd_bottom_xxx1130.jpg" height="171" width="856" alt=""></a></div>
 </div>
 <!-- 酒店下方推广广告结束 -->
 
@@ -1797,163 +1000,9 @@
 									</span>
 							</a>
 						</li>
-						<li>
-							<a href="flyTicketList.html"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>新加坡</p>
-								<p class="item-time">
-								  12月23日 - 12月26日
-								</p>
-								<p class="item-num">
-								   仅剩 562 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>562<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="flyTicketList.html"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>莫斯科</p>
-								<p class="item-time">
-								  1月04日 - 1月09日
-								</p>
-								<p class="item-num">
-								   仅剩 231 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>1027<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li class="ticket-clr">
-							<a href="flyTicketList.html"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>罗马</p>
-								<p class="item-time">
-								  12月29日 - 1月05日
-								</p>
-								<p class="item-num">
-								   仅剩 120 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>653<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="flyTicketList.html"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>圣彼得堡</p>
-								<p class="item-time">
-								  1月02日 - 1月08日
-								</p>
-								<p class="item-num">
-								   仅剩 89 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>369<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="flyTicketList.html"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>法兰克福</p>
-								<p class="item-time">
-								  12月28日 - 1月06日
-								</p>
-								<p class="item-num">
-								   仅剩 79 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>609<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="flyTicketList.html"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>济州岛</p>
-								<p class="item-time">
-								  12月16日 - 12月23日
-								</p>
-								<p class="item-num">
-								   仅剩 201 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>800<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li class="ticket-clr">
-							<a href="flyTicketList.html"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>普吉岛</p>
-								<p class="item-time">
-								  1月04日 - 1月11日
-								</p>
-								<p class="item-num">
-								   仅剩 306 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>929<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="flyTicketList.html"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>旧金山</p>
-								<p class="item-time">
-								  1月11日 - 1月15日
-								</p>
-								<p class="item-num">
-								   仅剩 392 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>867<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="flyTicketList.html"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>芝加哥</p>
-								<p class="item-time">
-								  1月20日 - 1月27日
-								</p>
-								<p class="item-num">
-								   仅剩 216 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>689<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="flyTicketList.html"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>多伦多</p>
-								<p class="item-time">
-								  12月25日 - 1月06日
-								</p>
-								<p class="item-num">
-								   仅剩 119 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>1153<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li class="ticket-clr">
-							<a href="flyTicketList.html"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>开罗</p>
-								<p class="item-time">
-								  12月15日 - 12月18日
-								</p>
-								<p class="item-num">
-								   仅剩 203 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>1598<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img class="lazy" src="images/icon/lazyload278-518.gif" data-original="images/img/ticket278518-xxx1201.jpg" height="518" width="278" alt=""></a>
+						<a href="#"><img class="lazy" th:src="@{/images/icon/lazyload278-518.gif}" data-original="images/img/ticket278518-xxx1201.jpg" height="518" width="278" alt=""></a>
 					</div>
 				</div>
 
@@ -1974,163 +1023,9 @@
 									</span>
 							</a>
 						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li class="ticket-clr">
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li class="ticket-clr">
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li class="ticket-clr">
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/ticket278518-xxx1201.jpg" height="518" width="278" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/ticket278518-xxx1201.jpg}" height="518" width="278" alt=""></a>
 					</div>
 				</div>
 
@@ -2151,163 +1046,9 @@
 									</span>
 							</a>
 						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li class="ticket-clr">
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li class="ticket-clr">
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li class="ticket-clr">
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/ticket278518-xxx1201.jpg" height="518" width="278" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/ticket278518-xxx1201.jpg}" height="518" width="278" alt=""></a>
 					</div>
 				</div>
 			</div>
@@ -2336,163 +1077,9 @@
 									</span>
 							</a>
 						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li class="ticket-clr">
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li class="ticket-clr">
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li class="ticket-clr">
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/ticket278518-xxx1201.jpg" height="518" width="278" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/ticket278518-xxx1201.jpg}" height="518" width="278" alt=""></a>
 					</div>
 				</div>
 
@@ -2513,163 +1100,9 @@
 									</span>
 							</a>
 						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li class="ticket-clr">
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li class="ticket-clr">
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li>
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-						<li class="ticket-clr">
-							<a href="#"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img src="images/img/ticket278518-xxx1201.jpg" height="518" width="278" alt=""></a>
+						<a href="#"><img th:src="@{/images/img/ticket278518-xxx1201.jpg}" height="518" width="278" alt=""></a>
 					</div>
 				</div>
 
@@ -2753,60 +1186,11 @@
 							<div class="i-idea-tj">
 								<span></span>
 								<a href="travel/travel_message.html"> 
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl01_0314.jpg" height="173" width="279" alt=""></a>
+								<img class="lazy" th:src="@{/images/icon/lazyload279-173.gif}" data-original="images/img/lygl01_0314.jpg" height="173" width="279" alt="">
+								</a>
 							</div>
-							<h4>稻城亚丁</h4><input id="input-21f" value="3" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+							<h4>稻城亚丁</h4><input value="3" class="rating input-21f" min=0 max=5 step=0.5 data-size="xs" >
 							<span class="item-count">1032人去过  987人想去</span>
-						</li>
-						<li>
-							<div class="i-idea-tj">
-							 	<span></span>
-							 	<a href="travel/travel_message.html"> 
-									<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl02_0314.jpg" height="173" width="279" alt="">
-								</a>
-							</div>
-							<h4>九寨沟</h4><input id="input-21f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
-							<span class="item-count">562人去过  876想去</span>		
-						</li>
-						<li>
-							<div class="i-idea-tj">
-								<span></span>
-								<a href="travel/travel_message.html"> 
-									<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl03_0314.jpg" height="173" width="279" alt="">
-								</a>
-							</div>
-							<h4>青海湖</h4><input id="input-21f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
-							<span class="item-count">721人去过  560人想去</span>
-						</li>
-						<li>
-							<div class="i-idea-tj">
-								<span></span>
-								<a href="travel/travel_message.html"> 
-									<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl04_0314.jpg" height="173" width="279" alt="">
-								</a>
-							</div>
-							<h4>乌镇</h4><input id="input-21f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
-							<span class="item-count">902人去过  683人想去</span>
-						</li>
-						<li>
-						<div class="i-idea-tj">
-							<span></span>
-							<a href="travel/travel_message.html"> 
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl05_0314.jpg" height="173" width="279" alt="">
-							</a>
-						</div>
-						<h4>婺源</h4><input id="input-21f" value="5" class="rating" min=0 max=5 step=0.5 data-size="xs" >
-							<span class="item-count">896人去过  596人想去</span>	
-						</li>
-						<li>
-						<div class="i-idea-tj">
-							<span></span>
-							<a href="travel/travel_message.html"> 
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl06_0314.jpg" height="173" width="279" alt="">
-							</a>
-						</div>
-							<h4>香格里拉</h4><input id="input-21f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
-							<span class="item-count">632人去过  803人想去</span>
 						</li>
 					</ul>
 					
@@ -2877,39 +1261,11 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="#"> 
-								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="3" class="rating" min=0 max=5 step=0.5 data-size="xs" >
-									<span class="item-count">560人去过  934人想去</span>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
-									<span class="item-count">560人去过  934人想去</span>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
-									<span class="item-count">560人去过  934人想去</span>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
-									<span class="item-count">560人去过  934人想去</span>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="5" class="rating" min=0 max=5 step=0.5 data-size="xs" >
-									<span class="item-count">560人去过  934人想去</span>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
-									<span class="item-count">560人去过  934人想去</span>
+								<img th:src="@{/images/img/idea279173_xxx1201.jpg}" height="173" width="279" alt="">
+							</a>
+							<h4>西双版纳</h4><input value="3" class="rating input-21f" min=0 max=5 step=0.5 data-size="xs" >
+							<span class="item-count">560人去过  934人想去</span>
+
 						</li>
 					</ul>
 					
@@ -2981,42 +1337,11 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="#"> 
-								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
+								<img th:src="@{images/img/idea279173_xxx1201.jpg}" height="173" width="279" alt=""></a>
 									<h4>西双版纳</h4><input id="input-21f" value="3" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 									<span class="item-count">560人去过  934人想去</span>
 						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
-									<span class="item-count">560人去过  934人想去</span>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
-									<span class="item-count">560人去过  934人想去</span>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
-									<span class="item-count">560人去过  934人想去</span>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="5" class="rating" min=0 max=5 step=0.5 data-size="xs" >
-									<span class="item-count">560人去过  934人想去</span>
-						</li>
-						<li>
-							<a href="#"> 
-								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
-									<span class="item-count">560人去过  934人想去</span>
-						</li>
 					</ul>
-					
 				</div>				
 			</div>
 		</li>
@@ -3056,8 +1381,8 @@
 
 <!-- 攻略下方推广广告开始 -->
 <div class="i-push clearfix">
-	<div class="i-push-left"><a href="#"><img class="lazy" src="images/icon/lazyload281-171.gif" data-original="images/img/gl_bottom_xxx1130_07.jpg" height="171" width="281" alt=""></a></div>
-	<div class="i-push-right"><a href="#"><img class="lazy" src="images/icon/lazyload856-171.gif" data-original="images/img/gl_bottom_xxx1130.jpg" height="171" width="856" alt=""></a></div>
+	<div class="i-push-left"><a href="#"><img class="lazy" th:src="@{/images/icon/lazyload281-171.gif}" data-original="images/img/gl_bottom_xxx1130_07.jpg" height="171" width="281" alt=""></a></div>
+	<div class="i-push-right"><a href="#"><img class="lazy" th:src="@{/images/icon/lazyload856-171.gif}" data-original="images/img/gl_bottom_xxx1130.jpg" height="171" width="856" alt=""></a></div>
 </div>
 <!-- 攻略下方推广广告结束 -->
 
@@ -3072,241 +1397,241 @@
 			<ul class="clearfix">
 				<li>
 					<a href="#">
-					<img src="images/icon/Ireland.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/Ireland.jpg}" height="40" width="100" alt="">
 					<p>澳大利亚旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/jp_jiuzhou.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/jp_jiuzhou.jpg}" height="40" width="100" alt="">
 					<p>福建旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/jp_jiuzhou.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/jp_jiuzhou.jpg}" height="40" width="100" alt="">
 					<p>葡萄牙旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/jiangsulogo.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/jiangsulogo.jpg}" height="40" width="100" alt="">
 					<p>以色列旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/Korea.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/Korea.jpg}" height="40" width="100" alt="">
 					<p>海南省旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/letianlogo.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/letianlogo.jpg}" height="40" width="100" alt="">
 					<p>南通市旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/liaoning.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/liaoning.jpg}" height="40" width="100" alt="">
 					<p>柳州旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/Liuzhou.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/Liuzhou.jpg}" height="40" width="100" alt="">
 					<p>夏威夷旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/Nanjing.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/Nanjing.jpg}" height="40" width="100" alt="">
 					<p>洛杉矶旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/nantong.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/nantong.jpg}" height="40" width="100" alt="">
 					<p>德阳市旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/new_austr.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/new_austr.jpg}" height="40" width="100" alt="">
 					<p>新西兰旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/jp_jiuzhou.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/jp_jiuzhou.jpg}" height="40" width="100" alt="">
 					<p>澳大利亚旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/jp_jiuzhou.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/jp_jiuzhou.jpg}" height="40" width="100" alt="">
 					<p>澳大利亚旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/Nanjing.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/Nanjing.jpg}" height="40" width="100" alt="">
 					<p>柏林旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/Korea.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/Korea.jpg}" height="40" width="100" alt="">
 					<p>海南省旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/letianlogo.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/letianlogo.jpg}" height="40" width="100" alt="">
 					<p>南通市旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/liaoning.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/liaoning.jpg}" height="40" width="100" alt="">
 					<p>柳州旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/Liuzhou.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/Liuzhou.jpg}" height="40" width="100" alt="">
 					<p>夏威夷旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/Nanjing.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/Nanjing.jpg}" height="40" width="100" alt="">
 					<p>洛杉矶旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/nantong.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/nantong.jpg}" height="40" width="100" alt="">
 					<p>德阳市旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/new_austr.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/new_austr.jpg}" height="40" width="100" alt="">
 					<p>新西兰旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/jp_jiuzhou.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/jp_jiuzhou.jpg}" height="40" width="100" alt="">
 					<p>福建旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/jp_jiuzhou.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/jp_jiuzhou.jpg}" height="40" width="100" alt="">
 					<p>葡萄牙旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/jiangsulogo.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/jiangsulogo.jpg}" height="40" width="100" alt="">
 					<p>以色列旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/Korea.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/Korea.jpg}" height="40" width="100" alt="">
 					<p>海南省旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/letianlogo.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/letianlogo.jpg}" height="40" width="100" alt="">
 					<p>南通市旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/liaoning.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/liaoning.jpg}" height="40" width="100" alt="">
 					<p>柳州旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/Liuzhou.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/Liuzhou.jpg}" height="40" width="100" alt="">
 					<p>夏威夷旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/Nanjing.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/Nanjing.jpg}" height="40" width="100" alt="">
 					<p>洛杉矶旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/nantong.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/nantong.jpg}" height="40" width="100" alt="">
 					<p>德阳市旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/new_austr.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/new_austr.jpg}" height="40" width="100" alt="">
 					<p>新西兰旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/jp_jiuzhou.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/jp_jiuzhou.jpg}" height="40" width="100" alt="">
 					<p>澳大利亚旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/jp_jiuzhou.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/jp_jiuzhou.jpg}" height="40" width="100" alt="">
 					<p>澳大利亚旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/jiangsulogo.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/jiangsulogo.jpg}" height="40" width="100" alt="">
 					<p>以色列旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/Korea.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/Korea.jpg}" height="40" width="100" alt="">
 					<p>海南省旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/letianlogo.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/letianlogo.jpg}" height="40" width="100" alt="">
 					<p>南通市旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/liaoning.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/liaoning.jpg}" height="40" width="100" alt="">
 					<p>柳州旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/Liuzhou.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/Liuzhou.jpg}" height="40" width="100" alt="">
 					<p>夏威夷旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/Nanjing.jpg" height="40" width="100" alt="">
+					<img th:src="@{/images/icon/Nanjing.jpg}" height="40" width="100" alt="">
 					<p>洛杉矶旅游局</p>
 					</a>
 				</li>
 				<li>
 					<a href="#">
-					<img src="images/icon/nantong.jpg" height="40" width="100" alt="">
+					<img th:src="@{images/icon/nantong.jpg}" height="40" width="100" alt="">
 					<p>德阳市旅游局</p>
 					</a>
 				</li>
@@ -3332,11 +1657,11 @@
 		</div>
 		<div class="i_downright">
 			<div class='i_wechat'>
-				<img src="images/icon/i_wechat_11.jpg" alt="">
+				<img th:src="@{/images/icon/i_wechat_11.jpg}" alt="">
 				<span>微信公众平台</span>
 			</div>
 			<div class="i_APP">
-				<img src="images/icon/i_APP_11.jpg" alt="">
+				<img th:src="@{/images/icon/i_APP_11.jpg}" alt="">
 				<span>APP下载</span>
 			</div>
 		</div>
@@ -3357,7 +1682,7 @@
 				<h3>4008-xxx-6666</h3>
 				<p>24小时客服热线 无时不刻在您身边</p>
 			</li>
-
+			
 		</ul>
 
 		<dl>
@@ -3380,7 +1705,7 @@
 			</dd>
 			<dd>
 				<a href="#">企业差旅索引</a>
-
+				
 			</dd>
 		</dl>
 
@@ -3404,7 +1729,7 @@
 			</dd>
 			<dd>
 				<a href="#">企业差旅索引</a>
-
+				
 			</dd>
 		</dl>
 
@@ -3428,7 +1753,7 @@
 			</dd>
 			<dd>
 				<a href="#">企业差旅索引</a>
-
+				
 			</dd>
 		</dl>
 	</div>
@@ -3442,28 +1767,28 @@
 		<p><span class="i-footer-hui"></span>沪公网备310105020000xx号</p>
 		<p>旅游违法行为举报电话12318 丨服务质量投诉电话 962020 丨<a href="#">北京市旅游网站落实诚信建设主体责任承诺书</a></p>
 		<ul>
-			<li><a href="#"><img src="images/icon/icon1126_11.jpg" height="32" width="88" alt=""></a></li>
-			<li><a href="#"><img src="images/icon/icon1126_13.jpg" height="32" width="88" alt=""></a></li>
-			<li><a href="#"><img src="images/icon/icon1126_15.jpg" height="32" width="88" alt=""></a></li>
-			<li><a href="#"><img src="images/icon/icon1126_17.jpg" height="32" width="88" alt=""></a></li>
-			<li><a href="#"><img src="images/icon/icon1126_19.jpg" height="32" width="88" alt=""></a></li>
-			<li><a href="#"><img src="images/icon/icon1126_21.jpg" height="32" width="88" alt=""></a></li>
-			<li><a href="#"><img src="images/icon/icon1126_23.jpg" height="32" width="88" alt=""></a></li>
-			<li><a href="#"><img src="images/icon/icon1126_25.jpg" height="32" width="128" alt=""></a></li>
-			<li><a href="#"><img src="images/icon/icon1126_27.jpg" height="32" width="102" alt=""></a></li>
+			<li><a href="#"><img th:src="@{/images/icon/icon1126_11.jpg}" height="32" width="88" alt=""></a></li>
+			<li><a href="#"><img th:src="@{/images/icon/icon1126_13.jpg}" height="32" width="88" alt=""></a></li>
+			<li><a href="#"><img th:src="@{/images/icon/icon1126_15.jpg}" height="32" width="88" alt=""></a></li>
+			<li><a href="#"><img th:src="@{/images/icon/icon1126_17.jpg}" height="32" width="88" alt=""></a></li>
+			<li><a href="#"><img th:src="@{/images/icon/icon1126_19.jpg}" height="32" width="88" alt=""></a></li>
+			<li><a href="#"><img th:src="@{/images/icon/icon1126_21.jpg}" height="32" width="88" alt=""></a></li>
+			<li><a href="#"><img th:src="@{/images/icon/icon1126_23.jpg}" height="32" width="88" alt=""></a></li>
+			<li><a href="#"><img th:src="@{/images/icon/icon1126_25.jpg}" height="32" width="128" alt=""></a></li>
+			<li><a href="#"><img th:src="@{/images/icon/icon1126_27.jpg}" height="32" width="102" alt=""></a></li>
 		</ul>
 	</div>
 </div>
 <!-- footer结束 -->
+
+</body>
 <script th:src="@{/lib/jquery-1.11.1.min.js}"></script>
 <script th:src="@{/lib/cityselect.js}"></script>
 <script th:src="@{/lib/My97DatePicker/WdatePicker.js}"></script>
 <script th:src="@{/lib/star-rating/star-rating.js}"></script>
 <script th:src="@{/lib/jquery.lazyload.js}"></script>
-
 <script th:src="@{/js/common.js}"></script>
 <script th:src="@{/js/index.js}"></script>
-</body>
 </html>
 
 

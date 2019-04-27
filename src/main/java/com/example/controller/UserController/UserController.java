@@ -6,20 +6,20 @@ import com.example.service.ItripUserService;
 import com.example.utils.PhoneUtils;
 import com.example.utils.RegisterUtils;
 import org.apache.http.HttpResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class UserController {
-    @Resource
+public class UserController{
+    @Autowired
     private ItripUserService itripUserService;
-    @Resource
+    @Autowired
     private ImailService imailService;
 
     /***
@@ -55,8 +55,6 @@ public class UserController {
      */
     @RequestMapping("/strategyHtml")
     public String strategyHtml(){
-
-
         return "strategy/strategy_index";
     }
 
@@ -185,7 +183,7 @@ public class UserController {
      * 退出登录
      * @return
      */
-    @RequestMapping("/user/exit")
+    @RequestMapping("/exitlogin")
     public String exitOnLogin(HttpSession session){
         session.invalidate(); //清除session
         return "redirect:loginHtml";
