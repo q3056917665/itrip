@@ -12,12 +12,12 @@
     <link rel="stylesheet" th:href="@{/lib/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/index.css}"/>
     <link rel="stylesheet" th:href="@{/css/travel.css}"/>
-    <script th:src="@{/lib/jquery-1.8.3.js}" type="text/javascript"></script>
     <script th:src="@{/hotel/ind.js}" type="text/javascript"></script>
     <script th:src="@{/lib/cityselect/cityselect.js}" type="text/javascript"></script>
     <script th:src="@{/lib/bootstrap/js/bootstrap.min.js}"></script>
     <script th:src="@{/lib/My97DatePicker/WdatePicker.js}"></script>
 
+    <script th:src="@{/lib/jquery-1.8.3.js}" type="text/javascript"></script>
 </head>
 <body>
 <!-- 头部开始 -->
@@ -351,8 +351,8 @@
                             </div>
                         </div>
                         <div style="width: 900px;margin-top:-265px;margin-left: 280px; ">
-                            <div class="list-body-column" th:each="h,status:${hotcityhotels}">
-                            <div class="column"   th:onclick="'toHotel('+${h.id}+')'"    th:if="${status.index<=2}">
+                            <div class="list-body-column" th:each="h,stauts:${hotcityhotels}">
+                            <div class="column"   th:onclick="'toHotel('+${h.id}+')'"    th:if="${stauts.index<=2}">
                                 <div class="column-ele column-ele-first">
                                     <div class="recommend">
                                         <span class="text">返现</span>
@@ -372,7 +372,7 @@
                                 <div class="points-shouqing"></div>
                             </div>
                             <div class="column-padding"></div>
-                            <div class="column "  th:onclick="'toHotel('+${h.id}+')'"    th:if="${status.index>2}">
+                            <div class="column "  th:onclick="'toHotel('+${h.id}+')'"    th:if="${stauts.index>2}">
                                 <div class="column-ele">
                                     <div class="recommend">
                                         <span class="text">返现</span>
@@ -646,7 +646,6 @@
         tavern.accordion(".accordion");
         tavern.banner(".banner-border");
         tavern.travelTabs('.tavern .i_tab_r .i_title>a', '.tavern .i_tab_r .discount', 'line');
-
     }
 </script>
 </body>

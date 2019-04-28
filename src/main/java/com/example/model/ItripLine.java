@@ -1,11 +1,11 @@
 package com.example.model;
 
-import java.io.Serializable;
-
-public class ItripLine implements Serializable {
+public class ItripLine {
     private Long id;
 
     private String name;
+
+    private Long cityid;
 
     public Long getId() {
         return id;
@@ -21,5 +21,13 @@ public class ItripLine implements Serializable {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public Long getCityid() {
+        return cityid;
+    }
+
+    public void setCityid(Long cityid) {
+        this.cityid = cityid;
     }
 }

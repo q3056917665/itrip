@@ -1,11 +1,13 @@
 package com.example.model;
 
-import java.io.Serializable;
-
-public class ItripGuarantee implements Serializable {
+public class ItripGuarantee {
     private Long id;
 
     private String name;
+
+    private String pic;
+
+    private Long routeid;
 
     public Long getId() {
         return id;
@@ -21,5 +23,21 @@ public class ItripGuarantee implements Serializable {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic == null ? null : pic.trim();
+    }
+
+    public Long getRouteid() {
+        return routeid;
+    }
+
+    public void setRouteid(Long routeid) {
+        this.routeid = routeid;
     }
 }
