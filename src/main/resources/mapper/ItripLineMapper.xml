@@ -31,30 +31,4 @@
     select id, name, cityid
     from itrip_line
   </select>
-  <resultMap id="BaseResultMap" type="com.example.model.ItripLine">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from itrip_line
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="com.example.model.ItripLine">
-    insert into itrip_line (id, name)
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripLine">
-    update itrip_line
-    set name = #{name,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select id, name
-    from itrip_line
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, name
-    from itrip_line
-  </select>
 </mapper>
