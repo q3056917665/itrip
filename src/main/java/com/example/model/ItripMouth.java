@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class ItripMouth implements Serializable {
     private Integer id;
 
-    private String monthName;
+    private String mouthName;
 
     public Integer getId() {
         return id;
@@ -15,11 +15,11 @@ public class ItripMouth implements Serializable {
         this.id = id;
     }
 
-    public String getMonthName() {
-        return monthName;
+    public String getMouthName() {
+        return mouthName;
     }
 
-    public void setMonthName(String monthName) {
-        this.monthName = monthName == null ? null : monthName.trim();
+    public void setMouthName(String mouthName) {
+        this.mouthName = mouthName == null ? null : mouthName.trim();
     }
 }

@@ -3,28 +3,34 @@
 <mapper namespace="com.example.dao.ItripMouthMapper">
   <resultMap id="BaseResultMap" type="com.example.model.ItripMouth">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="month_name" jdbcType="VARCHAR" property="monthName" />
+    <result column="mouth_name" jdbcType="VARCHAR" property="mouthName" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from itrip_mouth
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.example.model.ItripMouth">
-    insert into itrip_mouth (id, month_name)
-    values (#{id,jdbcType=INTEGER}, #{monthName,jdbcType=VARCHAR})
+    insert into itrip_mouth (id, mouth_name)
+    values (#{id,jdbcType=INTEGER}, #{mouthName,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.example.model.ItripMouth">
     update itrip_mouth
-    set month_name = #{monthName,jdbcType=VARCHAR}
+    set mouth_name = #{mouthName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, month_name
+    select id, mouth_name
     from itrip_mouth
     where id = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select id, month_name
+    select id, mouth_name
     from itrip_mouth
+  </select>
+
+  <select id="selectByName" resultMap="BaseResultMap">
+    select id
+    from itrip_mouth
+    where mouth_name= #{mouthName,jdbcType=VARCHAR}
   </select>
 </mapper>

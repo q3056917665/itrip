@@ -1,26 +1,39 @@
 package com.example.controller.UserController;
 
+import com.example.model.ItripCityNamePictures;
+import com.example.model.ItripMouth;
 import com.example.model.ItripUser;
 import com.example.service.ImailService;
+import com.example.service.Impl.ItripMouthServiceImpl;
+import com.example.service.ItripCityNamePicturesService;
+import com.example.service.ItripMouthService;
 import com.example.service.ItripUserService;
 import com.example.utils.PhoneUtils;
 import com.example.utils.RegisterUtils;
 import org.apache.http.HttpResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 @Controller
 public class UserController{
-    @Autowired
+    @Resource
     private ItripUserService itripUserService;
-    @Autowired
+    @Resource
     private ImailService imailService;
+    @Resource
+    private ItripCityNamePicturesService itripCityNamePicturesService;
+    @Resource
+    private ItripMouthService itripMouthService;
 
     /***
      * 跳转到注册页面
@@ -54,9 +67,19 @@ public class UserController{
      * @return
      */
     @RequestMapping("/strategyHtml")
-    public String strategyHtml(){
+    public String strategyHtml(HttpSession session,
+                               @RequestParam(value = "id",required = false)Integer mouthId){
+        if(mouthId==null){ //页面传过来id为null时
+            String time = itripCityNamePicturesService.getMouthId(); //获取系统当前月份
+            mouthId=Integer.parseInt(time);
+            System.out.println(mouthId+"....");
+        }
+        List<ItripCityNamePictures> allByMouth = itripCityNamePicturesService.findAllByMouth(mouthId);
+        session.setAttribute("allByMouth",allByMouth);
+        session.setAttribute("mouthId",mouthId);
         return "strategy/strategy_index";
     }
+
 
     /**
      * 跳转到旅游网攻略详情页面
@@ -187,5 +210,12 @@ public class UserController{
     public String exitOnLogin(HttpSession session){
         session.invalidate(); //清除session
         return "redirect:loginHtml";
+    }
+
+    @ResponseBody
+    @RequestMapping("/getMouthId")
+    public Integer id(HttpSession session,@RequestParam("mouthName")String mouthName){
+        ItripMouth mouthId = itripMouthService.findMouthId(mouthName);
+        return mouthId.getId();
     }
 }

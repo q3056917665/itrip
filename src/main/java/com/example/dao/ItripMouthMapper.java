@@ -13,4 +13,6 @@ public interface ItripMouthMapper {
     List<ItripMouth> selectAll();
 
     int updateByPrimaryKey(ItripMouth record);
+
+    public ItripMouth selectByName(String mouthName);
 }

@@ -6,9 +6,11 @@ import com.example.service.ItripUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 @Service
 public class ItripUserServiceImpl implements ItripUserService {
-    @Autowired
+    @Resource
     private ItripUserMapper itripUserMapper;
 
     /***

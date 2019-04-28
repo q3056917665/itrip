@@ -53,11 +53,23 @@ var strategy = {
         });
     },
     initTabs:function(e){
-        $(".strategy-tabs .tabs-header li").bind("click",function (e) {
-            if(!$(this).hasClass("active")){
-                $("li",$(this).closest("ul")).removeClass("active");
-                $(this).addClass("active")
-            }
+       $(".strategy-tabs .tabs-header li").bind("click",function (e) {
+             var name=$(this).children().eq(0).html();
+             $.ajax({
+                 cache:false,
+                 type:"POST",
+                 url:'getMouthId?mouthName='+name,
+                 error:function () {
+                     alert("请求错误!")
+                 },
+                 success:function (id){
+                     if(!$(this).hasClass("active")){
+                         $("li",$(this).closest("ul")).removeClass("active");
+                         $(this).addClass("active");
+                         window.location.href='strategyHtml?id='+id;
+                     }
+                 }
+             })
         });
     },
     initchart: function (e) {
@@ -538,6 +550,8 @@ var strategy = {
 
 //
 //调转页面
+/*
 $(".strategy").click(function(){
     self.location='methodDetailHtml';
 })
+*/

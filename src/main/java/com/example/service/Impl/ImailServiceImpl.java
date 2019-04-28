@@ -9,6 +9,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
@@ -18,7 +19,7 @@ public class ImailServiceImpl implements ImailService {
     /***
      *  Spring Boot 提供了一个发送邮件的简单抽象，使用的是下面这个接口，这里直接注入即可使用
      */
-    @Autowired
+    @Resource
     private JavaMailSender mailSender;
 
     @Value("${spring.mail.from}")

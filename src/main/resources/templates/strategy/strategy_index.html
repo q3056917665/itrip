@@ -335,38 +335,33 @@
             </div>
             <div class="strategy-list-body">
                 <div class="strategy-tabs">
-                    <ul  class="tabs-header"  >
-                        <li ><span>一月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li><span>二月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li><span>三月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li><span>四月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li class="active"><span>五月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li><span>六月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li><span>七月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li><span>八月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li><span>九月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li><span>十月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li><span>十一月</span> <span class="icon-tra"></span><span>●</span></li>
-                        <li><span>十二月</span> <span class="icon-tra"></span><span>●</span></li>
+                    <ul  class="tabs-header">
+                        <span th:text="${session.mouthId}" id="mm"></span>
+                        <script type="text/javascript">
+                            $(function () {
+                                var mm=$("#mm").html();
+                                for (var i=1;i<=12;i++){
+                                    if(mm==i){
+                                        $("#i"+i).addClass("active")
+                                    }
+                                }
+                            })
+                        </script>
+                        <li id="i1"><span>一月</span> <span class=" icon-tra"></span><span>●</span></li>
+                        <li id="i2"><span>二月</span> <span class=" icon-tra"></span><span>●</span></li>
+                        <li id="i3"><span>三月</span> <span class=" icon-tra"></span><span>●</span></li>
+                        <li id="i4"><span>四月</span> <span class=" icon-tra"></span><span>●</span></li>
+                        <li id="i5"><span>五月</span> <span class=" icon-tra"></span><span>●</span></li>
+                        <li id="i6"><span>六月</span> <span class=" icon-tra"></span><span>●</span></li>
+                        <li id="i7"><span>七月</span> <span class=" icon-tra"></span><span>●</span></li>
+                        <li id="i8"><span>八月</span> <span class=" icon-tra"></span><span>●</span></li>
+                        <li id="i9"><span>九月</span> <span class=" icon-tra"></span><span>●</span></li>
+                        <li id="i10"><span>十月</span> <span class=" icon-tra"></span><span>●</span></li>
+                        <li id="i11"><span>十一月</span> <span class="icon-tra"></span><span>●</span></li>
+                        <li id="i12"><span>十二月</span> <span class="icon-tra"></span><span>●</span></li>
                     </ul>
-                    <div class="tabs-body">
-                        <a href=""><img th:src="@{/images/img/strategy/city/aomen.JPG}" alt=""><div>澳门</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/chongqing.jpg}" alt=""><div>重庆</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/dalian.jpg}" alt=""><div>大连</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/daocheng.JPG}" alt=""><div>稻城</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/dunhuang.jpg}" alt=""><div>敦煌</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/gaoxing.jpg}" alt=""><div>高雄</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/guilin.jpg}" alt=""><div>桂林</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/ningxia.jpg}" alt=""><div>宁夏</div></a>
-                        <br>
-                        <a href=""><img th:src="@{/images/img/strategy/city/guiyang.jpg}" alt=""><div>贵阳</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/hangzhou.jpg}" alt=""><div>杭州</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/hulunbeier.jpg}" alt=""><div>呼伦贝尔</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/guilin.jpg}" alt=""><div>吉林</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/lianyungang.jpg}" alt=""><div>连云港</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/lijiang.JPG}" alt=""><div>丽江</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/nanjing.jpg}" alt=""><div>南京</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/ningbo.jpg}" alt=""><div>宁波</div></a>
+                    <div class="tabs-body" th:each="entries:${session.allByMouth}">
+                        <a href="#"><img th:src="@{${entries.cityPictures}}" alt=""><div th:text="${entries.cityName}"></div></a>
                     </div>
                 </div>
             </div>
