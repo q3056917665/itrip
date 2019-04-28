@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ItripRouteFeatureMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.ItripRouteFeature">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="routeId" jdbcType="BIGINT" property="routeid" />
+    <result column="featureId" jdbcType="BIGINT" property="featureid" />
+    <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from itrip_route_feature
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.model.ItripRouteFeature">
+    insert into itrip_route_feature (id, routeId, featureId, 
+      creationDate)
+    values (#{id,jdbcType=BIGINT}, #{routeid,jdbcType=BIGINT}, #{featureid,jdbcType=BIGINT}, 
+      #{creationdate,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripRouteFeature">
+    update itrip_route_feature
+    set routeId = #{routeid,jdbcType=BIGINT},
+      featureId = #{featureid,jdbcType=BIGINT},
+      creationDate = #{creationdate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, routeId, featureId, creationDate
+    from itrip_route_feature
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, routeId, featureId, creationDate
+    from itrip_route_feature
+  </select>
+</mapper>

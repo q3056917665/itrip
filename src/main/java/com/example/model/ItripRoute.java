@@ -1,8 +1,6 @@
 package com.example.model;
 
-import java.io.Serializable;
-
-public class ItripRoute implements Serializable {
+public class ItripRoute {
     private Long id;
 
     private String name;
@@ -14,8 +12,6 @@ public class ItripRoute implements Serializable {
     private Float price;
 
     private Long typeid;
-
-    private Long featureid;
 
     private String notice;
 
@@ -32,8 +28,6 @@ public class ItripRoute implements Serializable {
     private Long provinceid;
 
     private Long cityid;
-
-    private Long guaranteeid;
 
     private Long lineid;
 
@@ -83,14 +77,6 @@ public class ItripRoute implements Serializable {
 
     public void setTypeid(Long typeid) {
         this.typeid = typeid;
-    }
-
-    public Long getFeatureid() {
-        return featureid;
-    }
-
-    public void setFeatureid(Long featureid) {
-        this.featureid = featureid;
     }
 
     public String getNotice() {
@@ -155,14 +141,6 @@ public class ItripRoute implements Serializable {
 
     public void setCityid(Long cityid) {
         this.cityid = cityid;
-    }
-
-    public Long getGuaranteeid() {
-        return guaranteeid;
-    }
-
-    public void setGuaranteeid(Long guaranteeid) {
-        this.guaranteeid = guaranteeid;
     }
 
     public Long getLineid() {

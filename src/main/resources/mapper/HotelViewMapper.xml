@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.HotelViewMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.HotelView">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="hotelName" jdbcType="VARCHAR" property="hotelname" />
+    <result column="cityId" jdbcType="BIGINT" property="cityid" />
+    <result column="imgUrl" jdbcType="VARCHAR" property="imgurl" />
+    <result column="roomPrice" jdbcType="DECIMAL" property="roomprice" />
+  </resultMap>
+  <insert id="insert" parameterType="com.example.model.HotelView">
+    insert into hotel_view (id, hotelName, cityId, 
+      imgUrl, roomPrice)
+    values (#{id,jdbcType=BIGINT}, #{hotelname,jdbcType=VARCHAR}, #{cityid,jdbcType=BIGINT}, 
+      #{imgurl,jdbcType=VARCHAR}, #{roomprice,jdbcType=DECIMAL})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, hotelName, cityId, imgUrl, roomPrice
+    from hotel_view
+  </select>
+</mapper>
