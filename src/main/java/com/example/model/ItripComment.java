@@ -2,8 +2,16 @@ package com.example.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class ItripComment implements Serializable {
+
+    private List<ItripImage> images;
+
+    public List<ItripImage> getImages() { return images; }
+
+    public void setImages(List<ItripImage> images) { this.images = images; }
+
     private Long id;
 
     private Long hotelid;

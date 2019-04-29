@@ -3,8 +3,12 @@ package com.example.service.hotelService;
 import com.example.model.ItripComment;
 
 import java.util.List;
+import java.util.Map;
 
 public interface commentService {
+
+
+    Map<String,Double> findScore(long id);
 
     int findCountByHotelId(long id);
 

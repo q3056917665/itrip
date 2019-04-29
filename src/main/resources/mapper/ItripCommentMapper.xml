@@ -22,6 +22,35 @@
     <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
+  <resultMap id="c" type="com.example.model.ItripComment">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="hotelId" jdbcType="BIGINT" property="hotelid" />
+    <result column="productId" jdbcType="BIGINT" property="productid" />
+    <result column="orderId" jdbcType="BIGINT" property="orderid" />
+    <result column="productType" jdbcType="INTEGER" property="producttype" />
+    <result column="userId" jdbcType="BIGINT" property="userid" />
+    <result column="isHavingImg" jdbcType="INTEGER" property="ishavingimg" />
+    <result column="positionScore" jdbcType="INTEGER" property="positionscore" />
+    <result column="facilitiesScore" jdbcType="INTEGER" property="facilitiesscore" />
+    <result column="serviceScore" jdbcType="INTEGER" property="servicescore" />
+    <result column="hygieneScore" jdbcType="INTEGER" property="hygienescore" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="tripMode" jdbcType="BIGINT" property="tripmode" />
+    <result column="isOk" jdbcType="INTEGER" property="isok" />
+    <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
+    <result column="createdBy" jdbcType="BIGINT" property="createdby" />
+    <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
+    <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+
+    <collection property="images" ofType="com.example.model.ItripImage">
+      <id column="id" property="id"></id>
+      <result column="imgUrl" jdbcType="VARCHAR" property="imgurl" />
+    </collection>
+  </resultMap>
+
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from itrip_comment
     where id = #{id,jdbcType=BIGINT}

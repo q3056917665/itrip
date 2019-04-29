@@ -9,7 +9,6 @@ public interface ItripHotelFeatureMapper {
 
     List<ItripHotelFeature> selectHotelFeature(@Param("id") long id);
 
-
     int deleteByPrimaryKey(Long id);
 
     int insert(ItripHotelFeature record);

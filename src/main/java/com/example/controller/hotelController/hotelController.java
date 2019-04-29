@@ -76,8 +76,9 @@ public class hotelController {
         session.setAttribute("commentCount",commentService.findCountByHotelId(id));//该酒店所有评价数量
         session.setAttribute("tjCommentCount",commentService.findCounttjByHotel(id));//该酒店值得推荐评价数量
         session.setAttribute("gsCommentCount",commentService.findCountgsByHotel(id));//该酒店有待改善评价数量
-        session.setAttribute("isHavingImagComment",commentService.findCountgsByHotel(id));//该酒店是否有图片的评价数量
+        session.setAttribute("isHavingImagComment",commentService.findIsHavingImgCountByHotelId(id));//该酒店是否有图片的评价数量
         session.setAttribute("AllComment",commentService.findAllCommentByHotelId(id)); //所有评价
+        session.setAttribute("HotelScore",commentService.findScore(id));
         return "success";
     }
 

@@ -7,15 +7,16 @@
     <result column="cityId" jdbcType="BIGINT" property="cityid" />
     <result column="imgUrl" jdbcType="VARCHAR" property="imgurl" />
     <result column="roomPrice" jdbcType="DECIMAL" property="roomprice" />
+    <result column="countryId" jdbcType="BIGINT" property="countryid" />
   </resultMap>
   <insert id="insert" parameterType="com.example.model.HotelView">
-    insert into hotel_view (id, hotelName, cityId, 
-      imgUrl, roomPrice)
+    insert into hotel_view (id, hotelName, cityId,
+      imgUrl, roomPrice,countryId)
     values (#{id,jdbcType=BIGINT}, #{hotelname,jdbcType=VARCHAR}, #{cityid,jdbcType=BIGINT}, 
-      #{imgurl,jdbcType=VARCHAR}, #{roomprice,jdbcType=DECIMAL})
+      #{imgurl,jdbcType=VARCHAR}, #{roomprice,jdbcType=DECIMAL}),#{countryid,jdbcType=BIGINT}
   </insert>
   <select id="selectAll" resultMap="BaseResultMap">
-    select id, hotelName, cityId, imgUrl, roomPrice
+    select id, hotelName, cityId, imgUrl, roomPrice,countryid
     from hotel_view
   </select>
 </mapper>

@@ -13,6 +13,16 @@ public class HotelView {
 
     private BigDecimal roomprice;
 
+    private Long countryid;
+
+    public Long getCountryid() {
+        return countryid;
+    }
+
+    public void setCountryid(Long countryid) {
+        this.countryid = countryid;
+    }
+
     public Long getId() {
         return id;
     }

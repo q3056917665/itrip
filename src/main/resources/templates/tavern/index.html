@@ -269,7 +269,6 @@
                         </div>
                         <div style="width: 900px;margin-top:-265px;margin-left: 280px; ">
                             <div class="list-body-column" th:each="h,status:${session.Seahotels}">
-
                                 <!--点击图片跳转酒店详情-->
                             <div class="column" th:onclick="'toHotel('+${h.id}+')'"  th:if="${status.index<=2}">
                                 <div class="column-ele column-ele-first">
@@ -291,7 +290,7 @@
                                 <div class="points-shouqing"></div>
                             </div>
                             <div class="column-padding"></div>
-                            <div class="column "  th:onclick="'toHotel('+${h.id}+')'"    th:if="${status.index>2}">
+                            <div class="column "  th:onclick="'toHotel('+${h.id}+')'"   th:if="${status.index>2}">
                                 <div class="column-ele">
                                     <div class="recommend">
                                         <span class="text">返现</span>
