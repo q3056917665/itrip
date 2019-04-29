@@ -1,4 +1,4 @@
-package com.example.service;
+package com.example.service.UserService;
 
 import com.example.model.ItripStrategy;
 import com.example.model.ItripStrategyType;

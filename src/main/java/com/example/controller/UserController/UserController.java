@@ -1,10 +1,7 @@
 package com.example.controller.UserController;
 
-import com.example.model.ItripCityNamePictures;
-import com.example.model.ItripMouth;
-import com.example.model.ItripStrategyType;
-import com.example.model.ItripUser;
-import com.example.service.*;
+import com.example.model.*;
+import com.example.service.UserService.*;
 import com.example.utils.PhoneUtils;
 import com.example.utils.RegisterUtils;
 import org.apache.http.HttpResponse;
@@ -32,6 +29,7 @@ public class UserController{
     @Resource
     private ItripStrategyService itripStrategyService;
 
+
     /***
      * 跳转到注册页面
      * @return
@@ -55,7 +53,7 @@ public class UserController{
      * @return
      */
     @RequestMapping("/indexHtml")
-    public String indexHtml(){
+    public String indexHtml(Model model){
         return "index";
     }
 

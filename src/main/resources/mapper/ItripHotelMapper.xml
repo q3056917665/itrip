@@ -122,4 +122,5 @@
     hotelPolicy
     from itrip_hotel
   </select>
+  
 </mapper>

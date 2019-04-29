@@ -1,7 +1,6 @@
-package com.example.service.Impl;
+package com.example.service.UserService.Impl;
 
-import com.example.service.ImailService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.service.UserService.ImailService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;

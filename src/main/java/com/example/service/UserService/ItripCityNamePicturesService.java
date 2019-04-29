@@ -1,4 +1,4 @@
-package com.example.service;
+package com.example.service.UserService;
 
 import com.example.model.ItripCityNamePictures;
 

@@ -1,8 +1,8 @@
-package com.example.service.Impl;
+package com.example.service.UserService.Impl;
 
 import com.example.dao.ItripCityNamePicturesMapper;
 import com.example.model.ItripCityNamePictures;
-import com.example.service.ItripCityNamePicturesService;
+import com.example.service.UserService.ItripCityNamePicturesService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

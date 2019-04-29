@@ -1,8 +1,8 @@
-package com.example.service.Impl;
+package com.example.service.UserService.Impl;
 
 import com.example.dao.ItripMouthMapper;
 import com.example.model.ItripMouth;
-import com.example.service.ItripMouthService;
+import com.example.service.UserService.ItripMouthService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

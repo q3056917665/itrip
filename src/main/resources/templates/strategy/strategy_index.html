@@ -18,22 +18,6 @@
     <script th:src="@{/lib/echarts/shine.js}"></script>
     <script th:src="@{/lib/echarts/china.js}"></script>
         <script type="text/javascript">
-            $(function () {
-                var mm=$("#mm").html();
-                for (var i=0;i<mouthAll.size();i++){
-                    if(mm==(i+1)){
-                        $("#i"+mm).addClass("active");
-                        alert("#i"+mm);
-                    }
-                }
-                var nn=$("#nn").html();
-                for (var j=1;j<=4;j++){
-                    if(nn==j){
-                        $("#j"+j).addClass("active");
-                    }
-                }
-            })
-
             function byMouth(mouthId) {
                 if(!$(".tabs-header li").hasClass("active")){
                     $("li",$(this).closest("ul")).removeClass("active");
@@ -92,8 +76,8 @@
     <div class="i-nav-wrap">
         <ul>
             <li><a href="indexHtml" ><i class="icon-home"></i>首页</a></li>
-            <li><a href="travel/index.html"><i class="icon-globe"></i>旅游</a></li>
-            <li><a href="tavern/index.html"><i class="icon-hospital"></i>酒店</a></li>
+            <li><a href="travelindex"><i class="icon-globe"></i>旅游</a></li>
+            <li><a href="hotel"><i class="icon-hospital"></i>酒店</a></li>
             <li><a href="flyTicket.html"><i class="icon-plane"></i>机票</a></li>
             <!-- <li><a href="#"><i class="icon-credit-card"></i>门票</a></li> -->
             <li class="current"><a href="strategyHtml"><i class="icon-book"></i>攻略</a></li>
@@ -370,9 +354,8 @@
             </div>
             <div class="strategy-list-body">
                 <div class="strategy-tabs" th:fragment="ByMouth" id="ByMouth">
-                    <span th:text="${mouthId}" id="mm" style="display: none"></span>
                     <ul  class="tabs-header" th:each="mou,status:${mouthAll}" style="display: inline-block;width:80px;">
-                        <a href="javascript:void(0);" th:onclick="'javascript:byMouth('+${mou.mouthId}+')'"><li id="i${status.index}"><span th:text="${mou.mouthName}"></span> <span class="icon-tra"></span><span>●</span></li></a>
+                        <a href="javascript:void(0);" th:onclick="'javascript:byMouth('+${mou.mouthId}+')'"><li><span th:text="${mou.mouthName}"></span> <span class="icon-tra"></span><span>●</span></li></a>
                     </ul>
                     <div class="tabs-body" th:each="entries:${allByMouth}" style="display: inline-block">
                         <a href="#"><img th:src="@{${entries.cityPictures}}" alt=""><div th:text="${entries.cityName}"></div></a>
@@ -389,10 +372,9 @@
             </div>
             <div class="strategy-list-body localtion">
                 <div class="strategy-tabs" id="ByType" th:fragment="ByType">
-                    <span th:text="${typeId}" id="nn" style="display: none"></span>
                     <div>
                     <ul  class="tabs-header" th:each="type,start:${typeAll}" style="display: inline-block;">
-                        <a href="javascript:void(0);" th:onclick="'javascript:byType('+${type.stId}+')'"><li id="j${start.count}"><span th:text="${type.stName}"></span></li></a>
+                        <a href="javascript:void(0);" th:onclick="'javascript:byType('+${type.stId}+')'"><li><span th:text="${type.stName}"></span></li></a>
                     </ul>
                     </div>
                     <div class="tabs-body" th:each="tu:${allByType}" style="display: inline-block;">

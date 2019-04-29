@@ -52,7 +52,7 @@
 			<ul>
 				<li class="current"><a href="indexHtml" ><i class="icon-home"></i>首页</a></li>
 				<li><a href="travelindex"><i class="icon-globe"></i>旅游</a></li>
-				<li><a href="tavern/index.html"><i class="icon-hospital"></i>酒店</a></li>
+				<li><a href="hotel"><i class="icon-hospital"></i>酒店</a></li>
 				<li><a href="flyTicket.html"><i class="icon-plane"></i>机票</a></li>
 				<!-- <li><a href="#"><i class="icon-credit-card"></i>门票</a></li> -->
 				<li><a href="strategyHtml"><i class="icon-book"></i>攻略</a></li>
@@ -744,12 +744,11 @@
 <div class="i-sale i-hotel clearfix">
 	<ul>
 		<li class="i-line sale-show i-sale-wrapone">
-			<a href="javascript:;">海外酒店</a>
-			<div class="i-sale-one">
-				<div class="i-sale-top clearfix">
-					<a class="i-sale-cur" href="javascript:;">热门城市</a>
-					<a href="javascript:;">上海</a>
-					<a href="javascript:;">深圳</a>
+			<a href="javascript:;">国内酒店</a>
+			<div class="i-sale-one" th:fragment="guolei">
+				<div class="i-sale-top clearfix" th:each="ch:${byCityOfChina}">
+					<a href="javascript:void(0);">热门城市</a>
+					<a href="javascript:void(0);" th:text="${ch}"></a>
 				</div>
 				<!-- 1 -->
 				<div class="sale-con i_show">
@@ -812,7 +811,7 @@
 			</div>
 		</li>
 		<li class="i-sale-wraptwo">
-		 <a href="javascript:;">热门城市酒店</a>
+		 <a href="javascript:;">国外酒店</a>
 			<div class="i-sale-one">
 				<div class="i-sale-top clearfix">
 					<a class="i-sale-cur" href="javascript:;">精选</a>
@@ -846,103 +845,6 @@
 								<img th:src="@{/images/img/sale1129.jpg}" height="255" width="279" alt="">
 								<div class="i-sale-p">
 									<h3>66台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-					</ul>
-					<div class="i-sale-tg">
-						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
-					</div>
-				</div>
-
-			</div>
-		</li>
-		<li class="i-sale-wrapthree">
-			<a href="javascript:;">当季热门目的地</a>
-			<div class="i-sale-one">
-				<div class="i-sale-top clearfix">
-					<a class="i-sale-cur" href="javascript:;">精选</a>
-					<a href="javascript:;">当地玩乐</a>
-				</div>
-				<!-- 1 -->
-				<div class="sale-con i_show">
-					<ul class="i-sale-con clearfix">
-						<li>
-							<a href="#"> 
-								<img th:src="@{/images/img/jiudian279174_xxx1130.jpg}" height="174" width="279" alt="">
-									<h4>33【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-					</ul>
-					<div class="i-sale-tg">
-						<a href="#"><img th:src="@{images/img/sale-t1129.jpg}" alt=""></a>
-					</div>
-				</div>
-
-				<!-- 2 -->
-
-				<div class="sale-con">
-					<ul class="i-sale-con clearfix">
-						<li>
-							<a href="#"> 
-								<img th:src="@{/images/img/sale1129.jpg}" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>55台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-					</ul>
-					<div class="i-sale-tg">
-						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
-					</div>
-				</div>
-
-			</div>
-		</li>
-
-		<li class="i-sale-wrapfour">
-			<a href="javascript:;">特色酒店推荐</a>
-			<div class="i-sale-one">
-				<div class="i-sale-top clearfix">
-					<a class="i-sale-cur" href="javascript:;">精选</a>
-					<a href="javascript:;">当地玩乐</a>
-				</div>
-				<!-- 1 -->
-				<div class="sale-con i_show">
-					<ul class="i-sale-con clearfix">
-						<li>
-							<a href="#"> 
-								<img th:src="@{/images/img/jiudian279174_xxx1130.jpg}" height="174" width="279" alt="">
-									<h4>44【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-					</ul>
-					<div class="i-sale-tg">
-						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
-					</div>
-				</div>
-
-				<!-- 2 -->
-
-				<div class="sale-con">
-					<ul class="i-sale-con clearfix">
-						<li>
-							<a href="#"> 
-								<img th:src="@{/images/img/sale1129.jpg}" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>55台湾环岛8日7晚跟团游.甩尾特...</h3>
 									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
 			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
 								</div>

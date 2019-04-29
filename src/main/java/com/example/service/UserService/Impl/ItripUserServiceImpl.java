@@ -1,9 +1,8 @@
-package com.example.service.Impl;
+package com.example.service.UserService.Impl;
 
 import com.example.dao.ItripUserMapper;
 import com.example.model.ItripUser;
-import com.example.service.ItripUserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.service.UserService.ItripUserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

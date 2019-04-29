@@ -19,4 +19,5 @@
     select id, hotelName, cityId, imgUrl, roomPrice,countryid
     from hotel_view
   </select>
+
 </mapper>
