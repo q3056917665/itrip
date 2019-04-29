@@ -3,16 +3,16 @@ package com.example.model;
 import java.io.Serializable;
 
 public class ItripMouth implements Serializable {
-    private Integer id;
+    private Integer mouthId;
 
     private String mouthName;
 
-    public Integer getId() {
-        return id;
+    public Integer getMouthId() {
+        return mouthId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setMouthId(Integer mouthId) {
+        this.mouthId = mouthId;
     }
 
     public String getMouthName() {

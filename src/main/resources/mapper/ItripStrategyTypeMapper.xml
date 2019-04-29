@@ -2,29 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.dao.ItripStrategyTypeMapper">
   <resultMap id="BaseResultMap" type="com.example.model.ItripStrategyType">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
+    <id column="st_id" jdbcType="INTEGER" property="stId" />
+    <result column="st_name" jdbcType="VARCHAR" property="stName" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from itrip_strategy_type
-    where id = #{id,jdbcType=INTEGER}
+    where st_id = #{stId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.example.model.ItripStrategyType">
-    insert into itrip_strategy_type (id, name)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
+    insert into itrip_strategy_type (st_id, st_name)
+    values (#{stId,jdbcType=INTEGER}, #{stName,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.example.model.ItripStrategyType">
     update itrip_strategy_type
-    set name = #{name,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    set st_name = #{stName,jdbcType=VARCHAR}
+    where st_id = #{stId,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, name
+    select st_id, st_name
     from itrip_strategy_type
-    where id = #{id,jdbcType=INTEGER}
+    where st_id = #{stId,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select id, name
+    select st_id, st_name
     from itrip_strategy_type
   </select>
 </mapper>

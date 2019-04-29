@@ -18,8 +18,4 @@ public class ItripMouthServiceImpl implements ItripMouthService {
         return itripMouthMapper.selectAll();
     }
 
-    @Override
-    public ItripMouth findMouthId(String mouthName) {
-        return itripMouthMapper.selectByName(mouthName);
-    }
 }

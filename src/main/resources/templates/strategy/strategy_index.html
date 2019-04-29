@@ -17,6 +17,41 @@
     <script th:src="@{/lib/echarts/echarts.min.js}"></script>
     <script th:src="@{/lib/echarts/shine.js}"></script>
     <script th:src="@{/lib/echarts/china.js}"></script>
+        <script type="text/javascript">
+            $(function () {
+                var mm=$("#mm").html();
+                for (var i=0;i<mouthAll.size();i++){
+                    if(mm==(i+1)){
+                        $("#i"+mm).addClass("active");
+                        alert("#i"+mm);
+                    }
+                }
+                var nn=$("#nn").html();
+                for (var j=1;j<=4;j++){
+                    if(nn==j){
+                        $("#j"+j).addClass("active");
+                    }
+                }
+            })
+
+            function byMouth(mouthId) {
+                if(!$(".tabs-header li").hasClass("active")){
+                    $("li",$(this).closest("ul")).removeClass("active");
+                    $(this).addClass("active");
+                }
+                /* thymeleaf  异步刷新 */
+                $('#ByMouth').load("seachByMouth?mouthId="+mouthId);
+            }
+
+            function byType(stId) {
+                if(!$(" .tabs-header li").hasClass("active")){
+                    $("li",$(this).closest("ul")).removeClass("active");
+                    $(this).addClass("active");
+                }
+                /* thymeleaf  异步刷新 */
+                $('#ByType').load("seachByType?stId="+stId);
+            }
+    </script>
 </head>
 <body>
 <!-- 头部开始 -->
@@ -334,33 +369,12 @@
                 <img th:src="@{/images/img/strategy/strategy-02.png}" alt="">
             </div>
             <div class="strategy-list-body">
-                <div class="strategy-tabs">
-                    <ul  class="tabs-header">
-                        <span th:text="${session.mouthId}" id="mm"></span>
-                        <script type="text/javascript">
-                            $(function () {
-                                var mm=$("#mm").html();
-                                for (var i=1;i<=12;i++){
-                                    if(mm==i){
-                                        $("#i"+i).addClass("active")
-                                    }
-                                }
-                            })
-                        </script>
-                        <li id="i1"><span>一月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li id="i2"><span>二月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li id="i3"><span>三月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li id="i4"><span>四月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li id="i5"><span>五月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li id="i6"><span>六月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li id="i7"><span>七月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li id="i8"><span>八月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li id="i9"><span>九月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li id="i10"><span>十月</span> <span class=" icon-tra"></span><span>●</span></li>
-                        <li id="i11"><span>十一月</span> <span class="icon-tra"></span><span>●</span></li>
-                        <li id="i12"><span>十二月</span> <span class="icon-tra"></span><span>●</span></li>
+                <div class="strategy-tabs" th:fragment="ByMouth" id="ByMouth">
+                    <span th:text="${mouthId}" id="mm" style="display: none"></span>
+                    <ul  class="tabs-header" th:each="mou,status:${mouthAll}" style="display: inline-block;width:80px;">
+                        <a href="javascript:void(0);" th:onclick="'javascript:byMouth('+${mou.mouthId}+')'"><li id="i${status.index}"><span th:text="${mou.mouthName}"></span> <span class="icon-tra"></span><span>●</span></li></a>
                     </ul>
-                    <div class="tabs-body" th:each="entries:${session.allByMouth}">
+                    <div class="tabs-body" th:each="entries:${allByMouth}" style="display: inline-block">
                         <a href="#"><img th:src="@{${entries.cityPictures}}" alt=""><div th:text="${entries.cityName}"></div></a>
                     </div>
                 </div>
@@ -374,31 +388,15 @@
                 <img th:src="@{/images/img/strategy/strategy-03.png}" alt="">
             </div>
             <div class="strategy-list-body localtion">
-                <div class="strategy-tabs">
-                    <ul  class="tabs-header"  >
-                        <li class="active"><span>当季游玩</span> </li>
-                        <li><span>温馨蜜月</span> </li>
-                        <li><span>海岛撒欢</span> </li>
-                        <li><span>血拼购物</span> </li>
+                <div class="strategy-tabs" id="ByType" th:fragment="ByType">
+                    <span th:text="${typeId}" id="nn" style="display: none"></span>
+                    <div>
+                    <ul  class="tabs-header" th:each="type,start:${typeAll}" style="display: inline-block;">
+                        <a href="javascript:void(0);" th:onclick="'javascript:byType('+${type.stId}+')'"><li id="j${start.count}"><span th:text="${type.stName}"></span></li></a>
                     </ul>
-                    <div class="tabs-body">
-                        <a href=""><img th:src="@{/images/img/strategy/city/pingyao.jpg}" alt=""><div>平遥</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/rizhao.jpg}" alt=""><div>日照</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/shanghai.jpg}" alt=""><div>上海</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/suzhou.jpg}" alt=""><div>苏州</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/taibei.jpg}" alt=""><div>台北</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/weihai.jpg}" alt=""><div>威海</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/wuxi.jpg}" alt=""><div>无锡</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/wuzhen.jpg}" alt=""><div>乌镇</div></a>
-                        <br>
-                        <a href=""><img th:src="@{/images/img/strategy/city/xiamen.jpg}" alt=""><div>厦门</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/xian.jpg}" alt=""><div>西安</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/xianggang.JPG}" alt=""><div>香港</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/xining.jpg}" alt=""><div>西宁</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/yangshuo.jpg}" alt=""><div>阳朔</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/yangzhou.jpg}" alt=""><div>扬州</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/yili.JPG}" alt=""><div>伊犁</div></a>
-                        <a href=""><img th:src="@{/images/img/strategy/city/zhangjiajie.jpg}" alt=""><div>张家界</div></a>
+                    </div>
+                    <div class="tabs-body" th:each="tu:${allByType}" style="display: inline-block;">
+                        <a href="#"><img th:src="@{${tu.cityPictures}}" alt=""><div th:text="${tu.cityName}"></div></a>
                     </div>
                 </div>
             </div>

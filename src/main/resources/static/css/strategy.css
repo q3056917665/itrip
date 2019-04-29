@@ -206,3 +206,78 @@
 .strategy .strategy-list .localtion .strategy-tabs .tabs-body {
   padding-top: 5px;
 }
+
+
+
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header li {
+  font-size: 14px;
+  font-family: "宋体";
+  height: 33px;
+  line-height: 35px;
+  width: 63px;
+  text-align: center;
+  margin: 0 8.5px;
+  display: inline-block;
+  position: relative;
+  border-radius: 3px;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header li .icon-tra {
+  display: none;
+  position: absolute;
+  bottom: -8px;
+  left: 22px;
+  border-top: 8px solid #ffc600;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  z-index: 1;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header li span:last-child {
+  position: absolute;
+  color: #CCCCCC;
+  bottom: -33px;
+  left: 25px;
+  font-size: 12px;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header .active,
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header li:hover {
+  background-color: #1ab2db;
+  color: #ffffff;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header .active .icon-tra,
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header li:hover .icon-tra {
+  display: block;
+  border-top: 8px solid #1ab2db;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header .active span:last-child,
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header li:hover span:last-child {
+  color: #1ab2db;
+}
+.strategy .strategy-list .strategy-list-body .strategy-tabs .tabs-header li:first-child {
+  margin-left: 60px;
+}
+
+
+
+.strategy .strategy-list .localtion .strategy-tabs .tabs-header {
+  border-bottom: 0px solid #ccc;
+  padding-bottom: 15px;
+}
+.strategy .strategy-list .localtion .strategy-tabs .tabs-header li {
+  position: static;
+}
+.strategy .strategy-list .localtion .strategy-tabs .tabs-header li span:last-child {
+  position: static !important;
+  color: #000000;
+  font-size: 14px;
+  font-family: "宋体";
+}
+.strategy .strategy-list .localtion .strategy-tabs .tabs-header .active,
+.strategy .strategy-list .localtion .strategy-tabs .tabs-header li:hover {
+  background-color: #1ab2db;
+}
+.strategy .strategy-list .localtion .strategy-tabs .tabs-header .active span,
+.strategy .strategy-list .localtion .strategy-tabs .tabs-header li:hover span {
+  color: #ffffff !important;
+}

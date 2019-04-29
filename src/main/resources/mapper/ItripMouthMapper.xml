@@ -2,35 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.dao.ItripMouthMapper">
   <resultMap id="BaseResultMap" type="com.example.model.ItripMouth">
-    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="mouth_id" jdbcType="INTEGER" property="mouthId" />
     <result column="mouth_name" jdbcType="VARCHAR" property="mouthName" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from itrip_mouth
-    where id = #{id,jdbcType=INTEGER}
+    where mouth_id = #{mouthId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.example.model.ItripMouth">
-    insert into itrip_mouth (id, mouth_name)
-    values (#{id,jdbcType=INTEGER}, #{mouthName,jdbcType=VARCHAR})
+    insert into itrip_mouth (mouth_id, mouth_name)
+    values (#{mouthId,jdbcType=INTEGER}, #{mouthName,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.example.model.ItripMouth">
     update itrip_mouth
     set mouth_name = #{mouthName,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    where mouth_id = #{mouthId,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, mouth_name
+    select mouth_id, mouth_name
     from itrip_mouth
-    where id = #{id,jdbcType=INTEGER}
+    where mouth_id = #{mouthId,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select id, mouth_name
+    select mouth_id, mouth_name
     from itrip_mouth
-  </select>
-
-  <select id="selectByName" resultMap="BaseResultMap">
-    select id
-    from itrip_mouth
-    where mouth_name= #{mouthName,jdbcType=VARCHAR}
   </select>
 </mapper>

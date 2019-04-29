@@ -5,6 +5,7 @@ import com.example.model.ItripUser;
 import com.example.service.ItripUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -22,6 +23,7 @@ public class ItripUserServiceImpl implements ItripUserService {
      * @param
      * @return
      */
+    @Transactional
     @Override
     public boolean registerAllUser(String email, String userName, Integer activated, String pwd) {
         ItripUser itripUser = new ItripUser(email, pwd, userName, activated);
