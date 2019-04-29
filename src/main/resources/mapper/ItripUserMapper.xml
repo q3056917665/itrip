@@ -1,89 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.dao.ItripUserMapper">
-  <resultMap id="BaseResultMap" type="com.example.model.ItripUser">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="userCode" jdbcType="VARCHAR" property="usercode" />
-    <result column="userPassword" jdbcType="VARCHAR" property="userpassword" />
-    <result column="userType" jdbcType="INTEGER" property="usertype" />
-    <result column="flatID" jdbcType="BIGINT" property="flatid" />
-    <result column="userName" jdbcType="VARCHAR" property="username" />
-    <result column="weChat" jdbcType="VARCHAR" property="wechat" />
-    <result column="QQ" jdbcType="VARCHAR" property="qq" />
-    <result column="weibo" jdbcType="VARCHAR" property="weibo" />
-    <result column="baidu" jdbcType="VARCHAR" property="baidu" />
-    <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
-    <result column="createdBy" jdbcType="BIGINT" property="createdby" />
-    <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
-    <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
-    <result column="activated" jdbcType="INTEGER" property="activated" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from itrip_user
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="com.example.model.ItripUser">
-    insert into itrip_user (id, userCode, userPassword, 
-      userType, flatID, userName, 
-      weChat, QQ, weibo, 
-      baidu, creationDate, createdBy, 
-      modifyDate, modifiedBy, activated
-      )
-    values (#{id,jdbcType=BIGINT}, #{usercode,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, 
-      #{usertype,jdbcType=INTEGER}, #{flatid,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, 
-      #{wechat,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{weibo,jdbcType=VARCHAR}, 
-      #{baidu,jdbcType=VARCHAR}, #{creationdate,jdbcType=TIMESTAMP}, #{createdby,jdbcType=BIGINT}, 
-      #{modifydate,jdbcType=TIMESTAMP}, #{modifiedby,jdbcType=BIGINT}, #{activated,jdbcType=INTEGER}
-      )
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripUser">
-    update itrip_user
-    set userCode = #{usercode,jdbcType=VARCHAR},
-      userPassword = #{userpassword,jdbcType=VARCHAR},
-      userType = #{usertype,jdbcType=INTEGER},
-      flatID = #{flatid,jdbcType=BIGINT},
-      userName = #{username,jdbcType=VARCHAR},
-      weChat = #{wechat,jdbcType=VARCHAR},
-      QQ = #{qq,jdbcType=VARCHAR},
-      weibo = #{weibo,jdbcType=VARCHAR},
-      baidu = #{baidu,jdbcType=VARCHAR},
-      creationDate = #{creationdate,jdbcType=TIMESTAMP},
-      createdBy = #{createdby,jdbcType=BIGINT},
-      modifyDate = #{modifydate,jdbcType=TIMESTAMP},
-      modifiedBy = #{modifiedby,jdbcType=BIGINT},
-      activated = #{activated,jdbcType=INTEGER}
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select id, userCode, userPassword, userType, flatID, userName, weChat, QQ, weibo, 
-    baidu, creationDate, createdBy, modifyDate, modifiedBy, activated
-    from itrip_user
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, userCode, userPassword, userType, flatID, userName, weChat, QQ, weibo, 
-    baidu, creationDate, createdBy, modifyDate, modifiedBy, activated
-    from itrip_user
-  </select>
+    <resultMap id="BaseResultMap" type="com.example.model.ItripUser">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="userCode" jdbcType="VARCHAR" property="usercode"/>
+        <result column="userPassword" jdbcType="VARCHAR" property="userpassword"/>
+        <result column="userType" jdbcType="INTEGER" property="usertype"/>
+        <result column="flatID" jdbcType="BIGINT" property="flatid"/>
+        <result column="userName" jdbcType="VARCHAR" property="username"/>
+        <result column="weChat" jdbcType="VARCHAR" property="wechat"/>
+        <result column="QQ" jdbcType="VARCHAR" property="qq"/>
+        <result column="weibo" jdbcType="VARCHAR" property="weibo"/>
+        <result column="baidu" jdbcType="VARCHAR" property="baidu"/>
+        <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate"/>
+        <result column="createdBy" jdbcType="BIGINT" property="createdby"/>
+        <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate"/>
+        <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby"/>
+        <result column="activated" jdbcType="INTEGER" property="activated"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from itrip_user
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.example.model.ItripUser">
+        insert into itrip_user (id, userCode, userPassword,
+        userType, flatID, userName,
+        weChat, QQ, weibo,
+        baidu, creationDate, createdBy,
+        modifyDate, modifiedBy, activated
+        )
+        values (#{id,jdbcType=BIGINT}, #{usercode,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR},
+        #{usertype,jdbcType=INTEGER}, #{flatid,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR},
+        #{wechat,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{weibo,jdbcType=VARCHAR},
+        #{baidu,jdbcType=VARCHAR}, #{creationdate,jdbcType=TIMESTAMP}, #{createdby,jdbcType=BIGINT},
+        #{modifydate,jdbcType=TIMESTAMP}, #{modifiedby,jdbcType=BIGINT}, #{activated,jdbcType=INTEGER}
+        )
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.example.model.ItripUser">
+        update itrip_user
+        set userCode = #{usercode,jdbcType=VARCHAR},
+        userPassword = #{userpassword,jdbcType=VARCHAR},
+        userType = #{usertype,jdbcType=INTEGER},
+        flatID = #{flatid,jdbcType=BIGINT},
+        userName = #{username,jdbcType=VARCHAR},
+        weChat = #{wechat,jdbcType=VARCHAR},
+        QQ = #{qq,jdbcType=VARCHAR},
+        weibo = #{weibo,jdbcType=VARCHAR},
+        baidu = #{baidu,jdbcType=VARCHAR},
+        creationDate = #{creationdate,jdbcType=TIMESTAMP},
+        createdBy = #{createdby,jdbcType=BIGINT},
+        modifyDate = #{modifydate,jdbcType=TIMESTAMP},
+        modifiedBy = #{modifiedby,jdbcType=BIGINT},
+        activated = #{activated,jdbcType=INTEGER}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select id, userCode, userPassword, userType, flatID, userName, weChat, QQ, weibo,
+        baidu, creationDate, createdBy, modifyDate, modifiedBy, activated
+        from itrip_user
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id, userCode, userPassword, userType, flatID, userName, weChat, QQ, weibo,
+        baidu, creationDate, createdBy, modifyDate, modifiedBy, activated
+        from itrip_user
+    </select>
 
-  <insert id="register" useGeneratedKeys="true" keyProperty="id"  parameterType="com.example.model.ItripUser">
-    insert into itrip_user (id,userCode,userPassword,userName,activated) values(
-    #{id,jdbcType=BIGINT}, #{usercode,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR},
-    #{username,jdbcType=VARCHAR}, #{activated,jdbcType=INTEGER}
-    )
-  </insert>
+    <insert id="register" useGeneratedKeys="true" keyProperty="id" parameterType="com.example.model.ItripUser">
+        insert into itrip_user (id,userCode,userPassword,userName,activated) values(
+        #{id,jdbcType=BIGINT}, #{usercode,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR},
+        #{username,jdbcType=VARCHAR}, #{activated,jdbcType=INTEGER}
+        )
+    </insert>
 
-  <select id="selectCzEmail" resultType="int">
-    select count(*) from itrip_user where userCode= #{usercode,jdbcType=VARCHAR}
-  </select>
+    <select id="selectCzEmail" resultType="int">
+        select count(*) from itrip_user where userCode= #{usercode,jdbcType=VARCHAR}
+    </select>
 
-  <select id="login" resultMap="BaseResultMap">
-    select * from itrip_user
-    where
-      userCode= #{usercode,jdbcType=VARCHAR}
-      and
-      userPassword=#{userpassword,jdbcType=VARCHAR}
-      and
-      activated=1;
-  </select>
+    <select id="login" resultMap="BaseResultMap">
+        select * from itrip_user
+        where
+        userCode= #{usercode,jdbcType=VARCHAR}
+        and
+        userPassword=#{userpassword,jdbcType=VARCHAR}
+        and
+        activated=1;
+    </select>
 </mapper>

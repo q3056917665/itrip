@@ -8,9 +8,13 @@ public class ItripHotel implements Serializable {
 
     private List<ItripHotelFeature> features;
 
-    public List<ItripHotelFeature> getFeatures() { return features; }
+    public List<ItripHotelFeature> getFeatures() {
+        return features;
+    }
 
-    public void setFeatures(List<ItripHotelFeature> features) { this.features = features; }
+    public void setFeatures(List<ItripHotelFeature> features) {
+        this.features = features;
+    }
 
     private Long id;
 

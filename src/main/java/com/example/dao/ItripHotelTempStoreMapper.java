@@ -1,6 +1,7 @@
 package com.example.dao;
 
 import com.example.model.ItripHotelTempStore;
+
 import java.util.List;
 
 public interface ItripHotelTempStoreMapper {

@@ -62,19 +62,20 @@ biz.util = {
     /*
     * 缓存静态JS文件
     * */
-    cacheJS:{},
-    cacheHtml:{},
+    cacheJS: {},
+    cacheHtml: {},
     /*
     * 获取静态js文件并缓存
     * */
     getJs: function (path, callbck) {
         function evalJs(e) {
-            e.body=eval(e.body);
+            e.body = eval(e.body);
             return e;
         }
+
         var sef = this;
         if (sef.cacheJS[path]) {
-            callbck.call(this,evalJs(new $.extend(sef.cacheJS[path])));
+            callbck.call(this, evalJs(new $.extend(sef.cacheJS[path])));
         } else {
             function success(e) {
                 sef.cacheJS[path] = e;
@@ -82,20 +83,21 @@ biz.util = {
                     callbck.call(this, evalJs(new $.extend(sef.cacheJS[path])));
                 }
             }
-            $.ajax(path).success(function(e){
+
+            $.ajax(path).success(function (e) {
                 success({
-                    success:true,
-                    body:e
+                    success: true,
+                    body: e
                 })
             }).fail(function (e) {
                 callbck({
-                    succes:false,
-                    err:e
+                    succes: false,
+                    err: e
                 })
             });
         }
     },
-    getHtml:function (path, callbck) {
+    getHtml: function (path, callbck) {
         var sef = this;
         if (this.cacheHtml[path]) {
             callbck(new $.extend(sef.cacheHtml[path]));
@@ -106,33 +108,37 @@ biz.util = {
                     callbck(new $.extend(sef.cacheHtml[path]));
                 }
             }
-            $.ajax(path).success(function(e){
+
+            $.ajax(path).success(function (e) {
                 success({
-                    success:true,
-                    body:e
+                    success: true,
+                    body: e
                 })
             }).fail(function (e) {
                 callbck({
-                    succes:false,
-                    err:e
+                    succes: false,
+                    err: e
                 })
             });
         }
     }
 };
-$.extend(true,window.jbit,biz);
-biz.util.validator={
+$.extend(true, window.jbit, biz);
+biz.util.validator = {
     password: function (v, ps) {
         var reg = /(^.{6,18}$)|(^.{32}$)/;
-        return {code:reg.test(v),message: '请输入正确的密码！'};
+        return {code: reg.test(v), message: '请输入正确的密码！'};
     },
-    mobile:function (mobile) {
+    mobile: function (mobile) {
         // 请输入手机号，手机号为11位
-        return {code: /^0?1[3|4|5|7|8][0-9]\d{8}$/.test(mobile),message:"请输入有效的手机号码或邮箱！"};
-    },email:  function (mail) {
-        return {code: /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(mail),message: '请输入有效的手机号码或邮箱！'}
-    },account:  function (mail) {
-        return {code: /^[0-9A-Za-z]{5,}$/.test(mail),message: '请输入正确的验证码'}
+        return {code: /^0?1[3|4|5|7|8][0-9]\d{8}$/.test(mobile), message: "请输入有效的手机号码或邮箱！"};
+    }, email: function (mail) {
+        return {
+            code: /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(mail),
+            message: '请输入有效的手机号码或邮箱！'
+        }
+    }, account: function (mail) {
+        return {code: /^[0-9A-Za-z]{5,}$/.test(mail), message: '请输入正确的验证码'}
     }
 };
-jbit=$.extend({},jbit,biz);
+jbit = $.extend({}, jbit, biz);

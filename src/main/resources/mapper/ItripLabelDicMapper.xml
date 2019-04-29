@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.dao.ItripLabelDicMapper">
-  <resultMap id="BaseResultMap" type="com.example.model.ItripLabelDic">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="value" jdbcType="VARCHAR" property="value" />
-    <result column="description" jdbcType="VARCHAR" property="description" />
-    <result column="parentId" jdbcType="BIGINT" property="parentid" />
-    <result column="pic" jdbcType="VARCHAR" property="pic" />
-    <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
-    <result column="createdBy" jdbcType="BIGINT" property="createdby" />
-    <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
-    <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from itrip_label_dic
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="com.example.model.ItripLabelDic">
-    insert into itrip_label_dic (id, name, value, 
-      description, parentId, pic, 
-      creationDate, createdBy, modifyDate, 
-      modifiedBy)
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{value,jdbcType=VARCHAR}, 
-      #{description,jdbcType=VARCHAR}, #{parentid,jdbcType=BIGINT}, #{pic,jdbcType=VARCHAR}, 
-      #{creationdate,jdbcType=TIMESTAMP}, #{createdby,jdbcType=BIGINT}, #{modifydate,jdbcType=TIMESTAMP}, 
-      #{modifiedby,jdbcType=BIGINT})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripLabelDic">
-    update itrip_label_dic
-    set name = #{name,jdbcType=VARCHAR},
-      value = #{value,jdbcType=VARCHAR},
-      description = #{description,jdbcType=VARCHAR},
-      parentId = #{parentid,jdbcType=BIGINT},
-      pic = #{pic,jdbcType=VARCHAR},
-      creationDate = #{creationdate,jdbcType=TIMESTAMP},
-      createdBy = #{createdby,jdbcType=BIGINT},
-      modifyDate = #{modifydate,jdbcType=TIMESTAMP},
-      modifiedBy = #{modifiedby,jdbcType=BIGINT}
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select id, name, value, description, parentId, pic, creationDate, createdBy, modifyDate, 
-    modifiedBy
-    from itrip_label_dic
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, name, value, description, parentId, pic, creationDate, createdBy, modifyDate, 
-    modifiedBy
-    from itrip_label_dic
-  </select>
+    <resultMap id="BaseResultMap" type="com.example.model.ItripLabelDic">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="value" jdbcType="VARCHAR" property="value"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+        <result column="parentId" jdbcType="BIGINT" property="parentid"/>
+        <result column="pic" jdbcType="VARCHAR" property="pic"/>
+        <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate"/>
+        <result column="createdBy" jdbcType="BIGINT" property="createdby"/>
+        <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate"/>
+        <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from itrip_label_dic
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.example.model.ItripLabelDic">
+        insert into itrip_label_dic (id, name, value,
+        description, parentId, pic,
+        creationDate, createdBy, modifyDate,
+        modifiedBy)
+        values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{value,jdbcType=VARCHAR},
+        #{description,jdbcType=VARCHAR}, #{parentid,jdbcType=BIGINT}, #{pic,jdbcType=VARCHAR},
+        #{creationdate,jdbcType=TIMESTAMP}, #{createdby,jdbcType=BIGINT}, #{modifydate,jdbcType=TIMESTAMP},
+        #{modifiedby,jdbcType=BIGINT})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.example.model.ItripLabelDic">
+        update itrip_label_dic
+        set name = #{name,jdbcType=VARCHAR},
+        value = #{value,jdbcType=VARCHAR},
+        description = #{description,jdbcType=VARCHAR},
+        parentId = #{parentid,jdbcType=BIGINT},
+        pic = #{pic,jdbcType=VARCHAR},
+        creationDate = #{creationdate,jdbcType=TIMESTAMP},
+        createdBy = #{createdby,jdbcType=BIGINT},
+        modifyDate = #{modifydate,jdbcType=TIMESTAMP},
+        modifiedBy = #{modifiedby,jdbcType=BIGINT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select id, name, value, description, parentId, pic, creationDate, createdBy, modifyDate,
+        modifiedBy
+        from itrip_label_dic
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id, name, value, description, parentId, pic, creationDate, createdBy, modifyDate,
+        modifiedBy
+        from itrip_label_dic
+    </select>
 </mapper>

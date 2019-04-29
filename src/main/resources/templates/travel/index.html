@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>旅行首页</title>
-    <link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon" />
+    <link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon"/>
     <link rel="stylesheet" th:href="@{/css/reset.css}"/>
     <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/common.css}"/>
@@ -51,7 +51,7 @@
 <div class="i-nav clearfix">
     <div class="i-nav-wrap">
         <ul>
-            <li><a th:href="@{/index}" ><i class="icon-home"></i>首页</a></li>
+            <li><a th:href="@{/index}"><i class="icon-home"></i>首页</a></li>
             <li class="current"><a th:href="@{/travelindex}"><i class="icon-globe"></i>旅游</a></li>
             <li><a th:href="@{/tavernindex}"><i class="icon-hospital"></i>酒店</a></li>
             <li><a th:href="@{/flyTicket}"><i class="icon-plane"></i>机票</a></li>
@@ -148,7 +148,8 @@
                             <div class="menu-list">
                                 <div class="menu-theme">特色旅游</div>
                                 <div class="menu-sub">
-                                    </a>  温泉 </a> |<a> 草原越野 </a> |<a> 森林氧吧 </a> |<a> 摄影之旅 </a> |<br> <a> 亲子博物馆 </a> |<a> 海鲜美食 </a>
+                                    </a>  温泉 </a> |<a> 草原越野 </a> |<a> 森林氧吧 </a> |<a> 摄影之旅 </a> |<br> <a> 亲子博物馆 </a> |<a>
+                                    海鲜美食 </a>
                                 </div>
                             </div>
 
@@ -404,13 +405,13 @@
                 <div class="points-list-header">
                     <div class="header-list-left">
                         <span class="icon-inland">
-                            <img src="images/img/travel_message/travel/chujing/chujing-01.png">
+                            <img th:src="@{/images/img/travel_message/travel/chujing/chujing-01.png}">
                         </span>
                         <div class="list-title">
                             出境旅游
                         </div>
                         <span class="list-dis">
-                             <img src="images/img/travel_message/travel/chujing/chujing-02.png">
+                             <img th:src="@{/images/img/travel_message/travel/chujing/chujing-02.png}">
                             </span>
                     </div>
                     <div class="header-list-right">
@@ -420,148 +421,69 @@
                 <div class="points-list-body">
                     <div class="list-body-column ">
                         <div class="left-column">
-                            <img src="images/img/travel-exit.png">
+                            <img th:src="@{images/img/travel-exit.png}">
                         </div>
                     </div>
-                    <div class="list-body-column">
-                        <div class="column">
+                    <div class="list-body-column" th:each="h,stauts:${session.wai}">
+                        <div class="column"   th:onclick="'totravel('+${h.id}+')'"    th:if="${stauts.index<=2}">
                             <div class="column-ele column-ele-first">
                                 <div class="recommend">
-                                    <span class="text">力推</span>
+                                    <span class="text">返现</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="images/img/travel_message/travel/chujing/jizhoudao.jpg">
+                                    <img th:src="@{${h.image}}">
                                 </div>
                                 <div class="column-desc">
-                                    <div class="cell-desc" title="韩国济州岛+首尔6日5晚跟团游(4钻)  ">
-                                        韩国济州岛+首尔6日5晚跟团游
+                                    <div class="cell-desc" th:title="${h.name}">
+                                        <span th:text="${#strings.abbreviate(h.name,10)}"></span>
                                     </div>
                                     <div class="cell-money">
-                                        ￥<span>3399</span>起
+                                        ￥<span th:text="${h.price}"></span>起
                                     </div>
                                 </div>
                             </div>
                             <div class="points-shouqing"></div>
                         </div>
                         <div class="column-padding"></div>
-                        <div class="column ">
+                        <div class="column " style="margin-left: 145px"  th:onclick="'totravel('+${h.id}+')'"    th:if="${stauts.index>2}">
                             <div class="column-ele">
                                 <div class="recommend">
-                                    <span class="text">力推</span>
+                                    <span class="text">返现</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="images/img/travel_message/travel/chujing/fadigang.jpg">
+                                    <img th:src="@{${h.image}}">
                                 </div>
                                 <div class="column-desc">
-                                    <div class="cell-desc" title="意大利+梵蒂冈+瑞士+法国+锡耶纳+维罗纳13日跟团游">
-                                        意大利+梵蒂冈+瑞士+法国...
+                                    <div class="cell-desc" th:title="${h.name}">
+                                        <span th:text="${#strings.abbreviate(h.name,10)}"></span>
                                     </div>
                                     <div class="cell-money">
-                                        ￥<span>13999</span>起
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="travel-shouqing"></div>
-
-                        </div>
-                    </div>
-                    <div class="list-body-column">
-                        <div class="column">
-                            <div class="column-ele column-ele-first">
-                                <div class="recommend">
-                                    <span class="text">力推</span>
-                                </div>
-                                <div class="column-image">
-                                    <img src="images/img/travel_message/travel/chujing/batiya.jpg">
-                                </div>
-                                <div class="column-desc">
-                                    <div class="cell-desc" title="日本东京+大阪7日自由行 ">
-                                        日本东京+大阪7日自由行
-                                    </div>
-                                    <div class="cell-money">
-                                        ￥<span>5353</span>起
+                                        ￥<span th:text="${h.price}"></span>起
                                     </div>
                                 </div>
                             </div>
                             <div class="travel-shouqing"></div>
                         </div>
-                        <div class="column-padding"></div>
-                        <div class="column ">
-                            <div class="column-ele">
-                                <div class="recommend">
-                                    <span class="text">力推</span>
-                                </div>
-                                <div class="column-image">
-                                    <img src="images/img/travel_message/travel/chujing/mangu.jpg">
-                                </div>
-                                <div class="column-desc">
-                                    <div class="cell-desc" title="曼谷+芭提雅6日5晚自由行">
-                                        曼谷+芭提雅6日5晚自由行
-                                    </div>
-                                    <div class="cell-money">
-                                        ￥<span>3060</span>起
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="points-shouqing"></div>
-
-                        </div>
                     </div>
-                    <div class="list-body-column">
-                        <div class="column">
-                            <div class="column-ele column-ele-first">
-                                <div class="recommend">
-                                    <span class="text">力推</span>
-                                </div>
-                                <div class="column-image">
-                                    <img src="images/img/travel_message/travel/chujing/mgda.jpg">
-                                </div>
-                                <div class="column-desc">
-                                    <div class="cell-desc" title="美国东西海岸+夏威夷+波士顿+纽约+华盛顿+拉斯维加斯+尼亚加拉瀑布14日11晚跟团游  ">
-                                        美国东西海岸+夏威夷+波士顿…
-                                    </div>
-                                    <div class="cell-money">
-                                        ￥<span>12187</span>起
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="travel-shouqing"></div>
-                        </div>
-                        <div class="column-padding"></div>
-                        <div class="column column-gray">
-                            <div class="column-ele">
-                                <div class="recommend">
-                                    <span class="text">力推</span>
-                                </div>
-                                <div class="column-image">
-                                    <img src="images/img/travel-scenic-spot-01.png">
-                                </div>
-                                <div class="column-desc">
-                                    <div class="cell-desc" title="普吉岛7日5晚跟团游 全程5惠尽情享受！">
-                                        普吉岛7日5晚跟团游 全程5…
-                                    </div>
-                                    <div class="cell-money">
-                                        ￥<span>2669</span>起
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="points-shouqing"></div>
-
-                        </div>
-                    </div>
+                    <script>
+                        /*点击图片跳转酒店详情*/
+                        function totravel(id) {
+                            window.open("travelmessage?id="+id);
+                        }
+                    </script>
                 </div>
             </div>
             <div class="travel-churchyard-body points-list">
                 <div class="points-list-header">
                     <div class="header-list-left">
                         <span class="icon-inland">
-                            <img src="images/img/guonei.png">
+                            <img th:src="@{/images/img/guonei.png}">
                         </span>
                         <div class="list-title">
                             国内旅游
                         </div>
                         <span class="list-dis">
-                             <img src="images/img/guoneides.png">
+                             <img th:src="@{/images/img/guoneides.png}">
                             </span>
                     </div>
                     <div class="header-list-right">
@@ -571,133 +493,48 @@
                 <div class="points-list-body">
                     <div class="list-body-column ">
                         <div class="left-column">
-                            <img src="images/img/travel_message/travel/guonei/guonei.png">
+                            <img th:src="@{/images/img/travel_message/travel/guonei/guonei.png}">
                         </div>
                     </div>
-                    <div class="list-body-column">
-                        <div class="column">
+                    <div class="list-body-column" th:each="h,stauts:${session.guo}">
+                        <div class="column"   th:onclick="'toHotel('+${h.id}+')'"    th:if="${stauts.index<=2}">
                             <div class="column-ele column-ele-first">
                                 <div class="recommend">
-                                    <span class="text">力推</span>
+                                    <span class="text">返现</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="images/img/travel_message/travel/guonei/wuzhen.jpg">
+                                    <img th:src="@{${h.image}}">
                                 </div>
                                 <div class="column-desc">
-                                    <div class="cell-desc" title="上海+苏州+杭州+乌镇5日4晚跟团游    ">
-                                        上海+苏州+杭州+乌镇5日4…
+                                    <div class="cell-desc" th:title="${h.name}">
+                                        <span th:text="${#strings.abbreviate(h.name,10)}"></span>
                                     </div>
                                     <div class="cell-money">
-                                        ￥<span>3709</span>起
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="travel-shouqing"></div>
-                        </div>
-                        <div class="column-padding"></div>
-                        <div class="column ">
-                            <div class="column-ele">
-                                <div class="recommend">
-                                    <span class="text">力推</span>
-                                </div>
-                                <div class="column-image">
-                                    <img src="images/img/travel_message/travel/guonei/ermeishan.jpg">
-                                </div>
-                                <div class="column-desc">
-                                    <div class="cell-desc" title="成都+九寨沟+黄龙+乐山+峨眉山7日6晚跟团游 ">
-                                        成都+九寨沟+黄龙+乐山+峨…
-                                    </div>
-                                    <div class="cell-money">
-                                        ￥<span>3563 </span>起
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="travel-shouqing"></div>
-
-                        </div>
-                    </div>
-                    <div class="list-body-column">
-                        <div class="column">
-                            <div class="column-ele column-ele-first">
-                                <div class="recommend">
-                                    <span class="text">力推</span>
-                                </div>
-                                <div class="column-image">
-                                    <img src="images/img/travel_message/travel/guonei/taishan.jpg">
-                                </div>
-                                <div class="column-desc">
-                                    <div class="cell-desc" title="曲阜三孔+泰山3日2晚跟团游(3钻)·6项专享 ">
-                                        曲阜三孔+泰山3日2晚跟团游…
-                                    </div>
-                                    <div class="cell-money">
-                                        ￥<span>1608</span>起
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="travel-shouqing"></div>
-                        </div>
-                        <div class="column-padding"></div>
-                        <div class="column ">
-                            <div class="column-ele">
-                                <div class="recommend">
-                                    <span class="text">力推</span>
-                                </div>
-                                <div class="column-image">
-                                    <img src="images/img/travel_message/travel/guonei/qingdao.jpg">
-                                </div>
-                                <div class="column-desc">
-                                    <div class="cell-desc" title="青岛+烟台5日自由行·青岛进烟台">
-                                        青岛+烟台5日自由行·青岛…
-                                    </div>
-                                    <div class="cell-money">
-                                        ￥<span>1520</span>起
+                                        ￥<span th:text="${h.price}"></span>起
                                     </div>
                                 </div>
                             </div>
                             <div class="points-shouqing"></div>
-
                         </div>
-                    </div>
-                    <div class="list-body-column">
-                        <div class="column">
-                            <div class="column-ele column-ele-first">
+                        <div class="column-padding"></div>
+                        <div class="column " style="margin-left: 145px"  th:onclick="'toHotel('+${h.id}+')'"    th:if="${stauts.index>2}">
+                            <div class="column-ele">
                                 <div class="recommend">
-                                    <span class="text">力推</span>
+                                    <span class="text">返现</span>
                                 </div>
                                 <div class="column-image">
-                                    <img src="images/img/travel_message/travel/guonei/xiamen.jpg">
+                                    <img th:src="@{${h.image}}">
                                 </div>
                                 <div class="column-desc">
-                                    <div class="cell-desc" title="鼓浪屿+厦门5日自由行·2晚鼓浪屿+2晚厦门 ">
-                                        鼓浪屿+厦门5日自由行…
+                                    <div class="cell-desc" th:title="${h.name}">
+                                        <span th:text="${#strings.abbreviate(h.name,10)}"></span>
                                     </div>
                                     <div class="cell-money">
-                                        ￥<span>1689</span>起
+                                        ￥<span th:text="${h.price}"></span>起
                                     </div>
                                 </div>
                             </div>
                             <div class="travel-shouqing"></div>
-                        </div>
-                        <div class="column-padding"></div>
-                        <div class="column column-gray">
-                            <div class="column-ele">
-                                <div class="recommend">
-                                    <span class="text">力推</span>
-                                </div>
-                                <div class="column-image">
-                                    <img src="images/img/travel_message/travel/guonei/dishini.png">
-                                </div>
-                                <div class="column-desc">
-                                    <div class="cell-desc" title="上海迪士尼（Disney）3日自由行">
-                                        上海迪士尼（Disney）3日自由行
-                                    </div>
-                                    <div class="cell-money">
-                                        ￥<span>8889</span>起
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="points-shouqing"></div>
-
                         </div>
                     </div>
                 </div>
@@ -864,7 +701,7 @@
                             <img src="images/img/travel_message/travel/dangdi/dangdi-01.png">
                         </span>
                         <div class="list-title">
-                           当地旅游
+                            当地旅游
                         </div>
                         <span class="list-dis">
                              <img src="images/img/travel_message/travel/dangdi/dangdi-02.png">

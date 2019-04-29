@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.dao.ItripHotelTradingAreaMapper">
-  <resultMap id="BaseResultMap" type="com.example.model.ItripHotelTradingArea">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="hotelId" jdbcType="BIGINT" property="hotelid" />
-    <result column="areaId" jdbcType="BIGINT" property="areaid" />
-    <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
-    <result column="createdBy" jdbcType="BIGINT" property="createdby" />
-    <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
-    <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from itrip_hotel_trading_area
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="com.example.model.ItripHotelTradingArea">
-    insert into itrip_hotel_trading_area (id, hotelId, areaId, 
-      creationDate, createdBy, modifyDate, 
-      modifiedBy)
-    values (#{id,jdbcType=BIGINT}, #{hotelid,jdbcType=BIGINT}, #{areaid,jdbcType=BIGINT}, 
-      #{creationdate,jdbcType=TIMESTAMP}, #{createdby,jdbcType=BIGINT}, #{modifydate,jdbcType=TIMESTAMP}, 
-      #{modifiedby,jdbcType=BIGINT})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripHotelTradingArea">
-    update itrip_hotel_trading_area
-    set hotelId = #{hotelid,jdbcType=BIGINT},
-      areaId = #{areaid,jdbcType=BIGINT},
-      creationDate = #{creationdate,jdbcType=TIMESTAMP},
-      createdBy = #{createdby,jdbcType=BIGINT},
-      modifyDate = #{modifydate,jdbcType=TIMESTAMP},
-      modifiedBy = #{modifiedby,jdbcType=BIGINT}
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select id, hotelId, areaId, creationDate, createdBy, modifyDate, modifiedBy
-    from itrip_hotel_trading_area
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, hotelId, areaId, creationDate, createdBy, modifyDate, modifiedBy
-    from itrip_hotel_trading_area
-  </select>
+    <resultMap id="BaseResultMap" type="com.example.model.ItripHotelTradingArea">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="hotelId" jdbcType="BIGINT" property="hotelid"/>
+        <result column="areaId" jdbcType="BIGINT" property="areaid"/>
+        <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate"/>
+        <result column="createdBy" jdbcType="BIGINT" property="createdby"/>
+        <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate"/>
+        <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from itrip_hotel_trading_area
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.example.model.ItripHotelTradingArea">
+        insert into itrip_hotel_trading_area (id, hotelId, areaId,
+        creationDate, createdBy, modifyDate,
+        modifiedBy)
+        values (#{id,jdbcType=BIGINT}, #{hotelid,jdbcType=BIGINT}, #{areaid,jdbcType=BIGINT},
+        #{creationdate,jdbcType=TIMESTAMP}, #{createdby,jdbcType=BIGINT}, #{modifydate,jdbcType=TIMESTAMP},
+        #{modifiedby,jdbcType=BIGINT})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.example.model.ItripHotelTradingArea">
+        update itrip_hotel_trading_area
+        set hotelId = #{hotelid,jdbcType=BIGINT},
+        areaId = #{areaid,jdbcType=BIGINT},
+        creationDate = #{creationdate,jdbcType=TIMESTAMP},
+        createdBy = #{createdby,jdbcType=BIGINT},
+        modifyDate = #{modifydate,jdbcType=TIMESTAMP},
+        modifiedBy = #{modifiedby,jdbcType=BIGINT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select id, hotelId, areaId, creationDate, createdBy, modifyDate, modifiedBy
+        from itrip_hotel_trading_area
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id, hotelId, areaId, creationDate, createdBy, modifyDate, modifiedBy
+        from itrip_hotel_trading_area
+    </select>
 </mapper>

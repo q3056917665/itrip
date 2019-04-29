@@ -53,11 +53,9 @@
                 var chk = DEFAULT_STEP;
                 if (vattr === 'min') {
                     chk = DEFAULT_MIN;
-                }
-                else if (vattr === 'max') {
+                } else if (vattr === 'max') {
                     chk = DEFAULT_MAX;
-                }
-                else if (vattr === 'step') {
+                } else if (vattr === 'step') {
                     chk = DEFAULT_STEP;
                 }
                 var final = isEmpty(val) ? chk : val;
@@ -183,16 +181,14 @@
 
             if (self.inactive) {
                 self.$container.removeClass('rating-active').addClass('rating-disabled');
-            }
-            else {
+            } else {
                 self.$container.removeClass('rating-disabled').addClass('rating-active');
             }
 
             if (typeof self.$caption == 'undefined' && typeof self.$clear == 'undefined') {
                 if (self.rtl) {
                     self.$container.prepend(caption).append(clear);
-                }
-                else {
+                } else {
                     self.$container.prepend(clear).append(caption);
                 }
             }
@@ -248,8 +244,7 @@
             val = (self.min + Math.ceil(self.diff * percentage / self.step) * self.step);
             if (val < self.min) {
                 val = self.min;
-            }
-            else if (val > self.max) {
+            } else if (val > self.max) {
                 val = self.max;
             }
             val = applyPrecision(parseFloat(val), precision);
@@ -302,14 +297,12 @@
                 self.init($.extend(self.options, options));
                 if (self.showClear) {
                     self.$clear.show();
-                }
-                else {
+                } else {
                     self.$clear.hide();
                 }
                 if (self.showCaption) {
                     self.$caption.show();
-                }
-                else {
+                } else {
                     self.$caption.hide();
                 }
             }

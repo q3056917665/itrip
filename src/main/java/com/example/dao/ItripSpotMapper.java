@@ -1,6 +1,7 @@
 package com.example.dao;
 
 import com.example.model.ItripSpot;
+
 import java.util.List;
 
 public interface ItripSpotMapper {

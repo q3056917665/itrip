@@ -13,9 +13,13 @@ public class ItripHotelFeature implements Serializable {
     //标签字典表
     private ItripLabelDic dic;
 
-    public ItripLabelDic getDic() { return dic; }
+    public ItripLabelDic getDic() {
+        return dic;
+    }
 
-    public void setDic(ItripLabelDic dic) { this.dic = dic; }
+    public void setDic(ItripLabelDic dic) {
+        this.dic = dic;
+    }
 
     public ItripHotel getHotel() {
         return hotel;

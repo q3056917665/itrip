@@ -1,6 +1,7 @@
 package com.example.dao;
 
 import com.example.model.ItripHotelTradingArea;
+
 import java.util.List;
 
 public interface ItripHotelTradingAreaMapper {

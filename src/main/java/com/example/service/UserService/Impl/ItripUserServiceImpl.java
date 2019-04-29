@@ -36,14 +36,14 @@ public class ItripUserServiceImpl implements ItripUserService {
     }
 
     @Override
-    public ItripUser login(String usercode,String userPassword) {
-        ItripUser itripUser=new ItripUser();
+    public ItripUser login(String usercode, String userPassword) {
+        ItripUser itripUser = new ItripUser();
         itripUser.setUsercode(usercode);
         itripUser.setUserpassword(userPassword);
         ItripUser login = itripUserMapper.login(itripUser);
-        if(login!=null){
+        if (login != null) {
             return login;
-        }else{
+        } else {
             return null;
         }
     }

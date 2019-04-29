@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>旅行搜索</title>
-    <link rel="shortcut icon" href="../../static/js/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../../static/js/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/common.css">
@@ -80,30 +80,32 @@
     <div class="travel travel-list">
 
         <div class="travel-head travel-list-head">
-            <div class="list-left" >
+            <div class="list-left">
                 <div class="travel-search-list"> <!--1ab2db-->
                     <div class="btn btn-default" type="text">
                         <i class="icon-map-marker"></i>
-                        <input type="text" readonly   id="travelCitySelect1" value="北京市"><i class=" icon-angle-down"></i></div>
+                        <input type="text" readonly id="travelCitySelect1" value="北京市"><i class=" icon-angle-down"></i>
+                    </div>
                 </div>
                 <div class="travel-search-list">
                     <div class="btn btn-default" type="text">
                         <i class=" icon-fire"></i>
-                        <input type="text" readonly   id="travelCitySelect2"   value="热门目的地"><i class=" icon-angle-down"></i></div>
+                        <input type="text" readonly id="travelCitySelect2" value="热门目的地"><i
+                            class=" icon-angle-down"></i></div>
                 </div>
             </div>
             <div class="travel-head-right">
                 <div class="travel-search">
-                    <div class="btn btn-default" type="text" >
-                    <input type="text" readonly   id="travelCitySelect3"  value="全部产品">
-                    <i class=" icon-angle-down"></i></div>
+                    <div class="btn btn-default" type="text">
+                        <input type="text" readonly id="travelCitySelect3" value="全部产品">
+                        <i class=" icon-angle-down"></i></div>
                     <div class="search">
                         <input type="text" placeholder="景点\地区\关键词...">
                         <button class=" icon-search"></button>
                     </div>
-                 <!--   <div class="travel-shortcut">
-                        热门搜索:&nbsp;&nbsp;<a>景点活动</a>&nbsp;&nbsp;&nbsp;<a>香山</a>&nbsp;&nbsp;&nbsp;<a>八达岭</a>&nbsp;&nbsp;&nbsp;<a>凤凰岭</a>&nbsp;&nbsp;&nbsp;<a>野生动物园</a>
-                    </div>-->
+                    <!--   <div class="travel-shortcut">
+                           热门搜索:&nbsp;&nbsp;<a>景点活动</a>&nbsp;&nbsp;&nbsp;<a>香山</a>&nbsp;&nbsp;&nbsp;<a>八达岭</a>&nbsp;&nbsp;&nbsp;<a>凤凰岭</a>&nbsp;&nbsp;&nbsp;<a>野生动物园</a>
+                       </div>-->
                 </div>
             </div>
             <div class="localtion-item">旅游>北京旅游</div>
@@ -129,7 +131,7 @@
                         <button class="btn">行程天数:1日、2日<i class="icon-remove"></i></button>
                         &nbsp;
                     </div>
-                    <div class="tarvel-search-params" >
+                    <div class="tarvel-search-params">
                         <div class="search-one-param " id="check_localtion">
                             <span class="param-label">游玩线路：</span>
                             <span>北京一地</span>&nbsp;&nbsp;
@@ -142,10 +144,10 @@
                             <span class="param-label">游玩线路：</span>
                             <div class="checkbox-list">
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" id="locationCheckbox1" value="北京一地"  >北京一地
+                                    <input type="checkbox" id="locationCheckbox1" value="北京一地">北京一地
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" id="locationCheckbox2" value="北京+天津" > 北京+天津
+                                    <input type="checkbox" id="locationCheckbox2" value="北京+天津"> 北京+天津
                                 </label>
                                 <label class="checkbox-inline">
                                     <input type="checkbox" id="locationCheckbox3" value="北京+承德">北京+承德
@@ -154,7 +156,8 @@
                                     <input type="checkbox" id="locationCheckbox4" value="北京+秦皇岛">北京+秦皇岛
                                 </label>
                             </div>
-                            <div class="search-param-cancel" >   <span data-show-id="check_localtion">收起 <i class='icon-chevron-up'></i></span></div>
+                            <div class="search-param-cancel"><span data-show-id="check_localtion">收起 <i
+                                    class='icon-chevron-up'></i></span></div>
                         </div>
                         <div class="search-one-param">
                             <span class="param-label">行程天数：</span>
@@ -241,7 +244,7 @@
 
                     </div>
                 </div>
-           </div>
+            </div>
             <div class="travel-model-grid">
                 <div class="modal-grid-left">
                     <div class="recommend">
@@ -543,7 +546,7 @@
 <script>
     var style = "  <style> .travel-search .search input[type='text']{ height: 43px !important;  } input[type='checkbox']{ top: -9px !important;  }</style>";
     var isIE = !!window.ActiveXObject;
-    if (isIE&&(document.documentMode!=11)) {
+    if (isIE && (document.documentMode != 11)) {
         document.write(style);
     }
     window.onload = function (e) {

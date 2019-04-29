@@ -9,6 +9,16 @@ public class ItripRouteSpot implements Serializable {
 
     private Long spotid;
 
+    private ItripSpot spot;
+
+    public ItripSpot getSpot() {
+        return spot;
+    }
+
+    public void setSpot(ItripSpot spot) {
+        this.spot = spot;
+    }
+
     private Long roomid;
 
     public Long getId() {

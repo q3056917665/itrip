@@ -47,13 +47,13 @@ var travelList = {
         });
         $("#check_localtion-hide input").on("click", function (e) {
             $("#travel_localtion").remove();
-            var val="";
-            $("#check_localtion-hide .checkbox-inline input").each(function(i,item){
-                if(this.checked){
-                    if(val){
-                        val+="、"+this.value
-                    }else{
-                        val=this.value;
+            var val = "";
+            $("#check_localtion-hide .checkbox-inline input").each(function (i, item) {
+                if (this.checked) {
+                    if (val) {
+                        val += "、" + this.value
+                    } else {
+                        val = this.value;
                     }
                 }
             });
@@ -61,8 +61,8 @@ var travelList = {
                 '</span><i class="icon-remove"></i></button>')
             $("#travel_localtion .icon-remove").on("click", function (e) {
                 $(this).closest("button").remove();
-                $("#check_localtion-hide .checkbox-inline input").each(function(i,item){
-                    this.checked =false;
+                $("#check_localtion-hide .checkbox-inline input").each(function (i, item) {
+                    this.checked = false;
                 });
             });
 

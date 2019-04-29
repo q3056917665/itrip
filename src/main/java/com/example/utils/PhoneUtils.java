@@ -17,7 +17,7 @@ public class PhoneUtils {
         Map<String, String> querys = new HashMap<String, String>();
         querys.put("phone", mobile);
         querys.put("templateId", "TP18040314");
-        querys.put("variable", "code:"+param);
+        querys.put("variable", "code:" + param);
         Map<String, String> bodys = new HashMap<String, String>();
         try {
             /**

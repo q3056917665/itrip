@@ -314,6 +314,8 @@
 .points-list .points-list-body .list-body-column .left-column {
     width: 100%;
     height: 100%;
+    position: absolute;
+    left:-450px;
 }
 .points-list .points-list-body .list-body-column .column {
     width: 100%;

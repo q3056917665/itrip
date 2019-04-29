@@ -23,15 +23,15 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.example.model.ItripRoute">
-    insert into itrip_route (id, name, description, 
-      image, price, typeid, notice, 
-      day, groupsid, startaddress, 
-      endaddress, countryid, Provinceid, 
+    insert into itrip_route (id, name, description,
+      image, price, typeid, notice,
+      day, groupsid, startaddress,
+      endaddress, countryid, Provinceid,
       cityid, lineid)
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
-      #{image,jdbcType=VARCHAR}, #{price,jdbcType=REAL}, #{typeid,jdbcType=BIGINT}, #{notice,jdbcType=VARCHAR}, 
-      #{day,jdbcType=INTEGER}, #{groupsid,jdbcType=BIGINT}, #{startaddress,jdbcType=BIGINT}, 
-      #{endaddress,jdbcType=BIGINT}, #{countryid,jdbcType=BIGINT}, #{provinceid,jdbcType=BIGINT}, 
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR},
+      #{image,jdbcType=VARCHAR}, #{price,jdbcType=REAL}, #{typeid,jdbcType=BIGINT}, #{notice,jdbcType=VARCHAR},
+      #{day,jdbcType=INTEGER}, #{groupsid,jdbcType=BIGINT}, #{startaddress,jdbcType=BIGINT},
+      #{endaddress,jdbcType=BIGINT}, #{countryid,jdbcType=BIGINT}, #{provinceid,jdbcType=BIGINT},
       #{cityid,jdbcType=BIGINT}, #{lineid,jdbcType=BIGINT})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.example.model.ItripRoute">
@@ -53,13 +53,13 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select id, name, description, image, price, typeid, notice, day, groupsid, startaddress, 
+    select id, name, description, image, price, typeid, notice, day, groupsid, startaddress,
     endaddress, countryid, Provinceid, cityid, lineid
     from itrip_route
     where id = #{id,jdbcType=BIGINT}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select id, name, description, image, price, typeid, notice, day, groupsid, startaddress, 
+    select id, name, description, image, price, typeid, notice, day, groupsid, startaddress,
     endaddress, countryid, Provinceid, cityid, lineid
     from itrip_route
   </select>

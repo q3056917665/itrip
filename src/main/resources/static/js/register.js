@@ -9,14 +9,14 @@ $(function () {
 
 function addUserByPhone() {
     var UUIDCode1 = $(".UUIDCode1").val(); //邮箱激活码
-    var yzm1=$(".yzm1").val(); //验证码
+    var yzm1 = $(".yzm1").val(); //验证码
     var yzm3 = $(".i_check_in").html();
-    var uuid1=$(".uuid1").html();
-    if(UUIDCode1==""||yzm1==""){
+    var uuid1 = $(".uuid1").html();
+    if (UUIDCode1 == "" || yzm1 == "") {
         alert("激活码或验证码不能为null!");
-    }else {
+    } else {
         var UUIDCode = $(".UUIDCode1").val();
-        if (UUIDCode==uuid1&&yzm1==yzm3) {
+        if (UUIDCode == uuid1 && yzm1 == yzm3) {
             $.ajax({
                 cache: false,
                 type: 'POST',
@@ -32,7 +32,7 @@ function addUserByPhone() {
                     } else if ((bool == "0")) {
                         alert("用户注册失败!");
                         window.location.href = 'registerHtml';
-                    }else if(bool=="00"){
+                    } else if (bool == "00") {
                         alert("手机号或者密码必须填写!");
                         window.location.href = 'registerHtml';
                     }
@@ -52,14 +52,14 @@ function addUserByPhone() {
 
 function addUserByEmail() {
     var UUIDCode = $(".UUIDCode2").val(); //邮箱激活码
-    var yzm2=$(".yzm2").val(); //验证码
+    var yzm2 = $(".yzm2").val(); //验证码
     var yzm3 = $(".i_check_in").html();
     var uuid = $(".uuid2").html();
 
-    if(UUIDCode==""||yzm2==""){
+    if (UUIDCode == "" || yzm2 == "") {
         alert("激活码或验证码不能为null!");
-    }else{
-        if (UUIDCode == uuid&&yzm2==yzm3) { //激活码正确判断
+    } else {
+        if (UUIDCode == uuid && yzm2 == yzm3) { //激活码正确判断
             $.ajax({
                 cache: false,
                 type: 'POST',
@@ -75,7 +75,7 @@ function addUserByEmail() {
                     } else if ((bool == "0")) {
                         alert("用户注册失败!");
                         window.location.href = 'registerHtml';
-                    }else if(bool=="00"){
+                    } else if (bool == "00") {
                         alert("邮箱号或者密码必须填写!");
                         window.location.href = 'registerHtml';
                     }
@@ -244,26 +244,26 @@ function getEmailUUID() {
 
 function getPhoneUUIDFake() {
     var getPhone = $(".phone").val();
-    if(getPhone !=''){
+    if (getPhone != '') {
         alert("正在发送手机短信!请注意查收!");
         $.ajax({
-            cache:false,
-            type:'POST',
-            url:'getPhoneUUID?usercode='+getPhone,
-            error:function () {
+            cache: false,
+            type: 'POST',
+            url: 'getPhoneUUID?usercode=' + getPhone,
+            error: function () {
                 alert("与服务器断开连接");
             },
-            success:function (str) {
-             if(str!=""){
-                 alert("激活码发送成功");
-                 $(".uuid1").html(str);
-                 $(".uuid1").css("display", "none");
-             }else{
-                 alert("激活码发送失败");
-             }
+            success: function (str) {
+                if (str != "") {
+                    alert("激活码发送成功");
+                    $(".uuid1").html(str);
+                    $(".uuid1").css("display", "none");
+                } else {
+                    alert("激活码发送失败");
+                }
             }
         })
-    }else{
+    } else {
         alert("请先输入手机号");
     }
 }

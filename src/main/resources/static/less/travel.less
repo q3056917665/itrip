@@ -15,13 +15,16 @@
   align: center;
   margin: auto;
   margin-top: 30px;
+
   * {
     box-sizing: content-box !important;
   }
+
   .banner {
     width: 870px;
     height: 307px;
     position: relative;
+
     .banner_list li {
       width: 100%;
       height: 320px;
@@ -57,6 +60,7 @@
     }
 
     /* 位IE写的样式 */
+
     .banner_list li.banner-li1 a {
       background: url(../images/img/i_banner01_02.jpg) no-repeat center;
     }
@@ -100,6 +104,7 @@
       height: 13px;
       background: #1ab2db;
     }
+
     .banner-border {
       width: 772px;
       position: absolute;
@@ -133,6 +138,7 @@
   position: absolute;
   left: 400px;
   top: 0;
+
   .banner-border {
     margin-top: 5px;
     margin-right: 15px;
@@ -145,10 +151,12 @@
 
 .travel-search {
   text-align: left;
+
   .search {
     display: inline-block;
     background: #ffcc00;
     width: 659px;
+
     input {
       width: 587px;
       height: 54px !important;
@@ -156,6 +164,7 @@
       .font-st();
       border: 3px solid #ffcc00;
     }
+
     button {
       width: 54px;
       height: 54px;
@@ -166,10 +175,12 @@
       color: #fff !important;
     }
   }
+
   .travel-shortcut {
     width: 100%;
     color: #999999;
     font-size: @fornt-size-14;
+
     a {
       color: #000;
     }
@@ -179,6 +190,7 @@
 .travel-city {
   display: inline-block;
   width: 100px;
+
   input {
     border: 0;
     width: auto;
@@ -198,9 +210,11 @@
 .menu-sub {
   padding: 0 0 10px 22px;
   font-size: 14px;
+
   a {
     padding: 2px 2px 5px 2px;
   }
+
   .font-st();
 }
 
@@ -219,12 +233,14 @@
   text-align: left;
   width: 381px;
   position: relative;
+
   span {
     top: 40%;
     right: 5px;
     position: absolute;
     font-size: 16px;
   }
+
   .menu-more {
     display: none;
     width: 381px;
@@ -232,21 +248,26 @@
     top: -2px;
     right: -380px;
     position: absolute;
+
     .menu-list {
       border-left: 2px solid #1ab2db;
       border-right: 2px solid #1ab2db;
+
       .menu-theme {
         color: #000;
       }
     }
+
     .menu-list:first-child {
       border-left: 0px solid #1ab2db;
       border-top: 2px solid #1ab2db;
     }
+
     .menu-list:last-child {
       border-bottom: 2px solid #1ab2db;
     }
   }
+
   .list-menu-border {
     border-bottom: 1px solid #cccccc;
     margin: 0 5px 0 5px;
@@ -257,17 +278,21 @@
   .border-hover {
     border-left: 4px solid #ffcc00;
   }
+
   border-left: 3px solid #1ab2db;
   border-top: 2px solid #1ab2db;
   border-bottom: 2px solid #1ab2db;
   border-right: 0px solid #1ab2db;
+
   span {
     font-weight: 900;
   }
+
   .menu-more {
     z-index: 5;
     display: block;
   }
+
   .list-menu-border {
     display: none;
   }
@@ -283,14 +308,17 @@
   height: 595px;
   /*border: 1px solid #00ee00;*/
   margin-bottom: 40px;
+
   .points-list-header {
     width: 100%;
     height: 64px;
     position: relative;
+
     .header-list-left {
       height: inherit;
       width: 60%;
       float: left;
+
       .icon-inland {
         position: absolute;
         top: 0;
@@ -298,6 +326,7 @@
         width: 50px;
         height: 49px;
       }
+
       .list-title {
         font-size: 22px;
         .font-wrya();
@@ -305,6 +334,7 @@
         top: 0;
         left: 75px;
       }
+
       .list-dis {
         position: absolute;
         top: 30px;
@@ -314,6 +344,7 @@
 
       }
     }
+
     .header-list-right {
       float: right;
       font-size: 14px;
@@ -333,42 +364,51 @@
 
   .points-list-body {
     position: static;
+
     .list-body-column:last-child {
       padding-right: 0px;
     }
+
     .list-body-column {
       width: 279px;
       height: 260px;
       padding-right: 5px;
       padding-left: 5px;
       display: inline-block;
+
       .column-padding {
         width: 100%;
         height: 2%;
       }
+
       .left-column {
         width: 100%;
         height: 100%;
 
       }
+
       .column {
         width: 100%;
         height: 49%;
+
         .column-ele {
           width: 100%;
           height: 100%;
           position: relative;
           border: 1px solid #cccccc;
+
           .column-image {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 200px;
+
             img {
               width: 279px;
             }
           }
+
           .column-desc {
             position: absolute;
             bottom: 0;
@@ -377,6 +417,7 @@
             height: 80px;
             background: #fff;
             text-align: left;
+
             .cell-desc {
               padding-top: 5px;
               padding-left: 12px;
@@ -384,11 +425,13 @@
               color: #000;
               font-size: 18px;
             }
+
             .cell-money {
               padding-top: 10px;
               padding-left: 12px;
               font-size: 14px;
               .font-wrya();
+
               span {
                 font-family: @font-family-arial;
                 font-size: 34px;
@@ -398,8 +441,10 @@
           }
         }
       }
+
       .column-gray {
         position: relative;
+
         .column-ele {
           -webkit-filter: grayscale(100%);
           -moz-filter: grayscale(100%);
@@ -407,6 +452,7 @@
           -o-filter: grayscale(100%);
           filter: grayscale(100%);
         }
+
         .points-shouqing {
           background: url("../images/img/shouqing.png");
           bottom: 0;
@@ -416,6 +462,7 @@
           height: 121px;
         }
       }
+
       .column:hover {
         margin-top: -6px;
         margin-bottom: 6px;
@@ -438,6 +485,7 @@
   top: 0;
   right: 0;
   z-index: 1;
+
   .text {
     position: absolute;
     top: -15px;
@@ -457,13 +505,16 @@
   width: inherit;
   margin-bottom: 40px;
   height: 180px;
+
   img {
     float: left;
   }
+
   img:nth-child(1) {
     margin-left: 5px;
     width: 280px;
   }
+
   img:nth-child(2) {
     margin-left: 17px;
     width: 871px;
@@ -477,12 +528,14 @@
   left: 10%;
   //width: 60px;
   height: 300px;
-  background: #ffffff ;
+  background: #ffffff;
   z-index: 3;
-  .menu-bg{
+
+  .menu-bg {
     //width: 60px;
     height: 300px;
     background: rgba(0, 0, 0, 0.1);
+
     span {
       //width: 40px;
       border-bottom: 1px solid #ccc;
@@ -490,6 +543,7 @@
       left: 10px;
       margin-bottom: 1px;
     }
+
     div {
       //width: 60px;
       height: 40px;
@@ -499,22 +553,27 @@
       text-align: center;
       .font-st();
     }
+
     div:first-child {
       height: 30px;
       padding: 20px 0 10px 0;
       .font-st();
     }
+
     div:last-child {
       .font-st();
     }
+
     div:first-child:hover {
       background: rgba(0, 0, 0, 0);
       color: #000;
     }
+
     div:hover {
       background: #003399;
       color: #fff;
     }
+
     .act {
       background: #003399;
       color: #fff;
@@ -525,15 +584,18 @@
 
 .travel-search-list {
   display: inline-block;
+
   div {
     border: 2px solid #1ab2db;
     padding-top: 13px;
     padding-bottom: 13px;
     height: 27px;
     width: 100px;
+
     i {
       color: #999999;
     }
+
     input {
       border: 0;
       width: 60px;
@@ -551,9 +613,11 @@
     height: 60px;
     width: 120px;
     background: #ffffff;
+
     i {
       color: #999999;
     }
+
     input {
       border: 0;
       width: 80px;

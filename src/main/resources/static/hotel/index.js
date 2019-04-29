@@ -28,11 +28,12 @@ var tavern = {
             var timer = null;
             var i_circle = $(e + ' .lb li');
             var i_banner = $('.banner_list li');
-            var i=1;
-            $("a",i_banner).each(function (e) {
-                this.style.background="url(../images/img/tavern/banner/"+i+".jpg)";
+            var i = 1;
+            $("a", i_banner).each(function (e) {
+                this.style.background = "url(../images/img/tavern/banner/" + i + ".jpg)";
                 i++;
             });
+
 // 自动轮播
             function autoPlay() {
                 timer = setInterval(function () {
@@ -74,6 +75,7 @@ var tavern = {
         sef.tavernMessage = '../hotelDetail.html';
 
         $('html,body').stop().animate({'scrollTop': 0});
+
         function change(numy) {
             $('.points-list-menu .' + numy).addClass('act').siblings().removeClass('act');
         }
@@ -92,10 +94,11 @@ var tavern = {
             $(document).off();
             var a = map[this.className];
             change(this.className);
-            $('html,body').stop().animate({'scrollTop': a},500,function (e) {
+            $('html,body').stop().animate({'scrollTop': a}, 500, function (e) {
                 $(document).scroll(scrollLeve);
             });
         });
+
         function scrollLeve(e) {
             var iScroll = $(document).scrollTop();
             if (iScroll + 200 >= h4) {

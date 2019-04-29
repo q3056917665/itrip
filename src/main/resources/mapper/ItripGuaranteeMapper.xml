@@ -12,9 +12,9 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.example.model.ItripGuarantee">
-    insert into itrip_guarantee (id, name, pic, 
+    insert into itrip_guarantee (id, name, pic,
       routeId)
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR},
       #{routeid,jdbcType=BIGINT})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.example.model.ItripGuarantee">

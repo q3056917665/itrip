@@ -11,11 +11,12 @@ var travel = {
             var timer = null;
             var i_circle = $(e + ' .lb li');
             var i_banner = $('.banner_list li');
-            var i=1;
-            $("a",i_banner).each(function (e) {
-                this.style.background="url(images/img/travel_message/travel/banner/"+i+".jpg)";
+            var i = 1;
+            $("a", i_banner).each(function (e) {
+                this.style.background = "url(images/img/travel_message/travel/banner/" + i + ".jpg)";
                 i++;
             });
+
 // 自动轮播
             function autoPlay() {
                 timer = setInterval(function () {
@@ -58,6 +59,7 @@ var travel = {
         });
         // 定位到指定的 界面位置
         $('html,body').stop().animate({'scrollTop': 0});
+
         function change(numy) {
             $('.points-list-menu .' + numy).addClass('act').siblings().removeClass('act');
         }
@@ -76,11 +78,12 @@ var travel = {
             $(document).off();
             var a = map[this.className];
             change(this.className);
-            $('html,body').stop().animate({'scrollTop': a},500,function (e) {
+            $('html,body').stop().animate({'scrollTop': a}, 500, function (e) {
                 $(document).scroll(scrollLeve);
             });
 
         });
+
         function scrollLeve(e) {
             var iScroll = $(document).scrollTop();
             if (iScroll + 200 >= h4) {
@@ -102,11 +105,11 @@ var travel = {
 
     }, bindEvent: function (e) {
         var sef = this;
-        $(".list-body-column .column").on("click", function (e) {
+        /*$(".list-body-column .column").on("click", function (e) {
             if (!$(this).hasClass("column-gray")) {
                 window.location = sef.travelMessage;
             }
-        });
+        });*/
         $(".points-list .header-list-right").on("click", function (e) {
             if (!$(this).hasClass("column-gray")) {
                 window.location = sef.travelList;

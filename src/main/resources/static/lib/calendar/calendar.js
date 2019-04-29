@@ -51,7 +51,7 @@ window.$Calendar = function (id) {
     }
     $this = this;
     var calendar = document.getElementById(id);
-    $this.clickNode={};
+    $this.clickNode = {};
     /*
      * 用于记录日期，显示的时候，根据dateObj中的日期的年月显示
      */
@@ -165,7 +165,7 @@ window.$Calendar = function (id) {
             } else {    // 其他月
                 _tds[i].className = 'otherMonth';
             }
-            if ($this.clickNode&&$this.clickNode.time&&_thisDayStr == $this.getDateStr($this.clickNode.time)) {    // 当前天
+            if ($this.clickNode && $this.clickNode.time && _thisDayStr == $this.getDateStr($this.clickNode.time)) {    // 当前天
                 _tds[i].className += ' calendar-item';//'currentDay';
             }
         }
@@ -197,35 +197,35 @@ window.$Calendar = function (id) {
         for (var i = 0; i < tds.length; i++) {
             $this.addEvent(tds[i], 'click', function (e) {
                 var td = e.target.parentNode;
-                var returnData=$this.dataMap[td.getAttribute('data')];
-                if(!returnData){
+                var returnData = $this.dataMap[td.getAttribute('data')];
+                if (!returnData) {
                     return;
                 }
-                $this.clickNode=returnData;
-                if(!isCaMonth(returnData)){
+                $this.clickNode = returnData;
+                if (!isCaMonth(returnData)) {
                     $this.toCaMonth(returnData);
                     return;
                 }
-                var item="calendar-item";
+                var item = "calendar-item";
                 $this.removeClassName(item);
-                var _class=$this.getClassName(td,item);
-                td.className=_class+" calendar-item";
-                if (typeof  param.click == "function") {
+                var _class = $this.getClassName(td, item);
+                td.className = _class + " calendar-item";
+                if (typeof param.click == "function") {
                     param.click($this.dataMap[td.getAttribute('data')]);
                 }
             });
         }
     };
-    $this.removeClassName=function(remClsaa){
-        var itemDom=calendar.getElementsByClassName(remClsaa);
-        for(var i=0;i<itemDom.length;i++){
-            var arry=new Array(itemDom[i].classList);
+    $this.removeClassName = function (remClsaa) {
+        var itemDom = calendar.getElementsByClassName(remClsaa);
+        for (var i = 0; i < itemDom.length; i++) {
+            var arry = new Array(itemDom[i].classList);
             arry[0].remove(remClsaa);
         }
 
     };
-    $this.getClassName=function(dom,remClsaa){
-        var arry=new Array(dom.classList);
+    $this.getClassName = function (dom, remClsaa) {
+        var arry = new Array(dom.classList);
         arry[0].remove(remClsaa);
         return arry.join(" ");
     };

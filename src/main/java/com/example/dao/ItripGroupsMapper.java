@@ -1,6 +1,7 @@
 package com.example.dao;
 
 import com.example.model.ItripGroups;
+
 import java.util.List;
 
 public interface ItripGroupsMapper {

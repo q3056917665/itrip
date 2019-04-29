@@ -73,15 +73,15 @@ var travel = {
 
         var myPlayer = videojs('videoMessage');
         $(".vjs-fullscreen-control").hide();
-        $(".icon-play-circle").on("click",function(e){
+        $(".icon-play-circle").on("click", function (e) {
             $(".travel-model").show();
             $("#videoMessage video").attr("src", "../images/video/travel/video1.mp4");
             myPlayer.play();
         });
-        $(".vjs-play-control").on("click",function(e){
-            if(!$(this).hasClass("vjs-playing")){
+        $(".vjs-play-control").on("click", function (e) {
+            if (!$(this).hasClass("vjs-playing")) {
                 var whereYouAt = myPlayer.currentTime();
-                if(whereYouAt==77.312){
+                if (whereYouAt == 77.312) {
                     $("#videoMessage video").attr("src", "../images/video/travel/video1.mp4");
                     var myPlayer = videojs('videoMessage');
                     myPlayer.play();
@@ -93,7 +93,7 @@ var travel = {
             // $("#videoMessage video").attr("src", "../images/video/travel/video1.mp4");
             // myPlayer.play();
         });
-        $(".model-remove").on("click",function(e){
+        $(".model-remove").on("click", function (e) {
             $(".travel-model").hide();
             myPlayer.pause();
         });

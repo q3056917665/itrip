@@ -1,6 +1,7 @@
 package com.example.dao;
 
 import com.example.model.ItripAviation;
+
 import java.util.List;
 
 public interface ItripAviationMapper {

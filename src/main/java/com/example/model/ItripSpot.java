@@ -19,6 +19,26 @@ public class ItripSpot implements Serializable {
 
     private Long typeid;
 
+    private String engdesc;
+
+    private String namedesc;
+
+    public String getEngdesc() {
+        return engdesc;
+    }
+
+    public void setEngdesc(String engdesc) {
+        this.engdesc = engdesc;
+    }
+
+    public String getNamedesc() {
+        return namedesc;
+    }
+
+    public void setNamedesc(String namedesc) {
+        this.namedesc = namedesc;
+    }
+
     public Long getId() {
         return id;
     }

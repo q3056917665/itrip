@@ -18,4 +18,6 @@ public interface ItripHotelFeatureMapper {
     List<ItripHotelFeature> selectAll();
 
     int updateByPrimaryKey(ItripHotelFeature record);
+
+
 }

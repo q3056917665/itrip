@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.dao.ItripTradeEndsMapper">
-  <resultMap id="BaseResultMap" type="com.example.model.ItripTradeEnds">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="orderNo" jdbcType="VARCHAR" property="orderno" />
-    <result column="flag" jdbcType="BIT" property="flag" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from itrip_trade_ends
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="com.example.model.ItripTradeEnds">
-    insert into itrip_trade_ends (id, orderNo, flag)
-    values (#{id,jdbcType=BIGINT}, #{orderno,jdbcType=VARCHAR}, #{flag,jdbcType=BIT})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripTradeEnds">
-    update itrip_trade_ends
-    set orderNo = #{orderno,jdbcType=VARCHAR},
-      flag = #{flag,jdbcType=BIT}
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select id, orderNo, flag
-    from itrip_trade_ends
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, orderNo, flag
-    from itrip_trade_ends
-  </select>
+    <resultMap id="BaseResultMap" type="com.example.model.ItripTradeEnds">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="orderNo" jdbcType="VARCHAR" property="orderno"/>
+        <result column="flag" jdbcType="BIT" property="flag"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from itrip_trade_ends
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.example.model.ItripTradeEnds">
+        insert into itrip_trade_ends (id, orderNo, flag)
+        values (#{id,jdbcType=BIGINT}, #{orderno,jdbcType=VARCHAR}, #{flag,jdbcType=BIT})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.example.model.ItripTradeEnds">
+        update itrip_trade_ends
+        set orderNo = #{orderno,jdbcType=VARCHAR},
+        flag = #{flag,jdbcType=BIT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select id, orderNo, flag
+        from itrip_trade_ends
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id, orderNo, flag
+        from itrip_trade_ends
+    </select>
 </mapper>

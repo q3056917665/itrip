@@ -1,70 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.dao.ItripHotelRoomMapper">
-  <resultMap id="BaseResultMap" type="com.example.model.ItripHotelRoom">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="hotelId" jdbcType="BIGINT" property="hotelid" />
-    <result column="roomTitle" jdbcType="VARCHAR" property="roomtitle" />
-    <result column="roomPrice" jdbcType="DECIMAL" property="roomprice" />
-    <result column="roomBedTypeId" jdbcType="BIGINT" property="roombedtypeid" />
-    <result column="isHavingBreakfast" jdbcType="INTEGER" property="ishavingbreakfast" />
-    <result column="payType" jdbcType="INTEGER" property="paytype" />
-    <result column="satisfaction" jdbcType="DECIMAL" property="satisfaction" />
-    <result column="isBook" jdbcType="INTEGER" property="isbook" />
-    <result column="isCancel" jdbcType="INTEGER" property="iscancel" />
-    <result column="isTimelyResponse" jdbcType="INTEGER" property="istimelyresponse" />
-    <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
-    <result column="createdBy" jdbcType="BIGINT" property="createdby" />
-    <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
-    <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from itrip_hotel_room
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="com.example.model.ItripHotelRoom">
-    insert into itrip_hotel_room (id, hotelId, roomTitle, 
-      roomPrice, roomBedTypeId, isHavingBreakfast, 
-      payType, satisfaction, isBook, 
-      isCancel, isTimelyResponse, creationDate, 
-      createdBy, modifyDate, modifiedBy
-      )
-    values (#{id,jdbcType=BIGINT}, #{hotelid,jdbcType=BIGINT}, #{roomtitle,jdbcType=VARCHAR}, 
-      #{roomprice,jdbcType=DECIMAL}, #{roombedtypeid,jdbcType=BIGINT}, #{ishavingbreakfast,jdbcType=INTEGER}, 
-      #{paytype,jdbcType=INTEGER}, #{satisfaction,jdbcType=DECIMAL}, #{isbook,jdbcType=INTEGER}, 
-      #{iscancel,jdbcType=INTEGER}, #{istimelyresponse,jdbcType=INTEGER}, #{creationdate,jdbcType=TIMESTAMP}, 
-      #{createdby,jdbcType=BIGINT}, #{modifydate,jdbcType=TIMESTAMP}, #{modifiedby,jdbcType=BIGINT}
-      )
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripHotelRoom">
-    update itrip_hotel_room
-    set hotelId = #{hotelid,jdbcType=BIGINT},
-      roomTitle = #{roomtitle,jdbcType=VARCHAR},
-      roomPrice = #{roomprice,jdbcType=DECIMAL},
-      roomBedTypeId = #{roombedtypeid,jdbcType=BIGINT},
-      isHavingBreakfast = #{ishavingbreakfast,jdbcType=INTEGER},
-      payType = #{paytype,jdbcType=INTEGER},
-      satisfaction = #{satisfaction,jdbcType=DECIMAL},
-      isBook = #{isbook,jdbcType=INTEGER},
-      isCancel = #{iscancel,jdbcType=INTEGER},
-      isTimelyResponse = #{istimelyresponse,jdbcType=INTEGER},
-      creationDate = #{creationdate,jdbcType=TIMESTAMP},
-      createdBy = #{createdby,jdbcType=BIGINT},
-      modifyDate = #{modifydate,jdbcType=TIMESTAMP},
-      modifiedBy = #{modifiedby,jdbcType=BIGINT}
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select id, hotelId, roomTitle, roomPrice, roomBedTypeId, isHavingBreakfast, payType, 
-    satisfaction, isBook, isCancel, isTimelyResponse, creationDate, createdBy, modifyDate, 
-    modifiedBy
-    from itrip_hotel_room
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, hotelId, roomTitle, roomPrice, roomBedTypeId, isHavingBreakfast, payType, 
-    satisfaction, isBook, isCancel, isTimelyResponse, creationDate, createdBy, modifyDate, 
-    modifiedBy
-    from itrip_hotel_room
-  </select>
+    <resultMap id="BaseResultMap" type="com.example.model.ItripHotelRoom">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="hotelId" jdbcType="BIGINT" property="hotelid"/>
+        <result column="roomTitle" jdbcType="VARCHAR" property="roomtitle"/>
+        <result column="roomPrice" jdbcType="DECIMAL" property="roomprice"/>
+        <result column="roomBedTypeId" jdbcType="BIGINT" property="roombedtypeid"/>
+        <result column="isHavingBreakfast" jdbcType="INTEGER" property="ishavingbreakfast"/>
+        <result column="payType" jdbcType="INTEGER" property="paytype"/>
+        <result column="satisfaction" jdbcType="DECIMAL" property="satisfaction"/>
+        <result column="isBook" jdbcType="INTEGER" property="isbook"/>
+        <result column="isCancel" jdbcType="INTEGER" property="iscancel"/>
+        <result column="isTimelyResponse" jdbcType="INTEGER" property="istimelyresponse"/>
+        <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate"/>
+        <result column="createdBy" jdbcType="BIGINT" property="createdby"/>
+        <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate"/>
+        <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from itrip_hotel_room
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.example.model.ItripHotelRoom">
+        insert into itrip_hotel_room (id, hotelId, roomTitle,
+        roomPrice, roomBedTypeId, isHavingBreakfast,
+        payType, satisfaction, isBook,
+        isCancel, isTimelyResponse, creationDate,
+        createdBy, modifyDate, modifiedBy
+        )
+        values (#{id,jdbcType=BIGINT}, #{hotelid,jdbcType=BIGINT}, #{roomtitle,jdbcType=VARCHAR},
+        #{roomprice,jdbcType=DECIMAL}, #{roombedtypeid,jdbcType=BIGINT}, #{ishavingbreakfast,jdbcType=INTEGER},
+        #{paytype,jdbcType=INTEGER}, #{satisfaction,jdbcType=DECIMAL}, #{isbook,jdbcType=INTEGER},
+        #{iscancel,jdbcType=INTEGER}, #{istimelyresponse,jdbcType=INTEGER}, #{creationdate,jdbcType=TIMESTAMP},
+        #{createdby,jdbcType=BIGINT}, #{modifydate,jdbcType=TIMESTAMP}, #{modifiedby,jdbcType=BIGINT}
+        )
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.example.model.ItripHotelRoom">
+        update itrip_hotel_room
+        set hotelId = #{hotelid,jdbcType=BIGINT},
+        roomTitle = #{roomtitle,jdbcType=VARCHAR},
+        roomPrice = #{roomprice,jdbcType=DECIMAL},
+        roomBedTypeId = #{roombedtypeid,jdbcType=BIGINT},
+        isHavingBreakfast = #{ishavingbreakfast,jdbcType=INTEGER},
+        payType = #{paytype,jdbcType=INTEGER},
+        satisfaction = #{satisfaction,jdbcType=DECIMAL},
+        isBook = #{isbook,jdbcType=INTEGER},
+        isCancel = #{iscancel,jdbcType=INTEGER},
+        isTimelyResponse = #{istimelyresponse,jdbcType=INTEGER},
+        creationDate = #{creationdate,jdbcType=TIMESTAMP},
+        createdBy = #{createdby,jdbcType=BIGINT},
+        modifyDate = #{modifydate,jdbcType=TIMESTAMP},
+        modifiedBy = #{modifiedby,jdbcType=BIGINT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select id, hotelId, roomTitle, roomPrice, roomBedTypeId, isHavingBreakfast, payType,
+        satisfaction, isBook, isCancel, isTimelyResponse, creationDate, createdBy, modifyDate,
+        modifiedBy
+        from itrip_hotel_room
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id, hotelId, roomTitle, roomPrice, roomBedTypeId, isHavingBreakfast, payType,
+        satisfaction, isBook, isCancel, isTimelyResponse, creationDate, createdBy, modifyDate,
+        modifiedBy
+        from itrip_hotel_room
+    </select>
 </mapper>

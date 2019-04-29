@@ -1,64 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.dao.ItripAreaDicMapper">
-  <resultMap id="BaseResultMap" type="com.example.model.ItripAreaDic">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="areaNo" jdbcType="VARCHAR" property="areano" />
-    <result column="parent" jdbcType="BIGINT" property="parent" />
-    <result column="isActivated" jdbcType="INTEGER" property="isactivated" />
-    <result column="isTradingArea" jdbcType="INTEGER" property="istradingarea" />
-    <result column="isHot" jdbcType="INTEGER" property="ishot" />
-    <result column="level" jdbcType="INTEGER" property="level" />
-    <result column="isChina" jdbcType="INTEGER" property="ischina" />
-    <result column="pinyin" jdbcType="VARCHAR" property="pinyin" />
-    <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
-    <result column="createdBy" jdbcType="BIGINT" property="createdby" />
-    <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
-    <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from itrip_area_dic
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="com.example.model.ItripAreaDic">
-    insert into itrip_area_dic (id, name, areaNo, 
-      parent, isActivated, isTradingArea, 
-      isHot, level, isChina, 
-      pinyin, creationDate, createdBy, 
-      modifyDate, modifiedBy)
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{areano,jdbcType=VARCHAR}, 
-      #{parent,jdbcType=BIGINT}, #{isactivated,jdbcType=INTEGER}, #{istradingarea,jdbcType=INTEGER}, 
-      #{ishot,jdbcType=INTEGER}, #{level,jdbcType=INTEGER}, #{ischina,jdbcType=INTEGER}, 
-      #{pinyin,jdbcType=VARCHAR}, #{creationdate,jdbcType=TIMESTAMP}, #{createdby,jdbcType=BIGINT}, 
-      #{modifydate,jdbcType=TIMESTAMP}, #{modifiedby,jdbcType=BIGINT})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.example.model.ItripAreaDic">
-    update itrip_area_dic
-    set name = #{name,jdbcType=VARCHAR},
-      areaNo = #{areano,jdbcType=VARCHAR},
-      parent = #{parent,jdbcType=BIGINT},
-      isActivated = #{isactivated,jdbcType=INTEGER},
-      isTradingArea = #{istradingarea,jdbcType=INTEGER},
-      isHot = #{ishot,jdbcType=INTEGER},
-      level = #{level,jdbcType=INTEGER},
-      isChina = #{ischina,jdbcType=INTEGER},
-      pinyin = #{pinyin,jdbcType=VARCHAR},
-      creationDate = #{creationdate,jdbcType=TIMESTAMP},
-      createdBy = #{createdby,jdbcType=BIGINT},
-      modifyDate = #{modifydate,jdbcType=TIMESTAMP},
-      modifiedBy = #{modifiedby,jdbcType=BIGINT}
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select id, name, areaNo, parent, isActivated, isTradingArea, isHot, level, isChina, 
-    pinyin, creationDate, createdBy, modifyDate, modifiedBy
-    from itrip_area_dic
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, name, areaNo, parent, isActivated, isTradingArea, isHot, level, isChina, 
-    pinyin, creationDate, createdBy, modifyDate, modifiedBy
-    from itrip_area_dic
-  </select>
+    <resultMap id="BaseResultMap" type="com.example.model.ItripAreaDic">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="areaNo" jdbcType="VARCHAR" property="areano"/>
+        <result column="parent" jdbcType="BIGINT" property="parent"/>
+        <result column="isActivated" jdbcType="INTEGER" property="isactivated"/>
+        <result column="isTradingArea" jdbcType="INTEGER" property="istradingarea"/>
+        <result column="isHot" jdbcType="INTEGER" property="ishot"/>
+        <result column="level" jdbcType="INTEGER" property="level"/>
+        <result column="isChina" jdbcType="INTEGER" property="ischina"/>
+        <result column="pinyin" jdbcType="VARCHAR" property="pinyin"/>
+        <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate"/>
+        <result column="createdBy" jdbcType="BIGINT" property="createdby"/>
+        <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate"/>
+        <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from itrip_area_dic
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.example.model.ItripAreaDic">
+        insert into itrip_area_dic (id, name, areaNo,
+        parent, isActivated, isTradingArea,
+        isHot, level, isChina,
+        pinyin, creationDate, createdBy,
+        modifyDate, modifiedBy)
+        values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{areano,jdbcType=VARCHAR},
+        #{parent,jdbcType=BIGINT}, #{isactivated,jdbcType=INTEGER}, #{istradingarea,jdbcType=INTEGER},
+        #{ishot,jdbcType=INTEGER}, #{level,jdbcType=INTEGER}, #{ischina,jdbcType=INTEGER},
+        #{pinyin,jdbcType=VARCHAR}, #{creationdate,jdbcType=TIMESTAMP}, #{createdby,jdbcType=BIGINT},
+        #{modifydate,jdbcType=TIMESTAMP}, #{modifiedby,jdbcType=BIGINT})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.example.model.ItripAreaDic">
+        update itrip_area_dic
+        set name = #{name,jdbcType=VARCHAR},
+        areaNo = #{areano,jdbcType=VARCHAR},
+        parent = #{parent,jdbcType=BIGINT},
+        isActivated = #{isactivated,jdbcType=INTEGER},
+        isTradingArea = #{istradingarea,jdbcType=INTEGER},
+        isHot = #{ishot,jdbcType=INTEGER},
+        level = #{level,jdbcType=INTEGER},
+        isChina = #{ischina,jdbcType=INTEGER},
+        pinyin = #{pinyin,jdbcType=VARCHAR},
+        creationDate = #{creationdate,jdbcType=TIMESTAMP},
+        createdBy = #{createdby,jdbcType=BIGINT},
+        modifyDate = #{modifydate,jdbcType=TIMESTAMP},
+        modifiedBy = #{modifiedby,jdbcType=BIGINT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select id, name, areaNo, parent, isActivated, isTradingArea, isHot, level, isChina,
+        pinyin, creationDate, createdBy, modifyDate, modifiedBy
+        from itrip_area_dic
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id, name, areaNo, parent, isActivated, isTradingArea, isHot, level, isChina,
+        pinyin, creationDate, createdBy, modifyDate, modifiedBy
+        from itrip_area_dic
+    </select>
 </mapper>
