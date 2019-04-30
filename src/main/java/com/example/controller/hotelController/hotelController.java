@@ -1,9 +1,6 @@
 package com.example.controller.hotelController;
 
-import com.example.model.HotelView;
-import com.example.model.ItripAreaDic;
-import com.example.model.ItripHotel;
-import com.example.model.ItripHotelFeature;
+import com.example.model.*;
 import com.example.service.hotelService.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -78,7 +76,7 @@ public class hotelController {
         session.setAttribute("gsCommentCount",commentService.findCountgsByHotel(id));//该酒店有待改善评价数量
         session.setAttribute("isHavingImagComment",commentService.findIsHavingImgCountByHotelId(id));//该酒店是否有图片的评价数量
         session.setAttribute("AllComment",commentService.findAllCommentByHotelId(id)); //所有评价
-        session.setAttribute("HotelScore",commentService.findScore(id));
+        session.setAttribute("HotelScore",commentService.findScore(id)); //酒店评分
         return "success";
     }
 

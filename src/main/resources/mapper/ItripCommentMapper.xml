@@ -21,35 +21,17 @@
     <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
     <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
-  </resultMap>
-  <resultMap id="c" type="com.example.model.ItripComment">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="hotelId" jdbcType="BIGINT" property="hotelid" />
-    <result column="productId" jdbcType="BIGINT" property="productid" />
-    <result column="orderId" jdbcType="BIGINT" property="orderid" />
-    <result column="productType" jdbcType="INTEGER" property="producttype" />
-    <result column="userId" jdbcType="BIGINT" property="userid" />
-    <result column="isHavingImg" jdbcType="INTEGER" property="ishavingimg" />
-    <result column="positionScore" jdbcType="INTEGER" property="positionscore" />
-    <result column="facilitiesScore" jdbcType="INTEGER" property="facilitiesscore" />
-    <result column="serviceScore" jdbcType="INTEGER" property="servicescore" />
-    <result column="hygieneScore" jdbcType="INTEGER" property="hygienescore" />
-    <result column="score" jdbcType="INTEGER" property="score" />
-    <result column="tripMode" jdbcType="BIGINT" property="tripmode" />
-    <result column="isOk" jdbcType="INTEGER" property="isok" />
-    <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
-    <result column="createdBy" jdbcType="BIGINT" property="createdby" />
-    <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
-    <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
-    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+
 
     <collection property="images" ofType="com.example.model.ItripImage">
-      <id column="id" property="id"></id>
+      <id column="imageId" property="id"></id>
       <result column="imgUrl" jdbcType="VARCHAR" property="imgurl" />
     </collection>
   </resultMap>
 
-
+  <select id="selectAllCommentByHotelId" resultMap="BaseResultMap">
+    select c.*,i.id imageId ,i.imgUrl from itrip_comment c,itrip_image i  where i.type=2 and i.targetId=c.id and c.hotelId=#{id}
+  </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from itrip_comment
@@ -94,11 +76,11 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select id, hotelId, productId, orderId, productType, userId, isHavingImg, positionScore, 
-    facilitiesScore, serviceScore, hygieneScore, score, tripMode, isOk, creationDate, 
-    createdBy, modifyDate, modifiedBy, content
-    from itrip_comment
-    where id = #{id,jdbcType=BIGINT}
+      select c.id, c.hotelId, c.productId, c.orderId, c.productType, c.userId, c.isHavingImg, c.positionScore,
+             c.facilitiesScore, c.serviceScore, c.hygieneScore, c.score, c.tripMode, c.isOk, c.creationDate,
+             c.createdBy, c.modifyDate, c.modifiedBy, c.content,i.id imageid,i.imgUrl
+      from itrip_comment c, itrip_image i
+      where c.id = i.id and c.id = #{id,jdbcType=BIGINT}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, hotelId, productId, orderId, productType, userId, isHavingImg, positionScore, 
