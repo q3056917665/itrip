@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/lib/star-rating/star-rating.css}">
+    <link rel="stylesheet" th:href="@{/css/cityselect.css}">
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <script th:src="@{/lib/jquery-1.11.1.min.js}"></script>
+    <script th:src="@{/lib/cityselect.js}"></script>
+    <script th:src="@{/lib/My97DatePicker/WdatePicker.js}"></script>
+    <script th:src="@{/lib/star-rating/star-rating.js}"></script>
+    <script th:src="@{/lib/jquery.lazyload.js}"></script>
+    <script th:src="@{/js/common.js}"></script>
+    <script th:src="@{/js/index.js}"></script>
+    <style type="text/css">
+        #user_nn{
+            width:65%;height: 200px;
+            font-size: 15px;
+            color: white;
+            font-family:'宋体';
+            margin-top: 20px;
+            border: 1px solid rgba(0,0,0,0.2);
+            box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.1);
+            margin-left: 300px;
+        }
+    </style>
+</head>
+<body id="us">
+<div class="i-top clearfix">
+    <div class="i-top-wrap">
+        <div class="i-logo fl">
+            <a href="#" title="i旅行">i旅行</a>
+        </div>
+        <div class="i-hotline fr">
+            <ul>
+                <li><a href="#">客服中心</a></li>
+                <li>|</li>
+                <li><a href="#">24小时热线：400-855-6666</a></li>
+                <li class="i-top-phone">
+                    <a href="#"><i class="icon-mobile-phone"></i></a>
+                    <div class="i-top-app i-top-appL">
+                        <img th:src="@{/images/img/erweima_1126.jpg}" height="102" width="102" alt="">
+                        <p>手机扫码快速下载</p>
+                        <p>App享受最多50% 优惠力度</p>
+                    </div>
+                </li>
+                <li class="i-top-phone i-top-wei">
+                    <a href="#"><i class="icon-comments"></i></a>
+                    <div class="i-top-app i-top-app-wei">
+                        <img th:src="@{/images/img/erweima_1126.jpg}" height="102" width="102" alt="">
+                        <p>i旅行微信公众号: <a href="#">ilvxing</a></p>
+                        <p>手机扫一扫，享受专属福利</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- 头部结束 -->
+
+<!-- nav开始 -->
+<div class="i-nav clearfix">
+    <div class="i-nav-wrap">
+        <ul>
+            <li><a href="indexHtml" ><i class="icon-home"></i>首页</a></li>
+            <li><a href="travelindex"><i class="icon-globe"></i>旅游</a></li>
+            <li><a href="hotel"><i class="icon-hospital"></i>酒店</a></li>
+            <li><a href="flyTicket.html"><i class="icon-plane"></i>机票</a></li>
+            <!-- <li><a href="#"><i class="icon-credit-card"></i>门票</a></li> -->
+            <li><a href="strategyHtml"><i class="icon-book"></i>攻略</a></li>
+        </ul>
+        <div class="i-nav-login">
+            <span th:if="*{session.User==null}"><a href="loginHtml">登录</a></span>
+            <span th:if="*{session.User!=null}" style="font-size: 18px;"><a th:href="@{/exitlogin}">退出登录</a></span>
+            <span>|</span>
+            <a href="registerHtml">注册</a>
+        </div>
+    </div>
+</div>
+<div class="i-sale i-hotel clearfix" >
+    <div id="user_nn">
+        <div style="height: 50px;margin-left: 30px;margin-top: 30px;">
+            <i class="icon-user" style="font-size:150px;color: lightblue"></i>
+        </div>
+        <div style="margin-left:170px;">
+            <div>
+                <span th:text="${session.User.usercode}" style="font-size: 23px;font-weight: bold"></span>
+            </div>
+            <div style="margin-top: 20px;">
+             用户昵称:<span th:text="${session.User.username}"></span>
+            </div>
+        </div>
+        <div style="display: inline-block;float: right;margin-right: 30px;margin-top: -70px;">
+            <div style="display: inline-block;color:white">
+                <a href="javascript:void(0);">
+                <i class="icon-shopping-cart" style="font-size: 50px;"></i>
+                <span>购物车</span>
+                </a>
+            </div>&nbsp;
+            <div style="display: inline-block;color:white">
+                <a href="javascript:void(0);">
+                <i class="icon-user-md" style="font-size: 50px;"></i>
+                <span>关注</span>
+                </a>
+            </div>&nbsp;
+            <div style="display: inline-block;color:white">
+                <a href="">
+                <i class="icon-comment" style="font-size: 50px;"></i>
+                <span>评论</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="margin-left: 290px;margin-top: 30px;font-size: 15px;">
+        <ul class="nav nav-tabs" role="tablist" style="width:740px;">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#home">我的订单</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu1">我的收藏</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu2">我的评论</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div id="home" class="container tab-pane active"><br>
+                <h3>HOME</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div id="menu1" class="container tab-pane fade"><br>
+                <h3>Menu 1</h3>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div id="menu2" class="container tab-pane fade"><br>
+                <h3>Menu 2</h3>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 贴心的服务开始 -->
+<div class="i_download">
+    <div class="i_area clearfix">
+        <div class="i_downleft">
+            <h2>下载<i></i>手机客户端</h2>
+            <p>
+                特价机票、一折酒店、出行安全保障、预约担保<br/>
+                最佳旅行路线、吃喝玩乐享在手
+
+            </p>
+            <a href="#">立刻下载</a>
+        </div>
+        <div class="i_downright">
+            <div class='i_wechat'>
+                <img th:src="@{/images/icon/i_wechat_11.jpg}" alt="">
+                <span>微信公众平台</span>
+            </div>
+            <div class="i_APP">
+                <img th:src="@{/images/icon/i_APP_11.jpg}" alt="">
+                <span>APP下载</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="i_service clearfix">
+    <div class="i_area">
+        <ul>
+            <li>
+                <h3>贴心的服务</h3>
+                <p>业内领先服务标准 用户保障服务</p>
+            </li>
+            <li>
+                <h3>优质的价格</h3>
+                <p>极具竞争力的价格 无任何隐形消费</p>
+            </li>
+            <li>
+                <h3>4008-xxx-6666</h3>
+                <p>24小时客服热线 无时不刻在您身边</p>
+            </li>
+
+        </ul>
+
+        <dl>
+            <dt>旅游资讯</dt>
+            <dd>
+                <a href="#">宾馆索引</a>
+                <a href="#">攻略索引</a>
+            </dd>
+            <dd>
+                <a href="#">机票索引</a>
+                <a href="#">网站导航</a>
+            </dd>
+            <dd>
+                <a href="#">机票索引</a>
+                <a href="#">网站导航</a>
+            </dd>
+            <dd>
+                <a href="#">机票索引</a>
+                <a href="#">网站导航</a>
+            </dd>
+            <dd>
+                <a href="#">企业差旅索引</a>
+
+            </dd>
+        </dl>
+
+        <dl>
+            <dt>加盟合作</dt>
+            <dd>
+                <a href="#">宾馆索引</a>
+                <a href="#">攻略索引</a>
+            </dd>
+            <dd>
+                <a href="#">机票索引</a>
+                <a href="#">网站导航</a>
+            </dd>
+            <dd>
+                <a href="#">机票索引</a>
+                <a href="#">网站导航</a>
+            </dd>
+            <dd>
+                <a href="#">机票索引</a>
+                <a href="#">网站导航</a>
+            </dd>
+            <dd>
+                <a href="#">企业差旅索引</a>
+
+            </dd>
+        </dl>
+
+        <dl>
+            <dt>关于我们</dt>
+            <dd>
+                <a href="#">宾馆索引</a>
+                <a href="#">攻略索引</a>
+            </dd>
+            <dd>
+                <a href="#">机票索引</a>
+                <a href="#">网站导航</a>
+            </dd>
+            <dd>
+                <a href="#">机票索引</a>
+                <a href="#">网站导航</a>
+            </dd>
+            <dd>
+                <a href="#">机票索引</a>
+                <a href="#">网站导航</a>
+            </dd>
+            <dd>
+                <a href="#">企业差旅索引</a>
+
+            </dd>
+        </dl>
+    </div>
+</div>
+<!-- 贴心的服务结束 -->
+
+<!-- footer开始 -->
+<div class="i-footer clearfix">
+    <div class="i-footer-wrap">
+        <p>Copyright©1999-2016, ctrip.com. All rights reserved. | <a href="#">ICP证：沪B2</a></p>
+        <p><span class="i-footer-hui"></span>沪公网备310105020000xx号</p>
+        <p>旅游违法行为举报电话12318 丨服务质量投诉电话 962020 丨<a href="#">北京市旅游网站落实诚信建设主体责任承诺书</a></p>
+        <ul>
+            <li><a href="#"><img th:src="@{/images/icon/icon1126_11.jpg}" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img th:src="@{/images/icon/icon1126_13.jpg}" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img th:src="@{/images/icon/icon1126_15.jpg}" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img th:src="@{/images/icon/icon1126_17.jpg}" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img th:src="@{/images/icon/icon1126_19.jpg}" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img th:src="@{/images/icon/icon1126_21.jpg}" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img th:src="@{/images/icon/icon1126_23.jpg}" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img th:src="@{/images/icon/icon1126_25.jpg}" height="32" width="128" alt=""></a></li>
+            <li><a href="#"><img th:src="@{/images/icon/icon1126_27.jpg}" height="32" width="102" alt=""></a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

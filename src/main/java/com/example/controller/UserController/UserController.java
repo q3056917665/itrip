@@ -52,6 +52,11 @@ public class UserController{
         return "user/login";
     }
 
+    @RequestMapping("/uscHtml")
+    public String uscHtml(){
+        return "user/user_personal_center";
+    }
+
     /**
      * 跳转到旅游网首页
      * @return

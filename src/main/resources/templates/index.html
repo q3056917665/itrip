@@ -34,6 +34,7 @@
                 },
                 success:function (data) {
                     if (data=="success"){
+                        alert("789789789");
                         window.open("HotelDetails");
                     }
                 },
@@ -91,7 +92,7 @@
 			</ul>
 			<div class="i-nav-login">
                 <span th:if="*{session.User==null}"><a href="loginHtml">登录</a></span>
-                <span th:if="*{session.User!=null}" style="font-size: 18px;">用户名:<span th:text="${session.User.usercode}" style="font-size:18px;"></span>&nbsp;<a th:href="@{/exitlogin}">退出登录</a></span>
+				<span th:if="*{session.User!=null}" style="font-size: 18px;">用户名:<span th:text="${session.User.usercode}" style="font-size:18px;"></span>&nbsp;<a th:href="@{/uscHtml}">个人中心</a>&nbsp;<a th:href="@{/exitlogin}">退出登录</a></span>
                 <span>|</span>
 				<a href="registerHtml">注册</a>
 			</div>
@@ -827,7 +828,7 @@
 	</ul>
 
 	<div class="i-sale-hotel">
-		<a class="i-sale-more" href="#">更多酒店 ></a>
+		<a class="i-sale-more" href="">更多酒店 ></a>
 	</div>
 	
 </div>

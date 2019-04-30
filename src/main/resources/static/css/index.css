@@ -1100,3 +1100,8 @@ select {
 .i_show {
     display: block;
 }
+
+#us{
+    background: url("../images/comment/background.jpg")no-repeat;
+    background-size:100%;
+}
