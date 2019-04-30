@@ -14,4 +14,9 @@ public interface HotelViewMapper {
     int insert(HotelView record);
 
     List<HotelView> selectAll();
+
+    List<HotelView> selectAllByChinaAndCityId(@Param("cityId")Long cityId);
+
+    List<HotelView> selectAllByWaiAndCityId(@Param("cityId")Long cityId);
+
 }

@@ -11,6 +11,38 @@
 	<link rel="stylesheet" th:href="@{/css/reset.css}">
 	<link rel="stylesheet" th:href="@{/css/common.css}">
 	<link rel="stylesheet" th:href="@{/css/index.css}">
+	<script type="text/javascript">
+		function byChina(cityId) {
+            /* thymeleaf  异步刷新 */
+			$("#guolei").css("margin-top","-50px");
+            $('#guolei').load("seachChinaHotelByCityId?cityId="+cityId);
+        }
+
+        function byWai(cityId) {
+            /* thymeleaf  异步刷新 */
+            $("#guowai").css("margin-top","-50px");
+            $('#guowai').load("seachWaiHotelByCityId?cityId="+cityId);
+        }
+
+        function toHotel(id) {
+            $.ajax({
+                type:'post',
+                contentType: "application/x-www-form-urlencoded",
+                url:'toHotelDetails',
+                data:{
+                    id:id,
+                },
+                success:function (data) {
+                    if (data=="success"){
+                        window.open("HotelDetails");
+                    }
+                },
+                error:function (data) {
+                    alert("失败："+data);
+                }
+            })
+        }
+	</script>
 </head>
 <body>
 <!-- 头部开始 -->
@@ -742,120 +774,54 @@
 
 <!-- 酒店开始 -->
 <div class="i-sale i-hotel clearfix">
-	<ul>
+	<ul >
 		<li class="i-line sale-show i-sale-wrapone">
 			<a href="javascript:;">国内酒店</a>
-			<div class="i-sale-one" th:fragment="guolei">
-				<div class="i-sale-top clearfix" th:each="ch:${byCityOfChina}">
-					<a href="javascript:void(0);">热门城市</a>
-					<a href="javascript:void(0);" th:text="${ch}"></a>
+			<div class="i-sale-one" id="guolei" th:fragment="guolei">
+				<div class="i-sale-top clearfix" th:each="h:${hotCity}"style="display: inline-block;;width:80px;margin-left:-20px;">
+					<a href="javascript:void(0);" th:onclick="'javascript:byChina('+${h.id}+')'" th:text="${h.name}"></a>
 				</div>
 				<!-- 1 -->
 				<div class="sale-con i_show">
-					<ul class="i-sale-con clearfix">
+					<ul class="i-sale-con clearfix"  th:each="byChina:${allByChinaAndCityId}" style="display: inline-block;width: 300px;">
 						<li>
-							<a href="hotelDetail.html"> 
-								<img class="lazy" th:src="@{/images/icon/lazyload279-173.gif}" data-original="images/img/hotel279174_01_xxx1213.jpg" height="174" width="279" alt="">
-									<h4>【巴黎】卢浮宫凯悦酒店(Hotel Du Louvre, a Hyatt Hotel Paris)</h4>
+							<a href="javascript:void(0)" th:onclick="'toHotel('+${byChina.cityid}+')'">
+								<img class="lazy" th:src="@{${byChina.imgurl}}" height="174" width="279" alt="">
+									<h4 th:text="${byChina.hotelname}"></h4>
 									<span class="i-price">
-										<em>¥</em>2908 <i class="i-price-info">起</i>
+										<em>¥</em><span th:text="${byChina.roomprice}"></span><i class="i-price-info">起</i>
 									</span>
 									<span class="item-count">已售 689</span>
 							</a>
 						</li>
 					</ul>
-					<div class="i-sale-tg">
-						<a href="#"><img class="lazy" th:src="@{/images/icon/lazyload278-518.gif}" data-original="images/img/jiudian_t_278518_xxx1130.jpg" height="518" width="278" alt=""></a>
-					</div>
-				</div>
-
-				<!-- 2 -->
-
-				<div class="sale-con">
-					<ul class="i-sale-con clearfix">
-						<li>
-							<a href="#"> 
-								<img th:src="@{/images/img/jiudian279174_xxx1130.jpg}" height="174" width="279" alt="">
-									<h4>【北京】四季青元海景酒店</h4>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-									<span class="item-count">已售 2666</span>
-							</a>
-						</li>
-					</ul>
-					<div class="i-sale-tg">
-						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
-					</div>
-				</div>
-
-				<!-- 3 -->
-
-				<div class="sale-con">
-					<ul class="i-sale-con clearfix">
-						<li>
-							<a href="#"> 
-								<img th:src="@{/images/img/sale1129.jpg}" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>333台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-					</ul>
-					<div class="i-sale-tg">
-						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
-					</div>
 				</div>
 			</div>
 		</li>
+		<div class="i-sale-tg" style="width: 250px;float: right;margin-top: 108px;">
+			<a href="#"><img class="lazy" th:src="@{/images/icon/lazyload278-518.gif}" data-original="images/img/jiudian_t_278518_xxx1130.jpg" height="518" width="278" alt=""></a>
+		</div>
 		<li class="i-sale-wraptwo">
-		 <a href="javascript:;">国外酒店</a>
-			<div class="i-sale-one">
-				<div class="i-sale-top clearfix">
-					<a class="i-sale-cur" href="javascript:;">精选</a>
-					<a href="javascript:;">周边当地游</a>
+		 <a href="javascript:;">海外酒店</a>
+			<div class="i-sale-one" id="guowai" th:fragment="guowai">
+				<div class="i-sale-top clearfix" th:each="s:${seaCity}" style="display: inline-block;;width:80px;margin-left:-20px;">
+					<a href="javascript:void(0);" th:onclick="'javascript:byWai('+${s.id}+')'" th:text="${s.name}"></a>
 				</div>
 				<!-- 1 -->
 				<div class="sale-con i_show">
-					<ul class="i-sale-con clearfix">
+					<ul class="i-sale-con clearfix" th:each="byWai:${allByWaiAndCityId}" style="display: inline-block;width: 300px;">
 						<li>
-							<a href="#"> 
-								<img th:src="@{/images/img/jiudian279174_xxx1130.jpg}" height="174" width="279" alt="">
-									<h4>22【北京】四季青元海景酒店</h4>
+							<a href="javascript:void(0)" th:onclick="'toHotel('+${byWai.cityid}+')'">
+								<img th:src="@{${byWai.imgurl}}" height="174" width="279" alt="">
+									<h4 th:text="${byWai.hotelname}"></h4>
 									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
+										<em>¥</em><span th:text="${byWai.roomprice}"></span><i class="i-price-info">起</i>
 									</span>
 									<span class="item-count">已售 2666</span>
 							</a>
 						</li>
 					</ul>
-					<div class="i-sale-tg">
-						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
-					</div>
 				</div>
-
-			<!-- 	2 -->
-
-				<div class="sale-con">
-					<ul class="i-sale-con clearfix">
-						<li>
-							<a href="#"> 
-								<img th:src="@{/images/img/sale1129.jpg}" height="255" width="279" alt="">
-								<div class="i-sale-p">
-									<h3>66台湾环岛8日7晚跟团游.甩尾特...</h3>
-									<p>五星航空台湾环岛8日+3晚五花酒店+温泉酒店+特色酒店+苏花火车
-			全球五星级航空公司【港龙、国泰】专业承载，更有机会品尝哈根达斯冰激凌！</p>
-								</div>
-							</a>
-						</li>
-					</ul>
-					<div class="i-sale-tg">
-						<a href="#"><img th:src="@{/images/img/sale-t1129.jpg}" alt=""></a>
-					</div>
-				</div>
-
 			</div>
 		</li>
 	</ul>

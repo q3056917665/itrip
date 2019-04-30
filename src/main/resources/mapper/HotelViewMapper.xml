@@ -20,4 +20,21 @@
     from hotel_view
   </select>
 
+  <select id="selectAllByChinaAndCityId" resultMap="BaseResultMap">
+    select id, hotelName, cityId, imgUrl, roomPrice,countryid
+    from hotel_view
+    where countryid=3600
+    <if test="cityId!=null and cityId!=''">
+      and cityId=#{cityId,jdbcType=BIGINT}
+    </if>
+  </select>
+
+  <select id="selectAllByWaiAndCityId" resultMap="BaseResultMap">
+    select id, hotelName, cityId, imgUrl, roomPrice,countryid
+    from hotel_view
+    where countryid not in(3600)
+    <if test="cityId!=null and cityId!=''">
+      and cityId=#{cityId,jdbcType=BIGINT}
+    </if>
+  </select>
 </mapper>

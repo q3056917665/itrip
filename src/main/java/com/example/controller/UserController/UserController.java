@@ -2,6 +2,7 @@ package com.example.controller.UserController;
 
 import com.example.model.*;
 import com.example.service.UserService.*;
+import com.example.service.hotelService.ItripAreaDicService;
 import com.example.utils.PhoneUtils;
 import com.example.utils.RegisterUtils;
 import org.apache.http.HttpResponse;
@@ -28,7 +29,10 @@ public class UserController{
     private ItripMouthService itripMouthService;
     @Resource
     private ItripStrategyService itripStrategyService;
-
+    @Resource
+    private ItripViewService itripViewService;
+    @Resource
+    private ItripAreaDicService itripAreaDicService;
 
     /***
      * 跳转到注册页面
@@ -53,8 +57,45 @@ public class UserController{
      * @return
      */
     @RequestMapping("/indexHtml")
-    public String indexHtml(Model model){
+    public String indexHtml(Model model,@RequestParam(value = "cityId",required = false)Long cityId){
+        List<HotelView> bychina = itripViewService.findAllByChinaAndCityId(cityId); //查询全部国内酒店
+        List<HotelView> bywai=itripViewService.findAllByWaiAndCityId(cityId); //查询全部国外酒店
+        List<HotelView> allByChinaAndCityId = itripViewService.randomListByChina(bychina); //控制展示数量
+        List<HotelView> allByWaiAndCityId=itripViewService.randomListByWai(bywai);//控制展示数量
+        List<ItripAreaDic> hotCity = itripAreaDicService.findHotCity(); //查询国内酒店
+        List<ItripAreaDic> seaCity = itripAreaDicService.findSeaCity(); //查询国外酒店
+        model.addAttribute("allByChinaAndCityId",allByChinaAndCityId);
+        model.addAttribute("allByWaiAndCityId",allByWaiAndCityId);
+        model.addAttribute("hotCity",hotCity);
+        model.addAttribute("seaCity",seaCity);
         return "index";
+    }
+
+    @RequestMapping("/seachChinaHotelByCityId")
+    public String seachChinaHotelByCityId(Model model,
+                                          @RequestParam(value = "cityId",required = false)Long cityId){
+        System.out.println(cityId);
+        List<HotelView> bychina = itripViewService.findAllByChinaAndCityId(cityId); //查询全部国内酒店
+        List<HotelView> allByChinaAndCityId = itripViewService.randomListByChina(bychina); //控制展示数量
+        List<ItripAreaDic> hotCity = itripAreaDicService.findHotCity(); //查询国内酒店
+        model.addAttribute("allByChinaAndCityId",allByChinaAndCityId);
+        model.addAttribute("hotCity",hotCity);
+        return "index::guolei";
+    }
+
+    @RequestMapping("/seachWaiHotelByCityId")
+    public String seachWaiHotelByCityId(Model model,
+                                          @RequestParam(value = "cityId",required = false)Long cityId){
+        System.out.println(cityId);
+        List<HotelView> bywai=itripViewService.findAllByWaiAndCityId(cityId); //查询全部国外酒店
+        for (int i=0;i<bywai.size();i++){
+            System.out.println(bywai.get(i).getHotelname());
+        }
+        List<HotelView> allByWaiAndCityId=itripViewService.randomListByWai(bywai);//控制展示数量
+        List<ItripAreaDic> seaCity = itripAreaDicService.findSeaCity(); //查询国外酒店
+        model.addAttribute("allByWaiAndCityId",allByWaiAndCityId);
+        model.addAttribute("seaCity",seaCity);
+        return "index::guowai";
     }
 
     /**
