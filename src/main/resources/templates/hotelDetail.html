@@ -537,7 +537,7 @@
                     $(function () {
                         var txt=[[${session.hotel.hotelpolicy}]];
                         var obj = eval ("(" + txt + ")"); //json化
-                        var d=$("#hotelhotelpolicy");
+                        var d=$("#hotelpolicy");
                         var html="";
                         for (var i=0;i<obj.length;i++){
                             if (obj[i].description instanceof Array) {
@@ -563,7 +563,7 @@
 						</span>
                     <div class="i_cost_list">
                         <div class="i_list_shang">
-                            <div class="facility_list" id="hotelhotelpolicy">
+                            <div class="facility_list" id="hotelpolicy">
                                 <!--酒店政策-->
 
                                 <div class="list_wrap">
@@ -593,7 +593,7 @@
                         <div class="i_grade">
                             <div class="i_total_grade clearfix">
                                 <div class="i_left">
-                                    <b th:text="${session.HotelScore.get('Scores')}"></b>
+                                    <b th:text="${#numbers.formatDecimal(session.HotelScore.get('Scores'),1,1)}"></b>
                                     <span>总体评分</span>
                                 </div>
 
@@ -601,29 +601,28 @@
                                     <ul class="process">
                                         <li>
                                             位置
-
-                                            <span class="num" th:text="${session.HotelScore.get('positionScore')}" ></span>
+                                            <span class="num" th:text="${#numbers.formatDecimal(session.HotelScore.get('positionScore'),1,1)}" ></span>
                                             <span class="processbar">
 											<em class="bar"></em>
 										</span>
                                         </li>
                                         <li>
                                             设施
-                                            <span class="num" th:text="${session.HotelScore.get('facilitiesScore')}"></span>
+                                            <span class="num" th:text="${#numbers.formatDecimal(session.HotelScore.get('facilitiesScore'),1,1)}"></span>
                                             <span class="processbar">
 											<em class="bar_two"></em>
 										</span>
                                         </li>
                                         <li>
                                             服务
-                                            <span class="num" th:text="${session.HotelScore.get('serviceScore')}"></span>
+                                            <span class="num" th:text="${#numbers.formatDecimal(session.HotelScore.get('serviceScore'),1,1)}"></span>
                                             <span class="processbar">
 											<em class="bar_three"></em>
 										</span>
                                         </li>
                                         <li>
                                             卫生
-                                            <span class="num"  th:text="${session.HotelScore.get('hygieneScore')}"></span>
+                                            <span class="num"  th:text="${#numbers.formatDecimal(session.HotelScore.get('hygieneScore'),1,1)}"></span>
                                             <span class="processbar">
 											<em class="bar_four"></em>
 										</span>
@@ -670,14 +669,10 @@
                                     <ul class="comment_list"  th:each="c:${session.AllComment}">
                                         <li>
                                             <div class="author ">
-                                                <a href="javascript:;">
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
+                                                <a href="javascript:;" >
+                                                    <i class="icon-star" th:each="num:${#numbers.sequence(1,c.score)}"></i>
                                                 </a>
-                                                <strong th:text="${c.score}"></strong>
+                                                <strong th:text="${c.score}+'分'"></strong>
                                                 <p th:text="${c.userid}">
                                                     用户名
                                                 </p>
@@ -691,13 +686,9 @@
                                             </p>
                                             <p class="comment_detail" th:text="${c.content}">评论内容</p>
                                             <div class="comment_pic_list">
-                                                <span th:each="i,status:${session.AllComment}">
-                                                <a href="#"><img th:src="@{${i.images.imgurl}}" height="100" width="100" alt=""></a>
+                                                <span th:each="im:${c.images}">
+                                                <a href="#" ><img th:src="@{${im.imgurl}}" height="100" width="100" alt=""></a>
                                                 </span>
-                                                <a href="#"><img src="images/icon/pic_list100100_xxx1212_05.jpg" height="100" width="100" alt=""></a>
-                                                <a href="#"><img src="images/icon/pic_list100100_xxx1212_07.jpg" height="100" width="100" alt=""></a>
-                                                <a href="#"><img src="images/icon/pic_list100100_xxx1212_09.jpg" height="100" width="100" alt=""></a>
-
                                             </div>
                                             <p class="detail_comment_tips">
                                                 <a href="#" th:text="${#dates.format(c.creationdate, 'yyyy-MM-dd HH:mm')}">评论时间</a>
@@ -713,13 +704,9 @@
                                         <li>
                                             <div class="author ">
                                                 <a href="javascript:;">
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star" th:each="num:${#numbers.sequence(1,c.score)}"></i>
                                                 </a>
-                                                <strong th:text="${c.score}"></strong>
+                                                <strong th:text="${c.score}+'分'"></strong>
                                                 <p th:text="${c.userid}">
                                                     用户名
                                                 </p>
@@ -734,11 +721,9 @@
                                             <p class="comment_detail" th:text="${c.content}">评论内容</p>
                                             <div class="comment_pic_list">
 
-                                                <a href="#"><img src="images/icon/pic_list100100_xxx1212_03.jpg" height="100" width="100" alt=""></a>
-                                                <a href="#"><img src="images/icon/pic_list100100_xxx1212_05.jpg" height="100" width="100" alt=""></a>
-                                                <a href="#"><img src="images/icon/pic_list100100_xxx1212_07.jpg" height="100" width="100" alt=""></a>
-                                                <a href="#"><img src="images/icon/pic_list100100_xxx1212_09.jpg" height="100" width="100" alt=""></a>
-
+                                                <span th:each="im:${c.images}">
+                                                <a href="#" ><img th:src="@{${im.imgurl}}" height="100" width="100" alt=""></a>
+                                                </span>
                                             </div>
                                             <p class="detail_comment_tips">
                                                 <a href="#" th:text="${#dates.format(c.creationdate, 'yyyy-MM-dd HH:mm')}">评论时间</a>
@@ -754,13 +739,9 @@
                                         <li>
                                             <div class="author ">
                                                 <a href="javascript:;">
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star" th:each="num:${#numbers.sequence(1,c.score)}"></i>
                                                 </a>
-                                                <strong th:text="${c.score}"></strong>
+                                                <strong th:text="${c.score}+'分'"></strong>
                                                 <p th:text="${c.userid}">
                                                     用户名
                                                 </p>
@@ -774,12 +755,9 @@
                                             </p>
                                             <p class="comment_detail" th:text="${c.content}">评论内容</p>
                                             <div class="comment_pic_list">
-
-                                                <a href="#"><img src="images/icon/pic_list100100_xxx1212_03.jpg" height="100" width="100" alt=""></a>
-                                                <a href="#"><img src="images/icon/pic_list100100_xxx1212_05.jpg" height="100" width="100" alt=""></a>
-                                                <a href="#"><img src="images/icon/pic_list100100_xxx1212_07.jpg" height="100" width="100" alt=""></a>
-                                                <a href="#"><img src="images/icon/pic_list100100_xxx1212_09.jpg" height="100" width="100" alt=""></a>
-
+                                                <span th:each="im:${c.images}">
+                                                <a href="#" ><img th:src="@{${im.imgurl}}" height="100" width="100" alt=""></a>
+                                                </span>
                                             </div>
                                             <p class="detail_comment_tips">
                                                 <a href="#" th:text="${#dates.format(c.creationdate, 'yyyy-MM-dd HH:mm')}">评论时间</a>
@@ -795,13 +773,9 @@
                                         <li>
                                             <div class="author ">
                                                 <a href="javascript:;">
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
-                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star" th:each="num:${#numbers.sequence(1,c.score)}"></i>
                                                 </a>
-                                                <strong th:text="${c.score}"></strong>
+                                                <strong th:text="${c.score}+'分'"></strong>
                                                 <p th:text="${c.userid}">
                                                     用户名
                                                 </p>
@@ -815,12 +789,9 @@
                                             </p>
                                             <p class="comment_detail" th:text="${c.content}">评论内容</p>
                                             <div class="comment_pic_list">
-
-                                                <a href="#"><img src="images/icon/pic_list100100_xxx1212_03.jpg" height="100" width="100" alt=""></a>
-                                                <a href="#"><img src="images/icon/pic_list100100_xxx1212_05.jpg" height="100" width="100" alt=""></a>
-                                                <a href="#"><img src="images/icon/pic_list100100_xxx1212_07.jpg" height="100" width="100" alt=""></a>
-                                                <a href="#"><img src="images/icon/pic_list100100_xxx1212_09.jpg" height="100" width="100" alt=""></a>
-
+                                                <span th:each="im:${c.images}">
+                                                <a href="#" ><img th:src="@{${im.imgurl}}" height="100" width="100" alt=""></a>
+                                                </span>
                                             </div>
                                             <p class="detail_comment_tips">
                                                 <a href="#" th:text="${#dates.format(c.creationdate, 'yyyy-MM-dd HH:mm')}">评论时间</a>
@@ -831,18 +802,9 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
-
-
-
             </div>
-
-
-
-
         </div>
     </div>
 
@@ -856,6 +818,7 @@
 
 
 <!-- 贴心的服务开始 -->
+<div ></div>
 <div class="i_download">
     <div class="i_area clearfix">
         <div class="i_downleft">

@@ -25,7 +25,6 @@ public interface ItripCommentMapper {
     int selectIsHavingImgCountByHotelId(@Param("id") long id);
 
     //查询酒店所有评价
-    @Select(" select * from itrip_comment  where hotelId=#{id} ")
     List<ItripComment> selectAllCommentByHotelId(@Param("id") long id);
 
     //查询酒店位置评分

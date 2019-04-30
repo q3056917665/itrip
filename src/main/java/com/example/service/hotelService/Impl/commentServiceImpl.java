@@ -1,6 +1,7 @@
 package com.example.service.hotelService.Impl;
 
 import com.example.dao.ItripCommentMapper;
+import com.example.model.ItripImage;
 import com.example.service.hotelService.commentService;
 import com.example.model.ItripComment;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,11 +31,11 @@ public class commentServiceImpl implements commentService {
         serviceScore=serviceScore==null?0:serviceScore;
         hygieneScore=hygieneScore==null?0:hygieneScore;
         Scores=Scores==null?0:Scores;
-        map.put("positionScore",(double)Math.round(positionScore*10)/10 );
-        map.put("facilitiesScore",(double)Math.round(facilitiesScore*10)/10 );
-        map.put("serviceScore",(double)Math.round(serviceScore*10)/10 );
-        map.put("hygieneScore",(double)Math.round(hygieneScore*10)/10 );
-        map.put("Scores",(double)Math.round(Scores*10)/10);
+        map.put("positionScore",positionScore );
+        map.put("facilitiesScore",facilitiesScore );
+        map.put("serviceScore",serviceScore );
+        map.put("hygieneScore",hygieneScore );
+        map.put("Scores",Scores);
         return map;
     }
 
@@ -63,7 +64,8 @@ public class commentServiceImpl implements commentService {
     //根据酒店id查询所有评价
     @Override
     public List<ItripComment> findAllCommentByHotelId(long id) {
-        return dao.selectAllCommentByHotelId(id);
+        List<ItripComment> list=dao.selectAllCommentByHotelId(id);
+        return list;
     }
 
 
