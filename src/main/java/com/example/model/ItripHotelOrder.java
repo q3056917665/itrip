@@ -5,6 +5,16 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class ItripHotelOrder implements Serializable {
+    private ItripHotelRoom itripHotelRoom;
+
+    public ItripHotelRoom getItripHotelRoom() {
+        return itripHotelRoom;
+    }
+
+    public void setItripHotelRoom(ItripHotelRoom itripHotelRoom) {
+        this.itripHotelRoom = itripHotelRoom;
+    }
+
     private Long id;
 
     private Long userid;

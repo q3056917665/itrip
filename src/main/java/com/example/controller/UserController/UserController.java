@@ -5,6 +5,7 @@ import com.example.service.UserService.*;
 import com.example.service.hotelService.ItripAreaDicService;
 import com.example.utils.PhoneUtils;
 import com.example.utils.RegisterUtils;
+import com.github.pagehelper.PageInfo;
 import org.apache.http.HttpResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,6 +34,10 @@ public class UserController{
     private ItripViewService itripViewService;
     @Resource
     private ItripAreaDicService itripAreaDicService;
+    @Resource
+    private ItripHotelOrderService itripHotelOrderService;
+    @Resource
+    private CommentAndViewService commentAndViewService;
 
     /***
      * 跳转到注册页面
@@ -53,7 +58,34 @@ public class UserController{
     }
 
     @RequestMapping("/uscHtml")
-    public String uscHtml(){
+    public String uscHtml(Model model,HttpSession session, @RequestParam(defaultValue = "1",required = false) Integer pageNum1, @RequestParam(defaultValue = "3",required = false) Integer pageSize1,@RequestParam(defaultValue = "1",required = false) Integer pageNum2, @RequestParam(defaultValue = "2",required = false) Integer pageSize2){
+        Long userId=(Long) session.getAttribute("userId");
+        PageInfo<ItripHotelOrder> pageOrder = itripHotelOrderService.findAll(userId,pageNum1, pageSize1);
+        PageInfo<CommentAndView> pageComment = commentAndViewService.findAll(userId,pageNum2,pageSize2); //查询我的订单
+        //获得当前页
+        model.addAttribute("pageNum1", pageOrder.getPageNum());
+        //获得一页显示的条数
+        model.addAttribute("pageSize1", pageOrder.getPageSize());
+        //是否是第一页
+        model.addAttribute("isFirstPage1", pageOrder.isIsFirstPage());
+        //获得总页数
+        model.addAttribute("totalPages1", pageOrder.getPages());
+        //是否是最后一页
+        model.addAttribute("isLastPage1", pageOrder.isIsLastPage());
+        model.addAttribute("byorder", pageOrder.getList());
+
+        //获得当前页
+        model.addAttribute("pageNum2", pageComment.getPageNum());
+        //获得一页显示的条数
+        model.addAttribute("pageSize2", pageComment.getPageSize());
+        //是否是第一页
+        model.addAttribute("isFirstPage2", pageComment.isIsFirstPage());
+        //获得总页数
+        model.addAttribute("totalPages2", pageComment.getPages());
+        //是否是最后一页
+        model.addAttribute("isLastPage2", pageComment.isIsLastPage());
+        model.addAttribute("bycomment", pageComment.getList());
+
         return "user/user_personal_center";
     }
 
@@ -79,7 +111,6 @@ public class UserController{
     @RequestMapping("/seachChinaHotelByCityId")
     public String seachChinaHotelByCityId(Model model,
                                           @RequestParam(value = "cityId",required = false)Long cityId){
-        System.out.println(cityId);
         List<HotelView> bychina = itripViewService.findAllByChinaAndCityId(cityId); //查询全部国内酒店
         List<HotelView> allByChinaAndCityId = itripViewService.randomListByChina(bychina); //控制展示数量
         List<ItripAreaDic> hotCity = itripAreaDicService.findHotCity(); //查询国内酒店
@@ -91,11 +122,7 @@ public class UserController{
     @RequestMapping("/seachWaiHotelByCityId")
     public String seachWaiHotelByCityId(Model model,
                                           @RequestParam(value = "cityId",required = false)Long cityId){
-        System.out.println(cityId);
         List<HotelView> bywai=itripViewService.findAllByWaiAndCityId(cityId); //查询全部国外酒店
-        for (int i=0;i<bywai.size();i++){
-            System.out.println(bywai.get(i).getHotelname());
-        }
         List<HotelView> allByWaiAndCityId=itripViewService.randomListByWai(bywai);//控制展示数量
         List<ItripAreaDic> seaCity = itripAreaDicService.findSeaCity(); //查询国外酒店
         model.addAttribute("allByWaiAndCityId",allByWaiAndCityId);
@@ -240,6 +267,7 @@ public class UserController{
             ItripUser login = itripUserService.login(usercode, userPassword);
             if(login!=null){
                 session.setAttribute("User",login);
+                session.setAttribute("userId",login.getId());
                 return "1";
             }else {
                 return "0";
@@ -268,7 +296,6 @@ public class UserController{
          //根据月份id查询对应的推荐城市
          List<ItripCityNamePictures> allByMouth = itripCityNamePicturesService.findAllByMouth(mouthId);
          List<ItripMouth> mouthAll = itripMouthService.findMouthAll();
-         System.out.println(mouthId);
          model.addAttribute("allByMouth",allByMouth);
          model.addAttribute("mouthAll",mouthAll);
          model.addAttribute("mouthId",mouthId);

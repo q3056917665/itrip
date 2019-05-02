@@ -1,21 +1,15 @@
 package com.example.model;
 
-import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-public class ItripComment implements Serializable {
-
-    private List<ItripImage> images;
-
-    public List<ItripImage> getImages() { return images; }
-
-    public void setImages(List<ItripImage> images) { this.images = images; }
-
+public class CommentAndView{
     private Long id;
+
+    private String hotelname;
 
     private Long hotelid;
 
+    private String imgurl;
 
     private Long productid;
 
@@ -59,12 +53,28 @@ public class ItripComment implements Serializable {
         this.id = id;
     }
 
+    public String getHotelname() {
+        return hotelname;
+    }
+
+    public void setHotelname(String hotelname) {
+        this.hotelname = hotelname;
+    }
+
     public Long getHotelid() {
         return hotelid;
     }
 
     public void setHotelid(Long hotelid) {
         this.hotelid = hotelid;
+    }
+
+    public String getImgurl() {
+        return imgurl;
+    }
+
+    public void setImgurl(String imgurl) {
+        this.imgurl = imgurl;
     }
 
     public Long getProductid() {
@@ -200,6 +210,6 @@ public class ItripComment implements Serializable {
     }
 
     public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
+        this.content = content;
     }
 }

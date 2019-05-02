@@ -25,7 +25,7 @@
         #user_nn{
             width:65%;height: 200px;
             font-size: 15px;
-            color: white;
+            color: black;
             font-family:'宋体';
             margin-top: 20px;
             border: 1px solid rgba(0,0,0,0.2);
@@ -33,9 +33,44 @@
             background: rgba(0,0,0,0.1);
             margin-left: 300px;
         }
+
+        #myorder div{
+            color: black;
+            text-indent: 4em;
+        }
+
+        #myorder{
+           margin-top: 50px;
+        }
+
+        #myPl div{
+            display: inline-block;
+
+            color: black;
+        }
+
+        #myPl{
+            padding-top:15px;
+            padding-right: 5px;
+        }
+
+        #bo{
+            box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.1);
+
+        }
+
+        #iii li{
+            box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.1);
+        }
+
+        .pagination li{
+            margin-left:20px;
+        }
     </style>
 </head>
-<body id="us">
+<body>
 <div class="i-top clearfix">
     <div class="i-top-wrap">
         <div class="i-logo fl">
@@ -87,7 +122,7 @@
         </div>
     </div>
 </div>
-<div class="i-sale i-hotel clearfix" >
+<div class="i-sale i-hotel clearfix" style="height: 100%">
     <div id="user_nn">
         <div style="height: 50px;margin-left: 30px;margin-top: 30px;">
             <i class="icon-user" style="font-size:150px;color: lightblue"></i>
@@ -114,44 +149,198 @@
                 </a>
             </div>&nbsp;
             <div style="display: inline-block;color:white">
-                <a href="">
-                <i class="icon-comment" style="font-size: 50px;"></i>
-                <span>评论</span>
+                <a href="javascript:void(0);">
+                <i class="icon-star" style="font-size: 50px;"></i>
+                <span>收藏</span>
                 </a>
             </div>
         </div>
     </div>
-    <div class="container" style="margin-left: 290px;margin-top: 30px;font-size: 15px;">
-        <ul class="nav nav-tabs" role="tablist" style="width:740px;">
+    <div class="container" style="margin-left: 290px;margin-top: 30px;font-size: 15px;height: 100%;margin-bottom: 20px;">
+        <ul class="nav nav-tabs" role="tablist" style="width:740px;" id="iii">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#home">我的订单</a>
+                <a class="nav-link active" data-toggle="tab" href="#myOeder">我的订单</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#menu1">我的收藏</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#menu2">我的评论</a>
+                <a class="nav-link" data-toggle="tab" href="#myComment">我的评论</a>
             </li>
         </ul>
 
         <!-- Tab panes -->
-        <div class="tab-content">
-            <div id="home" class="container tab-pane active"><br>
-                <h3>HOME</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="tab-content" id="bo">
+            <div id="myOeder" class="container tab-pane active"><br>
+              <div th:each="mo:${byorder}" id="myorder">
+                    订单号:<div th:text="${mo.orderno}"></div>
+                    订单类型:
+                    <div th:switch="${mo.ordertype}">
+                        <span th:case="0">旅游产品</span>
+                        <span th:case="1">酒店产品</span>
+                        <span th:case="2">机票产品</span>
+                    </div>
+                    交易编号:
+                    <div>
+                        <span th:text="${mo.tradeno}" th:if="${mo.tradeno!=null}"></span>
+                        <span th:text="无" th:if="${mo.tradeno==null}"></span>
+                    </div>
+                    酒店名称:
+                    <div>
+                        <span th:text="${mo.hotelname}"></span>
+                    </div>
+                    房间类型:
+                    <div>
+                        <span th:text="${mo.itripHotelRoom.roomtitle}"></span>
+                    </div>
+                    入住天数:
+                    <div>
+                        <span th:text="${mo.count}"></span>
+                    </div>
+                    预定天数:
+                    <div>
+                        <span th:text="${mo.bookingdays}"></span>
+                    </div>
+                    入住时间:
+                    <div>
+                        <span th:text="${mo.checkindate}"></span>
+                    </div>
+                    退房时间:
+                    <div>
+                        <span th:text="${mo.checkoutdate}"></span>
+                    </div>
+                    订单状态:
+                    <div th:switch="${mo.orderstatus}">
+                        <span th:case="0">待支付</span>
+                        <span th:case="1">已取消</span>
+                        <span th:case="2">支付成功</span>
+                        <span th:case="3">已消费</span>
+                        <span th:case="4">已点评</span>
+                    </div>
+                    支付金额:
+                    <div>
+                        <span th:text="${mo.payamount}"></span>
+                    </div>
+                    支付方式:
+                    <div th:switch="${mo.paytype}">
+                        <span th:case="1">支付宝</span>
+                        <span th:case="2">微信</span>
+                        <span th:case="3">到店付</span>
+                    </div>
+                    联系手机号:
+                    <div>
+                        <span th:text="${mo.noticephone}"></span>
+                    </div>
+                    联系邮箱:
+                    <div>
+                        <span th:text="${mo.noticeemail}"></span>
+                    </div>
+                    特需需求:
+                    <div>
+                        <span th:text="${mo.specialrequirement}"></span>
+                    </div>
+
+                    <div th:if="${mo.isneedinvoice!=0||mo.isneedinvoice!=null}">
+                        发票类型:
+                        <span th:text="个人" th:if="${mo.invoicetype==0}"></span>
+                        <span th:text="公司" th:if="${mo.invoicetype==1}"></span>
+                    </div>
+                    个住人名称:
+                    <div>
+                        <span th:text="${mo.linkusername}"></span>
+                    </div>
+                    操作硬件类型:
+                    <div th:switch="${mo.booktype}">
+                        <span th:case="0">WEB端</span>
+                        <span th:case="1">手机端</span>
+                        <span th:case="2">其它客户端</span>
+                    </div>
+                    预定时间:
+                    <div>
+                        <span th:text="${mo.creationdate}" th:if="${mo.creationdate!=null}"></span>
+                    </div>
+                    支付完成时间
+                    <div>
+                        <span th:text="${mo.modifydate}" th:if="${mo.modifydate!=null}"></span>
+                    </div>
+              </div>
+                <nav>
+                    <ul class="pagination">
+                        <li><a href="javascript:void(0);">&laquo;</a></li>
+
+                        <li>
+                            <a th:if="${not isFirstPage1}" th:href="@{${'/uscHtml'}(pageNum1=${pageNum1-1},pageSize1=${pageSize1})}">Previous</a>
+                            <a th:if="${isFirstPage1}" href="javascript:void(0);">首页</a>
+                        </li>
+
+                        <li th:each="pageNo : ${#numbers.sequence(1, totalPages1)}">
+                            <a th:if="${pageNum1 eq pageNo}" style="color: red" href="javascript:void(0);">
+                                <span th:text="${pageNo}"></span>
+                            </a>
+
+                            <a th:if="${not (pageNum1 eq pageNo)}" th:href="@{${'/uscHtml'}(pageNum1=${pageNo},size=${pageSize1})}">
+                                <span th:text="${pageNo}"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a th:if="${not isLastPage1}" th:href="@{${'/uscHtml'}(pageNum1=${pageNum1+1},size=${pageSize1})}">Next</a>
+                            <a th:if="${isLastPage1}" href="javascript:void(0);">尾页</a>
+                        </li>
+
+                        <li><a href="javascript:void(0);">&raquo;</a></li>
+                    </ul>
+                </nav>
             </div>
-            <div id="menu1" class="container tab-pane fade"><br>
-                <h3>Menu 1</h3>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            <div id="menu2" class="container tab-pane fade"><br>
-                <h3>Menu 2</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-            </div>
+            <div id="myComment" class="container tab-pane fade"><br>
+                <div th:each="co:${bycomment}" id="myPl">
+                    <div th:switch="${co.ishavingimg}">
+                        <span th:case="1"><img th:src="@{${co.imgurl}}" height="102" width="102" alt=""></span>
+                    </div>
+                    酒店名称:<div th:text="${co.hotelname}"></div>
+                    订单id:<div th:text="${co.orderid}"></div>
+                    商品类型:
+                    <div th:switch="${co.producttype}">
+                         <span th:case="0">旅游产品</span>
+                         <span th:case="1">酒店产品</span>
+                         <span th:case="2">机票产品</span>
+                    </div>
+                    评论内容:<div th:text="${co.content}"></div>
+                    位置评分:<div th:text="${co.positionscore}"></div>
+                    设施评分:<div th:text="${co.facilitiesscore}"></div>
+                    服务评分:<div th:text="${co.servicescore}"></div>
+                    卫生评分:<div th:text="${co.hygienescore}"></div>
+                    综合评分:<div th:text="${co.score}"></div>
+                    出游类型:<div th:text="${co.tripmode}"></div>
+                    是否满意:<div th:switch="${co.isok}"></div>
+                    创建时间:<div th:text="${co.creationdate}"></div>
+                </div>
+              <nav>
+                    <ul class="pagination">
+                        <li><a href="javascript:void(0);">&laquo;</a></li>
+
+                        <li>
+                            <a th:if="${not isFirstPage2}" th:href="@{${'/uscHtml'}(pageNum2=${pageNum2-1},pageSize2=${pageSize2})}">Previous</a>
+                            <a th:if="${isFirstPage2}" href="javascript:void(0);">首页</a>
+                        </li>
+
+                        <li th:each="pageNo : ${#numbers.sequence(1, totalPages2)}">
+                            <a th:if="${pageNum2 eq pageNo}" style="color: red" href="javascript:void(0);">
+                                <span th:text="${pageNo}"></span>
+                            </a>
+
+                            <a th:if="${not (pageNum2 eq pageNo)}" th:href="@{${'/uscHtml'}(pageNum2=${pageNo},size=${pageSize2})}">
+                                <span th:text="${pageNo}"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a th:if="${not isLastPage2}" th:href="@{${'/uscHtml'}(pageNum2=${pageNum2+1},size=${pageSize2})}">Next</a>
+                            <a th:if="${isLastPage2}" href="javascript:void(0);">尾页</a>
+                        </li>
+
+                        <li><a href="javascript:void(0);">&raquo;</a></li>
+                    </ul>
+                </nav>
         </div>
     </div>
 </div>
-
+</div>
 <!-- 贴心的服务开始 -->
 <div class="i_download">
     <div class="i_area clearfix">
@@ -270,7 +459,7 @@
 <!-- 贴心的服务结束 -->
 
 <!-- footer开始 -->
-<div class="i-footer clearfix">
+ <div class="i-footer clearfix">
     <div class="i-footer-wrap">
         <p>Copyright©1999-2016, ctrip.com. All rights reserved. | <a href="#">ICP证：沪B2</a></p>
         <p><span class="i-footer-hui"></span>沪公网备310105020000xx号</p>
@@ -287,6 +476,6 @@
             <li><a href="#"><img th:src="@{/images/icon/icon1126_27.jpg}" height="32" width="102" alt=""></a></li>
         </ul>
     </div>
-</div>
+ </div>
 </body>
 </html>

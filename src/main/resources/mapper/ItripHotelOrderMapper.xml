@@ -29,6 +29,8 @@
         <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate"/>
         <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby"/>
         <result column="specialRequirement" jdbcType="LONGVARCHAR" property="specialrequirement"/>
+        <association column="roomId" property="itripHotelRoom"
+                     select="com.example.dao.ItripHotelRoomMapper.selectByPrimaryKey"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete from itrip_hotel_order
@@ -100,5 +102,14 @@
         noticeEmail, isNeedInvoice, invoiceType, invoiceHead, linkUserName, bookType, creationDate,
         createdBy, modifyDate, modifiedBy, specialRequirement
         from itrip_hotel_order
+    </select>
+
+    <select id="selectAllByUserId" resultMap="BaseResultMap">
+        select id, userId, orderType, orderNo, tradeNo, hotelId, hotelName, roomId, count,
+               bookingDays, checkInDate, checkOutDate, orderStatus, payAmount, payType, noticePhone,
+               noticeEmail, isNeedInvoice, invoiceType, invoiceHead, linkUserName, bookType, creationDate,
+               createdBy, modifyDate, modifiedBy, specialRequirement
+        from itrip_hotel_order
+        where userId=#{userId,jdbcType=BIGINT}
     </select>
 </mapper>

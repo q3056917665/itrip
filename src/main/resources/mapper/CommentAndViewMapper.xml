@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.CommentAndViewMapper">
+    <resultMap id="BaseResultMap" type="com.example.model.CommentAndView">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="hotelId" jdbcType="BIGINT" property="hotelid" />
+        <result column="productId" jdbcType="BIGINT" property="productid" />
+        <result column="orderId" jdbcType="BIGINT" property="orderid" />
+        <result column="productType" jdbcType="INTEGER" property="producttype" />
+        <result column="userId" jdbcType="BIGINT" property="userid" />
+        <result column="isHavingImg" jdbcType="INTEGER" property="ishavingimg" />
+        <result column="positionScore" jdbcType="INTEGER" property="positionscore" />
+        <result column="facilitiesScore" jdbcType="INTEGER" property="facilitiesscore" />
+        <result column="serviceScore" jdbcType="INTEGER" property="servicescore" />
+        <result column="hygieneScore" jdbcType="INTEGER" property="hygienescore" />
+        <result column="score" jdbcType="INTEGER" property="score" />
+        <result column="tripMode" jdbcType="BIGINT" property="tripmode" />
+        <result column="isOk" jdbcType="INTEGER" property="isok" />
+        <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
+        <result column="createdBy" jdbcType="BIGINT" property="createdby" />
+        <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
+        <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
+        <result column="content" jdbcType="LONGVARCHAR" property="content" />
+        <result column="hotelName" jdbcType="VARCHAR" property="hotelname" />
+        <result column="imgUrl" jdbcType="VARCHAR" property="imgurl"/>
+    </resultMap>
+
+    <select id="selectByMyComment" resultMap="BaseResultMap">
+        select * from commentandview
+        where userId =#{userId,jdbcType=BIGINT}
+    </select>
+</mapper>
