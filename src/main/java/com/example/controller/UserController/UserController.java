@@ -38,6 +38,8 @@ public class UserController{
     private ItripHotelOrderService itripHotelOrderService;
     @Resource
     private CommentAndViewService commentAndViewService;
+    @Resource
+    private ItripPlansService itripPlansService;
 
     /***
      * 跳转到注册页面
@@ -57,6 +59,16 @@ public class UserController{
         return "user/login";
     }
 
+    /****
+     * 个人中心
+     * @param model
+     * @param session
+     * @param pageNum1 当前页
+     * @param pageSize1 展示多少条数据
+     * @param pageNum2
+     * @param pageSize2
+     * @return
+     */
     @RequestMapping("/uscHtml")
     public String uscHtml(Model model,HttpSession session, @RequestParam(defaultValue = "1",required = false) Integer pageNum1, @RequestParam(defaultValue = "3",required = false) Integer pageSize1,@RequestParam(defaultValue = "1",required = false) Integer pageNum2, @RequestParam(defaultValue = "2",required = false) Integer pageSize2){
         Long userId=(Long) session.getAttribute("userId");
@@ -85,7 +97,6 @@ public class UserController{
         //是否是最后一页
         model.addAttribute("isLastPage2", pageComment.isIsLastPage());
         model.addAttribute("bycomment", pageComment.getList());
-
         return "user/user_personal_center";
     }
 
@@ -94,17 +105,34 @@ public class UserController{
      * @return
      */
     @RequestMapping("/indexHtml")
-    public String indexHtml(Model model,@RequestParam(value = "cityId",required = false)Long cityId){
+    public String indexHtml(Model model,
+                            @RequestParam(value = "cityId",required = false)Long cityId,
+                            @RequestParam(value = "planAddress",required = false)String planAddress){
+        /***
+         * 首页酒店全部操作
+         */
         List<HotelView> bychina = itripViewService.findAllByChinaAndCityId(cityId); //查询全部国内酒店
         List<HotelView> bywai=itripViewService.findAllByWaiAndCityId(cityId); //查询全部国外酒店
         List<HotelView> allByChinaAndCityId = itripViewService.randomListByChina(bychina); //控制展示数量
         List<HotelView> allByWaiAndCityId=itripViewService.randomListByWai(bywai);//控制展示数量
         List<ItripAreaDic> hotCity = itripAreaDicService.findHotCity(); //查询国内酒店
         List<ItripAreaDic> seaCity = itripAreaDicService.findSeaCity(); //查询国外酒店
+
+        /****
+         * 首页飞机全部操作
+         */
+        List<ItripPlans> byChina = itripPlansService.findAllByChina(planAddress); //查询国内全部飞机票
+        List<ItripPlans> byWai = itripPlansService.findAllByWai(planAddress); //查询国外全部飞机票
+        List<ItripPlans> allByChina = itripPlansService.randomByChina(byChina); //随机6条国内机票
+        List<ItripPlans> allByWai = itripPlansService.randomByWai(byWai); //随机6条国外机票
+
         model.addAttribute("allByChinaAndCityId",allByChinaAndCityId);
         model.addAttribute("allByWaiAndCityId",allByWaiAndCityId);
         model.addAttribute("hotCity",hotCity);
         model.addAttribute("seaCity",seaCity);
+
+        model.addAttribute("allByChina",allByChina);
+        model.addAttribute("allByWai",allByWai);
         return "index";
     }
 
@@ -128,6 +156,24 @@ public class UserController{
         model.addAttribute("allByWaiAndCityId",allByWaiAndCityId);
         model.addAttribute("seaCity",seaCity);
         return "index::guowai";
+    }
+
+    @RequestMapping("/seachChinaPlansByplanAddress")
+    public String seachChinaPlansByplanAddress(Model model,
+                                               @RequestParam(value = "planAddress",required = false)String planAddress){
+        List<ItripPlans> byChina = itripPlansService.findAllByChina(planAddress);
+        List<ItripPlans> allByChina = itripPlansService.randomByChina(byChina); //随机6条国内机票
+        model.addAttribute("allByChina",allByChina);
+        return "index::ChinaPlans";
+    }
+
+    @RequestMapping("/seachWaiPlansByplanAddress")
+    public String seachWaiPlansByplanAddress(Model model,
+                                               @RequestParam(value = "planAddress",required = false)String planAddress){
+        List<ItripPlans> byWai = itripPlansService.findAllByWai(planAddress);
+        List<ItripPlans> allByWai = itripPlansService.randomByWai(byWai); //随机6条国外机票
+        model.addAttribute("allByWai",allByWai);
+        return "index::WaiPlans";
     }
 
     /**

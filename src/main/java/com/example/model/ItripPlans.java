@@ -3,6 +3,36 @@ package com.example.model;
 import java.util.Date;
 
 public class ItripPlans {
+    private ItripAviation itripAviation;
+
+    private ItripTypeji itripTypeji;
+
+    private ItripShippingspace itripShippingspace;
+
+    public ItripAviation getItripAviation() {
+        return itripAviation;
+    }
+
+    public void setItripAviation(ItripAviation itripAviation) {
+        this.itripAviation = itripAviation;
+    }
+
+    public ItripTypeji getItripTypeji() {
+        return itripTypeji;
+    }
+
+    public void setItripTypeji(ItripTypeji itripTypeji) {
+        this.itripTypeji = itripTypeji;
+    }
+
+    public ItripShippingspace getItripShippingspace() {
+        return itripShippingspace;
+    }
+
+    public void setItripShippingspace(ItripShippingspace itripShippingspace) {
+        this.itripShippingspace = itripShippingspace;
+    }
+
     private Integer planId;
 
     private String planName;
@@ -26,6 +56,16 @@ public class ItripPlans {
     private Integer takeId;
 
     private Integer hctypeId;
+
+    private Integer chainaorwaiCountry;
+
+    public Integer getChainaorwaiCountry() {
+        return chainaorwaiCountry;
+    }
+
+    public void setChainaorwaiCountry(Integer chainaorwaiCountry) {
+        this.chainaorwaiCountry = chainaorwaiCountry;
+    }
 
     public Integer getPlanId() {
         return planId;

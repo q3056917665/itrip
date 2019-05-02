@@ -14,6 +14,13 @@
         <result column="shipping_id" jdbcType="INTEGER" property="shippingId"/>
         <result column="Take_id" jdbcType="INTEGER" property="takeId"/>
         <result column="hctype_id" jdbcType="INTEGER" property="hctypeId"/>
+        <result column="chainaorwaiCountry" jdbcType="INTEGER" property="chainaorwaiCountry"/>
+        <association property="itripAviation" column="aviation_id"
+                     select="com.example.dao.ItripAviationMapper.selectByPrimaryKey"/>
+        <association property="itripTypeji" column="type_id"
+                     select="com.example.dao.ItripTypejiMapper.selectByPrimaryKey"/>
+        <association property="itripShippingspace" column="shipping_id"
+                     select="com.example.dao.ItripShippingspaceMapper.selectByPrimaryKey"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete from itrip_plans
@@ -23,12 +30,13 @@
         insert into itrip_plans (plan_id, plan_name, plan_out,
         plan_arrive, plan_address, plan_destination,
         plan_punctualityrate, aviation_id, type_id,
-        shipping_id, Take_id, hctype_id
+        shipping_id, Take_id, hctype_id,chainaorwaiCountry
         )
         values (#{planId,jdbcType=INTEGER}, #{planName,jdbcType=VARCHAR}, #{planOut,jdbcType=TIMESTAMP},
         #{planArrive,jdbcType=TIMESTAMP}, #{planAddress,jdbcType=VARCHAR}, #{planDestination,jdbcType=VARCHAR},
         #{planPunctualityrate,jdbcType=VARCHAR}, #{aviationId,jdbcType=INTEGER}, #{typeId,jdbcType=INTEGER},
-        #{shippingId,jdbcType=INTEGER}, #{takeId,jdbcType=INTEGER}, #{hctypeId,jdbcType=INTEGER}
+        #{shippingId,jdbcType=INTEGER}, #{takeId,jdbcType=INTEGER}, #{hctypeId,jdbcType=INTEGER},
+        #{chainaorwaiCountry,jdbcType=INTEGER}
         )
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.example.model.ItripPlans">
@@ -43,18 +51,35 @@
         type_id = #{typeId,jdbcType=INTEGER},
         shipping_id = #{shippingId,jdbcType=INTEGER},
         Take_id = #{takeId,jdbcType=INTEGER},
-        hctype_id = #{hctypeId,jdbcType=INTEGER}
+        hctype_id = #{hctypeId,jdbcType=INTEGER},
+        chainaorwaiCountry=#{chainaorwaiCountry,jdbcType=INTEGER}
         where plan_id = #{planId,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select plan_id, plan_name, plan_out, plan_arrive, plan_address, plan_destination,
-        plan_punctualityrate, aviation_id, type_id, shipping_id, Take_id, hctype_id
+        plan_punctualityrate, aviation_id, type_id, shipping_id, Take_id, hctype_id,chainaorwaiCountrys
         from itrip_plans
         where plan_id = #{planId,jdbcType=INTEGER}
     </select>
     <select id="selectAll" resultMap="BaseResultMap">
         select plan_id, plan_name, plan_out, plan_arrive, plan_address, plan_destination,
-        plan_punctualityrate, aviation_id, type_id, shipping_id, Take_id, hctype_id
+        plan_punctualityrate, aviation_id, type_id, shipping_id, Take_id, hctype_id,chainaorwaiCountry
         from itrip_plans
+    </select>
+
+    <select id="selectAllByChina" resultMap="BaseResultMap">
+        select * from itrip_plans
+          where chainaorwaiCountry=1
+        <if test="planAddress!=null and planAddress!=''">
+          and plan_address=#{planAddress,jdbcType=VARCHAR}
+        </if>
+    </select>
+
+    <select id="selectAllByWai" resultMap="BaseResultMap">
+        select * from itrip_plans
+        where chainaorwaiCountry=2
+        <if test="planAddress!=null and planAddress!=''">
+            and plan_address=#{planAddress,jdbcType=VARCHAR}
+        </if>
     </select>
 </mapper>

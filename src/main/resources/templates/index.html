@@ -23,6 +23,18 @@
             $("#guowai").css("margin-top","-50px");
             $('#guowai').load("seachWaiHotelByCityId?cityId="+cityId);
         }
+        
+        function byChinaPlans(address) {
+            /* thymeleaf  异步刷新 */
+			alert(address+"...")
+            $('#ChinaPlans').load("seachChinaPlansByplanAddress?planAddress="+address);
+        }
+
+        function byWaiPlans(address) {
+            /* thymeleaf  异步刷新 */
+            alert(address+"...")
+            $('#WaiPlans').load("seachWaiPlansByplanAddress?planAddress="+address);
+        }
 
         function toHotel(id) {
             $.ajax({
@@ -34,7 +46,6 @@
                 },
                 success:function (data) {
                     if (data=="success"){
-                        alert("789789789");
                         window.open("HotelDetails");
                     }
                 },
@@ -779,7 +790,7 @@
 		<li class="i-line sale-show i-sale-wrapone">
 			<a href="javascript:;">国内酒店</a>
 			<div class="i-sale-one" id="guolei" th:fragment="guolei">
-				<div class="i-sale-top clearfix" th:each="h:${hotCity}"style="display: inline-block;;width:80px;margin-left:-20px;">
+				<div class="i-sale-top clearfix" th:each="h:${hotCity}"style="display: inline-block;width:80px;margin-left:-20px;">
 					<a href="javascript:void(0);" th:onclick="'javascript:byChina('+${h.id}+')'" th:text="${h.name}"></a>
 				</div>
 				<!-- 1 -->
@@ -792,7 +803,6 @@
 									<span class="i-price">
 										<em>¥</em><span th:text="${byChina.roomprice}"></span><i class="i-price-info">起</i>
 									</span>
-									<span class="item-count">已售 689</span>
 							</a>
 						</li>
 					</ul>
@@ -818,7 +828,6 @@
 									<span class="i-price">
 										<em>¥</em><span th:text="${byWai.roomprice}"></span><i class="i-price-info">起</i>
 									</span>
-									<span class="item-count">已售 2666</span>
 							</a>
 						</li>
 					</ul>
@@ -845,136 +854,60 @@
 <div class="i-sale i-ticket i-ticketF clearfix">
 	<ul>    
 		<li class="i-line sale-show i-sale-wrapone">
-			<a href="javascript:;">国际特价机票</a>
-			<div class="i-sale-one">
-				<div class="i-sale-top clearfix">
-					<a class="i-sale-cur" href="javascript:;">北京</a>
-					<a href="javascript:;">上海</a>
-					<a href="javascript:;">深圳</a>
+			<a href="javascript:;">国内特价机票</a>
+			<div class="i-sale-one" th:fragment="ChinaPlans" id="ChinaPlans">
+				<div class="i-sale-top clearfix" th:each="cityChina:${allByChina}" style="display: inline-block;width:80px;margin-left:-20px;">
+					<a href="javascript:void(0);" th:onclick="byChinaPlans('${cityChina.planAddress}')" th:text="${cityChina.planAddress}"></a>
 				</div>				
 				<!-- 1 -->
 				<div class="sale-con i_show">
-					<ul class="i-sale-con clearfix">
-						<li>
-							<a href="flyTicketList.html"> 
-								<p class="item-pos">北京<span class="ticket-arr"></span>纽约</p>
+					<ul class="i-sale-con clearfix" th:each="chin:${allByChina}" style="display: inline-block;width: 300px;">
+						<li style="height:150px;">
+							<a href="#">
+								<p class="item-pos"><span th:text="${chin.planAddress}"></span><span class="ticket-arr"></span><span th:text="${chin.planDestination}"></span></p>
+								<span class="item-pos">
+										<span th:text="${chin.itripShippingspace.shippingName}"></span>
+									</span>
 								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
+								  <span th:text="${#dates.format(chin.planOut,'yyyy-MM-dd HH:mm:ss')}"></span><span>&nbsp;至&nbsp;</span><span th:text="${#dates.format(chin.planArrive,'yyyy-MM-dd HH:mm:ss')}"></span>
 								</p>
 									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
+										<em>¥</em><span th:text="${chin.itripShippingspace.shippingPrice}"></span><i class="i-price-info">起</i>
 									</span>
 							</a>
 						</li>
 					</ul>
-					<div class="i-sale-tg">
-						<a href="#"><img class="lazy" th:src="@{/images/icon/lazyload278-518.gif}" data-original="images/img/ticket278518-xxx1201.jpg" height="518" width="278" alt=""></a>
-					</div>
-				</div>
-
-				<!-- 2 -->
-				<div class="sale-con">
-					<ul class="i-sale-con clearfix">
-						<li>
-							<a href="#"> 
-								<p class="item-pos">2北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-					</ul>
-					<div class="i-sale-tg">
-						<a href="#"><img th:src="@{/images/img/ticket278518-xxx1201.jpg}" height="518" width="278" alt=""></a>
-					</div>
-				</div>
-
-				<!-- 3 -->
-				<div class="sale-con">
-					<ul class="i-sale-con clearfix">
-						<li>
-							<a href="#"> 
-								<p class="item-pos">3北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-					</ul>
-					<div class="i-sale-tg">
-						<a href="#"><img th:src="@{/images/img/ticket278518-xxx1201.jpg}" height="518" width="278" alt=""></a>
-					</div>
 				</div>
 			</div>
 		</li>
+		<div class="i-sale-tg" style="float: right;margin-top:50px;">
+			<a href="#"><img th:src="@{/images/img/ticket278518-xxx1201.jpg}" height="518" width="278" alt=""></a>
+		</div>
 		<li class="i-sale-wraptwo">
-		 <a href="javascript:;">国内特价机票</a>
-			<div class="i-sale-one">
-				<div class="i-sale-top clearfix">
-					<a class="i-sale-cur" href="javascript:;">精选</a>
-					<a href="javascript:;">周边当地游</a>
+		 <a href="javascript:;">国际特价机票</a>
+			<div class="i-sale-one" th:fragment="WaiPlans" id="WaiPlans">
+				<div class="i-sale-top clearfix" th:each="cityWai:${allByWai}" style="display: inline-block;width:80px;">
+                   <a href="javascript:void(0);" th:onclick="byWaiPlans('${cityWai.planAddress}')" th:text="${cityWai.planAddress}"></a>
 				</div>
 				<!-- 1 -->
 				<div class="sale-con i_show">
-					<ul class="i-sale-con clearfix">
-						<li>
+					<ul class="i-sale-con clearfix" th:each="wai:${allByWai}">
+						<li style="height: 150px;">
 							<a href="#"> 
-								<p class="item-pos">1北京<span class="ticket-arr"></span>纽约</p>
+								<p class="item-pos"><span th:text="${wai.planAddress}"></span><span class="ticket-arr"></span><span th:text="${wai.planDestination}"></span></p>
+								<span class="item-pos">
+										<span th:text="${wai.itripShippingspace.shippingName}"></span>
+								</span>
 								<p class="item-time">
-								  12月05日 - 12月12日
+									<span th:text="${#dates.format(wai.planOut,'yyyy-MM-dd HH:mm:ss')}"></span><span>&nbsp;至&nbsp;</span><span th:text="${#dates.format(wai.planArrive,'yyyy-MM-dd HH:mm:ss')}"></span>
 								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
+								<span class="i-price">
+										<em>¥</em><span th:text="${wai.itripShippingspace.shippingPrice}"></span><i class="i-price-info">起</i>
 									</span>
 							</a>
 						</li>
 					</ul>
-					<div class="i-sale-tg">
-						<a href="#"><img th:src="@{/images/img/ticket278518-xxx1201.jpg}" height="518" width="278" alt=""></a>
-					</div>
 				</div>
-
-				<!-- 2 -->
-				<div class="sale-con">
-					<ul class="i-sale-con clearfix">
-						<li>
-							<a href="#"> 
-								<p class="item-pos">2北京<span class="ticket-arr"></span>纽约</p>
-								<p class="item-time">
-								  12月05日 - 12月12日
-								</p>
-								<p class="item-num">
-								   仅剩 264 席
-								</p>
-									<span class="i-price">
-										<em>¥</em>885<i class="i-price-info">起</i>
-									</span>
-							</a>
-						</li>
-					</ul>
-					<div class="i-sale-tg">
-						<a href="#"><img th:src="@{/images/img/ticket278518-xxx1201.jpg}" height="518" width="278" alt=""></a>
-					</div>
-				</div>
-
 			</div>
 		</li>
 	</ul>

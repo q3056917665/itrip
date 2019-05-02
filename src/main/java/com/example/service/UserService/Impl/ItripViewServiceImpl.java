@@ -24,7 +24,6 @@ public class ItripViewServiceImpl implements ItripViewService {
 
     @Override
     public List<HotelView> findAllByWaiAndCityId(Long cityId) {
-        System.out.println("12312313132");
         return hotelViewMapper.selectAllByWaiAndCityId(cityId);
     }
 

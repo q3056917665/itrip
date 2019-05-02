@@ -14,4 +14,8 @@ public interface ItripPlansMapper {
     List<ItripPlans> selectAll();
 
     int updateByPrimaryKey(ItripPlans record);
+
+    List<ItripPlans> selectAllByChina(String address);
+
+    List<ItripPlans> selectAllByWai(String address);
 }

@@ -200,11 +200,11 @@
                     </div>
                     入住时间:
                     <div>
-                        <span th:text="${mo.checkindate}"></span>
+                        <span th:text="${#dates.format(mo.checkindate,'yyyy-MM-dd HH:mm:ss')}"></span>
                     </div>
                     退房时间:
                     <div>
-                        <span th:text="${mo.checkoutdate}"></span>
+                        <span th:text="${#dates.format(mo.checkoutdate,'yyyy-MM-dd HH:mm:ss')}"></span>
                     </div>
                     订单状态:
                     <div th:switch="${mo.orderstatus}">
@@ -254,11 +254,11 @@
                     </div>
                     预定时间:
                     <div>
-                        <span th:text="${mo.creationdate}" th:if="${mo.creationdate!=null}"></span>
+                        <span th:text="${#dates.format(mo.creationdate,'yyyy-MM-dd HH:mm:ss')}" th:if="${mo.creationdate!=null}"></span>
                     </div>
                     支付完成时间
                     <div>
-                        <span th:text="${mo.modifydate}" th:if="${mo.modifydate!=null}"></span>
+                        <span th:text="${#dates.format(mo.modifydate,'yyyy-MM-dd HH:mm:ss')}" th:if="${mo.modifydate!=null}"></span>
                     </div>
               </div>
                 <nav>
@@ -309,7 +309,7 @@
                     综合评分:<div th:text="${co.score}"></div>
                     出游类型:<div th:text="${co.tripmode}"></div>
                     是否满意:<div th:switch="${co.isok}"></div>
-                    创建时间:<div th:text="${co.creationdate}"></div>
+                    创建时间:<div th:text="${#dates.format(co.creationdate,'yyyy-MM-dd HH:mm:ss')}"></div>
                 </div>
               <nav>
                     <ul class="pagination">
