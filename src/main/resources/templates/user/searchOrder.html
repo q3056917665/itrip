@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>个人中心</title>
+    <title>订单查询</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
@@ -49,10 +49,6 @@
             color: black;
         }
 
-        #myPl{
-            padding-top:15px;
-            padding-right: 5px;
-        }
 
         #bo{
             box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
@@ -123,52 +119,62 @@
     </div>
 </div>
 <div class="i-sale i-hotel clearfix" style="height: 100%">
-    <div id="user_nn">
-        <div style="height: 50px;margin-left: 30px;margin-top: 30px;">
-            <i class="icon-user" style="font-size:150px;color: lightblue"></i>
-        </div>
-        <div style="margin-left:170px;">
-            <div>
-                <span th:text="${session.User.usercode}" style="font-size: 23px;font-weight: bold"></span>
+        <div id="user_nn">
+            <div style="height: 50px;margin-left: 30px;margin-top: 30px;">
+                <i class="icon-user" style="font-size:150px;color: lightblue"></i>
             </div>
-            <div style="margin-top: 20px;">
-             用户昵称:<span th:text="${session.User.username}"></span>
+            <div style="margin-left:170px;">
+                <div>
+                    <span th:text="${session.User.usercode}" style="font-size: 23px;font-weight: bold"></span>
+                </div>
+                <div style="margin-top: 20px;">
+                    用户昵称:<span th:text="${session.User.username}"></span>
+                    <div style="margin-top: 20px;">
+                        <a th:href="@{/addUserLinkHtml}"><i class="icon-tag">&nbsp;添加联系人</i></a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div style="display: inline-block;float: right;margin-right: 30px;margin-top: -70px;">
-            <div style="display: inline-block;color:white">
-                <a href="javascript:void(0);">
-                <i class="icon-shopping-cart" style="font-size: 50px;"></i>
-                <span>购物车</span>
-                </a>
-            </div>&nbsp;
-            <div style="display: inline-block;color:white">
-                <a href="javascript:void(0);">
-                <i class="icon-user-md" style="font-size: 50px;"></i>
-                <span>关注</span>
-                </a>
-            </div>&nbsp;
-            <div style="display: inline-block;color:white">
-                <a href="javascript:void(0);">
-                <i class="icon-star" style="font-size: 50px;"></i>
-                <span>收藏</span>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="container" style="margin-left: 290px;margin-top: 30px;font-size: 15px;height: 100%;margin-bottom: 20px;">
-        <ul class="nav nav-tabs" role="tablist" style="width:740px;" id="iii">
-            <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#myOeder">我的订单</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#myComment">我的评论</a>
-            </li>
-        </ul>
+            <div style="display: inline-block;float: right;margin-right: 30px;margin-top: -130px;">
+                <div style="display: inline-block;color:white">
+                    <a href="javascript:void(0);">
+                        <i class="icon-shopping-cart" style="font-size: 50px;"></i>
+                        <span>购物车</span>
+                    </a>
+                </div>&nbsp;
+                <div style="display: inline-block;color:white">
+                    <a href="javascript:void(0);">
+                        <i class="icon-user-md" style="font-size: 50px;"></i>
+                        <span>关注</span>
+                    </a>
+                </div>&nbsp;
+                <div style="display: inline-block;color:white">
+                    <a href="javascript:void(0);">
+                        <i class="icon-star" style="font-size: 50px;"></i>
+                        <span>收藏</span>
+                    </a>
+                </div>
+                <div style="margin-top:20px;">
+                    <div style="display: inline-block;color:white;float: right;margin-right:10px;">
+                        <a th:href="@{/searchOrder}">
+                            <i class="icon-search" style="font-size: 50px;"></i>
+                            <span>订单查询</span>
+                        </a>
+                    </div>
 
+                    <div style="display: inline-block;color:white;float: right;margin-right:30px;">
+                        <a th:href="@{/searchHotelComment}">
+                            <i class="icon-comment" style="font-size: 50px;"></i>
+                            <span>酒店点评</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
         <!-- Tab panes -->
-        <div class="tab-content" id="bo">
-            <div id="myOeder" class="container tab-pane active"><br>
+ <div class="container" style="margin-left:470px;margin-top: 30px;font-size: 15px;height: 100%;margin-bottom: 20px;">
+    <div class="tab-content" id="bo">
+            <div  class="container tab-pane active"><br>
               <div th:each="mo:${byorder}" id="myorder">
                     订单号:<div th:text="${mo.orderno}"></div>
                     订单类型:
@@ -266,81 +272,29 @@
                         <li><a href="javascript:void(0);">&laquo;</a></li>
 
                         <li>
-                            <a th:if="${not isFirstPage1}" th:href="@{${'/uscHtml'}(pageNum1=${pageNum1-1},pageSize1=${pageSize1})}">Previous</a>
-                            <a th:if="${isFirstPage1}" href="javascript:void(0);">首页</a>
+                            <a th:if="${not isFirstPage}" th:href="@{${'/searchOrder'}(pageNum=${pageNum-1},pageSize=${pageSize})}">Previous</a>
+                            <a th:if="${isFirstPage}" href="javascript:void(0);">首页</a>
                         </li>
 
-                        <li th:each="pageNo : ${#numbers.sequence(1, totalPages1)}">
-                            <a th:if="${pageNum1 eq pageNo}" style="color: red" href="javascript:void(0);">
+                        <li th:each="pageNo : ${#numbers.sequence(1, totalPages)}">
+                            <a th:if="${pageNum eq pageNo}" style="color: red" href="javascript:void(0);">
                                 <span th:text="${pageNo}"></span>
                             </a>
 
-                            <a th:if="${not (pageNum1 eq pageNo)}" th:href="@{${'/uscHtml'}(pageNum1=${pageNo},size=${pageSize1})}">
+                            <a th:if="${not (pageNum eq pageNo)}" th:href="@{${'/searchOrder'}(pageNum=${pageNo},size=${pageSize})}">
                                 <span th:text="${pageNo}"></span>
                             </a>
                         </li>
                         <li>
-                            <a th:if="${not isLastPage1}" th:href="@{${'/uscHtml'}(pageNum1=${pageNum1+1},size=${pageSize1})}">Next</a>
-                            <a th:if="${isLastPage1}" href="javascript:void(0);">尾页</a>
+                            <a th:if="${not isLastPage}" th:href="@{${'/searchOrder'}(pageNum=${pageNum+1},size=${pageSize})}">Next</a>
+                            <a th:if="${isLastPage}" href="javascript:void(0);">尾页</a>
                         </li>
-
                         <li><a href="javascript:void(0);">&raquo;</a></li>
                     </ul>
                 </nav>
             </div>
-            <div id="myComment" class="container tab-pane fade"><br>
-                <div th:each="co:${bycomment}" id="myPl">
-                    <div th:switch="${co.ishavingimg}">
-                        <span th:case="1"><img th:src="@{${co.imgurl}}" height="102" width="102" alt=""></span>
-                    </div>
-                    酒店名称:<div th:text="${co.hotelname}"></div>
-                    订单id:<div th:text="${co.orderid}"></div>
-                    商品类型:
-                    <div th:switch="${co.producttype}">
-                         <span th:case="0">旅游产品</span>
-                         <span th:case="1">酒店产品</span>
-                         <span th:case="2">机票产品</span>
-                    </div>
-                    评论内容:<div th:text="${co.content}"></div>
-                    位置评分:<div th:text="${co.positionscore}"></div>
-                    设施评分:<div th:text="${co.facilitiesscore}"></div>
-                    服务评分:<div th:text="${co.servicescore}"></div>
-                    卫生评分:<div th:text="${co.hygienescore}"></div>
-                    综合评分:<div th:text="${co.score}"></div>
-                    出游类型:<div th:text="${co.tripmode}"></div>
-                    是否满意:<div th:switch="${co.isok}"></div>
-                    创建时间:<div th:text="${#dates.format(co.creationdate,'yyyy-MM-dd HH:mm:ss')}"></div>
-                </div>
-              <nav>
-                    <ul class="pagination">
-                        <li><a href="javascript:void(0);">&laquo;</a></li>
-
-                        <li>
-                            <a th:if="${not isFirstPage2}" th:href="@{${'/uscHtml'}(pageNum2=${pageNum2-1},pageSize2=${pageSize2})}">Previous</a>
-                            <a th:if="${isFirstPage2}" href="javascript:void(0);">首页</a>
-                        </li>
-
-                        <li th:each="pageNo : ${#numbers.sequence(1, totalPages2)}">
-                            <a th:if="${pageNum2 eq pageNo}" style="color: red" href="javascript:void(0);">
-                                <span th:text="${pageNo}"></span>
-                            </a>
-
-                            <a th:if="${not (pageNum2 eq pageNo)}" th:href="@{${'/uscHtml'}(pageNum2=${pageNo},size=${pageSize2})}">
-                                <span th:text="${pageNo}"></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a th:if="${not isLastPage2}" th:href="@{${'/uscHtml'}(pageNum2=${pageNum2+1},size=${pageSize2})}">Next</a>
-                            <a th:if="${isLastPage2}" href="javascript:void(0);">尾页</a>
-                        </li>
-
-                        <li><a href="javascript:void(0);">&raquo;</a></li>
-                    </ul>
-                </nav>
-        </div>
-    </div>
-</div>
-</div>
+      </div>
+   </div>
 <!-- 贴心的服务开始 -->
 <div class="i_download">
     <div class="i_area clearfix">
@@ -477,5 +431,6 @@
         </ul>
     </div>
  </div>
+
 </body>
 </html>
